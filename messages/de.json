@@ -1,0 +1,280 @@
+{
+  "metadata": {
+    "title": "Parkplatz Flughafen Sarajevo – M Park | Privater Parkplatz 9 KM",
+    "description": "Privater Parkplatz in der Nähe vom Flughafen Sarajevo für Reisende. Sicherer Parkplatz 24/7, 9 KM pro Tag und schnelle Online-Buchung.",
+    "ogTitle": "Parkplatz Flughafen Sarajevo – M Park | Privater Parkplatz 9 KM",
+    "ogDescription": "Privater Parkplatz in der Nähe vom Flughafen Sarajevo für Reisende. Sicherer Parkplatz 24/7, 9 KM pro Tag und schnelle Online-Buchung.",
+    "twitterDescription": "Privater Parkplatz nahe Flughafen Sarajevo. 9 KM pro Tag, 24/7 Überwachung und Online-Buchung.",
+    "ogImageAlt": "M Park Sarajevo – Privater Parkplatz nahe Flughafen Sarajevo",
+    "keywords": [
+      "Parkplatz Flughafen Sarajevo",
+      "privater Parkplatz Sarajevo",
+      "sicherer Parkplatz Flughafen Sarajevo",
+      "Flughafen-Transfer Parkplatz Sarajevo",
+      "Parkplatz nahe Flughafen Sarajevo",
+      "9 KM pro Tag Parkplatz"
+    ]
+  },
+  "common": {
+    "skipToBooking": "Zur Buchung springen",
+    "currency": "KM",
+    "perDay": "pro Tag",
+    "openInNewTab": "(öffnet in einem neuen Tab)"
+  },
+  "header": {
+    "logoAria": "M Park Sarajevo - Startseite",
+    "navAria": "Hauptnavigation",
+    "mobileNavAria": "Mobile Navigation",
+    "openMenu": "Menü öffnen",
+    "closeMenu": "Menü schließen",
+    "cta": "Buchen",
+    "nav": {
+      "home": "Startseite",
+      "services": "Leistungen",
+      "howItWorks": "So funktioniert es",
+      "prices": "Preise",
+      "location": "Standort",
+      "gallery": "Galerie",
+      "contact": "Kontakt"
+    }
+  },
+  "languageSwitcher": {
+    "label": "Sprache",
+    "switchTo": "Sprache zu {language} wechseln"
+  },
+  "hero": {
+    "imageAlt": "Privater Parkplatz nahe Flughafen Sarajevo – M Park",
+    "kicker": "M PARK",
+    "h1": "Parkplatz Flughafen Sarajevo – sicherer privater Parkplatz für Reisende",
+    "lead": "Sie fliegen ab Sarajevo? Lassen Sie Ihr Fahrzeug auf einem sicheren privaten Parkplatz nahe Flughafen Sarajevo, während Sie unterwegs sind.",
+    "sub": "Die ideale Lösung für Reisende, die Parkplatz Flughafen Sarajevo und Parkplatz für Reisende Sarajevo mit einfacher Online-Buchung suchen.",
+    "priceLabel": "Ab",
+    "priceValue": "9 KM",
+    "priceUnit": "pro Tag",
+    "bullets": {
+      "security": "24/7 Sicherheit und Videoüberwachung",
+      "near": "Nahe Flughafen Sarajevo",
+      "online": "Schnelle Online-Buchung ohne Aufwand"
+    },
+    "cta": "Parkplatz buchen"
+  },
+  "booking": {
+    "h2": "Parkplatz-Reservierung",
+    "lead": "Buchungen ausschließlich über dieses Formular — wir bestätigen keine Termine über WhatsApp. Preis: 9 KM/Tag (1–3 Tage), 8 KM/Tag (4–6 Tage), 7 KM/Tag (ab 7 Tagen). Geben Sie Ihre Daten und Reisedaten ein.",
+    "success": "Vielen Dank! Ihre Reservierung ist eingegangen. Wir kontaktieren Sie in Kürze zur Bestätigung.",
+    "labels": {
+      "fullName": "Vor- und Nachname",
+      "phone": "Telefonnummer",
+      "email": "E-Mail",
+      "emailOptional": "(optional)",
+      "arrivalDate": "Anreisedatum",
+      "arrivalTime": "Anreisezeit",
+      "departureDate": "Abreisedatum",
+      "departureTime": "Abreisezeit"
+    },
+    "placeholders": {
+      "email": "ihre@email.com"
+    },
+    "errors": {
+      "required": "Pflichtfeld.",
+      "email": "Bitte geben Sie eine gültige E-Mail-Adresse ein.",
+      "datesOrder": "Abreisedatum und -zeit müssen nach der Anreise liegen.",
+      "submit": "Senden fehlgeschlagen. Bitte erneut versuchen oder uns anrufen."
+    },
+    "submit": "Reservierung senden",
+    "submitting": "Wird gesendet…",
+    "summary": {
+      "title": "Preisschätzung",
+      "days": "{count, plural, one {# Tag} other {# Tage}}",
+      "rate": "{rate} KM × {count, plural, one {# Tag} other {# Tage}}",
+      "total": "Gesamt",
+      "tierBadge": {
+        "t1": "Tarif 1–3 Tage",
+        "t2": "Tarif 4–6 Tage",
+        "t3": "Tarif ab 7 Tagen – Bestpreis"
+      },
+      "saveHint": "Verlängern Sie um {extra, plural, one {# weiteren Tag} other {# weitere Tage}} und zahlen Sie nur {rate} KM/Tag – sparen Sie bis zu {save} KM pro Tag.",
+      "note": "Schätzung inkl. allem: 24/7 Videoüberwachung und kostenloser Transfer zum Flughafen Sarajevo. Den Endpreis bestätigen wir bei der Kontaktaufnahme."
+    }
+  },
+  "trust": {
+    "h2": "Warum M PARK?",
+    "lead": "Drei Gründe, warum uns Reisende wählen, die einen zuverlässigen Parkplatz nahe Flughafen Sarajevo suchen — mit klarem Tagespreis.",
+    "items": {
+      "security": {
+        "title": "Sicheres Parken während der Reise",
+        "desc": "Sicherer Parkplatz Sarajevo für Ihr Fahrzeug, während Sie reisen — kontrollierter Zugang und Aufsicht, während Sie im Flug oder bei der Arbeit sind. M Park ist die zuverlässige Antwort, wenn Sie privater Parkplatz Flughafen Sarajevo suchen."
+      },
+      "near": {
+        "title": "Nahe Flughafen Sarajevo",
+        "desc": "Parkplatz für Reisende mit schnellem Zugang zum Terminal: praktische Lage nahe dem Flughafen — weniger Stress bei Abreise und Rückkehr, gerade für Flughafen Sarajevo und kurze Transfers."
+      },
+      "cctv": {
+        "title": "24/7 Videoüberwachung",
+        "desc": "Videoüberwachung und kontrollierter Zugang — zusätzliche Sicherheit zu transparenten Preisen, wenn Sie Parkplatz Flughafen Sarajevo mit ruhigem Gewissen bei der Abreise brauchen."
+      }
+    }
+  },
+  "howItWorks": {
+    "h2": "So funktioniert es – Parkplatz Flughafen Sarajevo",
+    "lead": "Ein einfacher Ablauf für Reisende, die einen privaten Parkplatz nahe Flughafen Sarajevo nutzen.",
+    "subRich": "Drei Schritte von der Buchung bis zur Ruhe auf der Reise — ideal für <em>Parkplatz für Reisende</em>, die einen zuverlässigen <em>privaten Parkplatz Sarajevo</em> suchen.",
+    "steps": {
+      "book": {
+        "title": "Online buchen",
+        "desc": "Füllen Sie das Formular mit Ihren Reisedaten aus — schnell und ohne Warten."
+      },
+      "drop": {
+        "title": "Fahrzeug abstellen",
+        "desc": "Kommen Sie zum vereinbarten Ort, parken Sie und übergeben Sie die Schlüssel gemäß den Anweisungen, die Sie erhalten."
+      },
+      "fly": {
+        "title": "Sorgenfrei reisen",
+        "desc": "Während Sie reisen, bleibt Ihr Fahrzeug auf einem sicheren privaten Parkplatz nahe Flughafen Sarajevo — zum festen Tagespreis."
+      }
+    }
+  },
+  "pricing": {
+    "h2": "Parkpreise – Flughafen Sarajevo",
+    "lead": "Transparente Preise für privaten Parkplatz nahe Flughafen Sarajevo — keine versteckten Kosten. Je länger Sie Ihr Fahrzeug auf unserem sicheren Parkplatz lassen, desto niedriger der Tagespreis.",
+    "ctaReserve": "Buchen",
+    "ctaContact": "Kontaktieren Sie uns",
+    "badgePopular": "Bestes Angebot",
+    "badgeBest": "Bestes Angebot",
+    "perDay": "/ Tag",
+    "noteHidden": "Endpreise ohne versteckte Kosten. Alles inklusive: 24/7 Videoüberwachung, kostenloser Transfer zum Flughafen Sarajevo und Online-Buchung.",
+    "tiers": {
+      "t1": {
+        "title": "1–3 Tage",
+        "price": "9 KM",
+        "tagline": "Kurzaufenthalt"
+      },
+      "t2": {
+        "title": "4–6 Tage",
+        "price": "8 KM",
+        "tagline": "1 KM pro Tag sparen"
+      },
+      "t3": {
+        "title": "7+ Tage",
+        "price": "7 KM",
+        "tagline": "Niedrigster Tagespreis"
+      }
+    },
+    "features": {
+      "cctv": "24/7 Videoüberwachung",
+      "transferAirport": "Kostenloser Flughafen-Transfer",
+      "online": "Schnelle Online-Buchung"
+    }
+  },
+  "gallery": {
+    "h2": "Galerie sicherer privater Parkplatz Flughafen Sarajevo",
+    "lead": "Sehen Sie unseren privaten Parkplatz Sarajevo: eingezäunt, mit 24/7 Videoüberwachung und kostenlosem Transfer-Service zum Flughafen Sarajevo. Sicherer Parkplatz Flughafen für Reisende — transparenter Preis 9 KM pro Tag.",
+    "items": {
+      "zone": {
+        "alt": "privater Parkplatz Flughafen Sarajevo sichere Parkzone",
+        "caption": "Sichere Parkzone",
+        "sub": "Beleuchtete Fläche 24/7 für Reisende"
+      },
+      "fenced": {
+        "alt": "eingezäunter Parkplatz Flughafen Sarajevo Videoüberwachung",
+        "caption": "Eingezäunter Bereich",
+        "sub": "Kontrollierter Zugang und 24/7 Videoüberwachung"
+      },
+      "transfer": {
+        "alt": "Transferfahrzeug zum Flughafen Sarajevo Parkdienst",
+        "caption": "Transfer",
+        "sub": "Kostenlose Beförderung zum Flughafen Sarajevo"
+      }
+    }
+  },
+  "reviews": {
+    "badge": "Verifiziert · Google-Bewertungen",
+    "h2": "Google-Bewertungen unserer Kunden – Parkplatz Flughafen Sarajevo",
+    "leadRich": "Echte Bewertungen von Kunden, die unseren <em>privaten Parkplatz am Flughafen Sarajevo</em> genutzt haben — sicherer Parkplatz, organisierter Bereich und Transfer-Service zum Flughafen Sarajevo.",
+    "ratingAria": "Gesamte Google-Bewertung {rating} von 5{total, select, none {} other {, {total} Bewertungen}}",
+    "ratingTotal": "{count, plural, =0 {} one {# Google-Bewertung} other {# Google-Bewertungen}}",
+    "ratingOf5": "{rating} von 5",
+    "starsAria": "{rating} von 5 Sternen",
+    "verifiedTag": "Google",
+    "verifiedTitle": "Verifizierte Google-Bewertung",
+    "googleProfileLink": "Alle Bewertungen auf Google ansehen",
+    "googleProfileFooter": "Bewertungen werden wortwörtlich vom Google-Profil übernommen — ohne Änderungen.",
+    "emptyText": "Echte Google-Bewertungen werden hier angezeigt. In der Zwischenzeit können Sie alle verifizierten Bewertungen direkt auf unserem Google-Profil lesen.",
+    "emptyCta": "Bewertungen auf Google ansehen",
+    "avatarAlt": "Profilfoto von {name} (Google)",
+    "authorAria": "{name} bei Google",
+    "noTextPlaceholder": "Der Kunde hat eine Bewertung ohne schriftlichen Kommentar hinterlassen.",
+    "scrollPrev": "Vorherige Bewertung",
+    "scrollNext": "Nächste Bewertung"
+  },
+  "faq": {
+    "h2": "Häufig gestellte Fragen",
+    "lead": "Kurze Antworten auf die häufigsten Fragen zur Buchung, Anreise und zum Parkdienst.",
+    "items": [
+      {
+        "q": "Wie weit ist der Parkplatz vom Flughafen Sarajevo entfernt?",
+        "a": "M Park Sarajevo befindet sich in der Nähe des Flughafens Sarajevo. Die genaue Adresse und Anfahrtshinweise werden nach der Online-Buchung verschickt."
+      },
+      {
+        "q": "Ist der Parkplatz sicher?",
+        "a": "Ja. Der Schwerpunkt liegt auf der Fahrzeugsicherheit während Ihrer Reise: kontrollierter Zugang und 24/7-Videoüberwachung. Unser Ziel ist, dass Reisende, die einen zuverlässigen Parkplatz Flughafen Sarajevo suchen, beim Abflug ruhig sind."
+      },
+      {
+        "q": "Wie viel kostet der Parkplatz?",
+        "a": "Die Preise sind transparent und richten sich nach der Aufenthaltsdauer: 9 KM pro Tag bei 1–3 Tagen, 8 KM pro Tag bei 4–6 Tagen und nur 7 KM pro Tag ab 7 Tagen. Je länger Sie Ihr Fahrzeug auf unserem privaten Parkplatz nahe Flughafen Sarajevo lassen, desto niedriger der Tagespreis. Im Preis enthalten: 24/7 Videoüberwachung und kostenloser Transfer zum Flughafen."
+      },
+      {
+        "q": "Wie funktioniert das Buchungssystem?",
+        "a": "Buchungen sind ausschließlich über das Formular auf dieser Website möglich. Sie geben Namen, Telefonnummer, optional E-Mail sowie An- und Abreisedatum ein. Nach dem Absenden kontaktiert Sie unser Team zur Bestätigung — keine Buchungen über WhatsApp. Das gilt auch, wenn Sie privater Parkplatz Flughafen Sarajevo mit klaren Kosten suchen."
+      },
+      {
+        "q": "Kann ich meine Reservierung stornieren?",
+        "a": "Ja, in den meisten Fällen können Sie mit rechtzeitiger Mitteilung stornieren oder umbuchen. Genaue Regeln und Fristen werden bei der Bestätigung vereinbart, damit der private Parkplatz Sarajevo für alle Reisenden organisiert bleibt."
+      },
+      {
+        "q": "Ist der Parkplatz 24/7 verfügbar?",
+        "a": "Zugang und Überwachung sind mit 24/7-Videoüberwachung organisiert. Anreise und Schlüsselübergabe (einschließlich Übergabezeiten) bestätigen wir bei der Buchung, damit Parkplatz für Reisende Sarajevo klar und planbar bleibt."
+      }
+    ]
+  },
+  "location": {
+    "h2": "Standort",
+    "leadStrong": "Nahe Flughafen Sarajevo",
+    "leadRest": ". M Park ist ein privater Parkplatz nahe Flughafen Sarajevo für Reisende: Während Sie reisen, bleibt Ihr Fahrzeug bei uns zu transparenten Preisen (ab 7 KM pro Tag). Die genaue Adresse und Anweisungen erhalten Sie nach Ihrer Online-Buchung.",
+    "secondary": "Wenn Sie <strong>Parkplatz Flughafen Sarajevo</strong> oder <strong>Parkplatz für Reisende</strong> auf dem Weg zum Gate suchen, ist der Standort auf schnelle Anreise zum Flughafen Sarajevo ausgelegt.",
+    "extra": "Zusätzlich zu unserem Parkdienst ist auch eine Übernachtung in der Wohnung direkt neben dem Parkplatz möglich.",
+    "mapTitle": "M Park Sarajevo – Karte nahe Flughafen Sarajevo"
+  },
+  "contact": {
+    "h2": "Kontakt",
+    "lead": "Buchungen ausschließlich über das Formular oben. Für Fragen: Telefon, E-Mail oder WhatsApp aus der Liste unten (Support, keine Buchungen).",
+    "whatsappText": "Hallo, ich habe eine Frage zu M Park Sarajevo (Support; Buchungen nur über die Website).",
+    "whatsappLabel": "WhatsApp — nur Support"
+  },
+  "site": {
+    "tagline": "Privater Parkplatz an der Adresse Kasindolskih Žrtava 18, nahe Flughafen Sarajevo für Reisende.",
+    "addressNote": "Nahe Flughafen Sarajevo",
+    "locationLine": "Parkplatz nahe Flughafen Sarajevo – Kasindolskih Žrtava 18",
+    "seoLine": "Privater Parkplatz an der Adresse Kasindolskih Žrtava 18, nahe Flughafen Sarajevo."
+  },
+  "footer": {
+    "navHeading": "Navigation",
+    "contactHeading": "Kontakt",
+    "rights": "Alle Rechte vorbehalten.",
+    "ctaShort": "Parkplatz buchen",
+    "nav": {
+      "home": "Startseite",
+      "services": "Leistungen",
+      "prices": "Preise",
+      "howItWorks": "So funktioniert es",
+      "location": "Standort",
+      "gallery": "Galerie",
+      "contact": "Kontakt",
+      "book": "Buchung"
+    }
+  },
+  "stickyCta": {
+    "regionLabel": "Schnellbuchung",
+    "label": "Parkplatz buchen"
+  }
+}

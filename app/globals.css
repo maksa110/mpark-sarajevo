@@ -1,0 +1,94 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ----------------------------------------------------------
+   Scroll-reveal primitives.
+   - GPU-only (opacity + transform) so there's zero CLS.
+   - SSR-friendly: content is in DOM, just visually offset.
+   - <noscript> below forces full visibility when JS is off, so
+     non-JS clients (and old crawlers) never miss content.
+   ---------------------------------------------------------- */
+.reveal {
+  opacity: 0;
+  transform: translate3d(0, 14px, 0);
+  transition:
+    opacity 0.7s cubic-bezier(0.21, 0.61, 0.35, 1),
+    transform 0.7s cubic-bezier(0.21, 0.61, 0.35, 1);
+  will-change: opacity, transform;
+}
+.reveal-on {
+  opacity: 1;
+  transform: none;
+}
+
+/* Animated underline used on desktop nav links */
+.nav-underline {
+  position: relative;
+}
+.nav-underline::after {
+  content: "";
+  position: absolute;
+  left: 12px;
+  right: 12px;
+  bottom: 6px;
+  height: 2px;
+  border-radius: 2px;
+  background: linear-gradient(90deg, #C4F578, #9DEF3F);
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 0.35s cubic-bezier(0.21, 0.61, 0.35, 1);
+}
+.nav-underline:hover::after,
+.nav-underline:focus-visible::after,
+.nav-underline[aria-current="page"]::after {
+  transform: scaleX(1);
+}
+
+/* CTA shimmer used sparingly on the primary booking button */
+@keyframes ctaPulse {
+  0%, 100% {
+    box-shadow: 0 10px 25px -10px rgba(157, 239, 63, 0.45);
+  }
+  50% {
+    box-shadow: 0 18px 35px -10px rgba(157, 239, 63, 0.7);
+  }
+}
+.cta-pulse {
+  animation: ctaPulse 3.6s ease-in-out infinite;
+}
+
+/* Respect reduced-motion preferences across the board. */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .motion-safe\:animate-fade-up,
+  .motion-safe\:animate-fade-in,
+  .motion-safe\:animate-scale-in {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+  .reveal {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+  .cta-pulse {
+    animation: none !important;
+  }
+  .nav-underline::after {
+    transition: none !important;
+  }
+}

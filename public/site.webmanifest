@@ -1,0 +1,23 @@
+{
+  "name": "M Park Sarajevo",
+  "short_name": "M Park",
+  "description": "Privatni parking blizu Aerodroma Sarajevo – 9 KM po danu, 24/7 nadzor i online rezervacija.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0B1A2E",
+  "theme_color": "#0B1A2E",
+  "lang": "bs",
+  "icons": [
+    {
+      "src": "/logo.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    }
+  ]
+}

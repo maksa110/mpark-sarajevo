@@ -1,0 +1,28 @@
+# Dependencies
+node_modules
+
+# Next.js
+.next
+out
+
+# Production
+build
+dist
+
+# Local env (nikad ne commitaj tajne)
+.env
+.env.local
+.env*.local
+.env.production
+.env.production.local
+.env.development.local
+.env.test.local
+
+# OS
+.DS_Store
+
+# Editor
+*.local
+
+# Local data (file-based JSON DB; do not commit reservations)
+data/reservations.json

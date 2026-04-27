@@ -1,0 +1,280 @@
+{
+  "metadata": {
+    "title": "Parking Aerodrom Sarajevo – M Park | Privatni Parking 9 KM",
+    "description": "Privatni parking blizu Aerodroma Sarajevo za putnike. Siguran parking 24/7, 9 KM po danu i brza online rezervacija.",
+    "ogTitle": "Parking Aerodrom Sarajevo – M Park | Privatni Parking 9 KM",
+    "ogDescription": "Privatni parking blizu Aerodroma Sarajevo za putnike. Siguran parking 24/7, 9 KM po danu i brza online rezervacija.",
+    "twitterDescription": "Privatni parking blizu Aerodroma Sarajevo. 9 KM po danu, 24/7 nadzor i online rezervacija.",
+    "ogImageAlt": "M Park Sarajevo – Privatni parking blizu Aerodroma Sarajevo",
+    "keywords": [
+      "parking aerodrom sarajevo",
+      "privatni parking sarajevo",
+      "siguran parking aerodrom",
+      "transfer parking aerodrom sarajevo",
+      "parking blizu aerodroma sarajevo",
+      "9 km po danu parking"
+    ]
+  },
+  "common": {
+    "skipToBooking": "Preskoči na rezervaciju",
+    "currency": "KM",
+    "perDay": "po danu",
+    "openInNewTab": "(otvara se u novom prozoru)"
+  },
+  "header": {
+    "logoAria": "M Park Sarajevo - početna",
+    "navAria": "Glavna navigacija",
+    "mobileNavAria": "Mobilna navigacija",
+    "openMenu": "Otvori meni",
+    "closeMenu": "Zatvori meni",
+    "cta": "Rezerviši",
+    "nav": {
+      "home": "Početna",
+      "services": "Usluge",
+      "howItWorks": "Kako funkcioniše",
+      "prices": "Cijene",
+      "location": "Lokacija",
+      "gallery": "Galerija",
+      "contact": "Kontakt"
+    }
+  },
+  "languageSwitcher": {
+    "label": "Jezik",
+    "switchTo": "Promijeni jezik na {language}"
+  },
+  "hero": {
+    "imageAlt": "Privatni parking blizu Aerodroma Sarajevo – M Park",
+    "kicker": "M PARK",
+    "h1": "Privatni parking Aerodrom Sarajevo – siguran parking za putnike",
+    "lead": "Putujete iz Sarajeva? Ostavite svoje vozilo na sigurnom privatnom parkingu blizu Aerodroma Sarajevo dok ste na putu.",
+    "sub": "Idealno rješenje za putnike koji traže parking aerodrom Sarajevo i parking za putnike Sarajevo uz jednostavnu online rezervaciju.",
+    "priceLabel": "Već od",
+    "priceValue": "9 KM",
+    "priceUnit": "po danu",
+    "bullets": {
+      "security": "24/7 sigurnost i video nadzor",
+      "near": "Blizu Aerodroma Sarajevo",
+      "online": "Brza online rezervacija bez komplikacija"
+    },
+    "cta": "Rezerviši parking"
+  },
+  "booking": {
+    "h2": "Rezervacija parkinga",
+    "lead": "Rezervacija isključivo putem ove forme — ne šaljemo termine preko WhatsAppa. Cijena: 9 KM/dan (1–3 dana), 8 KM/dan (4–6 dana), 7 KM/dan (7+ dana). Unesite podatke i datume putovanja.",
+    "success": "Hvala! Rezervacija je zaprimljena. Uskoro vas kontaktiramo s potvrdom.",
+    "labels": {
+      "fullName": "Ime i prezime",
+      "phone": "Broj telefona",
+      "email": "Email",
+      "emailOptional": "(opciono)",
+      "arrivalDate": "Datum dolaska",
+      "arrivalTime": "Vrijeme dolaska",
+      "departureDate": "Datum odlaska",
+      "departureTime": "Vrijeme odlaska"
+    },
+    "placeholders": {
+      "email": "vas@email.com"
+    },
+    "errors": {
+      "required": "Obavezno polje.",
+      "email": "Unesite ispravnu email adresu.",
+      "datesOrder": "Datum i vrijeme odlaska mora biti nakon dolaska.",
+      "submit": "Slanje nije uspjelo. Pokušajte ponovo ili nas pozovite."
+    },
+    "submit": "Pošalji rezervaciju",
+    "submitting": "Šaljem…",
+    "summary": {
+      "title": "Procjena cijene",
+      "days": "{count, plural, one {# dan} few {# dana} other {# dana}}",
+      "rate": "{rate} KM × {count, plural, one {# dan} few {# dana} other {# dana}}",
+      "total": "Ukupno",
+      "tierBadge": {
+        "t1": "Tarifa 1–3 dana",
+        "t2": "Tarifa 4–6 dana",
+        "t3": "Tarifa 7+ dana – najpovoljnije"
+      },
+      "saveHint": "Produžite za još {extra, plural, one {# dan} few {# dana} other {# dana}} i platite samo {rate} KM/dan – uštedite do {save} KM po danu.",
+      "note": "Procjena uključuje sve usluge: 24/7 video nadzor i besplatan transfer do Aerodroma Sarajevo. Konačnu cijenu potvrđujemo prilikom kontakta."
+    }
+  },
+  "trust": {
+    "h2": "Zašto M PARK?",
+    "lead": "Tri razloga zašto nas biraju putnici koji traže pouzdan parking uz Aerodrom Sarajevo — s jasnim troškom po danu.",
+    "items": {
+      "security": {
+        "title": "Siguran parking tokom putovanja",
+        "desc": "Siguran parking Sarajevo za vozilo dok putujete — organizovan pristup i nadzor dok ste na letu ili na poslu. M Park je pouzdan odgovor kad tražite privatni parking Sarajevo aerodrom."
+      },
+      "near": {
+        "title": "Blizu Aerodroma Sarajevo",
+        "desc": "Parking za putnike uz brz pristup terminalu: praktična lokacija blizu aerodroma — manje stresa pri polasku i povratku, posebno za Aerodrom Sarajevo i kratke transfere."
+      },
+      "cctv": {
+        "title": "24/7 video nadzor",
+        "desc": "Video nadzor i kontrolisani ulaz — dodatna sigurnost uz transparentne cijene kad tražite parking aerodrom Sarajevo uz mir pri odlasku."
+      }
+    }
+  },
+  "howItWorks": {
+    "h2": "Kako funkcioniše – Parking Aerodrom Sarajevo",
+    "lead": "Jednostavan proces za putnike koji koriste privatni parking blizu Aerodroma Sarajevo.",
+    "subRich": "Tri koraka od rezervacije do mira na putu — idealno za <em>parking za putnike</em> koji traže pouzdan <em>privatni parking Sarajevo</em>.",
+    "steps": {
+      "book": {
+        "title": "Rezerviši online",
+        "desc": "Popunite formu s datumima putovanja — brzo i bez čekanja u redu."
+      },
+      "drop": {
+        "title": "Ostavi vozilo",
+        "desc": "Dođite na dogovoreno mjesto, parkirajte i predajte ključeve prema uputama koje dobijete."
+      },
+      "fly": {
+        "title": "Putuj bez brige",
+        "desc": "Dok putujete, vozilo je na sigurnom privatnom parkingu blizu Aerodroma Sarajevo — uz fiksnu dnevnu cijenu."
+      }
+    }
+  },
+  "pricing": {
+    "h2": "Cijene parkinga Aerodrom Sarajevo",
+    "lead": "Transparentne cijene privatnog parkinga blizu Aerodroma Sarajevo — bez skrivenih troškova. Što duže ostavite vozilo na našem siguranom parkingu, to niža dnevna cijena.",
+    "ctaReserve": "Rezerviši",
+    "ctaContact": "Kontaktiraj nas",
+    "badgePopular": "Najpovoljnije",
+    "badgeBest": "Najpovoljnije",
+    "perDay": "/ dan",
+    "noteHidden": "Cijene su konačne, bez skrivenih troškova. Sve uključeno: 24/7 video nadzor, besplatan transfer do Aerodroma Sarajevo i online rezervacija.",
+    "tiers": {
+      "t1": {
+        "title": "1–3 dana",
+        "price": "9 KM",
+        "tagline": "Kratak boravak"
+      },
+      "t2": {
+        "title": "4–6 dana",
+        "price": "8 KM",
+        "tagline": "Ušteda 1 KM po danu"
+      },
+      "t3": {
+        "title": "7+ dana",
+        "price": "7 KM",
+        "tagline": "Najpovoljnija dnevna cijena"
+      }
+    },
+    "features": {
+      "cctv": "24/7 video nadzor",
+      "transferAirport": "Besplatan transfer do aerodroma",
+      "online": "Brza online rezervacija"
+    }
+  },
+  "gallery": {
+    "h2": "Galerija sigurnog privatnog parkinga Aerodrom Sarajevo",
+    "lead": "Pogledajte naš privatni parking Sarajevo: ograđen, pod 24/7 video nadzorom, uz besplatan transfer do Aerodroma Sarajevo. Siguran parking aerodrom za putnike — transparentna cijena 9 KM po danu.",
+    "items": {
+      "zone": {
+        "alt": "privatni parking Aerodrom Sarajevo sigurna parking zona",
+        "caption": "Sigurna parking zona",
+        "sub": "Osvijetljen prostor 24/7 za putnike"
+      },
+      "fenced": {
+        "alt": "ograđeni parking Aerodrom Sarajevo video nadzor",
+        "caption": "Ograđen prostor",
+        "sub": "Kontrolisani ulaz i 24/7 video nadzor"
+      },
+      "transfer": {
+        "alt": "transfer vozilo do Aerodroma Sarajevo parking usluga",
+        "caption": "Transfer",
+        "sub": "Besplatan prevoz do Aerodroma Sarajevo"
+      }
+    }
+  },
+  "reviews": {
+    "badge": "Verifikovano · Google recenzije",
+    "h2": "Google recenzije korisnika – Parking Aerodrom Sarajevo",
+    "leadRich": "Stvarne recenzije korisnika koji su koristili naš <em>privatni parking Sarajevo aerodrom</em> — siguran parking, organizovan prostor i transfer do Aerodroma Sarajevo.",
+    "ratingAria": "Ukupna Google ocjena {rating} od 5{total, select, none {} other {, {total} recenzija}}",
+    "ratingTotal": "{count, plural, =0 {} one {# Google recenzija} few {# Google recenzije} other {# Google recenzija}}",
+    "ratingOf5": "{rating} od 5",
+    "starsAria": "{rating} od 5 zvjezdica",
+    "verifiedTag": "Google",
+    "verifiedTitle": "Verifikovana Google recenzija",
+    "googleProfileLink": "Pogledaj sve recenzije na Google-u",
+    "googleProfileFooter": "Recenzije se prikazuju doslovno sa Google profila — bez izmjena.",
+    "emptyText": "Stvarne Google recenzije će biti prikazane ovdje. U međuvremenu, sve verifikovane recenzije možete pročitati direktno na našem Google profilu.",
+    "emptyCta": "Pogledaj recenzije na Google-u",
+    "avatarAlt": "Profilna fotografija korisnika {name} (Google)",
+    "authorAria": "{name} na Google-u",
+    "noTextPlaceholder": "Korisnik je ostavio ocjenu bez napisanog komentara.",
+    "scrollPrev": "Prethodna recenzija",
+    "scrollNext": "Sljedeća recenzija"
+  },
+  "faq": {
+    "h2": "Česta pitanja",
+    "lead": "Kratki odgovori na najčešća pitanja o rezervaciji, dolasku i parking usluzi.",
+    "items": [
+      {
+        "q": "Koliko je parking udaljen od Aerodroma Sarajevo?",
+        "a": "M Park Sarajevo nalazi se u blizini Aerodroma Sarajevo. Tačna adresa i upute za dolazak šalju se nakon online rezervacije."
+      },
+      {
+        "q": "Je li parking siguran?",
+        "a": "Da. Naglasak je na sigurnosti vozila tokom putovanja: organizovan pristup i 24/7 video nadzor. Naš cilj je da putnici koji traže pouzdan parking aerodrom Sarajevo imaju mir pri odlasku na let."
+      },
+      {
+        "q": "Koliko košta parking?",
+        "a": "Cijene su transparentne i ovise o trajanju boravka: 9 KM po danu za 1–3 dana, 8 KM po danu za 4–6 dana i samo 7 KM po danu za 7+ dana. Što duže ostavite vozilo na našem privatnom parkingu blizu Aerodroma Sarajevo, to je niža dnevna cijena. U cijenu su uključeni 24/7 video nadzor i besplatan transfer do aerodroma."
+      },
+      {
+        "q": "Kako funkcioniše sistem rezervacija?",
+        "a": "Rezervacija je moguća isključivo putem forme na ovom sajtu. Unesete ime, telefon, opcionalno email i datume dolaska i odlaska. Nakon slanja zahtjeva, tim vas kontaktira radi potvrde — bez rezervacija putem WhatsAppa. To važi i ako tražite privatni parking Sarajevo aerodrom uz jasan trošak."
+      },
+      {
+        "q": "Mogu li otkazati rezervaciju?",
+        "a": "Da, u većini slučajeva moguće je otkazati ili promijeniti termin uz ranu najavu. Tačna pravila i rokovi dogovaraju se pri potvrdi, kako bi privatni parking Sarajevo ostao organizovan za sve putnike."
+      },
+      {
+        "q": "Je li parking dostupan 24/7?",
+        "a": "Pristup i nadzor su organizovani uz 24/7 video nadzor. Detalje dolaska i predaje vozila (uključujući radno vrijeme za predaju ključeva) potvrđujemo uz rezervaciju, kako bi parking za putnike Sarajevo bio jasan i predvidljiv."
+      }
+    ]
+  },
+  "location": {
+    "h2": "Lokacija",
+    "leadStrong": "Blizu Aerodroma Sarajevo",
+    "leadRest": ". M Park je privatni parking blizu Aerodroma Sarajevo namijenjen putnicima: dok putujete, vozilo ostaje kod nas po transparentnim cijenama (od 7 KM po danu). Tačna adresa i upute stižu nakon online rezervacije.",
+    "secondary": "Ako tražite <strong>parking aerodrom Sarajevo</strong> ili <strong>parking za putnike</strong> uz put do izlaza na let, lokacija je prilagođena brzom dolasku na Aerodrom Sarajevo.",
+    "extra": "Uz našu parking uslugu, moguć je i noćni boravak u apartmanu koji se nalazi odmah pored parkinga.",
+    "mapTitle": "M Park Sarajevo – mapa u blizini Aerodroma Sarajevo"
+  },
+  "contact": {
+    "h2": "Kontakt",
+    "lead": "Za termin isključivo forma iznad. Za pitanja: telefon, email ili WhatsApp u listi ispod (podrška, ne rezervacija).",
+    "whatsappText": "Zdravo, imam pitanje o M Park Sarajevo (podrška; rezervacija isključivo na sajtu).",
+    "whatsappLabel": "WhatsApp — samo podrška"
+  },
+  "site": {
+    "tagline": "Privatni parking na adresi Kasindolskih Žrtava 18, blizu Aerodroma Sarajevo za putnike.",
+    "addressNote": "Blizu Aerodroma Sarajevo",
+    "locationLine": "Parking blizu Aerodroma Sarajevo – Kasindolskih Žrtava 18",
+    "seoLine": "Privatni parking na adresi Kasindolskih Žrtava 18, blizu Aerodroma Sarajevo."
+  },
+  "footer": {
+    "navHeading": "Navigacija",
+    "contactHeading": "Kontakt",
+    "rights": "Sva prava zadržana.",
+    "ctaShort": "Rezerviši parking",
+    "nav": {
+      "home": "Početak",
+      "services": "Usluge",
+      "prices": "Cijene",
+      "howItWorks": "Kako funkcioniše",
+      "location": "Lokacija",
+      "gallery": "Galerija",
+      "contact": "Kontakt",
+      "book": "Rezervacija"
+    }
+  },
+  "stickyCta": {
+    "regionLabel": "Brza rezervacija",
+    "label": "Rezerviši parking"
+  }
+}
