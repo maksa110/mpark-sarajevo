@@ -29,9 +29,9 @@ const HEADLINE_BY_LOCALE = {
 };
 
 const FEATURES_BY_LOCALE = {
-  bs: ["24/7 nadzor", "Transfer do aerodroma", "Fiksne cijene po danu"],
-  en: ["24/7 CCTV", "Airport transfer", "Clear daily rates"],
-  de: ["24/7 Überwachung", "Flughafen-Transfer", "Fixe Tagespreise"],
+  bs: ["24/7 nadzor", "Transfer do aerodroma", "Online rezervacija"],
+  en: ["24/7 CCTV", "Airport transfer", "Online booking"],
+  de: ["24/7 Überwachung", "Flughafen-Transfer", "Online-Buchung"],
 };
 
 const FROM_LABEL_BY_LOCALE = {

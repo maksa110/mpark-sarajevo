@@ -47,7 +47,7 @@
     "kicker": "M PARK",
     "h1": "Sarajevo Airport parking – safe private parking for travellers",
     "lead": "Flying out of Sarajevo? Leave your car at a safe private parking near Sarajevo Airport while you're away.",
-    "sub": "The ideal solution for travellers looking for airport parking Sarajevo and parking for travellers Sarajevo — book your slot using the form on this site.",
+    "sub": "The ideal solution for travellers looking for airport parking Sarajevo and parking for travellers Sarajevo with a simple online booking.",
     "priceLabel": "From",
     "priceValue": "9 KM",
     "priceUnit": "per day",
@@ -163,7 +163,7 @@
     "features": {
       "cctv": "24/7 CCTV surveillance",
       "transferAirport": "Free airport transfer",
-      "online": "Clear daily rates (7–9 KM)"
+      "online": "Fast online booking"
     }
   },
   "gallery": {
@@ -274,7 +274,7 @@
     }
   },
   "stickyCta": {
-    "regionLabel": "Booking",
+    "regionLabel": "Quick booking",
     "label": "Book parking"
   }
 }

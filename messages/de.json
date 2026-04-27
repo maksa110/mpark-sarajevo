@@ -47,7 +47,7 @@
     "kicker": "M PARK",
     "h1": "Parkplatz Flughafen Sarajevo – sicherer privater Parkplatz für Reisende",
     "lead": "Sie fliegen ab Sarajevo? Lassen Sie Ihr Fahrzeug auf einem sicheren privaten Parkplatz nahe Flughafen Sarajevo, während Sie unterwegs sind.",
-    "sub": "Die ideale Lösung für Reisende, die Parkplatz Flughafen Sarajevo und Parkplatz für Reisende Sarajevo suchen — Termin buchen Sie über das Formular auf dieser Website.",
+    "sub": "Die ideale Lösung für Reisende, die Parkplatz Flughafen Sarajevo und Parkplatz für Reisende Sarajevo mit einfacher Online-Buchung suchen.",
     "priceLabel": "Ab",
     "priceValue": "9 KM",
     "priceUnit": "pro Tag",
@@ -274,7 +274,7 @@
     }
   },
   "stickyCta": {
-    "regionLabel": "Buchung",
+    "regionLabel": "Schnellbuchung",
     "label": "Parkplatz buchen"
   }
 }

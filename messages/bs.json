@@ -47,7 +47,7 @@
     "kicker": "M PARK",
     "h1": "Privatni parking Aerodrom Sarajevo – siguran parking za putnike",
     "lead": "Putujete iz Sarajeva? Ostavite svoje vozilo na sigurnom privatnom parkingu blizu Aerodroma Sarajevo dok ste na putu.",
-    "sub": "Idealno rješenje za putnike koji traže parking aerodrom Sarajevo i parking za putnike Sarajevo — termin rezervišete putem forme na sajtu.",
+    "sub": "Idealno rješenje za putnike koji traže parking aerodrom Sarajevo i parking za putnike Sarajevo uz jednostavnu online rezervaciju.",
     "priceLabel": "Već od",
     "priceValue": "9 KM",
     "priceUnit": "po danu",
@@ -163,7 +163,7 @@
     "features": {
       "cctv": "24/7 video nadzor",
       "transferAirport": "Besplatan transfer do aerodroma",
-      "online": "Fiksne dnevne cijene (7–9 KM)"
+      "online": "Brza online rezervacija"
     }
   },
   "gallery": {
@@ -274,7 +274,7 @@
     }
   },
   "stickyCta": {
-    "regionLabel": "Rezervacija",
+    "regionLabel": "Brza rezervacija",
     "label": "Rezerviši parking"
   }
 }
