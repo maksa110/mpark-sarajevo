@@ -13,7 +13,8 @@ const IMAGES = [
   },
   {
     key: "transfer",
-    src: "https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=1200&q=80&auto=format&fit=crop",
+    src: "/gallery-transfer-vehicle.png",
+    objectFit: "contain",
   },
 ];
 
@@ -52,7 +53,11 @@ export default function Gallery() {
                     fill
                     loading={i === 0 ? "eager" : "lazy"}
                     sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
-                    className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.08] motion-reduce:transition-none motion-reduce:group-hover:scale-100"
+                    className={
+                      img.objectFit === "contain"
+                        ? "object-contain bg-white p-4 transition-transform duration-700 ease-out group-hover:scale-[1.04] motion-reduce:transition-none motion-reduce:group-hover:scale-100"
+                        : "object-cover transition-transform duration-700 ease-out group-hover:scale-[1.08] motion-reduce:transition-none motion-reduce:group-hover:scale-100"
+                    }
                   />
                   <div
                     className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100 motion-reduce:transition-none"
