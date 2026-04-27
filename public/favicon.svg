@@ -1,6 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="M Park Sarajevo">
-  <rect width="64" height="64" rx="14" fill="#0B1A2E"/>
-  <path d="M32 12c-9.4 0-17 7.4-17 16.5 0 11.7 17 23.5 17 23.5s17-11.8 17-23.5C49 19.4 41.4 12 32 12z" fill="#9DEF3F"/>
-  <circle cx="32" cy="28.5" r="6.5" fill="#0B1A2E"/>
-  <circle cx="32" cy="28.5" r="2" fill="#9DEF3F"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <rect width="32" height="32" rx="6" fill="#0B1A2E"/>
+  <text x="16" y="22" font-size="15" fill="#B8E600" text-anchor="middle" font-family="system-ui,sans-serif" font-weight="700">M</text>
 </svg>

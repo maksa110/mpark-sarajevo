@@ -71,28 +71,13 @@ export async function generateMetadata({ params }) {
       description: t("twitterDescription"),
       // Images auto-populated by app/[locale]/twitter-image (mirrors opengraph-image)
     },
-    // Favicon: prvo vektorski mPark znak (jasan u tabu), zatim PNG za klijente bez SVG
     icons: {
       icon: [
         { url: "/favicon.svg", type: "image/svg+xml", sizes: "any" },
         { url: "/logo.png", type: "image/png", sizes: "any" },
       ],
-      apple: [
-        {
-          url: "/apple-touch-icon.png",
-          sizes: "180x180",
-          type: "image/png",
-        },
-      ],
+      apple: [{ url: "/apple-touch-icon.png", sizes: "180x180" }],
       shortcut: ["/favicon.svg"],
-    },
-    appleWebApp: {
-      title: SITE.brand,
-      capable: true,
-      statusBarStyle: "default",
-    },
-    other: {
-      "msapplication-TileColor": "#0B1A2E",
     },
     manifest: "/site.webmanifest",
   };
