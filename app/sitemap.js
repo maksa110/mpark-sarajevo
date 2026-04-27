@@ -5,9 +5,14 @@ export default function sitemap() {
   const lastModified = new Date();
   const base = SITE.url.replace(/\/$/, "");
 
-  const languages = Object.fromEntries(
+  const languageUrls = Object.fromEntries(
     routing.locales.map((l) => [l, `${base}/${l}`])
   );
+  // Google preporučuje x-default (obično glavna verzija / default locale).
+  const languages = {
+    ...languageUrls,
+    "x-default": `${base}/${routing.defaultLocale}`,
+  };
 
   return [
     {
