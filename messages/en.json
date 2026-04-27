@@ -12,7 +12,8 @@
       "safe airport parking Sarajevo",
       "airport transfer parking Sarajevo",
       "parking near Sarajevo airport",
-      "9 KM per day parking"
+      "9 KM per day parking",
+      "overnight stay parking Sarajevo airport"
     ]
   },
   "common": {
@@ -60,7 +61,7 @@
   },
   "booking": {
     "h2": "Parking reservation",
-    "lead": "Bookings are accepted only through this form — we do not confirm reservations via WhatsApp. Price: 9 KM/day (1–3 days), 8 KM/day (4–6 days), 7 KM/day (7+ days). Enter your details and travel dates.",
+    "lead": "Bookings are accepted only through this form — we do not confirm reservations via WhatsApp. Price: 9 KM/day (1–3 days), 8 KM/day (4–6 days), 7 KM/day (7+ days). Enter your details and travel dates. Overnight stay can be arranged on request — mention it when we contact you to confirm.",
     "success": "Thank you! Your reservation has been received. We will contact you shortly with confirmation.",
     "labels": {
       "fullName": "Full name",
@@ -222,6 +223,10 @@
       {
         "q": "How much does parking cost?",
         "a": "Prices are transparent and depend on the length of stay: 9 KM per day for 1–3 days, 8 KM per day for 4–6 days, and just 7 KM per day for 7+ days. The longer you leave your vehicle at our private parking near Sarajevo Airport, the lower the daily rate. The price includes 24/7 CCTV surveillance and a free transfer to the airport."
+      },
+      {
+        "q": "Is overnight stay available with the parking?",
+        "a": "Yes. As part of our service for travellers, overnight stay can be arranged (e.g. early flight or late arrival). Terms and price for the night are confirmed individually when we contact you after the booking — please mention the need when we confirm your reservation."
       },
       {
         "q": "How does the booking system work?",

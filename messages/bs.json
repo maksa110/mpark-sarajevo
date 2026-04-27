@@ -12,7 +12,8 @@
       "siguran parking aerodrom",
       "transfer parking aerodrom sarajevo",
       "parking blizu aerodroma sarajevo",
-      "9 km po danu parking"
+      "9 km po danu parking",
+      "prenoćište parking aerodrom sarajevo"
     ]
   },
   "common": {
@@ -60,7 +61,7 @@
   },
   "booking": {
     "h2": "Rezervacija parkinga",
-    "lead": "Rezervacija isključivo putem ove forme — ne šaljemo termine preko WhatsAppa. Cijena: 9 KM/dan (1–3 dana), 8 KM/dan (4–6 dana), 7 KM/dan (7+ dana). Unesite podatke i datume putovanja.",
+    "lead": "Rezervacija isključivo putem ove forme — ne šaljemo termine preko WhatsAppa. Cijena: 9 KM/dan (1–3 dana), 8 KM/dan (4–6 dana), 7 KM/dan (7+ dana). Unesite podatke i datume putovanja. Prenoćište je moguće uz prethodni dogovor — navedite kada vas tim kontaktira radi potvrde.",
     "success": "Hvala! Rezervacija je zaprimljena. Uskoro vas kontaktiramo s potvrdom.",
     "labels": {
       "fullName": "Ime i prezime",
@@ -222,6 +223,10 @@
       {
         "q": "Koliko košta parking?",
         "a": "Cijene su transparentne i ovise o trajanju boravka: 9 KM po danu za 1–3 dana, 8 KM po danu za 4–6 dana i samo 7 KM po danu za 7+ dana. Što duže ostavite vozilo na našem privatnom parkingu blizu Aerodroma Sarajevo, to je niža dnevna cijena. U cijenu su uključeni 24/7 video nadzor i besplatan transfer do aerodroma."
+      },
+      {
+        "q": "Je li moguće prenoćište uz parking?",
+        "a": "Da. U sklopu ponude za putnike moguće je dogovoriti prenoćište (npr. rani odlazak na let ili kasni dolazak). Uslove i cijenu noćenja potvrđujemo individualno kada vas kontaktiramo nakon rezervacije — navedite potrebu u formi ili pri potvrdi."
       },
       {
         "q": "Kako funkcioniše sistem rezervacija?",
