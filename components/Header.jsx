@@ -66,28 +66,19 @@ export default function Header() {
       <div className="mx-auto flex max-w-6xl items-center justify-between gap-3 px-4 py-3 sm:px-6 sm:py-4">
         <a
           href="#home"
-          className="group flex items-center gap-2.5 transition-opacity hover:opacity-95"
+          className="group flex min-w-0 max-w-[min(220px,58vw)] shrink-0 items-center transition-opacity hover:opacity-95"
           aria-label={t("logoAria")}
           onClick={close}
         >
-          <span className="relative flex h-10 w-10 shrink-0 items-center justify-center overflow-hidden rounded-xl ring-1 ring-white/15 transition duration-300 group-hover:ring-brand-lime/50 motion-reduce:transition-none">
-            <Image
-              src="/logo.png"
-              alt="M Park Sarajevo logo"
-              width={40}
-              height={40}
-              priority
-              className="h-10 w-10 transition duration-300 group-hover:scale-105 motion-reduce:transition-none motion-reduce:group-hover:scale-100"
-            />
-          </span>
-          <span className="flex flex-col leading-tight">
-            <span className="text-base font-bold tracking-wide text-white">
-              M Park
-            </span>
-            <span className="text-[10px] font-semibold uppercase tracking-[0.18em] text-brand-lime/90">
-              Sarajevo
-            </span>
-          </span>
+          <Image
+            src="/logo.png"
+            alt="M Park Sarajevo logo"
+            width={220}
+            height={44}
+            priority
+            sizes="220px"
+            className="h-10 w-auto object-contain object-left transition duration-200 group-hover:opacity-90 motion-reduce:transition-none"
+          />
         </a>
 
         <nav aria-label={t("navAria")} className="hidden md:block">
