@@ -30,7 +30,8 @@ export async function generateMetadata({ params }) {
   const kw = t.raw("keywords");
   return {
     metadataBase: new URL(SITE.url),
-    title: { default: title, template: `%s | ${SITE.brand}` },
+    // Cijeli naslov u <title> (bez templatea — izbjegava se \"segment | marka\" u tabu)
+    title,
     description,
     keywords: Array.isArray(kw) ? kw : [],
     applicationName: SITE.brand,
