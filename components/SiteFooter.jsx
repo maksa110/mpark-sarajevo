@@ -27,18 +27,28 @@ export default function SiteFooter() {
           <Reveal className="lg:col-span-2">
             <a
               href="#home"
-              className="group inline-block max-w-[min(280px,90vw)]"
+              className="group inline-flex items-center gap-3"
               aria-label={`${SITE.brand} – ${tSite("tagline")}`}
             >
-              <Image
-                src="/logo.png"
-                alt="M Park Sarajevo logo"
-                width={280}
-                height={56}
-                sizes="(max-width: 640px) 90vw, 280px"
-                loading="lazy"
-                className="h-12 w-auto object-contain object-left opacity-90 transition group-hover:opacity-100"
-              />
+              <span className="relative flex h-12 w-12 shrink-0 items-center justify-center overflow-hidden rounded-2xl ring-1 ring-white/10 transition group-hover:ring-brand-lime/50">
+                <Image
+                  src="/logo.png"
+                  alt=""
+                  width={120}
+                  height={120}
+                  sizes="48px"
+                  loading="lazy"
+                  className="h-12 w-12 object-cover"
+                />
+              </span>
+              <span className="flex min-w-0 flex-col leading-tight">
+                <span className="text-lg font-bold tracking-tight text-white">
+                  {SITE.brand}
+                </span>
+                <span className="text-[11px] font-semibold uppercase tracking-[0.18em] text-brand-lime/85">
+                  Parking Aerodrom Sarajevo
+                </span>
+              </span>
             </a>
             <p className="mt-4 max-w-md text-sm leading-relaxed text-zinc-400">
               {tSite("tagline")}

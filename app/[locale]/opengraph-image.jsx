@@ -79,15 +79,39 @@ export default async function OgImage({ params }) {
           style={{
             display: "flex",
             alignItems: "center",
+            gap: 16,
           }}
         >
           <img
             src={LOGO_DATA_URL}
-            width={240}
-            height={48}
+            width={64}
+            height={64}
             alt=""
-            style={{ height: 48, width: "auto", objectFit: "contain" }}
+            style={{ borderRadius: 14, objectFit: "cover" }}
           />
+          <div style={{ display: "flex", flexDirection: "column" }}>
+            <span
+              style={{
+                fontSize: 26,
+                fontWeight: 800,
+                letterSpacing: "-0.01em",
+                lineHeight: 1,
+              }}
+            >
+              M PARK
+            </span>
+            <span
+              style={{
+                fontSize: 13,
+                fontWeight: 700,
+                letterSpacing: "0.22em",
+                color: "#9DEF3F",
+                marginTop: 4,
+              }}
+            >
+              SARAJEVO
+            </span>
+          </div>
         </div>
 
         {/* Body */}
