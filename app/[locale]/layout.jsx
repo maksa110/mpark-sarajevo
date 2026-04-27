@@ -5,6 +5,8 @@ import { getTranslations, setRequestLocale } from "next-intl/server";
 import { routing, localeMeta } from "@/i18n/routing";
 import { SITE } from "@/lib/site";
 
+export const dynamic = "force-dynamic";
+
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
 }
@@ -25,11 +27,12 @@ export async function generateMetadata({ params }) {
   const title = t("title");
   const description = t("description");
 
+  const kw = t.raw("keywords");
   return {
     metadataBase: new URL(SITE.url),
     title: { default: title, template: `%s | ${SITE.brand}` },
     description,
-    keywords: t.raw("keywords"),
+    keywords: Array.isArray(kw) ? kw : [],
     applicationName: SITE.brand,
     authors: [{ name: SITE.brand, url: SITE.url }],
     creator: SITE.brand,
