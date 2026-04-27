@@ -71,11 +71,11 @@ export async function generateMetadata({ params }) {
       description: t("twitterDescription"),
       // Images auto-populated by app/[locale]/twitter-image (mirrors opengraph-image)
     },
-    // Favicon: prvo vektorski mPark znak (jasan u tabu), zatim PNG za klijente bez SVG
+    // Favicon: službeni logo PNG, zatim SVG rezerva
     icons: {
       icon: [
-        { url: "/favicon.svg", type: "image/svg+xml", sizes: "any" },
         { url: "/logo.png", type: "image/png", sizes: "any" },
+        { url: "/favicon.svg", type: "image/svg+xml", sizes: "any" },
       ],
       apple: [
         {
@@ -84,7 +84,7 @@ export async function generateMetadata({ params }) {
           type: "image/png",
         },
       ],
-      shortcut: ["/favicon.svg"],
+      shortcut: ["/logo.png"],
     },
     appleWebApp: {
       title: SITE.brand,

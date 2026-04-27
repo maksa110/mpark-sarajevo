@@ -1,3 +1,5 @@
+import { readFileSync } from "node:fs";
+import { join } from "node:path";
 import { ImageResponse } from "next/og";
 import { hasLocale } from "next-intl";
 import { routing } from "@/i18n/routing";
@@ -7,14 +9,7 @@ export const alt = "M Park Sarajevo – Privatni parking blizu Aerodroma Sarajev
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
-const LOGO_SVG = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
-  <rect width="64" height="64" rx="14" fill="#0B1A2E"/>
-  <path d="M32 12c-9.4 0-17 7.4-17 16.5 0 11.7 17 23.5 17 23.5s17-11.8 17-23.5C49 19.4 41.4 12 32 12z" fill="#9DEF3F"/>
-  <circle cx="32" cy="28.5" r="6.5" fill="#0B1A2E"/>
-  <circle cx="32" cy="28.5" r="2" fill="#9DEF3F"/>
-</svg>`;
-
-const LOGO_DATA_URL = `data:image/svg+xml;base64,${Buffer.from(LOGO_SVG).toString("base64")}`;
+const LOGO_DATA_URL = `data:image/png;base64,${readFileSync(join(process.cwd(), "public", "logo.png")).toString("base64")}`;
 
 const PRICE_BY_LOCALE = {
   bs: { value: "9 KM", per: "po danu" },
