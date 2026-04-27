@@ -69,10 +69,11 @@ export async function generateMetadata({ params }) {
     },
     icons: {
       icon: [
+        { url: "/favicon.svg", type: "image/svg+xml", sizes: "any" },
         { url: "/logo.png", type: "image/png", sizes: "any" },
       ],
       apple: [{ url: "/apple-touch-icon.png", sizes: "180x180" }],
-      shortcut: ["/logo.png"],
+      shortcut: ["/favicon.svg"],
     },
     manifest: "/site.webmanifest",
   };

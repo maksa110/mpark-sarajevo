@@ -91,7 +91,7 @@ export default async function Reviews() {
           )}
         </div>
 
-        {data && data.reviews.length > 0 ? (
+        {data && Array.isArray(data.reviews) && data.reviews.length > 0 ? (
           <ReviewsGrid reviews={data.reviews} intlTag={intlTag} />
         ) : (
           <EmptyState profileUrl={profileUrl} />

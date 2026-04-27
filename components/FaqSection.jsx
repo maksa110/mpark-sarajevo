@@ -6,7 +6,8 @@ import Reveal from "@/components/Reveal";
 
 export default function FaqSection() {
   const t = useTranslations("faq");
-  const items = t.raw("items");
+  const raw = t.raw("items");
+  const items = Array.isArray(raw) ? raw : [];
   const [open, setOpen] = useState(null);
 
   return (

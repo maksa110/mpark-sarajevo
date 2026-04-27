@@ -3,13 +3,17 @@ import { cookies } from "next/headers";
 import { nanoid } from "nanoid";
 import {
   COOKIE,
-  parseSessionToken,
+  getAuthConfigError,
   getSessionSecret,
+  parseSessionToken,
 } from "@/lib/auth";
 import { insertReservation, listReservations } from "@/lib/db";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
+
+/** Vercel Hobby default je 10s; povećaj u dashboardu ili ostavi default. */
+export const maxDuration = 30;
 
 function validateDates(arrivalDate, arrivalTime, departureDate, departureTime) {
   if (!arrivalDate || !departureDate) return "Datumi su obavezni.";
@@ -24,6 +28,20 @@ function validateDates(arrivalDate, arrivalTime, departureDate, departureTime) {
 }
 
 export async function POST(request) {
+  try {
+    return await postReservation(request);
+  } catch (e) {
+    console.error("POST /api/reservations (uncaught):", e);
+    return NextResponse.json(
+      {
+        error: "Greška servera. Ako traje, provjerite Vercel env (Blob) i function logove.",
+      },
+      { status: 500 }
+    );
+  }
+}
+
+async function postReservation(request) {
   let body;
   try {
     body = await request.json();
@@ -78,16 +96,38 @@ export async function POST(request) {
   };
 
   try {
-    insertReservation(reservation);
+    await insertReservation(reservation);
   } catch (e) {
     console.error("insertReservation failed:", e);
-    return NextResponse.json({ error: "Greška baze." }, { status: 500 });
+    if (e?.code === "VERCEL_BLOB_REQUIRED" || e?.message === "VERCEL_BLOB_REQUIRED") {
+      return NextResponse.json(
+        {
+          error:
+            "Pohrana nije postavljena. U Vercel: Storage → kreiraj Blob za ovaj projekat, zatim Redeploy (env BLOB_READ_WRITE_TOKEN).",
+        },
+        { status: 503 }
+      );
+    }
+    return NextResponse.json(
+      {
+        error:
+          "Nije moguće spremiti rezervaciju. Provjeri da je u Vercel projektu povezan Blob (Storage) i uradi Redeploy.",
+      },
+      { status: 500 }
+    );
   }
 
   return NextResponse.json(reservation, { status: 201 });
 }
 
 export async function GET(request) {
+  const mis = getAuthConfigError();
+  if (mis) {
+    return NextResponse.json(
+      { error: "Server nije spreman: provjerite environment varijable (ADMIN_)." },
+      { status: 503 }
+    );
+  }
   const cookieStore = await cookies();
   const token = cookieStore.get(COOKIE)?.value;
   if (!parseSessionToken(token, getSessionSecret())) {
@@ -96,6 +136,17 @@ export async function GET(request) {
 
   const url = new URL(request.url);
   const search = url.searchParams.get("search") || "";
-  const rows = listReservations({ search });
+  let rows;
+  try {
+    rows = await listReservations({ search });
+  } catch (e) {
+    if (e?.code === "VERCEL_BLOB_REQUIRED" || e?.message === "VERCEL_BLOB_REQUIRED") {
+      return NextResponse.json(
+        { error: "Pohrana nije postavljena (Vercel Blob)." },
+        { status: 503 }
+      );
+    }
+    throw e;
+  }
   return NextResponse.json(rows);
 }

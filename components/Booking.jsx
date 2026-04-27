@@ -70,8 +70,16 @@ export default function Booking() {
         }),
       });
       if (!res.ok) {
-        const data = await res.json().catch(() => ({}));
-        throw new Error(data.error || `API ${res.status}`);
+        const raw = await res.text();
+        let msg = `Greška ${res.status}`;
+        try {
+          const data = raw ? JSON.parse(raw) : {};
+          if (data?.error) msg = data.error;
+        } catch {
+          if (raw?.trim().slice(0, 1) === "<")
+            msg = "Server je vratio grešku. Provjeri Vercel deploy (Blob, env) i pokušaj opet.";
+        }
+        throw new Error(msg);
       }
       setOk(true);
       setFullName("");

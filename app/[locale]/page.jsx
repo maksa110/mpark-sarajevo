@@ -15,6 +15,9 @@ import MobileStickyCta from "@/components/MobileStickyCta";
 import { SITE } from "@/lib/site";
 import { getGoogleReviews } from "@/lib/google-reviews";
 
+/** Bez statičnog prerendera: na Vercelu build ponekad puca na /bs (Server Component + env/fetch) pri `next build`. */
+export const dynamic = "force-dynamic";
+
 export default async function HomePage({ params }) {
   const { locale } = await params;
   setRequestLocale(locale);
@@ -25,7 +28,10 @@ export default async function HomePage({ params }) {
   const tPricing = await getTranslations("pricing");
 
   const googleData = await getGoogleReviews();
-  const faqItems = tFaq.raw("items");
+  const rawFaq = tFaq.raw("items");
+  const faqItems = Array.isArray(rawFaq) ? rawFaq : [];
+  const rawKeywords = tMeta.raw("keywords");
+  const keywordLine = Array.isArray(rawKeywords) ? rawKeywords.join(", ") : "";
 
   const localBusinessSchema = {
     "@context": "https://schema.org",
@@ -51,7 +57,7 @@ export default async function HomePage({ params }) {
       longitude: SITE.geo.longitude,
     },
     areaServed: { "@type": "AdministrativeArea", name: "Sarajevo" },
-    keywords: tMeta.raw("keywords").join(", "),
+    keywords: keywordLine,
     hasOfferCatalog: {
       "@type": "OfferCatalog",
       name: tPricing("h2"),
@@ -134,7 +140,7 @@ export default async function HomePage({ params }) {
           },
         }
       : {}),
-    ...(googleData?.reviews?.some((r) => r.text)
+    ...(Array.isArray(googleData?.reviews) && googleData.reviews.some((r) => r.text)
       ? {
           review: googleData.reviews
             .filter((r) => r.text)

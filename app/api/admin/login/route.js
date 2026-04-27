@@ -4,6 +4,7 @@ import {
   COOKIE_MAX_AGE_SECONDS,
   createSessionToken,
   getAdminPassword,
+  getAuthConfigError,
   getSessionSecret,
   timingSafePasswordEqual,
 } from "@/lib/auth";
@@ -12,6 +13,13 @@ export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
 
 export async function POST(request) {
+  const mis = getAuthConfigError();
+  if (mis) {
+    return NextResponse.json(
+      { error: "Server nije spreman: provjerite environment varijable (ADMIN_)." },
+      { status: 503 }
+    );
+  }
   let body;
   try {
     body = await request.json();
