@@ -47,15 +47,15 @@ export default function AdminLoginPage() {
   return (
     <div className="flex min-h-screen flex-col items-center justify-center bg-gradient-to-br from-brand-navy via-brand-navy-950 to-brand-navy px-4 py-12">
       <div className="w-full max-w-sm rounded-2xl border border-zinc-200 bg-white p-8 shadow-2xl">
-        <div className="mx-auto flex w-full max-w-xs justify-center overflow-hidden">
+        <div className="mx-auto flex h-16 w-16 items-center justify-center overflow-hidden rounded-2xl ring-1 ring-zinc-200">
           <Image
             src="/logo.png"
-            alt="M Park Sarajevo logo"
-            width={240}
-            height={52}
+            alt="M Park Sarajevo"
+            width={128}
+            height={128}
             priority
-            sizes="(max-width: 400px) 90vw, 240px"
-            className="h-12 w-auto object-contain"
+            sizes="64px"
+            className="h-16 w-16 object-cover"
           />
         </div>
         <h1 className="mt-6 text-center text-xl font-semibold tracking-tight text-zinc-900">

@@ -196,19 +196,21 @@ export default function AdminDashboardPage() {
           <div className="flex items-center justify-between gap-2 border-b border-zinc-100 px-4 py-4">
             <Link
               href="/admin"
-              className="flex min-w-0 max-w-full items-center gap-2 rounded-xl text-zinc-900"
+              className="flex items-center gap-2 rounded-xl text-zinc-900"
               onClick={() => setMenuOpen(false)}
             >
-              <Image
-                src="/logo.png"
-                alt="M Park Sarajevo logo"
-                width={200}
-                height={40}
-                priority
-                sizes="180px"
-                className="h-8 w-auto max-w-[min(200px,70%)] object-contain"
-              />
-              <span className="shrink-0 text-sm font-semibold">Admin</span>
+              <span className="flex h-9 w-9 shrink-0 items-center justify-center overflow-hidden rounded-xl ring-1 ring-zinc-200">
+                <Image
+                  src="/logo.png"
+                  alt=""
+                  width={72}
+                  height={72}
+                  priority
+                  sizes="36px"
+                  className="h-9 w-9 object-cover"
+                />
+              </span>
+              <span className="text-sm font-semibold">M PARK Admin</span>
             </Link>
             <button
               type="button"
