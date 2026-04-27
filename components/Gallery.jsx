@@ -9,7 +9,7 @@ const IMAGES = [
   },
   {
     key: "fenced",
-    src: "https://images.unsplash.com/photo-1580674285054-bed31e145f59?w=1200&q=80&auto=format&fit=crop",
+    src: "/gallery-fenced.png",
   },
   {
     key: "transfer",
