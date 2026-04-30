@@ -14,6 +14,5 @@ export default getRequestConfig(async ({ requestLocale }) => {
     locale,
     messages,
     timeZone: "Europe/Sarajevo",
-    now: new Date(),
   };
 });

@@ -62,16 +62,18 @@
   "booking": {
     "h2": "Parking reservation",
     "lead": "Bookings are accepted only through this form — we do not confirm reservations via WhatsApp. Price: 9 KM/day (1–3 days), 8 KM/day (4–6 days), 7 KM/day (7+ days). Enter your details and travel dates. Overnight stay can be arranged on request — mention it when we contact you to confirm.",
-    "success": "Thank you! Your reservation has been received. We will contact you shortly with confirmation.",
+    "success": "Thank you! Your reservation has been received. We’ve sent a confirmation to your email. We may contact you shortly with more details.",
     "labels": {
       "fullName": "Full name",
       "phone": "Phone number",
       "email": "Email",
-      "emailOptional": "(optional)",
       "arrivalDate": "Arrival date",
       "arrivalTime": "Arrival time",
       "departureDate": "Departure date",
-      "departureTime": "Departure time"
+      "departureTime": "Departure time",
+      "leaveKeyGroup": "Key handover",
+      "leaveKeyYes": "I will leave the key",
+      "leaveKeyNo": "I will not leave the key"
     },
     "placeholders": {
       "email": "your@email.com"
@@ -79,8 +81,15 @@
     "errors": {
       "required": "This field is required.",
       "email": "Please enter a valid email address.",
+      "EMAIL_REQUIRED": "Email is required.",
+      "EMAIL_INVALID": "Please enter a valid email format.",
       "datesOrder": "Departure date and time must be after arrival.",
-      "submit": "Submission failed. Please try again or call us."
+      "submit": "Submission failed. Please try again or call us.",
+      "LEAVE_KEY_REQUIRED": "Please choose whether you will leave the key.",
+      "CAPACITY_NO_KEY": "No spaces without key handover are available for the selected dates.",
+      "CAPACITY_WITH_KEY": "No spaces with key handover are available for the selected dates (the lot is full for one or more days).",
+      "capacityChecking": "Checking availability…",
+      "capacityBlocked": "No spaces available for this selection — change dates or key option."
     },
     "submit": "Send reservation",
     "submitting": "Sending…",

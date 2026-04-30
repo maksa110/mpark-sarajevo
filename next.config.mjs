@@ -38,8 +38,9 @@ const nextConfig = {
   },
   async headers() {
     return [
+      // Do not add security headers to Next internals, API, and files with an extension
       {
-        source: "/:path*",
+        source: "/((?!_next|_vercel|api|favicon|robots|sitemap|.*\\..*).*)",
         headers: [
           { key: "X-Content-Type-Options", value: "nosniff" },
           { key: "Referrer-Policy", value: "strict-origin-when-cross-origin" },

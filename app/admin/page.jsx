@@ -382,6 +382,7 @@ export default function AdminDashboardPage() {
                           <th className="px-4 py-3">Ime</th>
                           <th className="px-4 py-3">Telefon</th>
                           <th className="px-4 py-3">Email</th>
+                          <th className="px-4 py-3">Ključ</th>
                           <th className="px-4 py-3">Dolazak</th>
                           <th className="px-4 py-3">Odlazak</th>
                           <th className="px-4 py-3">Status</th>
@@ -392,7 +393,7 @@ export default function AdminDashboardPage() {
                         {loading && (
                           <tr>
                             <td
-                              colSpan={7}
+                              colSpan={8}
                               className="px-4 py-12 text-center text-zinc-500"
                             >
                               Učitavanje…
@@ -402,7 +403,7 @@ export default function AdminDashboardPage() {
                         {!loading && rows.length === 0 && (
                           <tr>
                             <td
-                              colSpan={7}
+                              colSpan={8}
                               className="px-4 py-12 text-center text-zinc-500"
                             >
                               Nema rezervacija za prikaz.
@@ -428,6 +429,17 @@ export default function AdminDashboardPage() {
                                 </td>
                                 <td className="px-4 py-3 text-zinc-600">
                                   {r.email || "—"}
+                                </td>
+                                <td className="px-4 py-3 text-zinc-700">
+                                  {r.leaveKey === false ? (
+                                    <span title="Ne ostavlja ključ">
+                                      Bez ključa
+                                    </span>
+                                  ) : (
+                                    <span title="Ostavlja ključ">
+                                      Sa ključem
+                                    </span>
+                                  )}
                                 </td>
                                 <td className="px-4 py-3 text-zinc-700">
                                   <span className="whitespace-nowrap">
@@ -572,6 +584,7 @@ function SimpleTable({ rows, accent, now, onDelete, deletingId }) {
           <tr className="border-b border-zinc-100 bg-zinc-50/80 text-xs font-medium uppercase tracking-wide text-zinc-500">
             <th className="px-4 py-3">Ime</th>
             <th className="px-4 py-3">Telefon</th>
+            <th className="px-4 py-3">Ključ</th>
             <th className="px-4 py-3">Dolazak</th>
             <th className="px-4 py-3">Odlazak</th>
             <th className="px-4 py-3">Status</th>
@@ -589,6 +602,9 @@ function SimpleTable({ rows, accent, now, onDelete, deletingId }) {
                   {r.name}
                 </td>
                 <td className="px-4 py-3 text-zinc-700">{r.phone}</td>
+                <td className="px-4 py-3 text-zinc-700">
+                  {r.leaveKey === false ? "Bez ključa" : "Sa ključem"}
+                </td>
                 <td className="px-4 py-3 text-zinc-700">
                   {r.arrivalDate}{" "}
                   {r.arrivalTime ? r.arrivalTime.slice(0, 5) : ""}

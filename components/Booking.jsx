@@ -1,12 +1,15 @@
 "use client";
 
-import { useCallback, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import { useTranslations } from "next-intl";
 import { Sparkles, TrendingDown } from "lucide-react";
 import { computePriceQuote } from "@/lib/pricing";
 
 const inputClass =
   "mt-2 min-h-[48px] w-full rounded-2xl border border-zinc-200 bg-white px-4 text-base text-zinc-900 shadow-sm outline-none transition focus:border-brand-lime focus:ring-2 focus:ring-brand-lime/30 sm:text-sm";
+
+const radioCard =
+  "flex cursor-pointer items-start gap-3 rounded-2xl border border-zinc-200 bg-white px-4 py-3 text-sm font-medium text-zinc-800 shadow-sm transition hover:border-brand-lime has-[:checked]:border-brand-lime has-[:checked]:ring-2 has-[:checked]:ring-brand-lime/25";
 
 export default function Booking() {
   const t = useTranslations("booking");
@@ -17,24 +20,93 @@ export default function Booking() {
   const [arrivalTime, setArrivalTime] = useState("");
   const [departure, setDeparture] = useState("");
   const [departureTime, setDepartureTime] = useState("");
+  /** null dok korisnik ne odabere */
+  const [leaveKey, setLeaveKey] = useState(null);
   const [errors, setErrors] = useState({});
   const [busy, setBusy] = useState(false);
   const [errMsg, setErrMsg] = useState("");
   const [ok, setOk] = useState(false);
+  /** idle | loading | ok | fail */
+  const [capState, setCapState] = useState("idle");
+  const [capFailCode, setCapFailCode] = useState(null);
 
   const quote = useMemo(
     () => computePriceQuote(arrival, arrivalTime, departure, departureTime),
     [arrival, arrivalTime, departure, departureTime]
   );
 
+  const datesIntervalOk = useMemo(() => {
+    if (!arrival || !arrivalTime || !departure || !departureTime) return false;
+    const a = new Date(`${arrival}T${arrivalTime}`);
+    const d = new Date(`${departure}T${departureTime}`);
+    return !Number.isNaN(+a) && !Number.isNaN(+d) && d > a;
+  }, [arrival, arrivalTime, departure, departureTime]);
+
+  useEffect(() => {
+    let cancelled = false;
+
+    if (leaveKey === null || !datesIntervalOk) {
+      setCapState("idle");
+      setCapFailCode(null);
+      return undefined;
+    }
+
+    setCapState("loading");
+    setCapFailCode(null);
+
+    const timer = setTimeout(async () => {
+      try {
+        const qs = new URLSearchParams({
+          arrivalDate: arrival,
+          arrivalTime,
+          departureDate: departure,
+          departureTime,
+          leaveKey: leaveKey ? "true" : "false",
+        });
+        const res = await fetch(`/api/reservations/capacity?${qs}`);
+        const data = res.ok ? await res.json() : {};
+        if (cancelled) return;
+        if (data.ok === true) {
+          setCapState("ok");
+          setCapFailCode(null);
+        } else {
+          setCapState("fail");
+          setCapFailCode(
+            ["CAPACITY_NO_KEY", "CAPACITY_WITH_KEY"].includes(data.code)
+              ? data.code
+              : "CAPACITY_WITH_KEY"
+          );
+        }
+      } catch {
+        if (!cancelled) {
+          setCapState("fail");
+          setCapFailCode("CAPACITY_WITH_KEY");
+        }
+      }
+    }, 420);
+
+    return () => {
+      cancelled = true;
+      clearTimeout(timer);
+    };
+  }, [
+    arrival,
+    arrivalTime,
+    departure,
+    departureTime,
+    leaveKey,
+    datesIntervalOk,
+  ]);
+
   const validate = useCallback(() => {
     const e = {};
     const required = t("errors.required");
     if (!fullName.trim()) e.fullName = required;
     if (!phone.trim()) e.phone = required;
-    if (email.trim()) {
-      const valid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.trim());
-      if (!valid) e.email = t("errors.email");
+    if (leaveKey === null) e.leaveKey = required;
+    if (!email.trim()) e.email = required;
+    else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.trim())) {
+      e.email = t("errors.email");
     }
     if (!arrival) e.arrival = required;
     if (!arrivalTime.trim()) e.arrivalTime = required;
@@ -47,7 +119,17 @@ export default function Booking() {
     }
     setErrors(e);
     return Object.keys(e).length === 0;
-  }, [fullName, phone, email, arrival, arrivalTime, departure, departureTime, t]);
+  }, [
+    fullName,
+    phone,
+    email,
+    arrival,
+    arrivalTime,
+    departure,
+    departureTime,
+    leaveKey,
+    t,
+  ]);
 
   async function onSubmit(ev) {
     ev.preventDefault();
@@ -62,11 +144,12 @@ export default function Booking() {
         body: JSON.stringify({
           name: fullName.trim(),
           phone: phone.trim(),
-          email: email.trim() || null,
+          email: email.trim(),
           arrivalDate: arrival,
           arrivalTime,
           departureDate: departure,
           departureTime,
+          leaveKey,
         }),
       });
       if (!res.ok) {
@@ -74,7 +157,9 @@ export default function Booking() {
         let msg = `Greška ${res.status}`;
         try {
           const data = raw ? JSON.parse(raw) : {};
-          if (data?.error) msg = data.error;
+          if (data?.errorCode) {
+            msg = t(`errors.${data.errorCode}`);
+          } else if (data?.error) msg = data.error;
         } catch {
           if (raw?.trim().slice(0, 1) === "<")
             msg = "Server je vratio grešku. Provjeri Vercel deploy (Blob, env) i pokušaj opet.";
@@ -89,6 +174,9 @@ export default function Booking() {
       setArrivalTime("");
       setDeparture("");
       setDepartureTime("");
+      setLeaveKey(null);
+      setCapState("idle");
+      setCapFailCode(null);
       setErrors({});
     } catch (err) {
       setErrMsg(err?.message || t("errors.submit"));
@@ -168,9 +256,10 @@ export default function Booking() {
                   htmlFor="email"
                   className="text-sm font-medium text-zinc-800"
                 >
-                  {t("labels.email")}{" "}
-                  <span className="font-normal text-zinc-500">
-                    {t("labels.emailOptional")}
+                  {t("labels.email")}
+                  <span className="text-red-600" aria-hidden>
+                    {" "}
+                    *
                   </span>
                 </label>
                 <input
@@ -182,6 +271,8 @@ export default function Booking() {
                   className={inputClass}
                   autoComplete="email"
                   placeholder={t("placeholders.email")}
+                  required
+                  aria-required="true"
                 />
                 {errors.email && (
                   <p className="mt-1 text-sm text-red-600">{errors.email}</p>
@@ -272,6 +363,53 @@ export default function Booking() {
               {errors.dates && (
                 <p className="text-sm text-red-600">{errors.dates}</p>
               )}
+              <fieldset className="space-y-3 border-0 p-0">
+                <legend className="text-sm font-medium text-zinc-800">
+                  {t("labels.leaveKeyGroup")}
+                </legend>
+                <div className="space-y-2">
+                  <label className={radioCard}>
+                    <input
+                      type="radio"
+                      name="leaveKeyOpt"
+                      className="mt-1 h-4 w-4 shrink-0 accent-brand-navy"
+                      checked={leaveKey === true}
+                      onChange={() => setLeaveKey(true)}
+                    />
+                    <span>{t("labels.leaveKeyYes")}</span>
+                  </label>
+                  <label className={radioCard}>
+                    <input
+                      type="radio"
+                      name="leaveKeyOpt"
+                      className="mt-1 h-4 w-4 shrink-0 accent-brand-navy"
+                      checked={leaveKey === false}
+                      onChange={() => setLeaveKey(false)}
+                    />
+                    <span>{t("labels.leaveKeyNo")}</span>
+                  </label>
+                </div>
+                {errors.leaveKey && (
+                  <p className="text-sm text-red-600">{errors.leaveKey}</p>
+                )}
+                {datesIntervalOk && leaveKey !== null && capState === "loading" && (
+                  <p
+                    className="text-sm text-zinc-500"
+                    role="status"
+                    aria-live="polite"
+                  >
+                    {t("errors.capacityChecking")}
+                  </p>
+                )}
+                {datesIntervalOk && leaveKey !== null && capState === "fail" && (
+                  <p className="text-sm text-red-600" role="alert">
+                    {capFailCode === "CAPACITY_NO_KEY" ||
+                    capFailCode === "CAPACITY_WITH_KEY"
+                      ? t(`errors.${capFailCode}`)
+                      : t("errors.capacityBlocked")}
+                  </p>
+                )}
+              </fieldset>
               {quote && (
                 <div
                   role="status"
@@ -347,7 +485,12 @@ export default function Booking() {
               )}
               <button
                 type="submit"
-                disabled={busy}
+                disabled={
+                  busy ||
+                  (datesIntervalOk &&
+                    leaveKey !== null &&
+                    capState !== "ok")
+                }
                 className="flex min-h-[52px] w-full items-center justify-center rounded-2xl bg-brand-lime text-base font-extrabold uppercase tracking-wide text-brand-navy shadow-lg shadow-brand-lime/25 ring-1 ring-brand-lime/40 transition duration-200 hover:scale-[1.01] hover:bg-brand-lime-300 hover:shadow-brand-lime/40 active:scale-[0.99] disabled:opacity-60 disabled:hover:scale-100 motion-reduce:transition-none motion-reduce:hover:scale-100"
               >
                 {busy ? t("submitting") : t("submit")}

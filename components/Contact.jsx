@@ -62,7 +62,9 @@ export default function Contact() {
               />
               <address className="not-italic font-medium text-zinc-900">
                 {SITE.addressShort}
-                <div className="text-xs text-zinc-500">{tSite("addressNote")}</div>
+                <span className="mt-1 block text-xs text-zinc-500">
+                  {tSite("addressNote")}
+                </span>
               </address>
             </li>
             <li className="flex items-start gap-3">

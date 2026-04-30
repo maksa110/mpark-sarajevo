@@ -1,7 +1,9 @@
+"use client";
+
 import Image from "next/image";
 import { Mail, MapPin, Phone } from "lucide-react";
 import { useTranslations } from "next-intl";
-import { SITE } from "@/lib/site";
+import { SITE, calendarYearSarajevo } from "@/lib/site";
 import Reveal from "@/components/Reveal";
 
 const NAV = [
@@ -18,7 +20,7 @@ const NAV = [
 export default function SiteFooter() {
   const t = useTranslations("footer");
   const tSite = useTranslations("site");
-  const year = new Date().getFullYear();
+  const year = calendarYearSarajevo();
 
   return (
     <footer className="border-t border-white/5 bg-brand-navy-950 text-zinc-300">
@@ -109,9 +111,9 @@ export default function SiteFooter() {
                 />
                 <address className="not-italic leading-snug text-zinc-300">
                   {SITE.addressShort}
-                  <div className="text-xs text-zinc-400">
+                  <span className="mt-1 block text-xs text-zinc-400">
                     {tSite("addressNote")}
-                  </div>
+                  </span>
                 </address>
               </li>
             </ul>

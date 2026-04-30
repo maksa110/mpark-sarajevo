@@ -62,16 +62,18 @@
   "booking": {
     "h2": "Rezervacija parkinga",
     "lead": "Rezervacija isključivo putem ove forme — ne šaljemo termine preko WhatsAppa. Cijena: 9 KM/dan (1–3 dana), 8 KM/dan (4–6 dana), 7 KM/dan (7+ dana). Unesite podatke i datume putovanja. Prenoćište je moguće uz prethodni dogovor — navedite kada vas tim kontaktira radi potvrde.",
-    "success": "Hvala! Rezervacija je zaprimljena. Uskoro vas kontaktiramo s potvrdom.",
+    "success": "Hvala! Rezervacija je zaprimljena. Poslali smo potvrdu na vašu email adresu. Uskoro vas možemo kontaktirati radi dodatnih informacija.",
     "labels": {
       "fullName": "Ime i prezime",
       "phone": "Broj telefona",
       "email": "Email",
-      "emailOptional": "(opciono)",
       "arrivalDate": "Datum dolaska",
       "arrivalTime": "Vrijeme dolaska",
       "departureDate": "Datum odlaska",
-      "departureTime": "Vrijeme odlaska"
+      "departureTime": "Vrijeme odlaska",
+      "leaveKeyGroup": "Ostavljanje ključa",
+      "leaveKeyYes": "Ostavljam ključ",
+      "leaveKeyNo": "Ne ostavljam ključ"
     },
     "placeholders": {
       "email": "vas@email.com"
@@ -79,8 +81,15 @@
     "errors": {
       "required": "Obavezno polje.",
       "email": "Unesite ispravnu email adresu.",
+      "EMAIL_REQUIRED": "Email je obavezan.",
+      "EMAIL_INVALID": "Unesite ispravan format email adrese.",
       "datesOrder": "Datum i vrijeme odlaska mora biti nakon dolaska.",
-      "submit": "Slanje nije uspjelo. Pokušajte ponovo ili nas pozovite."
+      "submit": "Slanje nije uspjelo. Pokušajte ponovo ili nas pozovite.",
+      "LEAVE_KEY_REQUIRED": "Odaberite jednu opciju za ostavljanje ključa.",
+      "CAPACITY_NO_KEY": "Nema dostupnih mjesta bez ostavljanja ključa za odabrani termin.",
+      "CAPACITY_WITH_KEY": "Nema dostupnih mjesta sa ostavljanjem ključa za odabrani termin (parking je popunjen za jedan ili više dana u terminu).",
+      "capacityChecking": "Provjeravamo dostupnost mjesta…",
+      "capacityBlocked": "Nema slobodnih mjesta za ovaj termin — promijenite datume ili opciju ključa."
     },
     "submit": "Pošalji rezervaciju",
     "submitting": "Šaljem…",

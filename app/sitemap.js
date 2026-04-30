@@ -1,9 +1,11 @@
-import { SITE } from "@/lib/site";
+import { getRequestSiteOrigin } from "@/lib/request-site-origin";
 import { routing } from "@/i18n/routing";
 
-export default function sitemap() {
+export const dynamic = "force-dynamic";
+
+export default async function sitemap() {
   const lastModified = new Date();
-  const base = SITE.url.replace(/\/$/, "");
+  const base = await getRequestSiteOrigin();
 
   const languageUrls = Object.fromEntries(
     routing.locales.map((l) => [l, `${base}/${l}`])

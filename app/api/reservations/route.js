@@ -8,6 +8,12 @@ import {
   parseSessionToken,
 } from "@/lib/auth";
 import { insertReservation, listReservations } from "@/lib/db";
+import { checkReservationCapacity } from "@/lib/parking-capacity";
+import {
+  sendGuestReservationConfirmation,
+  sendReservationEmailNotification,
+} from "@/lib/send-reservation-email";
+import { waitUntil } from "@vercel/functions";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -25,6 +31,13 @@ function validateDates(arrivalDate, arrivalTime, departureDate, departureTime) {
     return "Neispravni datumi ili vremena.";
   if (d <= a) return "Datum i vrijeme odlaska mora biti nakon dolaska.";
   return null;
+}
+
+function parseLeaveKey(raw) {
+  if (raw === true || raw === false) return raw;
+  if (raw === "true") return true;
+  if (raw === "false") return false;
+  return undefined;
 }
 
 export async function POST(request) {
@@ -57,7 +70,16 @@ async function postReservation(request) {
     arrivalTime,
     departureDate,
     departureTime,
+    leaveKey: leaveKeyRaw,
   } = body || {};
+
+  const leaveKey = parseLeaveKey(leaveKeyRaw);
+  if (leaveKey === undefined) {
+    return NextResponse.json(
+      { errorCode: "LEAVE_KEY_REQUIRED", error: "Odaberite opciju ostavljanja ključa." },
+      { status: 400 }
+    );
+  }
 
   if (!name?.trim() || !phone?.trim()) {
     return NextResponse.json(
@@ -65,6 +87,28 @@ async function postReservation(request) {
       { status: 400 }
     );
   }
+
+  const emailTrimmed =
+    email != null && String(email).trim() ? String(email).trim() : "";
+  if (!emailTrimmed) {
+    return NextResponse.json(
+      {
+        errorCode: "EMAIL_REQUIRED",
+        error: "Email je obavezan.",
+      },
+      { status: 400 }
+    );
+  }
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailTrimmed)) {
+    return NextResponse.json(
+      {
+        errorCode: "EMAIL_INVALID",
+        error: "Neispravan email.",
+      },
+      { status: 400 }
+    );
+  }
+
   const dateErr = validateDates(
     arrivalDate,
     arrivalTime,
@@ -73,27 +117,42 @@ async function postReservation(request) {
   );
   if (dateErr) return NextResponse.json({ error: dateErr }, { status: 400 });
 
-  if (email != null && String(email).trim()) {
-    const em = String(email).trim();
-    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(em)) {
-      return NextResponse.json({ error: "Neispravan email." }, { status: 400 });
-    }
-  }
-
   const id = nanoid();
   const createdAt = new Date().toISOString();
   const reservation = {
     id,
     name: String(name).trim(),
     phone: String(phone).trim(),
-    email:
-      email != null && String(email).trim() ? String(email).trim() : null,
+    email: emailTrimmed,
     arrivalDate: String(arrivalDate).slice(0, 10),
     arrivalTime: String(arrivalTime).slice(0, 5),
     departureDate: String(departureDate).slice(0, 10),
     departureTime: String(departureTime).slice(0, 5),
+    leaveKey,
     createdAt,
   };
+
+  let existingRows;
+  try {
+    existingRows = await listReservations({ search: "" });
+  } catch (e) {
+    console.error("listReservations (capacity check):", e);
+    if (e?.code === "VERCEL_BLOB_REQUIRED" || e?.message === "VERCEL_BLOB_REQUIRED") {
+      return NextResponse.json(
+        {
+          error:
+            "Pohrana nije postavljena. U Vercel: Storage → kreiraj Blob za ovaj projekat, zatim Redeploy (env BLOB_READ_WRITE_TOKEN).",
+        },
+        { status: 503 }
+      );
+    }
+    return NextResponse.json({ error: "Provjera kapaciteta nije uspjela." }, { status: 500 });
+  }
+
+  const cap = checkReservationCapacity(existingRows, reservation);
+  if (!cap.ok) {
+    return NextResponse.json({ errorCode: cap.code }, { status: 409 });
+  }
 
   try {
     await insertReservation(reservation);
@@ -116,6 +175,9 @@ async function postReservation(request) {
       { status: 500 }
     );
   }
+
+  waitUntil(sendReservationEmailNotification(reservation));
+  waitUntil(sendGuestReservationConfirmation(reservation));
 
   return NextResponse.json(reservation, { status: 201 });
 }
