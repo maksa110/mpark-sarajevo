@@ -5,7 +5,7 @@ import Reveal from "@/components/Reveal";
 const IMAGES = [
   {
     key: "zone",
-    src: "https://images.unsplash.com/photo-1506521781263-d8422e82f27a?w=1200&q=80&auto=format&fit=crop",
+    src: "/gallery-zone.png",
   },
   {
     key: "fenced",
