@@ -4,13 +4,13 @@ import { routing } from "./i18n/routing";
 
 const intlMiddleware = createMiddleware(routing);
 
-/** Samo *.vercel.app (production): kanonski URL je apex u lib/site.js. */
-const PRIMARY_HOST = "mpark-sarajevo.com";
+/** Samo *.vercel.app (production) → isti host kao u vercel.json / SITE.url. */
+const PRIMARY_HOST = "www.mpark-sarajevo.com";
 
 export default function middleware(request) {
   const host = request.headers.get("host")?.split(":")[0]?.toLowerCase() ?? "";
 
-  // www → apex radi Vercel `vercel.json` (edge) da ne dupliramo i da izbjegnemo sukobe s Domain podešavanjima.
+  // Apex → www radi Vercel `vercel.json`; ovdje samo deployment host.
   if (
     host.endsWith(".vercel.app") &&
     process.env.VERCEL_ENV === "production"
