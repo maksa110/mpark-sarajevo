@@ -1,7 +1,33 @@
+import { NextResponse } from "next/server";
 import createMiddleware from "next-intl/middleware";
 import { routing } from "./i18n/routing";
 
-export default createMiddleware(routing);
+const intlMiddleware = createMiddleware(routing);
+
+/** Jedan kanonski host u indeksu (apex); deployment URL ne smije biti paralelna verzija sajta. */
+const PRIMARY_HOST = "mpark-sarajevo.com";
+
+export default function middleware(request) {
+  const host = request.headers.get("host")?.split(":")[0]?.toLowerCase() ?? "";
+
+  if (host && host !== PRIMARY_HOST) {
+    if (host === "www.mpark-sarajevo.com") {
+      const url = request.nextUrl.clone();
+      url.hostname = PRIMARY_HOST;
+      url.protocol = "https:";
+      return NextResponse.redirect(url, 301);
+    }
+
+    if (host.endsWith(".vercel.app") && process.env.VERCEL_ENV === "production") {
+      const url = request.nextUrl.clone();
+      url.hostname = PRIMARY_HOST;
+      url.protocol = "https:";
+      return NextResponse.redirect(url, 301);
+    }
+  }
+
+  return intlMiddleware(request);
+}
 
 export const config = {
   // Match all paths except /api, /admin (legacy), Next internals,

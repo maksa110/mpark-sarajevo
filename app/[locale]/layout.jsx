@@ -1,9 +1,16 @@
 import "../globals.css";
+import { Montserrat } from "next/font/google";
 import { notFound } from "next/navigation";
 import { hasLocale, NextIntlClientProvider } from "next-intl";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { routing, localeMeta } from "@/i18n/routing";
 import { SITE } from "@/lib/site";
+
+const montserrat = Montserrat({
+  subsets: ["latin", "latin-ext"],
+  display: "swap",
+  variable: "--font-montserrat",
+});
 
 export const dynamic = "force-dynamic";
 
@@ -18,16 +25,17 @@ export async function generateMetadata({ params }) {
   const t = await getTranslations({ locale, namespace: "metadata" });
   const meta = localeMeta[locale];
 
-  // Build hreflang languages map for SEO (each locale + x-default)
-  const languages = Object.fromEntries(
-    routing.locales.map((l) => [l, `/${l}`])
-  );
-  languages["x-default"] = `/${routing.defaultLocale}`;
-
   const title = t("title");
   const description = t("description");
 
   const kw = t.raw("keywords");
+  const origin = SITE.url.replace(/\/$/, "");
+
+  const languages = Object.fromEntries(
+    routing.locales.map((l) => [l, `${origin}/${l}`])
+  );
+  languages["x-default"] = `${origin}/${routing.defaultLocale}`;
+
   return {
     metadataBase: new URL(SITE.url),
     // Cijeli naslov u <title> (bez templatea — izbjegava se \"segment | marka\" u tabu)
@@ -40,7 +48,7 @@ export async function generateMetadata({ params }) {
     publisher: SITE.brand,
     category: "Parking",
     alternates: {
-      canonical: `/${locale}`,
+      canonical: `${origin}/${locale}`,
       languages,
     },
     robots: {
@@ -117,7 +125,7 @@ export default async function LocaleLayout({ children, params }) {
   const meta = localeMeta[locale];
 
   return (
-    <html lang={meta.htmlLang}>
+    <html lang={meta.htmlLang} className={montserrat.variable}>
       <head>
         {/* Without JS, force scroll-reveal placeholders to be visible.
             Guarantees crawlers/AT/no-JS users see all content. */}
@@ -125,7 +133,7 @@ export default async function LocaleLayout({ children, params }) {
           <style>{`.reveal{opacity:1!important;transform:none!important;transition:none!important;}`}</style>
         </noscript>
       </head>
-      <body className="min-h-screen bg-zinc-50 text-zinc-900 antialiased">
+      <body className="min-h-screen bg-zinc-50 font-sans text-zinc-900 antialiased">
         <NextIntlClientProvider>{children}</NextIntlClientProvider>
       </body>
     </html>
