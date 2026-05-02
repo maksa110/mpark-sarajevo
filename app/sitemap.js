@@ -1,7 +1,7 @@
 import { SITE } from "@/lib/site";
 import { routing } from "@/i18n/routing";
 
-/** Kanonski origin — mora odgovarati NEXT_PUBLIC_SITE_URL (www). */
+/** Kanonski origin — mora odgovarati NEXT_PUBLIC_SITE_URL (apex). */
 const base = SITE.url.replace(/\/$/, "");
 
 export default function sitemap() {
