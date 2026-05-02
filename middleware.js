@@ -4,28 +4,20 @@ import { routing } from "./i18n/routing";
 
 const intlMiddleware = createMiddleware(routing);
 
-/** Kanonski host (apex); deployment i www ne smiju biti paralelna „kopija“ sajta. */
-const PRIMARY_HOST = "mpark-sarajevo.com";
+/** Production deployment URL → www (isti kanon kao vercel.json — nikad www→apex dok je www Primary na Vercelu). */
+const PRIMARY_HOST = "www.mpark-sarajevo.com";
 
 export default function middleware(request) {
   const host = request.headers.get("host")?.split(":")[0]?.toLowerCase() ?? "";
 
-  if (host && host !== PRIMARY_HOST) {
-    if (host === "www.mpark-sarajevo.com") {
-      const url = request.nextUrl.clone();
-      url.hostname = PRIMARY_HOST;
-      url.protocol = "https:";
-      return NextResponse.redirect(url, 301);
-    }
-    if (
-      host.endsWith(".vercel.app") &&
-      process.env.VERCEL_ENV === "production"
-    ) {
-      const url = request.nextUrl.clone();
-      url.hostname = PRIMARY_HOST;
-      url.protocol = "https:";
-      return NextResponse.redirect(url, 301);
-    }
+  if (
+    host.endsWith(".vercel.app") &&
+    process.env.VERCEL_ENV === "production"
+  ) {
+    const url = request.nextUrl.clone();
+    url.hostname = PRIMARY_HOST;
+    url.protocol = "https:";
+    return NextResponse.redirect(url, 301);
   }
 
   return intlMiddleware(request);

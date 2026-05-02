@@ -9,18 +9,7 @@
           "value": "mpark-sarajevo.vercel.app"
         }
       ],
-      "destination": "https://mpark-sarajevo.com/:path*",
-      "permanent": true
-    },
-    {
-      "source": "/:path*",
-      "has": [
-        {
-          "type": "host",
-          "value": "www.mpark-sarajevo.com"
-        }
-      ],
-      "destination": "https://mpark-sarajevo.com/:path*",
+      "destination": "https://www.mpark-sarajevo.com/:path*",
       "permanent": true
     }
   ]
