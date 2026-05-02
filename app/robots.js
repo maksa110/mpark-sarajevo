@@ -1,9 +1,9 @@
-import { getRequestSiteOrigin } from "@/lib/request-site-origin";
+import { SITE } from "@/lib/site";
 
-export const dynamic = "force-dynamic";
+/** Kanonski origin (NEXT_PUBLIC_SITE_URL) — bez oslanjanja na Host zahtjeva (SEO). */
+const base = SITE.url.replace(/\/$/, "");
 
-export default async function robots() {
-  const base = await getRequestSiteOrigin();
+export default function robots() {
   return {
     rules: [
       {

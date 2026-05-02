@@ -42,6 +42,10 @@ const nextConfig = {
       {
         source: "/((?!_next|_vercel|api|favicon|robots|sitemap|.*\\..*).*)",
         headers: [
+          {
+            key: "Cache-Control",
+            value: "private, no-store, must-revalidate",
+          },
           { key: "X-Content-Type-Options", value: "nosniff" },
           { key: "Referrer-Policy", value: "strict-origin-when-cross-origin" },
           { key: "X-Frame-Options", value: "SAMEORIGIN" },

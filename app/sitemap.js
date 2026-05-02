@@ -1,16 +1,15 @@
-import { getRequestSiteOrigin } from "@/lib/request-site-origin";
+import { SITE } from "@/lib/site";
 import { routing } from "@/i18n/routing";
 
-export const dynamic = "force-dynamic";
+/** Kanonski origin — mora odgovarati NEXT_PUBLIC_SITE_URL (npr. www). */
+const base = SITE.url.replace(/\/$/, "");
 
-export default async function sitemap() {
+export default function sitemap() {
   const lastModified = new Date();
-  const base = await getRequestSiteOrigin();
 
   const languageUrls = Object.fromEntries(
     routing.locales.map((l) => [l, `${base}/${l}`])
   );
-  // Google preporučuje x-default (obično glavna verzija / default locale).
   const languages = {
     ...languageUrls,
     "x-default": `${base}/${routing.defaultLocale}`,

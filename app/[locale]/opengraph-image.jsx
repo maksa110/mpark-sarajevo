@@ -9,7 +9,13 @@ export const alt = "M Park Sarajevo – Privatni parking blizu Aerodroma Sarajev
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
-const LOGO_DATA_URL = `data:image/png;base64,${readFileSync(join(process.cwd(), "public", "logo.png")).toString("base64")}`;
+/** `logo.png` nije uvijek u repou; `favicon.svg` je dostupan pa OG ne puše 500 na deployu. */
+function publicSvgToDataUri(filename) {
+  const svg = readFileSync(join(process.cwd(), "public", filename), "utf8");
+  return `data:image/svg+xml;charset=utf-8,${encodeURIComponent(svg)}`;
+}
+
+const LOGO_DATA_URL = publicSvgToDataUri("favicon.svg");
 
 const PRICE_BY_LOCALE = {
   bs: { value: "9 KM", per: "po danu" },
