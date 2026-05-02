@@ -1,5 +1,3 @@
-import { readFileSync } from "node:fs";
-import { join } from "node:path";
 import { ImageResponse } from "next/og";
 import { hasLocale } from "next-intl";
 import { routing } from "@/i18n/routing";
@@ -9,13 +7,22 @@ export const alt = "M Park Sarajevo – Privatni parking blizu Aerodroma Sarajev
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
-/** `logo.png` nije uvijek u repou; `favicon.svg` je dostupan pa OG ne puše 500 na deployu. */
-function publicSvgToDataUri(filename) {
-  const svg = readFileSync(join(process.cwd(), "public", filename), "utf8");
-  return `data:image/svg+xml;charset=utf-8,${encodeURIComponent(svg)}`;
-}
+/**
+ * Ugrađen SVG umjesto readFile(public/...) — na Vercelu serverless bundle često nema
+ * `/var/task/public/`, pa ENOENT za favicon.svg ruši OG (500) i uzrokuje RSC greške u browseru.
+ * Isti vizuel kao `public/favicon.svg`; pri mijeni znaka držati oba na istom izgledu.
+ */
+const OG_LOGO_SVG = `
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <rect width="64" height="64" rx="14" fill="#0B1A2E"/>
+  <path d="M32 12c-9.4 0-17 7.4-17 16.5 0 11.7 17 23.5 17 23.5s17-11.8 17-23.5C49 19.4 41.4 12 32 12z" fill="#9DEF3F"/>
+  <circle cx="32" cy="28.5" r="6.5" fill="#0B1A2E"/>
+  <circle cx="32" cy="28.5" r="2" fill="#9DEF3F"/>
+</svg>`;
 
-const LOGO_DATA_URL = publicSvgToDataUri("favicon.svg");
+const LOGO_DATA_URL = `data:image/svg+xml;charset=utf-8,${encodeURIComponent(
+  OG_LOGO_SVG.trim()
+)}`;
 
 const PRICE_BY_LOCALE = {
   bs: { value: "9 KM", per: "po danu" },
