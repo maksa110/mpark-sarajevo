@@ -44,7 +44,7 @@ const nextConfig = {
         headers: [
           {
             key: "Cache-Control",
-            value: "private, no-store, must-revalidate",
+            value: "private, max-age=0, must-revalidate",
           },
           { key: "X-Content-Type-Options", value: "nosniff" },
           { key: "Referrer-Policy", value: "strict-origin-when-cross-origin" },

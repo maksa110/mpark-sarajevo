@@ -28,6 +28,16 @@ export default async function HomePage({ params }) {
   const tPricing = await getTranslations("pricing");
 
   const googleData = await getGoogleReviews();
+  const aggNum = Number(googleData?.aggregateRating);
+  const aggTotal =
+    typeof googleData?.userRatingsTotal === "number"
+      ? googleData.userRatingsTotal
+      : Number(googleData?.userRatingsTotal);
+  const hasStructuredAggregateRating =
+    googleData != null &&
+    Number.isFinite(aggNum) &&
+    Number.isFinite(aggTotal);
+
   const rawFaq = tFaq.raw("items");
   const faqItems = Array.isArray(rawFaq) ? rawFaq : [];
   const rawKeywords = tMeta.raw("keywords");
@@ -129,12 +139,12 @@ export default async function HomePage({ params }) {
       description: tMeta("description"),
     },
     inLanguage: locale,
-    ...(googleData?.aggregateRating != null && googleData.userRatingsTotal
+    ...(hasStructuredAggregateRating
       ? {
           aggregateRating: {
             "@type": "AggregateRating",
-            ratingValue: Number(googleData.aggregateRating).toFixed(1),
-            reviewCount: googleData.userRatingsTotal,
+            ratingValue: aggNum.toFixed(1),
+            reviewCount: Math.trunc(aggTotal),
             bestRating: 5,
             worstRating: 1,
           },
