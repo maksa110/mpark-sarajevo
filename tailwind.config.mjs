@@ -43,8 +43,10 @@ const config = {
         "scale-in": "scaleIn 0.6s cubic-bezier(0.21, 0.61, 0.35, 1) both",
       },
       keyframes: {
+        // Počinjemo s opacity 1 jer headless crawleri/screenshotovi (npr. GSC Live Test)
+        // ponekad uhvate prvi kadar dok je još 0 i stranica izgleda "prazna".
         fadeUp: {
-          "0%": { opacity: "0", transform: "translate3d(0, 18px, 0)" },
+          "0%": { opacity: "1", transform: "translate3d(0, 14px, 0)" },
           "100%": { opacity: "1", transform: "translate3d(0, 0, 0)" },
         },
         fadeIn: {

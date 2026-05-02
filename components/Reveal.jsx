@@ -27,6 +27,14 @@ export default function Reveal({
   const [shown, setShown] = useState(false);
 
   useEffect(() => {
+    // Ako IO ne pali (viewport/headless timing), svejedno prikaži sadržaj — GSC screenshot.
+    const failSafe = window.setTimeout(() => {
+      setShown(true);
+    }, 750);
+    return () => clearTimeout(failSafe);
+  }, []);
+
+  useEffect(() => {
     const el = ref.current;
     if (!el) return;
 
