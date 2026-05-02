@@ -5,6 +5,7 @@ import { hasLocale, NextIntlClientProvider } from "next-intl";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { routing, localeMeta } from "@/i18n/routing";
 import { SITE } from "@/lib/site";
+import GoogleAnalytics from "@/components/GoogleAnalytics";
 
 const montserrat = Montserrat({
   subsets: ["latin", "latin-ext"],
@@ -134,6 +135,7 @@ export default async function LocaleLayout({ children, params }) {
         </noscript>
       </head>
       <body className="min-h-screen bg-zinc-50 font-sans text-zinc-900 antialiased">
+        <GoogleAnalytics />
         <NextIntlClientProvider>{children}</NextIntlClientProvider>
       </body>
     </html>
