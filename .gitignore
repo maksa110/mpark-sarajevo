@@ -26,3 +26,4 @@ dist
 
 # Local data (file-based JSON DB; do not commit reservations)
 data/reservations.json
+.vercel

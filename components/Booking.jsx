@@ -1,9 +1,10 @@
 "use client";
 
-import { useCallback, useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useState, startTransition } from "react";
 import { useTranslations } from "next-intl";
 import { Sparkles, TrendingDown } from "lucide-react";
 import { computePriceQuote } from "@/lib/pricing";
+import { SITE } from "@/lib/site";
 
 const inputClass =
   "mt-2 min-h-[48px] w-full rounded-2xl border border-zinc-200 bg-white px-4 text-base text-zinc-900 shadow-sm outline-none transition focus:border-brand-lime focus:ring-2 focus:ring-brand-lime/30 sm:text-sm";
@@ -131,6 +132,18 @@ export default function Booking() {
     t,
   ]);
 
+  const googleReviewUrl =
+    typeof process.env.NEXT_PUBLIC_GOOGLE_REVIEW_URL === "string"
+      ? process.env.NEXT_PUBLIC_GOOGLE_REVIEW_URL.trim()
+      : "";
+
+  const whatsAppHref = useMemo(() => {
+    const body = googleReviewUrl
+      ? `${t("whatsappReviewMessage")}\n${googleReviewUrl}`
+      : t("whatsappReviewMessageNoLink");
+    return `https://wa.me/${SITE.whatsapp}?text=${encodeURIComponent(body)}`;
+  }, [googleReviewUrl, t]);
+
   async function onSubmit(ev) {
     ev.preventDefault();
     setErrMsg("");
@@ -166,18 +179,20 @@ export default function Booking() {
         }
         throw new Error(msg);
       }
-      setOk(true);
-      setFullName("");
-      setPhone("");
-      setEmail("");
-      setArrival("");
-      setArrivalTime("");
-      setDeparture("");
-      setDepartureTime("");
-      setLeaveKey(null);
-      setCapState("idle");
-      setCapFailCode(null);
-      setErrors({});
+      startTransition(() => {
+        setOk(true);
+        setFullName("");
+        setPhone("");
+        setEmail("");
+        setArrival("");
+        setArrivalTime("");
+        setDeparture("");
+        setDepartureTime("");
+        setLeaveKey(null);
+        setCapState("idle");
+        setCapFailCode(null);
+        setErrors({});
+      });
     } catch (err) {
       setErrMsg(err?.message || t("errors.submit"));
     } finally {
@@ -204,12 +219,35 @@ export default function Booking() {
         <div className="mx-auto mt-10 max-w-lg">
           <div className="rounded-2xl border border-zinc-200 bg-white p-6 shadow-sm sm:p-8">
             {ok && (
-              <p
-                className="mb-5 rounded-2xl border border-lime-200 bg-lime-50 px-4 py-3 text-sm font-medium text-lime-900"
+              <div
+                className="mb-5 space-y-4 rounded-2xl border border-lime-200 bg-lime-50 px-4 py-4 text-sm text-lime-950"
                 role="status"
               >
-                {t("success")}
-              </p>
+                <p className="font-medium">{t("success")}</p>
+                <p className="leading-relaxed text-lime-900/90">
+                  {t("reviewHint")}
+                </p>
+                <div className="flex flex-col gap-2 sm:flex-row sm:flex-wrap">
+                  {googleReviewUrl ? (
+                    <a
+                      href={googleReviewUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex min-h-[44px] items-center justify-center rounded-xl bg-white px-4 text-sm font-semibold text-brand-navy ring-1 ring-lime-300/80 transition hover:bg-lime-100"
+                    >
+                      {t("reviewCta")}
+                    </a>
+                  ) : null}
+                  <a
+                    href={whatsAppHref}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex min-h-[44px] items-center justify-center rounded-xl bg-brand-navy px-4 text-sm font-semibold text-white ring-1 ring-brand-navy/30 transition hover:bg-brand-navy/90"
+                  >
+                    {t("whatsappReviewCta")}
+                  </a>
+                </div>
+              </div>
             )}
             <form className="space-y-5" onSubmit={onSubmit} noValidate>
               <div>

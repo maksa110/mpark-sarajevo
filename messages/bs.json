@@ -20,7 +20,11 @@
     "skipToBooking": "Preskoči na rezervaciju",
     "currency": "KM",
     "perDay": "po danu",
-    "openInNewTab": "(otvara se u novom prozoru)"
+    "openInNewTab": "(otvara se u novom prozoru)",
+    "breadcrumbHome": "Početna"
+  },
+  "seoTopicNav": {
+    "ariaLabel": "Brzi vodiči za privatni parking kod Aerodroma Sarajevo"
   },
   "header": {
     "logoAria": "M Park Sarajevo - početna",
@@ -63,6 +67,11 @@
     "h2": "Rezervacija parkinga",
     "lead": "Rezervacija isključivo putem ove forme — ne šaljemo termine preko WhatsAppa. Cijena: 9 KM/dan (1–3 dana), 8 KM/dan (4–6 dana), 7 KM/dan (7+ dana). Unesite podatke i datume putovanja. Prenoćište je moguće uz prethodni dogovor — navedite kada vas tim kontaktira radi potvrde.",
     "success": "Hvala! Rezervacija je zaprimljena. Poslali smo potvrdu na vašu email adresu. Uskoro vas možemo kontaktirati radi dodatnih informacija.",
+    "reviewHint": "Ako Vam je sve bilo u redu, kratka Google recenzija pomaže još putnika da pronađu siguran parking kod Aerodroma Sarajevo.",
+    "reviewCta": "Ostavite recenziju na Google-u",
+    "whatsappReviewCta": "Poruka zahvale (WhatsApp)",
+    "whatsappReviewMessage": "Pozdrav, upravo sam poslao/la online rezervaciju za M Park Sarajevo (privatni parking kod Aerodroma Sarajevo). Ako želite, ostavite kratku Google recenziju:",
+    "whatsappReviewMessageNoLink": "Pozdrav, upravo sam poslao/la online rezervaciju za M Park Sarajevo. Hvala i ugodan put!",
     "labels": {
       "fullName": "Ime i prezime",
       "phone": "Broj telefona",
@@ -276,6 +285,8 @@
     "contactHeading": "Kontakt",
     "rights": "Sva prava zadržana.",
     "ctaShort": "Rezerviši parking",
+    "brandSubtitle": "Privatni parking · Aerodrom Sarajevo",
+    "guidesHeading": "Vodiči",
     "nav": {
       "home": "Početak",
       "services": "Usluge",
@@ -285,10 +296,298 @@
       "gallery": "Galerija",
       "contact": "Kontakt",
       "book": "Rezervacija"
+    },
+    "guides": {
+      "prices": "Cijene parkinga kod aerodroma",
+      "transfer": "Transfer do Aerodroma Sarajevo",
+      "vsPublic": "Privatni vs javni parking",
+      "reservation": "Online rezervacija"
     }
   },
   "stickyCta": {
     "regionLabel": "Brza rezervacija",
     "label": "Rezerviši parking"
+  },
+  "seoParkingPrices": {
+    "metaTitle": "Parking Aerodrom Sarajevo – cijene i tarife | M Park Sarajevo",
+    "metaDescription": "Transparentne cijene privatnog parkinga kod Aerodroma Sarajevo: tarife po danu, šta je uključeno u cijenu i kako rezervisati online.",
+    "metaKeywords": [
+      "parking aerodrom sarajevo cijena",
+      "koliko košta parking kod aerodroma sarajevo",
+      "privatni parking sarajevo cijene",
+      "parking za putnike sarajevo"
+    ],
+    "kicker": "M Park Sarajevo · privatni parking blizu Aerodroma Sarajevo",
+    "h1": "Parking kod Aerodroma Sarajevo – cijene, tarife i šta dobijate uz rezervaciju",
+    "intro": [
+      "Kada tražite parking Aerodrom Sarajevo, prvo što želite znati je jasan trošak: koliko košta dan boravka i da li postoje skriveni dugovi nakon povratka s puta. M Park Sarajevo nudi privatni parking blizu Aerodroma Sarajevo uz transparentne tarife po danu, tako da unaprijed znate koliko plaćate i koliko dugo može trajati akumulacija cijene na duže putovanje.",
+      "Na ovoj stranici objašnjavamo našu strukturu tarifa za parking za putnike Sarajevo, šta je uključeno u istu cijenu i zašto je privatni parking često mirniji izbor od improvisacije na licu mjesta. Ključne fraze koje ljudi najčešće koriste — parking aerodrom sarajevo cijena, privatni parking sarajevo cijene i parking kod aerodroma sarajevo — sve vodimo ka jednom istom cilju: da znate tačno šta plaćate prije nego što zaključate vozilo.",
+      "Rezervacija je važan dio planiranja jer aerodromsko okruženje u špicama može biti stresno: gužva, nedostatak mjesta i nejasna pravila javnog parkinga podstiču ljude da ranije nađu pouzdan parking aerodrom sarajevo gdje je adresni dolazak i organizacija ulaska dogovoreni unaprijed."
+    ],
+    "sections": [
+      {
+        "h2": "Kako čitati tarife privatnog parkinga kod Aerodroma Sarajevo",
+        "paragraphs": [
+          "Većina putnika sagledava parking kao „trošak leta“, ali je zapravo sigurnosna i logistička odluka: dok ste u avionu ili na putovanju, vaše vozilo treba biti na mjestu gdje je kontrolisan pristup i gdje znate ko odgovara za prostor. Kod nas je cijena vezana za broj dana boravka — što je boravak kraći, dnevna jedinica je drugačija nego kod dugih putovanja, dok kod dužih boravaka ispadne povoljnije po danu jer nagradimo duže povjerenje.",
+          "Također je bitno razumjeti šta je uračunato: kod M Park Sarajevo u cijenu ulazi video nadzor i besplatan transfer do Aerodroma Sarajevo kako biste stigli na let bez paničnog traženja dodatnog parkinga pred terminalom. To je razlika u odnosu na sitacije gdje plaćate samo „mjesto“, a prevoz i sigurnost dolaze kao dodatak.",
+          "Za SEO potrage tipa parking sarajevo aerodrom privatni korisnici često žele jednostavnu listu cijena — na početnoj stranici sajt tačno prikazuje tarifne opsege i procjenu na formi. Ovdje naglašavamo smisao tarifa i šta donosi svaki korak kako biste lakše uporedili ponudu i donijeli odluku bez žurbe."
+        ]
+      },
+      {
+        "h2": "Parking aerodrom sarajevo cijena: šta utiče na krajnji račun",
+        "paragraphs": [
+          "Dužina boravka je primarni faktor: kraći boravci imaju drugačiju jediničnu cijenu po danu od dugih, što je standardna logika kod privatnog parkinga koji nagradi duže rezervacije. Važno je unijeti tačne datume i vremena u rezervacionoj formi jer se cijena računa po kalendarskim intervalima dolaska i odlaska — dvosmislena polja često stvaraju nesporazume kod svih parking ponuda u gradu.",
+          "Drugi faktor je dostupnost mjesta i opcija ostavljanja ključa: kod nas je dio procesa jasno definisan jer kapacitet mora biti uvijek pod kontrolom za aerodromski parking koji prima putnike u različitim terminima.",
+          "Treći faktor je usluga uz sam prostor: nadzor, organizacija dolaska i transfer prema Aerodromu Sarajevo dodaju vrijednost koja se na javnim površinama često plaća odvojeno ili je nepoznata unaprijed. Zato je privatni parking sarajevo aerodrom često bolji izbor kada želite predvidive troškove."
+        ]
+      },
+      {
+        "h2": "Zašto rezervisati parking kod aerodroma unaprijed",
+        "paragraphs": [
+          "Rezervacija drži mjesto za vas i smanjuje rizik da u špicama ne nađete gdje da ostavite automobil. Za ljude koji dolaze iz dalje okoline ili imaju rani let, privatni parking sarajevo uz internetsku rezervaciju je način da se izbjegne žurba na licu mjesta.",
+          "Osim sigurnosti kapaciteta, rezervacija omogućava da dobijete jasne upute za dolazak na adresu Kasindolskih Žrtava 18 i da tim može potvrditi detalje prije putovanja.",
+          "Za Google pretrage parking sarajevo kod aerodroma ili parking aerodrom sarajevo privatni korisnicima je često potrebna lista koraka — rezervacija je prvi korak, dolazak drugi, transfer treći. Mi držimo taj tok jednostavnim kako bi se iskustvo završilo povratkom na čisto parkirano vozilo."
+        ]
+      },
+      {
+        "h2": "Česta pitanja o cijeni i boravku",
+        "paragraphs": [
+          "Da li su tarife konačne? U našoj komunikaciji naglašavamo transparentnost — ono što vidite u strukturi tarifa jeste osnova obračuna; dodatne usluge, ako ih ikada uvodimo, bismo eksplicitno naznačili prije plaćanja.",
+          "Kako funkcioniše transfer u odnosu na cijenu parkinga? Transfer je dio ponude jer želimo da Aerodrom Sarajevo bude dostupan bez dodatnog organizovanja parkinga pred terminalom.",
+          "Šta ako se putovanje produži? Najbolje je što prije kontaktirati tim da se dogovori produženje boravka — tako izbjegavate neslaganja pri preuzimanju vozila.",
+          "Zašto je ovo važno za lokalni ranking? Jer Google nagrada stranice koje odgovaraju namjeri korisnika („cijena“, „tarifa“, „koliko košta“) kad su tekstualno bogate, tačne i povezane s lokacijom Sarajevo i Aerodrom Sarajevo."
+        ]
+      }
+    ],
+    "ctaTitle": "Rezervišite parking uz transparentnu procjenu cijene",
+    "ctaLead": "Popunite datume u formi — vidjet ćete procjenu prema tarifama i poslati rezervaciju za privatni parking kod Aerodroma Sarajevo.",
+    "ctaButton": "Pređi na rezervaciju",
+    "relatedNavLabel": "Povezani vodiči",
+    "relatedHeading": "Pročitajte još",
+    "relatedLinks": [
+      {
+        "href": "/transfer-aerodrom-sarajevo",
+        "label": "Transfer do Aerodroma Sarajevo – kako funkcioniše"
+      },
+      {
+        "href": "/privatni-vs-javni-parking-sarajevo",
+        "label": "Privatni vs javni parking kod aerodroma"
+      },
+      {
+        "href": "/rezervacija",
+        "label": "Online rezervacija parkinga"
+      }
+    ]
+  },
+  "seoTransfer": {
+    "metaTitle": "Transfer do Aerodroma Sarajevo – privatni parking | M Park Sarajevo",
+    "metaDescription": "Besplatan transfer do Aerodroma Sarajevo uz privatni parking M Park Sarajevo: kako izgleda dolazak, vrijeme i organizacija za putnike.",
+    "metaKeywords": [
+      "transfer aerodrom sarajevo",
+      "prevoz do aerodroma sarajevo",
+      "parking transfer sarajevo",
+      "privatni parking aerodrom sarajevo transfer"
+    ],
+    "kicker": "M Park Sarajevo · parking za putnike uz Aerodrom Sarajevo",
+    "h1": "Transfer do Aerodroma Sarajevo uz privatni parking – miran dolazak na let",
+    "intro": [
+      "Kada rezervišete privatni parking kod Aerodroma Sarajevo, jedan od najvažnijih detalja je kako stići do terminala na vrijeme. M Park Sarajevo je namijenjen putnicima koji žele da organizuju dolazak bez traženja dodatnog javnog parkinga pred ulazom na Aerodrom Sarajevo. Zato uz boravak na parkingu obezbjeđujemo besplatan transfer do Aerodroma Sarajevo kao dio iste usluge.",
+      "Ova stranica objašnjava šta transfer aerodrom sarajevo znači u našem kontekstu, kako ga iskoristiti i zašto je kombinacija „privatni parking + prevoz“ često bolja od improvizacije na licu mjesta. Tražilice često spajaju upite parking aerodrom sarajevo i transfer jer putnicima treba cjelina — mi tu cjelinu držimo jednom rezervacijom.",
+      "Za turiste i stanovnike Sarajeva koji lete rano ujutro ili kasno navečer, transfer je i sigurnosni element: manje stresa, manje okretanja oko terminala i jasniji plan za povratak sa leta kada želite brzo doći do vozila."
+    ],
+    "sections": [
+      {
+        "h2": "Šta podrazumijeva transfer uz privatni parking aerodrom sarajevo",
+        "paragraphs": [
+          "Transfer je organizovan prevoz od parking prostora prema Aerodromu Sarajevo radi polaska na let. Ideja je da ne trošite vrijeme tražeći zadnji milimetar javnog mjesta pred check-inom, već da iz naše organizovane zone idete direktno ka terminalu uz dogovor koji nastaje kroz rezervaciju.",
+          "Besplatan transfer u okviru iste cijene parkinga znači da ne dodajete „nevidljivi“ trošak prevoza — što je važno kad ljudi porede privatni parking sarajevo ponude po danu.",
+          "Za Google namjere tipa prevoz do aerodroma sarajevo ili parking transfer sarajevo stranica mora jasno reći šta je uračunato; mi naglašavamo da je transfer dio ponude za putnike koji koriste našu lokaciju."
+        ]
+      },
+      {
+        "h2": "Kako planirati vrijeme dolaska i transfer prije leta",
+        "paragraphs": [
+          "Preporuka za sve aerodromsko parking iskustvo je ostaviti rezervu od prilike dodatnih 10–15 minuta prije nego što zatvorite prijavu leta — ali bez paničnog dolaska satima ranije kad privatni parking ionako čuva mjesto za vas.",
+          "U praksi je najbolje da u rezervaciji stoje tačni intervali dolaska i odlaska: tim može uskladiti transfer sa tim intervalima i sa špicama na Aerodromu Sarajevo.",
+          "Za ljude koji dolaze iz šire okoline BiH, kombinacija privatni parking sarajevo aerodrom transfer je često ekonomski razuman izbor jer štedite vrijeme i nervozu na licu mjesta."
+        ]
+      },
+      {
+        "h2": "Transfer i povratak sa leta",
+        "paragraphs": [
+          "Povratak sa leta često donosi umor i želju da što prije dođete do auta. Transfer nazad organizujemo dogovorom pri dolasku ili preko uputa koje dobijete uz rezervaciju — bitno je da putnik zna gdje čeka i kako se vraća na lokaciju parkinga.",
+          "Transparentnost je ključna: za razliku od nekih improvizovanih ponuda gdje „transfer“ znači nepoznat dodatak, kod nas je transfer eksplicitno dio marketing opisa i ponude.",
+          "Za SEO fraze aerodrom sarajevo parking i transfer korisnicima treba jedna stranica koja objedinjuje informacije — zato ovaj članak interno linkuje na cijene i poređenje privatnog i javnog parkinga."
+        ]
+      },
+      {
+        "h2": "Zašto transfer podrži bolji lokalni SEO za Sarajevo",
+        "paragraphs": [
+          "Google sve više nagrađuje stranice koje odgovaraju narativu „šta zapravo korisnik radi“ — u ovom slučaju putuje avionom iz Sarajeva. Kad transfer opišemo konkretno i vezano za Aerodrom Sarajevo, stranica prirodno dobija ključne riječi koje se pojavljuju u konverzacijskim upitima.",
+          "Interni linkovi ka rezervaciji i cijenama jačaju strukturu sajta i pomažu indeksaciji novih URL-ova.",
+          "Korisnički signali — vrijeme na stranici i klik ka rezervaciji — dodatno pokazuju tražilici da je sadržaj relevantan za parking kod aerodroma."
+        ]
+      }
+    ],
+    "ctaTitle": "Rezervišite parking uz transfer do Aerodroma Sarajevo",
+    "ctaLead": "Jednom rezervacijom pokrivate i mjesto za vozilo i organizovan dolazak na terminal — bez dodatnog traženja parkinga pred Aerodromom.",
+    "ctaButton": "Rezerviši termin",
+    "relatedNavLabel": "Povezani vodiči",
+    "relatedHeading": "Pročitajte još",
+    "relatedLinks": [
+      {
+        "href": "/parking-aerodrom-sarajevo-cijene",
+        "label": "Cijene parkinga kod Aerodroma Sarajevo"
+      },
+      {
+        "href": "/privatni-vs-javni-parking-sarajevo",
+        "label": "Privatni vs javni parking"
+      },
+      {
+        "href": "/rezervacija",
+        "label": "Online rezervacija"
+      }
+    ]
+  },
+  "seoVsPublic": {
+    "metaTitle": "Privatni vs javni parking kod Aerodroma Sarajevo | M Park Sarajevo",
+    "metaDescription": "Prednosti privatnog parkinga blizu Aerodroma Sarajevo u odnosu na javni parking: sigurnost, cijena, transfer i organizacija za putnike.",
+    "metaKeywords": [
+      "privatni parking sarajevo aerodrom",
+      "javni parking aerodrom sarajevo",
+      "parking kod aerodroma sarajevo privatni",
+      "siguran parking aerodrom sarajevo"
+    ],
+    "kicker": "M Park Sarajevo · poređenje za putnike",
+    "h1": "Privatni vs javni parking kod Aerodroma Sarajevo – šta biraju putnici",
+    "intro": [
+      "Odabir između privatnog i javnog parkinga kod Aerodroma Sarajevo često izgleda kao „cijena vs komfor“, ali je u stvari kombinacija sigurnosti, predvidivosti i logistike. Javni prostori oko aerodroma znaju biti promjenjivi po dostupnosti i pravilima, dok privatni parking sarajevo aerodrom nudi dogovoreno mjesto i jasnije okvire usluge.",
+      "Na ovoj stranici nećemo dramatično osuđivati druge opcije — fokus je na objektivnim razlikama koje putnik zaista osjeti: nadzor, rezervacija unaprijed, transfer do Aerodroma Sarajevo i razumijevanje šta tačno plaćate.",
+      "Za pretraživanje tipa parking kod aerodroma sarajevo privatni ili aerodrom sarajevo parking ljudi često žele brzu listu prednosti — zato je struktura ovog teksta podijeljena na jasne odluke koje donosite prije puta."
+    ],
+    "sections": [
+      {
+        "h2": "Predvidivost i rezervacija",
+        "paragraphs": [
+          "Privatni parking funkcioniše po rezervaciji i kapacitetu koji je kontrolisan — značajno smanjuje šansu da stignete pred let bez mjesta. Javni prostori mogu biti dostupni, ali često bez garancije u špicama i uz nepoznata pravila dužine boravka ili plaćanja.",
+          "Za privatni parking sarajevo online rezervacija je centralni kanal — smanjuje komunikacijske greške i ostavlja trag koji koristi i korisnik i operater.",
+          "Za SEO, fraza parking sarajevo kod aerodroma privatni najbolje „ulazi“ kad god tekst eksplicitno veže rezervaciju za konkretnu adresu i proces."
+        ]
+      },
+      {
+        "h2": "Sigurnost vozila i nadzor",
+        "paragraphs": [
+          "Većina putnika želi znati da je vozilo pod nadzorom dok su na putu. Kod nas je video nadzor dio iste price strukture i komunikacije — što olakšava poređenje jer ne tražite dodatne usluge.",
+          "Javni prostori mogu biti frekventni i signalno „gužvani“, što ne mora značiti lošu sigurnost, ali često znači više nepoznatih faktora za dugotrajno parkiranje.",
+          "Za siguran parking aerodrom sarajevo korisnici traže dokaz i konzistentnu priču — mi je držimo kroz opis lokacije, usluge i recenzije na Google profilu."
+        ]
+      },
+      {
+        "h2": "Cijena i šta je uračunato",
+        "paragraphs": [
+          "Privatni parking katkad izgleda skuplje na prvi pogled, ali treba uračunati prevoz i vrijeme: ako uz javnu opciju dodajete taksi ili shuttle ili dodatno vrijeme, privatni parking sarajevo cijene često postanu konkurentne.",
+          "Transparentnost tarifa po danu olakšava planiranje dugih putovanja — što je bitno za ljude koji idu na višenedjeljne itinerere.",
+          "Interni linkovi ka stranici parking aerodrom sarajevo cijene su prirodan korak čitaoca koji želi brojke."
+        ]
+      },
+      {
+        "h2": "Transfer i logistika oko terminala",
+        "paragraphs": [
+          "Privatni parking sa transferom smanjuje stres oko terminala jer ne jurite zadnji milimetar pred ulazom na Aerodrom Sarajevo — posebno ako ste prvi put na tom dijelu grada.",
+          "Kod javnog parkinga često ste sami za „zadnju milju“ — što može biti u redu za neke profile putnika, ali ne za sve.",
+          "Za Google upite parking aerodrom sarajevo privatni transfer važno je da tekst spominje oba koncepta zajedno."
+        ]
+      },
+      {
+        "h2": "Kada privatni parking ima poseban smisao",
+        "paragraphs": [
+          "Duži boravci (sedmicama) traže pouzdanstvo i često bolju ekonomiju po danu.",
+          "Rani i kasni letovi traše organizaciju i mir — privatni parking sarajevo uz dogovor olakšava ta vremena.",
+          "Porodična putovanja sa prtljgom traže manje prebacivanja između vozila i terminala.",
+          "Za lokalni ranking u Sarajevu, tekst koji odgovara namjeri „poređenje“ doprinosi autoritetu jer drži korisnika na stranici duže kada razmišlja između opcija."
+        ]
+      }
+    ],
+    "ctaTitle": "Odaberite privatni parking uz jasnu ponudu",
+    "ctaLead": "Ako vam odgovara rezervacija, nadzor i transfer, sljedeći korak je online rezervacija za M Park Sarajevo.",
+    "ctaButton": "Započni rezervaciju",
+    "relatedNavLabel": "Povezani vodiči",
+    "relatedHeading": "Pročitajte još",
+    "relatedLinks": [
+      {
+        "href": "/parking-aerodrom-sarajevo-cijene",
+        "label": "Cijene parkinga kod Aerodroma Sarajevo"
+      },
+      {
+        "href": "/transfer-aerodrom-sarajevo",
+        "label": "Transfer do Aerodroma Sarajevo"
+      },
+      {
+        "href": "/rezervacija",
+        "label": "Online rezervacija"
+      }
+    ]
+  },
+  "seoReservation": {
+    "metaTitle": "Online rezervacija parkinga Aerodrom Sarajevo | M Park Sarajevo",
+    "metaDescription": "Rezervišite privatni parking kod Aerodroma Sarajevo online: forma, tarife i potvrda za putnike koji traže siguran parking.",
+    "metaKeywords": [
+      "rezervacija parking aerodrom sarajevo",
+      "online parking sarajevo",
+      "privatni parking rezervacija sarajevo",
+      "parking za putnike sarajevo rezervacija"
+    ],
+    "kicker": "M Park Sarajevo · brza online rezervacija",
+    "h1": "Online rezervacija privatnog parkinga kod Aerodroma Sarajevo",
+    "intro": [
+      "Ova stranica okuplja sve što trebate prije nego što pošaljete rezervaciju: proces je dizajniran tako da putnik koji traži rezervacija parking aerodrom sarajevo dobije jasnu procjenu cijene i potvrdu na email. M Park Sarajevo koristi isključivo formu na sajtu radi evidencije termina i kapaciteta.",
+      "Zašto posebna stranica za rezervaciju i SEO? Jer mnogi korisnici direktno traže online kanal („rezervacija“, „forma“, „online parking sarajevo“). Kad Google indeksira ovaj URL, lakše povezuje namjeru korisnika sa konkretnim pozivom na akciju.",
+      "Nakon što rezervacija prođe, šaljemo potvrdu na email i podsjetnik da nam pomognete kratkom Google recenzijom ako ste zadovoljni — to jača lokalni ugled i pomaže drugim putnicima da pronađu siguran parking kod Aerodroma Sarajevo."
+    ],
+    "sections": [
+      {
+        "h2": "Kako izgleda korak-po-korak rezervacija",
+        "paragraphs": [
+          "Unesete ime, telefon i email, zatim datume i vremena dolaska i odlaska — sistem procjenjuje broj dana i tarifu.",
+          "Odaberete opciju ostavljanja ključa koja odgovara vašem komforu i dostupnosti mjesta u terminu.",
+          "Pošaljete zahtjev — pojavljuje se potvrda na stranici, a email potvrdu šaljemo odmah; tim vas naknadno kontaktira ako je potrebno pojasniti termin."
+        ]
+      },
+      {
+        "h2": "Zašto je email obavezan",
+        "paragraphs": [
+          "Email služi za slanje potvrde rezervacije i za komunikaciju ako je potrebno pojasniti termin ili dodatne usluge.",
+          "To je standard kod privatnog parkinga koji želi izbjeći fragmentiranu komunikaciju kroz više kanala bez evidencije.",
+          "Za SEO i povjerenje korisnika, jasna pravila kanala smanjuju zabunu i povećavaju konverziju."
+        ]
+      },
+      {
+        "h2": "Šta dalje nakon rezervacije",
+        "paragraphs": [
+          "Sačekajte email potvrde i upute za dolazak na adresu Kasindolskih Žrtava 18.",
+          "Planirajte dolazak uz rezervu vremena za špicu na Aerodromu Sarajevo ako let pada u gužvu.",
+          "Pročitajte i naše vodiče o cijenama i transferu ako želite dodatni kontekst prije putovanja."
+        ]
+      }
+    ],
+    "ctaTitle": "Popunite formu ispod",
+    "ctaLead": "Provjerite procjenu cijene i pošaljite rezervaciju za privatni parking kod Aerodroma Sarajevo.",
+    "ctaButton": "Idi na formu",
+    "relatedNavLabel": "Povezani vodiči",
+    "relatedHeading": "Prije rezervacije pročitajte",
+    "relatedLinks": [
+      {
+        "href": "/parking-aerodrom-sarajevo-cijene",
+        "label": "Cijene parkinga kod Aerodroma Sarajevo"
+      },
+      {
+        "href": "/transfer-aerodrom-sarajevo",
+        "label": "Transfer do Aerodroma Sarajevo"
+      },
+      {
+        "href": "/privatni-vs-javni-parking-sarajevo",
+        "label": "Privatni vs javni parking"
+      }
+    ]
   }
 }

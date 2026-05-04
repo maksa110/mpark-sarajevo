@@ -20,7 +20,11 @@
     "skipToBooking": "Skip to booking",
     "currency": "KM",
     "perDay": "per day",
-    "openInNewTab": "(opens in a new tab)"
+    "openInNewTab": "(opens in a new tab)",
+    "breadcrumbHome": "Home"
+  },
+  "seoTopicNav": {
+    "ariaLabel": "Quick guides: Sarajevo airport parking"
   },
   "header": {
     "logoAria": "M Park Sarajevo - home",
@@ -63,6 +67,11 @@
     "h2": "Parking reservation",
     "lead": "Bookings are accepted only through this form — we do not confirm reservations via WhatsApp. Price: 9 KM/day (1–3 days), 8 KM/day (4–6 days), 7 KM/day (7+ days). Enter your details and travel dates. Overnight stay can be arranged on request — mention it when we contact you to confirm.",
     "success": "Thank you! Your reservation has been received. We’ve sent a confirmation to your email. We may contact you shortly with more details.",
+    "reviewHint": "If everything went smoothly, a short Google review helps more travellers find safe parking near Sarajevo Airport.",
+    "reviewCta": "Leave a Google review",
+    "whatsappReviewCta": "Say thanks on WhatsApp",
+    "whatsappReviewMessage": "Hi — I’ve just submitted an online booking for M Park Sarajevo (private parking near Sarajevo Airport). If you’d like to leave a quick Google review:",
+    "whatsappReviewMessageNoLink": "Hi — I’ve just submitted an online booking for M Park Sarajevo. Thanks and safe travels!",
     "labels": {
       "fullName": "Full name",
       "phone": "Phone number",
@@ -276,6 +285,8 @@
     "contactHeading": "Contact",
     "rights": "All rights reserved.",
     "ctaShort": "Book parking",
+    "brandSubtitle": "Private parking · Sarajevo Airport",
+    "guidesHeading": "Guides",
     "nav": {
       "home": "Home",
       "services": "Services",
@@ -285,6 +296,12 @@
       "gallery": "Gallery",
       "contact": "Contact",
       "book": "Booking"
+    },
+    "guides": {
+      "prices": "Airport parking prices",
+      "transfer": "Airport transfer",
+      "vsPublic": "Private vs public parking",
+      "reservation": "Online booking"
     }
   },
   "stickyCta": {

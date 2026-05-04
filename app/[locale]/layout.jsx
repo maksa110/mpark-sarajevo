@@ -13,8 +13,6 @@ const montserrat = Montserrat({
   variable: "--font-montserrat",
 });
 
-export const dynamic = "force-dynamic";
-
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
 }

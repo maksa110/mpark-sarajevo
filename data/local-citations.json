@@ -1,0 +1,38 @@
+[
+  {
+    "name": "Google Business Profile",
+    "url": "https://business.google.com/",
+    "notes": "Primarni NAP — uskladiti naziv „M Park Sarajevo“, adresu i telefon sa sajtom.",
+    "priority": "P1"
+  },
+  {
+    "name": "Facebook stranica",
+    "url": "https://www.facebook.com/",
+    "notes": "Kreirati/optimizovati stranicu brenda; isti NAP i link na www.mpark-sarajevo.com.",
+    "priority": "P1"
+  },
+  {
+    "name": "Apple Maps (Place)",
+    "url": "https://mapsconnect.apple.com/",
+    "notes": "Dodati lokaciju ako još nije; koristi istu adresu i telefon kao GBP.",
+    "priority": "P2"
+  },
+  {
+    "name": "Tripadvisor (ako primjenjivo)",
+    "url": "https://www.tripadvisor.com/",
+    "notes": "Listanje samo ako postoji legitimna turistička ponuda; izbjegavati duplikate.",
+    "priority": "P3"
+  },
+  {
+    "name": "Booking.com / smještaj partneri",
+    "url": "https://www.booking.com/",
+    "notes": "Partnerstva sa apartmanima za tekstualni link „gdje parkirati“ — jedan NAP.",
+    "priority": "P3"
+  },
+  {
+    "name": "Turistički portal Kantona Sarajevo",
+    "url": "https://www.sarajevo.travel/",
+    "notes": "Provjeriti mogućnost poslovnog ili turističkog citiranja (ručno).",
+    "priority": "P3"
+  }
+]

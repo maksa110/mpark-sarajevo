@@ -3,32 +3,94 @@
 import Image from "next/image";
 import { Mail, MapPin, Phone } from "lucide-react";
 import { useTranslations } from "next-intl";
+import { Link, usePathname } from "@/i18n/navigation";
 import { SITE, calendarYearSarajevo } from "@/lib/site";
 import Reveal from "@/components/Reveal";
 
 const NAV = [
-  { href: "#home", key: "home" },
-  { href: "#services", key: "services" },
-  { href: "#prices", key: "prices" },
-  { href: "#how-it-works", key: "howItWorks" },
-  { href: "#location", key: "location" },
-  { href: "#gallery", key: "gallery" },
-  { href: "#contact", key: "contact" },
-  { href: "#book", key: "book" },
+  { hash: "home", key: "home", isRoot: true },
+  { hash: "services", key: "services", isRoot: false },
+  { hash: "prices", key: "prices", isRoot: false },
+  { hash: "how-it-works", key: "howItWorks", isRoot: false },
+  { hash: "location", key: "location", isRoot: false },
+  { hash: "gallery", key: "gallery", isRoot: false },
+  { hash: "contact", key: "contact", isRoot: false },
+  { hash: "book", key: "book", isRoot: false },
+];
+
+const GUIDES = [
+  { href: "/parking-aerodrom-sarajevo-cijene", msgKey: "prices" },
+  { href: "/transfer-aerodrom-sarajevo", msgKey: "transfer" },
+  { href: "/privatni-vs-javni-parking-sarajevo", msgKey: "vsPublic" },
+  { href: "/rezervacija", msgKey: "reservation" },
 ];
 
 export default function SiteFooter() {
   const t = useTranslations("footer");
   const tSite = useTranslations("site");
+  const pathname = usePathname();
+  const isHome = pathname === "/";
   const year = calendarYearSarajevo();
+
+  const linkClass =
+    "inline-block text-sm text-zinc-300 transition duration-200 hover:translate-x-0.5 hover:text-brand-lime motion-reduce:transition-none motion-reduce:hover:translate-x-0";
+
+  function NavLink({ item }) {
+    if (item.hash === "book") {
+      if (isHome) {
+        return (
+          <a href="#book" className={linkClass}>
+            {t(`nav.${item.key}`)}
+          </a>
+        );
+      }
+      return (
+        <Link
+          href={{ pathname: "/rezervacija", hash: "book" }}
+          className={linkClass}
+        >
+          {t(`nav.${item.key}`)}
+        </Link>
+      );
+    }
+
+    if (item.isRoot) {
+      if (isHome) {
+        return (
+          <a href="#home" className={linkClass}>
+            {t(`nav.${item.key}`)}
+          </a>
+        );
+      }
+      return (
+        <Link href="/" className={linkClass}>
+          {t(`nav.${item.key}`)}
+        </Link>
+      );
+    }
+
+    if (isHome) {
+      return (
+        <a href={`#${item.hash}`} className={linkClass}>
+          {t(`nav.${item.key}`)}
+        </a>
+      );
+    }
+
+    return (
+      <Link href={{ pathname: "/", hash: item.hash }} className={linkClass}>
+        {t(`nav.${item.key}`)}
+      </Link>
+    );
+  }
 
   return (
     <footer className="border-t border-white/5 bg-brand-navy-950 text-zinc-300">
       <div className="mx-auto max-w-6xl px-4 py-14 sm:px-6">
-        <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-4 lg:gap-8">
-          <Reveal className="lg:col-span-2">
-            <a
-              href="#home"
+        <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-12 lg:gap-8">
+          <Reveal className="lg:col-span-5">
+            <Link
+              href="/"
               className="group inline-flex items-center gap-3"
               aria-label={`${SITE.brand} – ${tSite("tagline")}`}
             >
@@ -48,34 +110,44 @@ export default function SiteFooter() {
                   {SITE.brand}
                 </span>
                 <span className="text-[11px] font-semibold uppercase tracking-[0.18em] text-brand-lime/85">
-                  Parking Aerodrom Sarajevo
+                  {t("brandSubtitle")}
                 </span>
               </span>
-            </a>
+            </Link>
             <p className="mt-4 max-w-md text-sm leading-relaxed text-zinc-400">
               {tSite("tagline")}
             </p>
           </Reveal>
 
-          <Reveal delay={120}>
+          <Reveal delay={120} className="lg:col-span-3">
             <h3 className="text-xs font-semibold uppercase tracking-wider text-zinc-500">
               {t("navHeading")}
             </h3>
             <ul className="mt-4 space-y-3">
               {NAV.map((item) => (
-                <li key={item.href}>
-                  <a
-                    href={item.href}
-                    className="inline-block text-sm text-zinc-300 transition duration-200 hover:translate-x-0.5 hover:text-brand-lime motion-reduce:transition-none motion-reduce:hover:translate-x-0"
-                  >
-                    {t(`nav.${item.key}`)}
-                  </a>
+                <li key={item.hash}>
+                  <NavLink item={item} />
                 </li>
               ))}
             </ul>
           </Reveal>
 
-          <Reveal delay={220}>
+          <Reveal delay={160} className="lg:col-span-2">
+            <h3 className="text-xs font-semibold uppercase tracking-wider text-zinc-500">
+              {t("guidesHeading")}
+            </h3>
+            <ul className="mt-4 space-y-3">
+              {GUIDES.map((g) => (
+                <li key={g.href}>
+                  <Link href={g.href} className={linkClass}>
+                    {t(`guides.${g.msgKey}`)}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </Reveal>
+
+          <Reveal delay={220} className="lg:col-span-2">
             <h3 className="text-xs font-semibold uppercase tracking-wider text-zinc-500">
               {t("contactHeading")}
             </h3>
@@ -124,12 +196,21 @@ export default function SiteFooter() {
           <p>
             © {year} {SITE.brand}. {t("rights")}
           </p>
-          <a
-            href="#book"
-            className="text-left text-sm font-semibold text-brand-lime transition hover:text-brand-lime-300 sm:text-right"
-          >
-            {t("ctaShort")}
-          </a>
+          {isHome ? (
+            <a
+              href="#book"
+              className="text-left text-sm font-semibold text-brand-lime transition hover:text-brand-lime-300 sm:text-right"
+            >
+              {t("ctaShort")}
+            </a>
+          ) : (
+            <Link
+              href={{ pathname: "/rezervacija", hash: "book" }}
+              className="text-left text-sm font-semibold text-brand-lime transition hover:text-brand-lime-300 sm:text-right"
+            >
+              {t("ctaShort")}
+            </Link>
+          )}
         </div>
       </div>
     </footer>

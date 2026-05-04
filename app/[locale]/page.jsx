@@ -12,11 +12,11 @@ import Location from "@/components/Location";
 import Contact from "@/components/Contact";
 import SiteFooter from "@/components/SiteFooter";
 import MobileStickyCta from "@/components/MobileStickyCta";
-import { SITE } from "@/lib/site";
+import { SITE, getSameAsForSchema, SCHEMA_OPENING_HOURS_SPEC } from "@/lib/site";
 import { getGoogleReviews } from "@/lib/google-reviews";
 
-/** Bez statičnog prerendera: na Vercelu build ponekad puca na /bs (Server Component + env/fetch) pri `next build`. */
-export const dynamic = "force-dynamic";
+/** ISR (~6h) uz sveže Places/podatke — bez force-dynamic radi boljeg edge cache-a HTML-a. */
+export const revalidate = 21600;
 
 export default async function HomePage({ params }) {
   const { locale } = await params;
@@ -28,6 +28,7 @@ export default async function HomePage({ params }) {
   const tPricing = await getTranslations("pricing");
 
   const googleData = await getGoogleReviews();
+  const sameAs = getSameAsForSchema();
   const aggNum = Number(googleData?.aggregateRating);
   const aggTotal =
     typeof googleData?.userRatingsTotal === "number"
@@ -45,7 +46,7 @@ export default async function HomePage({ params }) {
 
   const localBusinessSchema = {
     "@context": "https://schema.org",
-    "@type": "LocalBusiness",
+    "@type": ["LocalBusiness", "ParkingFacility"],
     "@id": `${SITE.url}/${locale}#business`,
     name: SITE.brand,
     description: tMeta("description"),
@@ -139,12 +140,15 @@ export default async function HomePage({ params }) {
       description: tMeta("description"),
     },
     inLanguage: locale,
+    openingHoursSpecification: SCHEMA_OPENING_HOURS_SPEC,
+    ...(sameAs.length ? { sameAs } : {}),
     ...(hasStructuredAggregateRating
       ? {
           aggregateRating: {
             "@type": "AggregateRating",
             ratingValue: aggNum.toFixed(1),
             reviewCount: Math.trunc(aggTotal),
+            ratingCount: Math.trunc(aggTotal),
             bestRating: 5,
             worstRating: 1,
           },
