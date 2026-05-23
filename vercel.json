@@ -6,6 +6,17 @@
       "has": [
         {
           "type": "host",
+          "value": "mpark-sarajevo.com"
+        }
+      ],
+      "destination": "https://www.mpark-sarajevo.com/:path*",
+      "permanent": true
+    },
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
           "value": "mpark-sarajevo.vercel.app"
         }
       ],
