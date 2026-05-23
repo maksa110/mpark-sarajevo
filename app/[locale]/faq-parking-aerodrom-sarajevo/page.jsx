@@ -3,6 +3,7 @@ import MarketingChrome from "@/components/MarketingChrome";
 import SeoGuideArticle from "@/components/SeoGuideArticle";
 import {
   buildBreadcrumbJsonLd,
+  buildFaqPageJsonLd,
   buildParkingLocalBusinessJsonLd,
   buildWebPageJsonLd,
 } from "@/lib/jsonld-business";
@@ -17,16 +18,16 @@ export async function generateMetadata({ params }) {
   const { locale } = await params;
   return buildSeoArticleMetadata({
     locale,
-    namespace: "seoTransfer",
-    pathnameKey: SEO_SLUGS.transfer,
+    namespace: "seoFaqAirport",
+    pathnameKey: SEO_SLUGS.faqAirport,
   });
 }
 
-export default async function TransferPage({ params }) {
+export default async function SeoFaqAirportPage({ params }) {
   const { locale } = await params;
   setRequestLocale(locale);
-  const path = seoPagePath(locale, SEO_SLUGS.transfer);
-  const t = await getTranslations({ locale, namespace: "seoTransfer" });
+  const path = seoPagePath(locale, SEO_SLUGS.faqAirport);
+  const t = await getTranslations({ locale, namespace: "seoFaqAirport" });
   const tCommon = await getTranslations({ locale, namespace: "common" });
 
   const googleData = await getGoogleReviews();
@@ -41,6 +42,10 @@ export default async function TransferPage({ params }) {
       : null;
 
   const description = t("metaDescription");
+  const faqStructured = Array.isArray(t.raw("faqStructured"))
+    ? t.raw("faqStructured")
+    : [];
+
   const business = buildParkingLocalBusinessJsonLd({
     locale,
     path,
@@ -64,19 +69,28 @@ export default async function TransferPage({ params }) {
     ],
   });
 
+  const faqLd =
+    faqStructured.length > 0
+      ? buildFaqPageJsonLd({ locale, path, items: faqStructured })
+      : null;
+
+  const schemas = [business, webpage, crumbs];
+  if (faqLd) schemas.push(faqLd);
+
   return (
     <MarketingChrome
       skipBookingHref={`${seoPagePath(locale, SEO_SLUGS.reservation)}#book`}
       skipLabel={tCommon("skipToBooking")}
     >
-      <JsonLdScripts schemas={[business, webpage, crumbs]} />
+      <JsonLdScripts schemas={schemas} />
       <SeoGuideArticle
         locale={locale}
-        namespace="seoTransfer"
+        namespace="seoFaqAirport"
         bookHashHref={{
           pathname: SEO_SLUGS.reservation,
           hash: "book",
         }}
+        showFaqBlock
       />
     </MarketingChrome>
   );

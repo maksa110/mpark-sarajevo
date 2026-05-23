@@ -2,11 +2,13 @@
 
 import { useTranslations } from "next-intl";
 import { Link, usePathname } from "@/i18n/navigation";
-import { SEO_SLUGS } from "@/lib/seo-routes";
+import { SEO_SLUGS, seoLocalizedPathMatches } from "@/lib/seo-routes";
 
-function matchesPath(pathname, href) {
-  if (href === "/") return pathname === "/" || pathname === "";
-  return pathname === href || pathname.startsWith(`${href}/`);
+function matchesTopic(pathnameHook, pathnameKey) {
+  if (pathnameKey === "/") {
+    return pathnameHook === "/" || pathnameHook === "";
+  }
+  return seoLocalizedPathMatches(pathnameHook, pathnameKey);
 }
 
 export default function SeoTopicNav() {
@@ -17,29 +19,44 @@ export default function SeoTopicNav() {
 
   const items = [
     {
-      href: "/",
+      pathname: "/",
       label: tCommon("breadcrumbHome"),
-      match: matchesPath(pathname, "/"),
+      match: matchesTopic(pathname, "/"),
     },
     {
-      href: `/${SEO_SLUGS.parkingPrices}`,
+      pathname: SEO_SLUGS.parkingPrices,
       label: tFooter("guides.prices"),
-      match: matchesPath(pathname, `/${SEO_SLUGS.parkingPrices}`),
+      match: matchesTopic(pathname, SEO_SLUGS.parkingPrices),
     },
     {
-      href: `/${SEO_SLUGS.transfer}`,
+      pathname: SEO_SLUGS.transfer,
       label: tFooter("guides.transfer"),
-      match: matchesPath(pathname, `/${SEO_SLUGS.transfer}`),
+      match: matchesTopic(pathname, SEO_SLUGS.transfer),
     },
     {
-      href: `/${SEO_SLUGS.vsPublic}`,
+      pathname: SEO_SLUGS.vsPublic,
       label: tFooter("guides.vsPublic"),
-      match: matchesPath(pathname, `/${SEO_SLUGS.vsPublic}`),
+      match: matchesTopic(pathname, SEO_SLUGS.vsPublic),
     },
     {
-      href: `/${SEO_SLUGS.reservation}`,
+      pathname: SEO_SLUGS.faqAirport,
+      label: tFooter("guides.faqParking"),
+      match: matchesTopic(pathname, SEO_SLUGS.faqAirport),
+    },
+    {
+      pathname: SEO_SLUGS.directionsAirport,
+      label: tFooter("guides.directionsAirport"),
+      match: matchesTopic(pathname, SEO_SLUGS.directionsAirport),
+    },
+    {
+      pathname: SEO_SLUGS.longTermParking,
+      label: tFooter("guides.longTermParking"),
+      match: matchesTopic(pathname, SEO_SLUGS.longTermParking),
+    },
+    {
+      pathname: SEO_SLUGS.reservation,
       label: tFooter("guides.reservation"),
-      match: matchesPath(pathname, `/${SEO_SLUGS.reservation}`),
+      match: matchesTopic(pathname, SEO_SLUGS.reservation),
     },
   ];
 
@@ -50,10 +67,10 @@ export default function SeoTopicNav() {
     >
       <div className="mx-auto max-w-6xl px-4 py-2 sm:px-6">
         <ul className="flex gap-2 overflow-x-auto pb-1 [-ms-overflow-style:none] [scrollbar-width:none] sm:flex-wrap sm:gap-2 sm:overflow-visible sm:pb-0 [&::-webkit-scrollbar]:hidden">
-          {items.map(({ href, label, match }) => (
-            <li key={href} className="shrink-0">
+          {items.map(({ pathname: ph, label, match }) => (
+            <li key={ph} className="shrink-0">
               <Link
-                href={href}
+                href={ph}
                 className={`inline-flex min-h-[40px] items-center rounded-full px-3.5 py-2 text-xs font-semibold uppercase tracking-wide ring-1 transition sm:text-[13px] ${
                   match
                     ? "bg-brand-navy text-brand-lime ring-brand-navy"

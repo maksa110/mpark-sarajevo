@@ -17,16 +17,16 @@ export async function generateMetadata({ params }) {
   const { locale } = await params;
   return buildSeoArticleMetadata({
     locale,
-    namespace: "seoTransfer",
-    pathnameKey: SEO_SLUGS.transfer,
+    namespace: "seoDirectionsAirport",
+    pathnameKey: SEO_SLUGS.directionsAirport,
   });
 }
 
-export default async function TransferPage({ params }) {
+export default async function SeoDirectionsAirportPage({ params }) {
   const { locale } = await params;
   setRequestLocale(locale);
-  const path = seoPagePath(locale, SEO_SLUGS.transfer);
-  const t = await getTranslations({ locale, namespace: "seoTransfer" });
+  const path = seoPagePath(locale, SEO_SLUGS.directionsAirport);
+  const t = await getTranslations({ locale, namespace: "seoDirectionsAirport" });
   const tCommon = await getTranslations({ locale, namespace: "common" });
 
   const googleData = await getGoogleReviews();
@@ -41,6 +41,7 @@ export default async function TransferPage({ params }) {
       : null;
 
   const description = t("metaDescription");
+
   const business = buildParkingLocalBusinessJsonLd({
     locale,
     path,
@@ -72,7 +73,7 @@ export default async function TransferPage({ params }) {
       <JsonLdScripts schemas={[business, webpage, crumbs]} />
       <SeoGuideArticle
         locale={locale}
-        namespace="seoTransfer"
+        namespace="seoDirectionsAirport"
         bookHashHref={{
           pathname: SEO_SLUGS.reservation,
           hash: "book",

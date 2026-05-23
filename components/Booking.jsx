@@ -3,6 +3,7 @@
 import { useCallback, useEffect, useMemo, useState, startTransition } from "react";
 import { useTranslations } from "next-intl";
 import { Sparkles, TrendingDown } from "lucide-react";
+import { trackBookingConversion } from "@/lib/gtag";
 import { computePriceQuote } from "@/lib/pricing";
 import { SITE } from "@/lib/site";
 
@@ -179,6 +180,7 @@ export default function Booking() {
         }
         throw new Error(msg);
       }
+      const submittedQuote = quote;
       startTransition(() => {
         setOk(true);
         setFullName("");
@@ -193,6 +195,15 @@ export default function Booking() {
         setCapFailCode(null);
         setErrors({});
       });
+      trackBookingConversion(
+        submittedQuote
+          ? {
+              days: submittedQuote.days,
+              total: submittedQuote.total,
+              tier: submittedQuote.tier,
+            }
+          : undefined
+      );
     } catch (err) {
       setErrMsg(err?.message || t("errors.submit"));
     } finally {

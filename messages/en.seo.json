@@ -1,7 +1,7 @@
 {
   "seoParkingPrices": {
     "metaTitle": "Sarajevo Airport parking prices & daily rates | M Park Sarajevo",
-    "metaDescription": "Clear pricing for private parking near Sarajevo Airport: daily tiers, what is included (CCTV + airport transfer), and how online booking works.",
+    "metaDescription": "Sarajevo Airport parking prices: 9 KM/day (1–9 days), 8 KM/day (10–14 days), 7 KM/day (15+ days). Private parking near the terminal with CCTV, transfer & online booking.",
     "metaKeywords": [
       "Sarajevo airport parking price",
       "private parking Sarajevo airport cost",
@@ -11,14 +11,14 @@
     "kicker": "M Park Sarajevo · private parking near Sarajevo Airport",
     "h1": "Sarajevo Airport parking prices – tiers, what’s included, and how to book",
     "intro": [
-      "When you search for Sarajevo Airport parking, you usually want two things first: a predictable daily cost and no surprise charges after your trip. M Park Sarajevo offers transparent per‑day tiers near Sarajevo Airport so you know what you pay before you drop off your car.",
+      "When you search for Sarajevo Airport parking, you usually want two things first: a predictable daily cost and no surprise charges after your trip. M Park Sarajevo uses three simple tiers—9 KM/day for 1–9 days, 8 KM/day for 10–14 days, and 7 KM/day from day 15—near Sarajevo Airport so you know what you pay before you drop off your car.",
       "This guide explains how our tariffs work for travellers, what is bundled into the rate (including CCTV and a complimentary ride to the terminal), and why booking ahead beats scrambling for space during peak travel windows."
     ],
     "sections": [
       {
         "h2": "How to read our parking tiers",
         "paragraphs": [
-          "Parking is both a cost and a logistics decision: while you fly, your vehicle should stay in a controlled area with clear accountability. Our rate depends on the length of stay—shorter trips use one daily tier, longer stays unlock a lower per‑day rate.",
+          "Parking is both a cost and a logistics decision: while you fly, your vehicle should stay in a controlled area with clear accountability. Our rate depends on the length of stay—1–9 days at 9 KM/day, 10–14 days at 8 KM/day, and from day 15 at 7 KM/day.",
           "What matters is what’s included: at M Park Sarajevo, CCTV and an organised airport transfer are part of the offer so you are not hunting last‑minute solutions by the terminal.",
           "You can also see live tier ranges and a quote on the homepage booking form—use this page when you want context before you reserve."
         ]
@@ -272,6 +272,236 @@
       {
         "href": "/privatni-vs-javni-parking-sarajevo",
         "label": "Private vs public parking"
+      }
+    ]
+  },
+  "seoFaqAirport": {
+    "metaTitle": "Sarajevo airport parking FAQ | M Park Sarajevo",
+    "metaDescription": "Answers about booking ahead, shuttle to Sarajevo Airport, transfer time, security, payments, flight changes, and reservations — M Park Sarajevo private parking.",
+    "metaKeywords": [
+      "sarajevo airport parking",
+      "private parking sarajevo airport",
+      "airport transfer sarajevo"
+    ],
+    "kicker": "M Park Sarajevo · traveller-focused guidance",
+    "h1": "Sarajevo airport parking — frequently asked questions",
+    "intro": [
+      "Quick answers for people who already picked travel dates but want clarity before arriving: how early to book, how our shuttle fits the stay, realistic driving time to the terminal, vehicle security, payment, delays, and what overnight coverage means.",
+      "For tariff detail use the pricing guide; for choosing between providers read the comparison page. Reservations run through the booking form linked from every page."
+    ],
+    "sections": [
+      {
+        "h2": "How to use this FAQ",
+        "paragraphs": [
+          "Exact pickup points, key handovers, or payment timing are always confirmed with your booking because night flights and long stays sometimes need tailoring.",
+          "Our yard is at Kasindolskih Žrtava 18, near Sarajevo Airport — CCTV-covered with a shuttle ride to the terminal included for stays booked here.",
+          "The homepage estimator shows tiers: KM 9 / day for 1–9 days, KM 8 / day for 10–14, KM 7 / day from day 15 onward (convertible-mark pricing shown in the UI)."
+        ]
+      }
+    ],
+    "faqSectionTitle": "Frequently asked questions",
+    "faqStructured": [
+      {
+        "question": "How far in advance should I book?",
+        "answer": "As soon as you know dates and approximate arrival windows — holiday peaks fill faster. The online form returns an indicative quote instantly and sends email confirmation while we align capacity. If timing is tight, submit the form then call using the contacts on site."
+      },
+      {
+        "question": "Is there a shuttle to Sarajevo Airport?",
+        "answer": "Yes. Shuttle from our lot to Sarajevo Airport terminals is bundled with parking so you skip hunting for roadside space beside the terminal before check-in closes. Coordinators tie pickup timing to details in your booking and spell out meeting steps in the confirmation mail."
+      },
+      {
+        "question": "How long does the transfer take?",
+        "answer": "It is a short drive and depends on ordinary traffic. Still follow airline check-in advice and passport-control buffers; combine our timeframe with carrier guidance especially on international itineraries."
+      },
+      {
+        "question": "Is the parking facility secure?",
+        "answer": "We run controlled parking for travellers — organised entry plus CCTV, which beats leaving a car unattended on random curbsides for multi-day trips. Rules about keys and arrivals repeat in every reservation so expectations stay clear."
+      },
+      {
+        "question": "What if my flight is delayed or rescheduled?",
+        "answer": "Message us promptly via phone/email from your confirmation. We try to reschedule shuttles or stretch the stay when bay capacity allows. Early honesty keeps pickup on return predictable."
+      },
+      {
+        "question": "How does reservation work?",
+        "answer": "Complete the booking form online: arrivals, departure clocks, passenger contact, and key-storage choice where relevant. Automated email acknowledges receipt while staff verifies space. WhatsApp-only bookings are not accepted — paperwork stays tied to the form for everyone's clarity."
+      },
+      {
+        "question": "How do I pay?",
+        "answer": "Collection moment (and whether cash/card) matches what we confirm alongside your personalised quote — no surprise line items beyond what the estimator already showed."
+      },
+      {
+        "question": "Are you staffed overnight?",
+        "answer": "CCTV operates 24/7. Shuttle and key exchanges follow the hourly plan affirmed per reservation; overnight flights normally work fine when communicated through the booking flow."
+      }
+    ],
+    "ctaTitle": "Ready to reserve?",
+    "ctaLead": "Switch to booking, enter timestamps, and get an automated tier quotation before confirming.",
+    "ctaButton": "Go to reservation",
+    "relatedNavLabel": "Related guides",
+    "relatedHeading": "Dig deeper",
+    "relatedLinks": [
+      {
+        "href": "/",
+        "label": "M Park Sarajevo — home"
+      },
+      {
+        "href": "/parking-aerodrom-sarajevo-cijene",
+        "label": "Airport parking rates"
+      },
+      {
+        "href": "/dugorocni-parking-aerodrom-sarajevo",
+        "label": "Long-stay airport parking Sarajevo"
+      },
+      {
+        "href": "/kako-doci-do-aerodroma-sarajevo",
+        "label": "How to reach the airport via M Park"
+      },
+      {
+        "href": "/transfer-aerodrom-sarajevo",
+        "label": "Shuttle and transfer details"
+      },
+      {
+        "href": "/rezervacija",
+        "label": "Book parking online"
+      }
+    ]
+  },
+  "seoDirectionsAirport": {
+    "metaTitle": "How to get to Sarajevo Airport via M Park | Private parking Sarajevo",
+    "metaDescription": "Drive to Kasindolskih Žrtava 18 near Sarajevo Airport, shuttle to the terminal, practical notes — M Park Sarajevo private traveller parking.",
+    "metaKeywords": [
+      "sarajevo airport directions",
+      "parking near sarajevo airport",
+      "private parking sarajevo"
+    ],
+    "kicker": "M Park Sarajevo · Kasindolskih Žrtava 18 · shuttle-inclusive",
+    "h1": "Driving to Sarajevo Airport with M Park private parking",
+    "intro": [
+      "Cars, taxis, or lift shares usually stop at our fenced bay first; the included shuttle stitches you cleanly to Departures afterwards.",
+      "If you need private parking Sarajevo near the runway corridor, pinning this address avoids guesswork scattered across generic travel blogs."
+    ],
+    "sections": [
+      {
+        "h2": "Location & arrival etiquette",
+        "paragraphs": [
+          "Look for Kasindolskih Žrtava 18 — practical whether you originate in Ilidža, city centre neighbourhoods, or the wider motorway network.",
+          "Every confirmed booking mails map-friendly cues plus reachable phone lines for deviations.",
+          "Running late or super early? Text or call promptly so coordinators can reposition shuttle sequencing without cascading delays."
+        ]
+      },
+      {
+        "h2": "Lot → Terminal connection",
+        "paragraphs": [
+          "Shuttle rides remove frantic terminal-curb hunting which often exhausts flyers before boardings.",
+          "Still respect carriers' boarding deadlines — ours is complementary logistics not a substitute for passport queues.",
+          "Need imagery or tariff inspiration first? Homepage cards summarise the traveller flow before committing."
+        ]
+      },
+      {
+        "h2": "Combining taxis or public links",
+        "paragraphs": [
+          "Dropped by cab? Aim for our reception window noted in confirmations — staff align key logistics even if you do not steer personal vehicles.",
+          "Month-long itineraries should skim the companion long-stay article for amortised per-day tariff notes."
+        ]
+      }
+    ],
+    "ctaTitle": "Reserve for tailored directions",
+    "ctaLead": "Submit timestamps through booking — confirmations embed bespoke arrival notes.",
+    "ctaButton": "Book parking",
+    "relatedNavLabel": "Related guides",
+    "relatedHeading": "Explore more",
+    "relatedLinks": [
+      {
+        "href": "/",
+        "label": "M Park Sarajevo homepage"
+      },
+      {
+        "href": "/faq-parking-aerodrom-sarajevo",
+        "label": "Airport parking FAQ"
+      },
+      {
+        "href": "/parking-aerodrom-sarajevo-cijene",
+        "label": "Pricing overview"
+      },
+      {
+        "href": "/transfer-aerodrom-sarajevo",
+        "label": "Transfer guide"
+      },
+      {
+        "href": "/dugorocni-parking-aerodrom-sarajevo",
+        "label": "Long-stay briefing"
+      },
+      {
+        "href": "/rezervacija",
+        "label": "Online reservation"
+      }
+    ]
+  },
+  "seoLongTermParking": {
+    "metaTitle": "Long-term Sarajevo airport parking | M Park Sarajevo",
+    "metaDescription": "Multi-week private parking close to Sarajevo Airport — tiered KM 9 / KM 8 / KM 7 daily rates with CCTV coverage and shuttle. Book online.",
+    "metaKeywords": [
+      "long term airport parking sarajevo",
+      "sarajevo airport parking weekly",
+      "private parking sarajevo"
+    ],
+    "kicker": "M Park Sarajevo · structured rates for lengthy trips",
+    "h1": "Long-term private parking near Sarajevo Airport",
+    "intro": [
+      "Leaving a car unattended for weeks should feel deliberate: predictable maths, staffed oversight, shuttle coverage for departures/arrivals, and paperwork you can cite if plans shift mid-trip.",
+      "Our declining per-day tariff rewards patience without stripping CCTV commitments or bundled rides to the runway."
+    ],
+    "sections": [
+      {
+        "h2": "Tier recap for stretched stays",
+        "paragraphs": [
+          "First nine calendar days invoice at KM 9 each, days 10–14 drop to KM 8, day fifteen onward settles at KM 7 — CCTV and shuttle privileges stay identical whichever bracket you occupy.",
+          "The booking engine derives counts automatically once both timestamps exist; screenshots of quotes help finance teams approving travel allowances.",
+          "Longer horizons often correlate with Diaspora rotations and consulting rotations — aligning predictable daily burn matters when finance audits receipts."
+        ]
+      },
+      {
+        "h2": "Profiles that gravitate toward long-stay bays",
+        "paragraphs": [
+          "Two-week rotations abroad where unattended street parking feels unacceptable.",
+          "Families storing larger vans across school holidays needing predictable collection windows upon return legs.",
+          "Road-warrior consultants shuttling intra-European hubs leaving personal cars locally near Sarajevo Airport."
+        ]
+      },
+      {
+        "h2": "Booking + security interplay",
+        "paragraphs": [
+          "Rolling CCTV persists regardless whether you occupy three days or twenty-one.",
+          "Shuttle reciprocity survives multi-week itineraries — departing and inbound legs reuse the single dossier captured through the web form.",
+          "If itineraries slip, alerting operations early adjusts berth durations fairly before penalties become confusing."
+        ]
+      }
+    ],
+    "ctaTitle": "Estimate a multi-week stay",
+    "ctaLead": "Drop accurate arrival-return timestamps online — quotas refresh live alongside tier quotes.",
+    "ctaButton": "Reserve now",
+    "relatedNavLabel": "Related guides",
+    "relatedHeading": "Keep reading",
+    "relatedLinks": [
+      {
+        "href": "/",
+        "label": "M Park Sarajevo home"
+      },
+      {
+        "href": "/parking-aerodrom-sarajevo-cijene",
+        "label": "Tariff breakdown"
+      },
+      {
+        "href": "/faq-parking-aerodrom-sarajevo",
+        "label": "FAQ"
+      },
+      {
+        "href": "/transfer-aerodrom-sarajevo",
+        "label": "Shuttle information"
+      },
+      {
+        "href": "/rezervacija",
+        "label": "Book airport parking online"
       }
     ]
   }

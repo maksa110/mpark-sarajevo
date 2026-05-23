@@ -27,7 +27,6 @@ export async function generateMetadata({ params }) {
   const title = t("title");
   const description = t("description");
 
-  const kw = t.raw("keywords");
   const origin = SITE.url.replace(/\/$/, "");
 
   const languages = Object.fromEntries(
@@ -40,7 +39,6 @@ export async function generateMetadata({ params }) {
     // Cijeli naslov u <title> (bez templatea — izbjegava se \"segment | marka\" u tabu)
     title,
     description,
-    keywords: Array.isArray(kw) ? kw : [],
     applicationName: SITE.brand,
     authors: [{ name: SITE.brand, url: SITE.url }],
     creator: SITE.brand,
@@ -70,13 +68,15 @@ export async function generateMetadata({ params }) {
       siteName: SITE.brand,
       title: t("ogTitle"),
       description: t("ogDescription"),
-      // Images auto-populated by app/[locale]/opengraph-image.jsx
+      images: [{ alt: t("ogImageAlt") }],
+      // Vizuel još uvijek app/[locale]/opengraph-image.jsx (Next spaja props)
     },
     twitter: {
       card: "summary_large_image",
       title: t("ogTitle"),
       description: t("twitterDescription"),
-      // Images auto-populated by app/[locale]/twitter-image (mirrors opengraph-image)
+      images: { alt: t("ogImageAlt") },
+      // Vizuel kao opengraph-image
     },
     // Favicon: službeni logo PNG, zatim SVG rezerva
     icons: {

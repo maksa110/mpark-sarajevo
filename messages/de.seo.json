@@ -1,7 +1,7 @@
 {
   "seoParkingPrices": {
     "metaTitle": "Parkpreise Flughafen Sarajevo & Tagesstaffeln | M Park Sarajevo",
-    "metaDescription": "Transparente Preise für Privatparkplätze am Flughafen Sarajevo: Tagesstaffeln, Leistungen (Videoüberwachtung + Transfer) und Onlinebuchung.",
+    "metaDescription": "Parken am Flughafen Sarajevo: 9 KM/Tag (1–9 Tage), 8 KM/Tag (10–14 Tage), 7 KM/Tag (ab 15 Tagen). Privatparkplatz mit Videoüberwachung, Transfer und Onlinebuchung.",
     "metaKeywords": [
       "Parkplatz Flughafen Sarajevo Preis",
       "Privatparkplatz Sarajevo Flughafen Kosten",
@@ -11,14 +11,14 @@
     "kicker": "M Park Sarajevo · Privatparkplatz am Flughafen Sarajevo",
     "h1": "Parken am Flughafen Sarajevo – Preise, Staffeln und Leistungen",
     "intro": [
-      "Viele Reisende möchten vor Abflug einen klaren Tagespreis ohne Überraschungen nach der Reise. M Park Sarajevo zeigt Staffeln für Privatparkplätze nahe dem Flughafen Sarajevo, sodass Sie wissen, was Sie vor Abgabe des Fahrzeugs zahlen.",
+      "Viele Reisende möchten vor Abflug einen klaren Tagespreis ohne Überraschungen nach der Reise. M Park Sarajevo staffelt den Privatparkplatz nahe dem Flughafen Sarajevo in drei Stufen: 9 KM pro Tag für 1–9 Tage, 8 KM pro Tag für 10–14 Tage und 7 KM pro Tag ab dem 15. Tag.",
       "Hier erklären wir die Tariflogik, welche Leistungen enthalten sind (Videoüberwachung und Transfer zum Terminal), und warum eine Vorabbuchung in Stoßzeiten sinnvoll ist."
     ],
     "sections": [
       {
         "h2": "So lesen Sie unsere Tagesstaffeln",
         "paragraphs": [
-          "Parken ist gleichzeitig Kosten- und Organisationsfrage: Auf Reisen soll das Auto an einem kontrollierten Ort stehen. Unser Tarif hängt von der Aufenthaltsdauer ab — kurze Reisen haben andere Tagessätze als längere Aufenthalte.",
+          "Parken ist gleichzeitig Kosten- und Organisationsfrage: Auf Reisen soll das Auto an einem kontrollierten Ort stehen. Unser Tarif hängt von der Aufenthaltsdauer ab — 9 KM/Tag für 1–9 Tage, 8 KM/Tag für 10–14 Tage und 7 KM/Tag ab dem 15. Tag.",
           "Entscheidend ist das Paket: Bei M Park Sarajevo sind Videoüberwachung und organisierter Flughafentransfer Teil der Leistung.",
           "Live-Schätzung und Staffeln finden Sie auch direkt im Buchungsformular auf der Startseite."
         ]
@@ -272,6 +272,236 @@
       {
         "href": "/privatni-vs-javni-parking-sarajevo",
         "label": "Privat vs. öffentlich"
+      }
+    ]
+  },
+  "seoFaqAirport": {
+    "metaTitle": "FAQ Parkplatz Flughafen Sarajevo | M Park Sarajevo",
+    "metaDescription": "Antworten zu Vorlaufzeiten beim Buchen, Shuttle zum Flughafen Sarajevo, Transferdauer, Sicherheit, Zahlung und Reservierung — privat am Parkplatz M Park.",
+    "metaKeywords": [
+      "Parkplatz Flughafen Sarajevo",
+      "privater Parkplatz Sarajevo Flughafen",
+      "Flughafentransfer Sarajevo"
+    ],
+    "kicker": "M Park Sarajevo · Orientierung für Reisende",
+    "h1": "Häufige Fragen zum privaten Parken am Flughafen Sarajevo",
+    "intro": [
+      "Diese Seite fasst praxisnah zusammen, was Reisende vor der ersten Anfahrt wissen möchten — ohne Touristen-Floskeln, aber mit klaren Hinweisen zu Buchungsfenster, Shuttle, Zeitpuffer und Fahrzeugsicherheit.",
+      "Zu den Tarifstaffeln siehe unsere Preis-Seite; zum Vergleich mit öffentlichen Flächen den Ratgeber „Privat vs. öffentlich“. Die Buchung läuft ausschließlich über das Formular auf der Website."
+    ],
+    "sections": [
+      {
+        "h2": "Worauf diese Antworten abzielen",
+        "paragraphs": [
+          "Operative Einzelheiten — Schlüsselübergaben, konkrete Abholzeitpunkte, Zahlungszeitpunkt — bestätigen wir immer zusammen mit Ihrer Buchung, weil Nachtflüge und längere Aufenthalte manchmal angepasst werden müssen.",
+          "M Park Sarajevo liegt an der Kasindolskih Žrtava 18 nahe dem Flughafen Sarajevo; Videoüberwachung gehört ebenso zur Leistung wie der gebündelte Transfer zum Terminal.",
+          "Im Formular sehen Sie die Staffeln: 9 KM pro Tag bei 1–9 Tagen, 8 KM ab dem 10. bis 14. Tag, 7 KM ab dem 15. Tag Aufenthalt."
+        ]
+      }
+    ],
+    "faqSectionTitle": "Häufig gestellte Fragen",
+    "faqStructured": [
+      {
+        "question": "Wie früh soll ich einen Parkplatz reservieren?",
+        "answer": "Sobald Reisedaten stehen — in Ferien oder bei Events am Flughafen verschwinden freie Kapazitäten rascher. Das Onlineformular gibt sofort einen Richtpreis aus und löst eine E-Mail-Bestätigung aus; unser Team prüft die Kapazität. Bei sehr knappen Terminen erreichen Sie uns nach der Buchung zusätzlich telefonisch."
+      },
+      {
+        "question": "Gibt es einen Transfer zum Flughafen Sarajevo?",
+        "answer": "Ja. Für Gäste, die hier parken, ist der Transfer vom Gelände zum Terminal im Preis mit enthalten — Sie müssen nicht kurz vor dem Check-in improvisiert vor dem Gebäude stehen. Abholzeitpunkte leiten wir aus Ihrer Reservierung ab und konkretisieren sie in der Bestätigung."
+      },
+      {
+        "question": "Wie lange dauert die Fahrt ungefähr?",
+        "answer": "Es ist nur eine kurze Strecke, die vom üblichen Verkehrsaufkommen wie jede Stadtfahrt abhängt. Planen Sie dennoch die von Fluggesellschaften empfohlene Vorlaufzeit ein, besonders wenn Sie internationale Schengen-/Nichtschengen-Grenzen passieren."
+      },
+      {
+        "question": "Ist das Parken sicher?",
+        "answer": "Wir bieten ein durchorganisiertes Areal mit 24/7-Videoüberwachung für Reisende, die ihr Fahrzeug über Nächte abstellen möchten — klar strukturierter als riskantes Kurzzeitparkieren am Straßenrand. Zugriffsregeln wiederholen wir pro Buchung, damit Erwartungen klar sind."
+      },
+      {
+        "question": "Was passiert bei Verspätung oder Flugumbuchung?",
+        "answer": "Melden Sie sich bitte möglichst früh unter den Kontaktdaten aus Ihrer Buchungsbestätigung. So können Shuttle und Abstellzeitraum häufig flexibel angepasst werden — vorausgesetzt, Kapazität und bestehende Reservierungen erlauben es."
+      },
+      {
+        "question": "Wie funktioniert die Reservierung?",
+        "answer": "Sie füllen das Formular online aus: Datum und Uhrzeiten für Ankunft Abreise Kontaktdaten optionale Schlüsselübergabe. Danach erhält automatisch eine E-Mail; wir prüfen die Kapazität. Reine WhatsApp-Vollbuchungen ohne Formular gibt es nicht, damit alles dokumentiert bleibt."
+      },
+      {
+        "question": "Wie wird bezahlt?",
+        "answer": "Zahlungsart und Zeitpunkt legen wir in der Bestätigung fest und halten Sie an den bereits im Online-Rechner sichtbaren Staffeln — keine nachträglichen versteckten „Zusatzparkgebühren“."
+      },
+      {
+        "question": "Gibt es Betreuung in der Nacht?",
+        "answer": "Die Videoüberwachung läuft ununterbrochen. Für Transfer und Schlüsselübergaben gelten die in der Buchung vereinbarten Zeitfenster; Nachtflüge sind unproblematisch, wenn Informationen vorab über denselben Kanal eingegangen sind."
+      }
+    ],
+    "ctaTitle": "Parkplatz reservieren",
+    "ctaLead": "Mit korrekten Ankunfts-/Abreisezeiten sehen Sie sofort Staffelpreise für den privaten Parkplatz am Flughafen.",
+    "ctaButton": "Zur Buchung",
+    "relatedNavLabel": "Weitere Ratgeber",
+    "relatedHeading": "Mehr lesen",
+    "relatedLinks": [
+      {
+        "href": "/",
+        "label": "M Park Sarajevo — Startseite"
+      },
+      {
+        "href": "/parking-aerodrom-sarajevo-cijene",
+        "label": "Parkpreise am Flughafen Sarajevo"
+      },
+      {
+        "href": "/dugorocni-parking-aerodrom-sarajevo",
+        "label": "Langzeitparken am Flughafen"
+      },
+      {
+        "href": "/kako-doci-do-aerodroma-sarajevo",
+        "label": "Anfahrt zum Flughafen Sarajevo"
+      },
+      {
+        "href": "/transfer-aerodrom-sarajevo",
+        "label": "Transfer-Service"
+      },
+      {
+        "href": "/rezervacija",
+        "label": "Online buchen"
+      }
+    ]
+  },
+  "seoDirectionsAirport": {
+    "metaTitle": "Anfahrt Flughafen Sarajevo mit M Park | Privater Parkplatz",
+    "metaDescription": "Standort Kasindolskih Žrtava 18 bei Sarajevo: Anfahren, Transfer zum Terminal Hinweise zur privaten Buchung beim Parkplatz M Park Sarajevo.",
+    "metaKeywords": [
+      "Anreise Flughafen Sarajevo",
+      "Parkplatz nahe Flughafen Sarajevo",
+      "Privater Parkplatz Sarajevo"
+    ],
+    "kicker": "M Park Sarajevo · Adresse Kasindolskih Žrtava 18 · inklusive Transfer",
+    "h1": "So erreichen Sie den Flughafen Sarajevo mit privatem Parkservice",
+    "intro": [
+      "Ob eigenes Auto Taxi oder Shuttle von Bekannten — meist läuft alles über unser Grundstück, bevor der kostenlose Transfer zum Check-in startet.",
+      "Wer gezielt nach Parkplatz Flughafen Sarajevo und Anfahrt sucht, findet hier die feste Adresse statt bruchstückhafter Kartenfragmente."
+    ],
+    "sections": [
+      {
+        "h2": "Adresse und Ankunft",
+        "paragraphs": [
+          "M Park Sarajevo liegt an der Kasindolskih Žrtava 18 und ist aus der Stadt und dem Umland gut erreichbar.",
+          "Nach Bestätigung der Online-Buchung erhalten Sie verlässliche Navigationshinweise und Telefonnummern für Rückfragen.",
+          "Bitte Verzögerungen früh melden, damit Transferfenster für andere Gästen nicht zusammenkleben."
+        ]
+      },
+      {
+        "h2": "Übergang Parkplatz → Terminal",
+        "paragraphs": [
+          "Der Transfer erspart das nervöse Umherfahren vor dem Gebäude, wenn bereits Gepäck und Familie an Bord sein müssen.",
+          "Bleiben Sie unabhängig von uns bei den Check-in-Schließen der Fluggesellschaften optimistisch konservativ — Sicherheitsschlangen gehören nicht zum Parkservice.",
+          "Kurzfassung Fotos oder Video finden Sie parallel auf der deutschsprachigen Startseiten-Sektion, falls Sie sich vorab orientieren möchten."
+        ]
+      },
+      {
+        "h2": "ÖPNV Kombinationen oder Taxiabfsetzer",
+        "paragraphs": [
+          "Selbst ohne eigenes Lenkrad erreichen Sie die Adresse oft per Taxi oder organisierter Mitfahrgelegenheit.",
+          "Für sehr lange Abwesenheit lohnt der begleitende Langzeit-Artikel, damit die Staffeln psychologisch planbar wirken."
+        ]
+      }
+    ],
+    "ctaTitle": "Buchung sichern für individuelle Wegbeschreibung",
+    "ctaLead": "Geben Sie Ihre Daten im Formular ein — die Bestätigung enthält konkrete Hinweise vor dem ersten Besuch.",
+    "ctaButton": "Jetzt parken buchen",
+    "relatedNavLabel": "Weitere Ratgeber",
+    "relatedHeading": "Passt weiter",
+    "relatedLinks": [
+      {
+        "href": "/",
+        "label": "M Park Sarajevo Startseite"
+      },
+      {
+        "href": "/faq-parking-aerodrom-sarajevo",
+        "label": "FAQ Flughafenparken"
+      },
+      {
+        "href": "/parking-aerodrom-sarajevo-cijene",
+        "label": "Preisseite"
+      },
+      {
+        "href": "/transfer-aerodrom-sarajevo",
+        "label": "Transferdetails"
+      },
+      {
+        "href": "/dugorocni-parking-aerodrom-sarajevo",
+        "label": "Langzeitparken"
+      },
+      {
+        "href": "/rezervacija",
+        "label": "Online-Reservierung"
+      }
+    ]
+  },
+  "seoLongTermParking": {
+    "metaTitle": "Langzeitparken Flughafen Sarajevo | M Park Sarajevo",
+    "metaDescription": "Mehrtägiges und wochenlanges Parken nahe Sarajevo Airport: 9/8/7 KM Staffeln Videoüberwachung Transfer und Online-Buchung.",
+    "metaKeywords": [
+      "Langzeitparken Flughafen Sarajevo",
+      "Parkplatz Flughafen Sarajevo lange Reise",
+      "privater Parkplatz Sarajevo"
+    ],
+    "kicker": "M Park Sarajevo · Staffelpreise für längere Reisen",
+    "h1": "Langzeit-Parkplatz am Flughafen Sarajevo für Reisende",
+    "intro": [
+      "Wer wochenlang verreist möchte keine Überraschung bei der Schlussrechnung und kein Risiko beim Abstellen an zufälliger Straßenkante.",
+      "M Park bündelt Kameraüberwachung Transfer und dokumentierte Buchung unter einer Hausnummer samt automatischer Berechnung der Tagesstaffeln."
+    ],
+    "sections": [
+      {
+        "h2": "Staffeln im Überblick",
+        "paragraphs": [
+          "Tage eins bis neun werden mit 9 KM je Kalendertag bewertet, ab dem zehnten bis vierzehnten Tag gilt 8 KM, ab dem fünfzehnten Tag sind es 7 KM — Transfer und Überwachung bleiben in allen Bereichen aktiv.",
+          "Die Buchungsmaske addiert automatisch, wenn An- und Abreise erfasst wurden — ohne nachträgliche versteckte Aufschläge solange sich das Reisedatum nicht ändert.",
+          "So lassen sich Ausgaben gegenüber Arbeitgebern oder im Familienbudget gut belegen."
+        ]
+      },
+      {
+        "h2": "Wer Langzeit häufig wählt",
+        "paragraphs": [
+          "Berufliche Aufenthalte mehrerer Wochen im Ausland mit festem Stellplatz in Sarajevo.",
+          "Familien, die während Schulferien ein Fahrzeug sicher abstellen möchten, ohne Nachbarn zu belasten.",
+          "Menschen in der Diaspora, die mehrmals jährlich pendeln ohne jedes Mal neues Chaos um das Auto."
+        ]
+      },
+      {
+        "h2": "Transfer Sicherheit und flexible Planung",
+        "paragraphs": [
+          "Rundumlauf Video bleibt unabhängig von der Gesamtlänge aktiv.",
+          "Transferpauschalen gelten ebenfalls wenn Sie lange weg sind Hin- und Rückweg nutzen dieselbe Reservationsakte.",
+          "Bei verschobenen Rückflügen erreichen Sie uns bitte bald damit Platz und Abrechnung fair nachjustiert werden."
+        ]
+      }
+    ],
+    "ctaTitle": "Langaufenthalt kalkulieren",
+    "ctaLead": "Tragen Sie reale Daten online ein Kapazitätsampel und Tarifstaffel aktualisieren sich synchron.",
+    "ctaButton": "Reservierung starten",
+    "relatedNavLabel": "Weitere Ratgeber",
+    "relatedHeading": "Empfohlene nächste Seiten",
+    "relatedLinks": [
+      {
+        "href": "/",
+        "label": "M Park Sarajevo Home"
+      },
+      {
+        "href": "/parking-aerodrom-sarajevo-cijene",
+        "label": "Preisanalyse Detail"
+      },
+      {
+        "href": "/faq-parking-aerodrom-sarajevo",
+        "label": "FAQ"
+      },
+      {
+        "href": "/transfer-aerodrom-sarajevo",
+        "label": "Transfer-Service"
+      },
+      {
+        "href": "/rezervacija",
+        "label": "Online buchen Flughafenparkplatz Sarajevo"
       }
     ]
   }

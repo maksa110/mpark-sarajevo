@@ -1,10 +1,10 @@
 {
   "metadata": {
-    "title": "Privater Parkplatz Flughafen Sarajevo – M Park | Privater Parkplatz 9 KM",
-    "description": "Privater Parkplatz in der Nähe vom Flughafen Sarajevo für Reisende. Sicherer Parkplatz 24/7, 9 KM pro Tag und schnelle Online-Buchung.",
-    "ogTitle": "Privater Parkplatz Flughafen Sarajevo – M Park | Privater Parkplatz 9 KM",
-    "ogDescription": "Privater Parkplatz in der Nähe vom Flughafen Sarajevo für Reisende. Sicherer Parkplatz 24/7, 9 KM pro Tag und schnelle Online-Buchung.",
-    "twitterDescription": "Privater Parkplatz nahe Flughafen Sarajevo. 9 KM pro Tag, 24/7 Überwachung und Online-Buchung.",
+    "title": "Privater Parkplatz Flughafen Sarajevo – M Park | Privater Parkplatz Sarajevo",
+    "description": "Privater Parkplatz in der Nähe vom Flughafen Sarajevo für Reisende. Staffelpreise: 9 KM (1–9 Tage), 8 KM (10–14 Tage), 7 KM (ab 15 Tagen). 24/7 Überwachung, Transfer und Online-Buchung.",
+    "ogTitle": "Privater Parkplatz Flughafen Sarajevo – M Park | Privater Parkplatz Sarajevo",
+    "ogDescription": "Privater Parkplatz nahe Flughafen Sarajevo. Tagesstaffeln 9/8/7 KM, 24/7 Überwachung, Transfer und Online-Buchung.",
+    "twitterDescription": "Privater Parkplatz nahe Flughafen Sarajevo. Staffeln 9/8/7 KM pro Tag, 24/7 Überwachung und Online-Buchung.",
     "ogImageAlt": "M Park Sarajevo – Privater Parkplatz nahe Flughafen Sarajevo",
     "keywords": [
       "Parkplatz Flughafen Sarajevo",
@@ -12,7 +12,7 @@
       "sicherer Parkplatz Flughafen Sarajevo",
       "Flughafen-Transfer Parkplatz Sarajevo",
       "Parkplatz nahe Flughafen Sarajevo",
-      "9 KM pro Tag Parkplatz",
+      "Parkplatz Flughafen Sarajevo Staffeln",
       "Übernachtung Parkplatz Flughafen Sarajevo"
     ]
   },
@@ -25,6 +25,17 @@
   },
   "seoTopicNav": {
     "ariaLabel": "Kurz-Ratgeber: Privatparkplatz Flughafen Sarajevo"
+  },
+  "homeHub": {
+    "heading": "Ratgeber, Preise und Buchung am Flughafen Sarajevo",
+    "brand": "M Park Sarajevo",
+    "linkPrices": "Parkplatz Flughafen Sarajevo (Tagesstaffeln)",
+    "linkTransfer": "Transfer zum Flughafen",
+    "linkCompare": "Privat- oder Öffentlicher Parkplatz",
+    "linkFaq": "FAQ Flughafenparken",
+    "linkDirections": "Anfahrt zum Flughafen",
+    "linkLongTerm": "Langzeitparken",
+    "linkBook": "Parkplatz online buchen"
   },
   "header": {
     "logoAria": "M Park Sarajevo - Startseite",
@@ -65,7 +76,7 @@
   },
   "booking": {
     "h2": "Parkplatz-Reservierung",
-    "lead": "Buchungen ausschließlich über dieses Formular — wir bestätigen keine Termine über WhatsApp. Preis: 9 KM/Tag (1–3 Tage), 8 KM/Tag (4–6 Tage), 7 KM/Tag (ab 7 Tagen). Geben Sie Ihre Daten und Reisedaten ein. Eine Übernachtung ist auf vorherige Absprache möglich — bitten Sie darum, wenn wir Sie zur Bestätigung kontaktieren.",
+    "lead": "Buchungen ausschließlich über dieses Formular — wir bestätigen keine Termine über WhatsApp. Preis: 9 KM/Tag (1–9 Tage), 8 KM/Tag (10–14 Tage), 7 KM/Tag (ab 15 Tagen). Geben Sie Ihre Daten und Reisedaten ein. Eine Übernachtung ist auf vorherige Absprache möglich — bitten Sie darum, wenn wir Sie zur Bestätigung kontaktieren.",
     "success": "Vielen Dank! Ihre Reservierung ist eingegangen. Wir haben eine Bestätigung an Ihre E-Mail gesendet. Wir können Sie bald kontaktieren.",
     "reviewHint": "Wenn alles gepasst hat, hilft eine kurze Google-Rezension anderen Reisenden, einen sicheren Parkplatz am Flughafen Sarajevo zu finden.",
     "reviewCta": "Google-Rezension schreiben",
@@ -108,9 +119,9 @@
       "rate": "{rate} KM × {count, plural, one {# Tag} other {# Tage}}",
       "total": "Gesamt",
       "tierBadge": {
-        "t1": "Tarif 1–3 Tage",
-        "t2": "Tarif 4–6 Tage",
-        "t3": "Tarif ab 7 Tagen – Bestpreis"
+        "t1": "Tarif 1–9 Tage",
+        "t2": "Tarif 10–14 Tage",
+        "t3": "Tarif ab 15 Tagen – Bestpreis"
       },
       "saveHint": "Verlängern Sie um {extra, plural, one {# weiteren Tag} other {# weitere Tage}} und zahlen Sie nur {rate} KM/Tag – sparen Sie bis zu {save} KM pro Tag.",
       "note": "Schätzung inkl. allem: 24/7 Videoüberwachung und kostenloser Transfer zum Flughafen Sarajevo. Den Endpreis bestätigen wir bei der Kontaktaufnahme."
@@ -164,17 +175,17 @@
     "noteHidden": "Endpreise ohne versteckte Kosten. Alles inklusive: 24/7 Videoüberwachung, kostenloser Transfer zum Flughafen Sarajevo und Online-Buchung.",
     "tiers": {
       "t1": {
-        "title": "1–3 Tage",
+        "title": "1–9 Tage",
         "price": "9 KM",
-        "tagline": "Kurzaufenthalt"
+        "tagline": "Standard-Tagespreis"
       },
       "t2": {
-        "title": "4–6 Tage",
+        "title": "10–14 Tage",
         "price": "8 KM",
         "tagline": "1 KM pro Tag sparen"
       },
       "t3": {
-        "title": "7+ Tage",
+        "title": "15+ Tage",
         "price": "7 KM",
         "tagline": "Niedrigster Tagespreis"
       }
@@ -187,7 +198,7 @@
   },
   "gallery": {
     "h2": "Galerie sicherer privater Parkplatz Flughafen Sarajevo",
-    "lead": "Sehen Sie unseren privaten Parkplatz Sarajevo: eingezäunt, mit 24/7 Videoüberwachung und kostenlosem Transfer-Service zum Flughafen Sarajevo. Sicherer Parkplatz Flughafen für Reisende — transparenter Preis 9 KM pro Tag.",
+    "lead": "Sehen Sie unseren privaten Parkplatz Sarajevo: eingezäunt, mit 24/7 Videoüberwachung und kostenlosem Transfer-Service zum Flughafen Sarajevo. Sicherer Parkplatz Flughafen für Reisende — gestaffelte Tagespreise (9/8/7 KM je nach Aufenthaltsdauer).",
     "items": {
       "zone": {
         "alt": "privater Parkplatz Flughafen Sarajevo sichere Parkzone",
@@ -240,7 +251,7 @@
       },
       {
         "q": "Wie viel kostet der Parkplatz?",
-        "a": "Die Preise sind transparent und richten sich nach der Aufenthaltsdauer: 9 KM pro Tag bei 1–3 Tagen, 8 KM pro Tag bei 4–6 Tagen und nur 7 KM pro Tag ab 7 Tagen. Je länger Sie Ihr Fahrzeug auf unserem privaten Parkplatz nahe Flughafen Sarajevo lassen, desto niedriger der Tagespreis. Im Preis enthalten: 24/7 Videoüberwachung und kostenloser Transfer zum Flughafen."
+        "a": "Die Preise sind transparent und richten sich nach der Aufenthaltsdauer: 9 KM pro Tag bei 1–9 Tagen, 8 KM pro Tag bei 10–14 Tagen und 7 KM pro Tag ab 15 Tagen. Je länger Sie Ihr Fahrzeug auf unserem privaten Parkplatz nahe Flughafen Sarajevo lassen, desto niedriger der Tagespreis. Im Preis enthalten: 24/7 Videoüberwachung und kostenloser Transfer zum Flughafen."
       },
       {
         "q": "Ist eine Übernachtung in Kombination mit dem Parkplatz möglich?",
@@ -301,6 +312,9 @@
       "prices": "Preise am Flughafen",
       "transfer": "Transfer zum Flughafen",
       "vsPublic": "Privat vs. öffentlich",
+      "faqParking": "FAQ Parkplatz",
+      "directionsAirport": "Anfahrt Flughafen",
+      "longTermParking": "Langzeitparken",
       "reservation": "Online-Buchung"
     }
   },

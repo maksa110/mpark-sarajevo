@@ -5,6 +5,7 @@ import { Mail, MapPin, Phone } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { Link, usePathname } from "@/i18n/navigation";
 import { SITE, calendarYearSarajevo } from "@/lib/site";
+import { SEO_SLUGS } from "@/lib/seo-routes";
 import Reveal from "@/components/Reveal";
 
 const NAV = [
@@ -19,17 +20,20 @@ const NAV = [
 ];
 
 const GUIDES = [
-  { href: "/parking-aerodrom-sarajevo-cijene", msgKey: "prices" },
-  { href: "/transfer-aerodrom-sarajevo", msgKey: "transfer" },
-  { href: "/privatni-vs-javni-parking-sarajevo", msgKey: "vsPublic" },
-  { href: "/rezervacija", msgKey: "reservation" },
+  { href: SEO_SLUGS.parkingPrices, msgKey: "prices" },
+  { href: SEO_SLUGS.transfer, msgKey: "transfer" },
+  { href: SEO_SLUGS.vsPublic, msgKey: "vsPublic" },
+  { href: SEO_SLUGS.faqAirport, msgKey: "faqParking" },
+  { href: SEO_SLUGS.directionsAirport, msgKey: "directionsAirport" },
+  { href: SEO_SLUGS.longTermParking, msgKey: "longTermParking" },
+  { href: SEO_SLUGS.reservation, msgKey: "reservation" },
 ];
 
 export default function SiteFooter() {
   const t = useTranslations("footer");
   const tSite = useTranslations("site");
   const pathname = usePathname();
-  const isHome = pathname === "/";
+  const isHome = pathname === "/" || pathname === "";
   const year = calendarYearSarajevo();
 
   const linkClass =
@@ -46,7 +50,7 @@ export default function SiteFooter() {
       }
       return (
         <Link
-          href={{ pathname: "/rezervacija", hash: "book" }}
+          href={{ pathname: SEO_SLUGS.reservation, hash: "book" }}
           className={linkClass}
         >
           {t(`nav.${item.key}`)}
@@ -205,7 +209,7 @@ export default function SiteFooter() {
             </a>
           ) : (
             <Link
-              href={{ pathname: "/rezervacija", hash: "book" }}
+              href={{ pathname: SEO_SLUGS.reservation, hash: "book" }}
               className="text-left text-sm font-semibold text-brand-lime transition hover:text-brand-lime-300 sm:text-right"
             >
               {t("ctaShort")}

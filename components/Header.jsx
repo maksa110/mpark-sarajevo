@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { Link, usePathname } from "@/i18n/navigation";
+import { SEO_SLUGS } from "@/lib/seo-routes";
 import LanguageSwitcher from "./LanguageSwitcher";
 
 const NAV_ITEMS = [
@@ -23,7 +24,7 @@ const bookLinkCommon =
 export default function Header() {
   const t = useTranslations("header");
   const pathname = usePathname();
-  const isHome = pathname === "/";
+  const isHome = pathname === "/" || pathname === "";
   const [open, setOpen] = useState(false);
   const [active, setActive] = useState("home");
 
@@ -136,7 +137,6 @@ export default function Header() {
                 alt=""
                 width={120}
                 height={120}
-                priority
                 sizes="40px"
                 className="h-10 w-10 object-cover"
               />
@@ -163,7 +163,6 @@ export default function Header() {
                 alt=""
                 width={120}
                 height={120}
-                priority
                 sizes="40px"
                 className="h-10 w-10 object-cover"
               />
@@ -210,7 +209,7 @@ export default function Header() {
             </a>
           ) : (
             <Link
-              href={{ pathname: "/rezervacija", hash: "book" }}
+              href={{ pathname: SEO_SLUGS.reservation, hash: "book" }}
               className={`hidden sm:inline-flex ${bookLinkCommon}`}
             >
               {t("cta")}
@@ -280,7 +279,7 @@ export default function Header() {
               </a>
             ) : (
               <Link
-                href={{ pathname: "/rezervacija", hash: "book" }}
+                href={{ pathname: SEO_SLUGS.reservation, hash: "book" }}
                 onClick={close}
                 className="flex min-h-[52px] w-full items-center justify-center rounded-2xl bg-brand-lime text-base font-extrabold uppercase tracking-wide text-brand-navy shadow-lg shadow-brand-lime/25 transition hover:bg-brand-lime-300 active:scale-[0.99]"
               >

@@ -9,7 +9,7 @@ import {
 } from "@/lib/jsonld-business";
 import { getGoogleReviews } from "@/lib/google-reviews";
 import { buildSeoArticleMetadata } from "@/lib/seo-metadata";
-import { SEO_SLUGS } from "@/lib/seo-routes";
+import { SEO_SLUGS, seoPagePath } from "@/lib/seo-routes";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 
 export const revalidate = 86400;
@@ -19,15 +19,14 @@ export async function generateMetadata({ params }) {
   return buildSeoArticleMetadata({
     locale,
     namespace: "seoReservation",
-    slug: SEO_SLUGS.reservation,
+    pathnameKey: SEO_SLUGS.reservation,
   });
 }
 
 export default async function ReservationPage({ params }) {
   const { locale } = await params;
   setRequestLocale(locale);
-  const slug = SEO_SLUGS.reservation;
-  const path = `/${locale}/${slug}`;
+  const path = seoPagePath(locale, SEO_SLUGS.reservation);
   const t = await getTranslations({ locale, namespace: "seoReservation" });
   const tCommon = await getTranslations({ locale, namespace: "common" });
 
@@ -58,21 +57,27 @@ export default async function ReservationPage({ params }) {
   const crumbs = buildBreadcrumbJsonLd({
     locale,
     items: [
-      { name: "M Park Sarajevo", path: `/${locale}` },
+      {
+        name: "M Park Sarajevo",
+        path: seoPagePath(locale, "/"),
+      },
       { name: t("metaTitle"), path },
     ],
   });
 
   return (
     <MarketingChrome
-      skipBookingHref="#book"
+      skipBookingHref={`${path}#book`}
       skipLabel={tCommon("skipToBooking")}
     >
       <JsonLdScripts schemas={[business, webpage, crumbs]} />
       <SeoGuideArticle
         locale={locale}
         namespace="seoReservation"
-        bookHashHref="#book"
+        bookHashHref={{
+          pathname: SEO_SLUGS.reservation,
+          hash: "book",
+        }}
       />
       <Booking />
     </MarketingChrome>

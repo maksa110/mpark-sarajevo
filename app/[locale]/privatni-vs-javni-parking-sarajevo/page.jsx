@@ -8,7 +8,7 @@ import {
 } from "@/lib/jsonld-business";
 import { getGoogleReviews } from "@/lib/google-reviews";
 import { buildSeoArticleMetadata } from "@/lib/seo-metadata";
-import { SEO_SLUGS } from "@/lib/seo-routes";
+import { SEO_SLUGS, seoPagePath } from "@/lib/seo-routes";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 
 export const revalidate = 86400;
@@ -18,15 +18,14 @@ export async function generateMetadata({ params }) {
   return buildSeoArticleMetadata({
     locale,
     namespace: "seoVsPublic",
-    slug: SEO_SLUGS.vsPublic,
+    pathnameKey: SEO_SLUGS.vsPublic,
   });
 }
 
 export default async function VsPublicParkingPage({ params }) {
   const { locale } = await params;
   setRequestLocale(locale);
-  const slug = SEO_SLUGS.vsPublic;
-  const path = `/${locale}/${slug}`;
+  const path = seoPagePath(locale, SEO_SLUGS.vsPublic);
   const t = await getTranslations({ locale, namespace: "seoVsPublic" });
   const tCommon = await getTranslations({ locale, namespace: "common" });
 
@@ -57,24 +56,27 @@ export default async function VsPublicParkingPage({ params }) {
   const crumbs = buildBreadcrumbJsonLd({
     locale,
     items: [
-      { name: "M Park Sarajevo", path: `/${locale}` },
+      {
+        name: "M Park Sarajevo",
+        path: seoPagePath(locale, "/"),
+      },
       { name: t("metaTitle"), path },
     ],
   });
 
-  const skipHref = "/rezervacija#book";
-  const bookHref = "/rezervacija#book";
-
   return (
     <MarketingChrome
-      skipBookingHref={skipHref}
+      skipBookingHref={`${seoPagePath(locale, SEO_SLUGS.reservation)}#book`}
       skipLabel={tCommon("skipToBooking")}
     >
       <JsonLdScripts schemas={[business, webpage, crumbs]} />
       <SeoGuideArticle
         locale={locale}
         namespace="seoVsPublic"
-        bookHashHref={bookHref}
+        bookHashHref={{
+          pathname: SEO_SLUGS.reservation,
+          hash: "book",
+        }}
       />
     </MarketingChrome>
   );

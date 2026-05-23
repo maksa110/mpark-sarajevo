@@ -5,6 +5,7 @@ import Booking from "@/components/Booking";
 import Trust from "@/components/Trust";
 import HowItWorks from "@/components/HowItWorks";
 import PricingSection from "@/components/PricingSection";
+import HomepageLocalSeoLinks from "@/components/HomepageLocalSeoLinks";
 import Gallery from "@/components/Gallery";
 import Reviews from "@/components/Reviews";
 import FaqSection from "@/components/FaqSection";
@@ -49,6 +50,7 @@ export default async function HomePage({ params }) {
     "@type": ["LocalBusiness", "ParkingFacility"],
     "@id": `${SITE.url}/${locale}#business`,
     name: SITE.brand,
+    legalName: SITE.legalName,
     description: tMeta("description"),
     url: `${SITE.url}/${locale}`,
     telephone: SITE.phoneTel,
@@ -87,7 +89,7 @@ export default async function HomePage({ params }) {
               "@type": "QuantitativeValue",
               value: 1,
               minValue: 1,
-              maxValue: 3,
+              maxValue: 9,
               unitText: "DAY",
             },
           },
@@ -105,8 +107,8 @@ export default async function HomePage({ params }) {
             referenceQuantity: {
               "@type": "QuantitativeValue",
               value: 1,
-              minValue: 4,
-              maxValue: 6,
+              minValue: 10,
+              maxValue: 14,
               unitText: "DAY",
             },
           },
@@ -124,7 +126,7 @@ export default async function HomePage({ params }) {
             referenceQuantity: {
               "@type": "QuantitativeValue",
               value: 1,
-              minValue: 7,
+              minValue: 15,
               unitText: "DAY",
             },
           },
@@ -212,6 +214,7 @@ export default async function HomePage({ params }) {
         <Trust />
         <HowItWorks />
         <PricingSection />
+        <HomepageLocalSeoLinks />
         <Location />
         <Gallery />
         <Reviews />

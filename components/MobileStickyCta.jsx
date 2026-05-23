@@ -2,10 +2,11 @@
 
 import { useTranslations } from "next-intl";
 import { Link, usePathname } from "@/i18n/navigation";
+import { SEO_SLUGS } from "@/lib/seo-routes";
 
 export default function MobileStickyCta() {
   const pathname = usePathname();
-  const isHome = pathname === "/";
+  const isHome = pathname === "/" || pathname === "";
   const t = useTranslations("stickyCta");
 
   const className =
@@ -23,7 +24,7 @@ export default function MobileStickyCta() {
         </a>
       ) : (
         <Link
-          href={{ pathname: "/rezervacija", hash: "book" }}
+          href={{ pathname: SEO_SLUGS.reservation, hash: "book" }}
           className={className}
         >
           {t("label")}

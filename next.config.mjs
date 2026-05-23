@@ -1,4 +1,5 @@
 import createNextIntlPlugin from "next-intl/plugin";
+import { listLegacySlugRedirects } from "./lib/seo-routes.js";
 
 const withNextIntl = createNextIntlPlugin("./i18n/request.js");
 
@@ -11,10 +12,6 @@ const nextConfig = {
   images: {
     formats: ["image/avif", "image/webp"],
     remotePatterns: [
-      {
-        protocol: "https",
-        hostname: "images.unsplash.com",
-      },
       {
         protocol: "https",
         hostname: "lh3.googleusercontent.com",
@@ -32,6 +29,14 @@ const nextConfig = {
         hostname: "lh6.googleusercontent.com",
       },
     ],
+  },
+  async redirects() {
+    const leg = listLegacySlugRedirects();
+    return leg.map(({ locale, fromSeg, toSeg }) => ({
+      source: `/${locale}/${fromSeg}`,
+      destination: `/${locale}/${toSeg}`,
+      permanent: true,
+    }));
   },
   async rewrites() {
     return [{ source: "/favicon.ico", destination: "/logo.png" }];

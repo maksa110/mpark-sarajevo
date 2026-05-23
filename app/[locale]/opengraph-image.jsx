@@ -3,7 +3,7 @@ import { hasLocale } from "next-intl";
 import { routing } from "@/i18n/routing";
 import { SITE } from "@/lib/site";
 
-export const alt = "M Park Sarajevo – Privatni parking blizu Aerodroma Sarajevo";
+
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 

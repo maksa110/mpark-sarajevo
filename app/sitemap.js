@@ -1,28 +1,28 @@
 import { SITE } from "@/lib/site";
 import { routing } from "@/i18n/routing";
-import { SEO_SLUGS } from "@/lib/seo-routes";
+import {
+  SEO_SLUGS,
+  seoAbsoluteUrl,
+} from "@/lib/seo-routes";
 
 /** Kanonski origin — mora odgovarati NEXT_PUBLIC_SITE_URL (www). */
 const base = SITE.url.replace(/\/$/, "");
 
-const SEO_PATHS = [
-  SEO_SLUGS.parkingPrices,
-  SEO_SLUGS.transfer,
-  SEO_SLUGS.vsPublic,
-  SEO_SLUGS.reservation,
-];
-
-export default function sitemap() {
+function buildSitemapSafe() {
   const lastModified = new Date();
 
   const homeLanguages = Object.fromEntries(
-    routing.locales.map((l) => [l, `${base}/${l}`])
+    routing.locales.map((l) => [l, seoAbsoluteUrl(base, l, "/")])
   );
-  homeLanguages["x-default"] = `${base}/${routing.defaultLocale}`;
+  homeLanguages["x-default"] = seoAbsoluteUrl(
+    base,
+    routing.defaultLocale,
+    "/"
+  );
 
   const homeEntries = [
     {
-      url: `${base}/${routing.defaultLocale}`,
+      url: seoAbsoluteUrl(base, routing.defaultLocale, "/"),
       lastModified,
       changeFrequency: "weekly",
       priority: 1,
@@ -31,7 +31,7 @@ export default function sitemap() {
     ...routing.locales
       .filter((l) => l !== routing.defaultLocale)
       .map((locale) => ({
-        url: `${base}/${locale}`,
+        url: seoAbsoluteUrl(base, locale, "/"),
         lastModified,
         changeFrequency: "weekly",
         priority: 0.95,
@@ -39,20 +39,54 @@ export default function sitemap() {
       })),
   ];
 
-  const guideEntries = SEO_PATHS.flatMap((slug) => {
+  const seoKeys = Object.values(SEO_SLUGS);
+  const secondarySeo = new Set([
+    SEO_SLUGS.faqAirport,
+    SEO_SLUGS.directionsAirport,
+    SEO_SLUGS.longTermParking,
+  ]);
+
+  const guideEntries = seoKeys.flatMap((pathnameKey) => {
     const languages = Object.fromEntries(
-      routing.locales.map((l) => [l, `${base}/${l}/${slug}`])
+      routing.locales.map((l) => [l, seoAbsoluteUrl(base, l, pathnameKey)])
     );
-    languages["x-default"] = `${base}/${routing.defaultLocale}/${slug}`;
+    languages["x-default"] = seoAbsoluteUrl(
+      base,
+      routing.defaultLocale,
+      pathnameKey
+    );
 
     return routing.locales.map((locale) => ({
-      url: `${base}/${locale}/${slug}`,
+      url: seoAbsoluteUrl(base, locale, pathnameKey),
       lastModified,
       changeFrequency: "monthly",
-      priority: slug === SEO_SLUGS.reservation ? 0.9 : 0.82,
+      priority:
+        pathnameKey === SEO_SLUGS.reservation
+          ? 0.9
+          : secondarySeo.has(pathnameKey)
+            ? 0.8
+            : 0.82,
       alternates: { languages },
     }));
   });
 
   return [...homeEntries, ...guideEntries];
+}
+
+/** Uvijek validan odgovor: izbjegni 500 u produkciji ako nešto pukne tijekom generacije. */
+export default function sitemap() {
+  try {
+    return buildSitemapSafe();
+  } catch (err) {
+    console.error("[sitemap] generation failed:", err);
+    const lastModified = new Date();
+    return [
+      {
+        url: seoAbsoluteUrl(base, routing.defaultLocale, "/"),
+        lastModified,
+        changeFrequency: "weekly",
+        priority: 1,
+      },
+    ];
+  }
 }

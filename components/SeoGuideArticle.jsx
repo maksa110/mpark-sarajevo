@@ -4,12 +4,13 @@ import SeoBreadcrumbs from "@/components/SeoBreadcrumbs";
 
 /**
  * Dugi SEO članak iz next-intl namespace-a (intro: string[], sections: {h2, paragraphs[]}).
- * @param {{ locale: string, namespace: string, bookHashHref: string }} props
+ * @param {{ locale: string, namespace: string, bookHashHref: object | string, showFaqBlock?: boolean }} props
  */
 export default async function SeoGuideArticle({
   locale,
   namespace,
   bookHashHref,
+  showFaqBlock = false,
 }) {
   const t = await getTranslations({ locale, namespace });
   const tCommon = await getTranslations({ locale, namespace: "common" });
@@ -20,6 +21,8 @@ export default async function SeoGuideArticle({
   const introParas = Array.isArray(intro) ? intro : [];
   const sectionBlocks = Array.isArray(sections) ? sections : [];
   const relatedItems = Array.isArray(related) ? related : [];
+  const faqRaw = showFaqBlock ? t.raw("faqStructured") : [];
+  const faqPairs = Array.isArray(faqRaw) ? faqRaw : [];
 
   return (
     <>
@@ -27,7 +30,8 @@ export default async function SeoGuideArticle({
         homeLabel={tCommon("breadcrumbHome")}
         currentLabel={t("metaTitle")}
       />
-      <article className="mx-auto max-w-3xl px-4 pb-16 pt-6 sm:px-6 sm:pb-20 sm:pt-8">      <h1 className="text-3xl font-semibold tracking-tight text-zinc-900 sm:text-4xl">
+      <article className="mx-auto max-w-3xl px-4 pb-16 pt-6 sm:px-6 sm:pb-20 sm:pt-8">
+        <h1 className="text-3xl font-semibold tracking-tight text-zinc-900 sm:text-4xl">
         {t("h1")}
       </h1>
       <p className="mt-3 text-sm font-medium text-zinc-500">{t("kicker")}</p>
@@ -50,6 +54,32 @@ export default async function SeoGuideArticle({
           </section>
         ))}
       </div>
+
+      {faqPairs.length > 0 && (
+        <section
+          className="mt-12 border-t border-zinc-200 pt-10"
+          aria-labelledby="faq-block-title"
+        >
+          <h2
+            id="faq-block-title"
+            className="text-xl font-semibold tracking-tight text-zinc-900 sm:text-2xl"
+          >
+            {t("faqSectionTitle")}
+          </h2>
+          <div className="mt-8 space-y-9">
+            {faqPairs.map((item, idx) => (
+              <div key={`faq-${idx}`}>
+                <h3 className="text-lg font-semibold text-zinc-900">
+                  {item.question}
+                </h3>
+                <p className="mt-2 text-base leading-relaxed text-zinc-700">
+                  {item.answer}
+                </p>
+              </div>
+            ))}
+          </div>
+        </section>
+      )}
 
       <div className="mt-12 rounded-2xl border border-brand-lime/40 bg-lime-50/80 p-6 sm:p-8">
         <h2 className="text-lg font-semibold text-brand-navy">{t("ctaTitle")}</h2>

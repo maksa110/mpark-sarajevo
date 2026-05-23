@@ -1,9 +1,12 @@
 import Image from "next/image";
-import { useTranslations } from "next-intl";
+import { getTranslations } from "next-intl/server";
 import { HERO_IMAGE } from "@/lib/site";
 
-export default function Hero() {
-  const t = useTranslations("hero");
+/**
+ * Server Component: manje JS za above-the-fold, brže slaganje kritičnog LCP kadra.
+ */
+export default async function Hero() {
+  const t = await getTranslations("hero");
 
   return (
     <section
@@ -16,6 +19,7 @@ export default function Hero() {
         alt={t("imageAlt")}
         fill
         priority
+        fetchPriority="high"
         sizes="100vw"
         className="object-cover"
       />

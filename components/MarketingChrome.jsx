@@ -21,8 +21,15 @@ export default function MarketingChrome({
         {skipLabel}
       </a>
       <Header />
-      <SeoTopicNav />
-      <main className="min-h-[40vh]">{children}</main>
+      {/*
+        Header je position:fixed — bez ovog offseta SeoTopicNav i vrh breadcrumb-a
+        ostaju ispod trake (izgleda kao “nešto se ne vidi” / odrezano).
+        Ista logika kao pt-20/pt-24 na Hero sekciji početnice.
+      */}
+      <div className="pt-20 sm:pt-24">
+        <SeoTopicNav />
+        <main className="min-h-[40vh]">{children}</main>
+      </div>
       <SiteFooter />
       <MobileStickyCta />
     </div>
