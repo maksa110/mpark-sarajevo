@@ -1,7 +1,6 @@
 import { SITE } from "@/lib/site";
 import { routing } from "@/i18n/routing";
 import {
-  PRIVACY_PATH,
   SEO_SLUGS,
   seoAbsoluteUrl,
 } from "@/lib/seo-routes";
@@ -71,23 +70,7 @@ function buildSitemapSafe() {
     }));
   });
 
-  const privacyLanguages = Object.fromEntries(
-    routing.locales.map((l) => [l, seoAbsoluteUrl(base, l, PRIVACY_PATH)])
-  );
-  privacyLanguages["x-default"] = seoAbsoluteUrl(
-    base,
-    routing.defaultLocale,
-    PRIVACY_PATH
-  );
-  const privacyEntries = routing.locales.map((locale) => ({
-    url: seoAbsoluteUrl(base, locale, PRIVACY_PATH),
-    lastModified,
-    changeFrequency: "yearly",
-    priority: 0.4,
-    alternates: { languages: privacyLanguages },
-  }));
-
-  return [...homeEntries, ...guideEntries, ...privacyEntries];
+  return [...homeEntries, ...guideEntries];
 }
 
 /** Uvijek validan odgovor: izbjegni 500 u produkciji ako nešto pukne tijekom generacije. */

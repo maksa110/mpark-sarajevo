@@ -226,7 +226,6 @@ export default function Booking() {
             {t("h2")}
           </h2>
           <p className="mt-3 text-zinc-600">{t("lead")}</p>
-          <p className="mt-2 text-sm text-zinc-500">{t("paymentNote")}</p>
         </div>
         <div className="mx-auto mt-10 max-w-lg">
           <div className="rounded-2xl border border-zinc-200 bg-white p-6 shadow-sm sm:p-8">

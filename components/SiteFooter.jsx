@@ -5,7 +5,7 @@ import { Mail, MapPin, Phone } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { Link, usePathname } from "@/i18n/navigation";
 import { SITE, calendarYearSarajevo } from "@/lib/site";
-import { PRIVACY_PATH, SEO_SLUGS } from "@/lib/seo-routes";
+import { SEO_SLUGS } from "@/lib/seo-routes";
 import Reveal from "@/components/Reveal";
 
 const NAV = [
@@ -198,13 +198,7 @@ export default function SiteFooter() {
 
         <div className="mt-12 flex flex-col gap-3 border-t border-white/10 pt-8 text-xs text-zinc-500 sm:flex-row sm:items-center sm:justify-between">
           <p>
-            © {year} {SITE.brand}. {t("rights")}{" "}
-            <Link
-              href={PRIVACY_PATH}
-              className="text-zinc-400 underline-offset-2 transition hover:text-zinc-300 hover:underline"
-            >
-              {t("privacy")}
-            </Link>
+            © {year} {SITE.brand}. {t("rights")}
           </p>
           {isHome ? (
             <a

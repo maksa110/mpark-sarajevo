@@ -1,8 +1,8 @@
 {
   "metadata": {
-    "title": "Privater Parkplatz am Flughafen Sarajevo | M Park",
-    "description": "Privatparkplatz an der Kasindolskih Žrtava 18, nahe Flughafen Sarajevo. Staffeln 9/8/7 KM pro Tag, 24/7 Überwachung, Transfer und Online-Buchung.",
-    "ogTitle": "Privater Parkplatz am Flughafen Sarajevo | M Park",
+    "title": "Privater Parkplatz Flughafen Sarajevo – M Park | Privater Parkplatz Sarajevo",
+    "description": "Privater Parkplatz in der Nähe vom Flughafen Sarajevo für Reisende. Staffelpreise: 9 KM (1–9 Tage), 8 KM (10–14 Tage), 7 KM (ab 15 Tagen). 24/7 Überwachung, Transfer und Online-Buchung.",
+    "ogTitle": "Privater Parkplatz Flughafen Sarajevo – M Park | Privater Parkplatz Sarajevo",
     "ogDescription": "Privater Parkplatz nahe Flughafen Sarajevo. Tagesstaffeln 9/8/7 KM, 24/7 Überwachung, Transfer und Online-Buchung.",
     "twitterDescription": "Privater Parkplatz nahe Flughafen Sarajevo. Staffeln 9/8/7 KM pro Tag, 24/7 Überwachung und Online-Buchung.",
     "ogImageAlt": "M Park Sarajevo – Privater Parkplatz nahe Flughafen Sarajevo",
@@ -72,13 +72,11 @@
       "near": "Nahe Flughafen Sarajevo",
       "online": "Schnelle Online-Buchung ohne Aufwand"
     },
-    "cta": "Parkplatz buchen",
-    "phoneAria": "M Park Sarajevo anrufen"
+    "cta": "Parkplatz buchen"
   },
   "booking": {
     "h2": "Parkplatz-Reservierung",
     "lead": "Buchungen ausschließlich über dieses Formular — wir bestätigen keine Termine über WhatsApp. Preis: 9 KM/Tag (1–9 Tage), 8 KM/Tag (10–14 Tage), 7 KM/Tag (ab 15 Tagen). Geben Sie Ihre Daten und Reisedaten ein. Eine Übernachtung ist auf vorherige Absprache möglich — bitten Sie darum, wenn wir Sie zur Bestätigung kontaktieren.",
-    "paymentNote": "Zahlung bar oder mit Karte bei Ankunft.",
     "success": "Vielen Dank! Ihre Reservierung ist eingegangen. Wir haben eine Bestätigung an Ihre E-Mail gesendet. Wir können Sie bald kontaktieren.",
     "reviewHint": "Wenn alles gepasst hat, hilft eine kurze Google-Rezension anderen Reisenden, einen sicheren Parkplatz am Flughafen Sarajevo zu finden.",
     "reviewCta": "Google-Rezension schreiben",
@@ -297,7 +295,6 @@
     "navHeading": "Navigation",
     "contactHeading": "Kontakt",
     "rights": "Alle Rechte vorbehalten.",
-    "privacy": "Datenschutz",
     "ctaShort": "Parkplatz buchen",
     "brandSubtitle": "Privatparkplatz · Flughafen Sarajevo",
     "guidesHeading": "Ratgeber",
@@ -319,37 +316,6 @@
       "directionsAirport": "Anfahrt Flughafen",
       "longTermParking": "Langzeitparken",
       "reservation": "Online-Buchung"
-    }
-  },
-  "privacy": {
-    "metaTitle": "Datenschutz | M Park Sarajevo",
-    "metaDescription": "Wie M Park Sarajevo Daten bei der Online-Buchung am Flughafen Sarajevo verarbeitet — Kontakt, Zweck und Ihre Rechte.",
-    "title": "Datenschutz",
-    "updated": "Zuletzt aktualisiert: Mai 2026.",
-    "sections": {
-      "controller": {
-        "title": "Verantwortlicher",
-        "body": "M Park Sarajevo (Privatparkplatz nahe Flughafen Sarajevo). Bei Fragen zu Daten kontaktieren Sie uns:",
-        "phone": "Telefon",
-        "email": "E-Mail",
-        "address": "Adresse"
-      },
-      "data": {
-        "title": "Welche Daten wir erheben",
-        "body": "Bei Online-Buchung: Name, Telefon, E-Mail, An- und Abreisedatum/-zeit sowie ob Sie den Fahrzeugschlüssel hinterlegen. In Server-Logs können technische Daten (z. B. IP-Adresse) zu Sicherheitszwecken anfallen."
-      },
-      "purpose": {
-        "title": "Zweck der Verarbeitung",
-        "body": "Wir nutzen Ihre Daten nur zur Bestätigung und Abwicklung der Parkplatzreservierung, zur Kommunikation mit Ihnen und zur Vertragserfüllung. Wir verkaufen Ihre Daten nicht an Dritte."
-      },
-      "cookies": {
-        "title": "Cookies und Analyse",
-        "body": "Wir verwenden notwendige Cookies für Sprache und Funktion der Website. Sofern aktiviert, hilft Google Analytics beim Verständnis der Nutzung (aggregierte Statistik). Cookies können Sie im Browser einschränken."
-      },
-      "rights": {
-        "title": "Ihre Rechte",
-        "body": "Sie können Auskunft, Berichtigung oder Löschung Ihrer Daten, Einschränkung der Verarbeitung oder Widerspruch verlangen, soweit das Gesetz es vorsieht. Schreiben Sie uns an die obige E-Mail; wir antworten in angemessener Frist."
-      }
     }
   },
   "stickyCta": {
