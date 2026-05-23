@@ -1,9 +1,9 @@
 {
   "metadata": {
     "title": "Privatni parking Aerodrom Sarajevo | M Park – od 9 KM/dan",
-    "description": "Privatni parking Sarajevo za putnike blizu aerodroma. Parking aerodrom Sarajevo – cijena po tarifama: 9 KM (1–9 dana), 8 KM (10+ dana), 7 KM (15+ dana). Privatni parking Sarajevo uz 24/7 nadzor, transfer i brzu online rezervaciju.",
+    "description": "Privatni parking na Kasindolskih Žrtava 18, blizu Aerodroma Sarajevo. Tarife 9/8/7 KM po danu, 24/7 nadzor, transfer i online rezervacija.",
     "ogTitle": "Privatni parking Aerodrom Sarajevo | M Park – od 9 KM/dan",
-    "ogDescription": "Privatni parking Sarajevo za putnike blizu aerodroma. Parking aerodrom Sarajevo – cijena po tarifama: 9/8/7 KM po danu. 24/7 nadzor, transfer i online rezervacija.",
+    "ogDescription": "Privatni parking blizu aerodroma: tarife 9/8/7 KM po danu, 24/7 nadzor, transfer i online rezervacija.",
     "twitterDescription": "Privatni parking Sarajevo kod aerodroma. Tarife 9/8/7 KM po danu, 24/7 nadzor i online rezervacija.",
     "ogImageAlt": "M Park Sarajevo – Privatni parking blizu Aerodroma Sarajevo",
     "keywords": [
@@ -72,11 +72,13 @@
       "near": "Blizu Aerodroma Sarajevo",
       "online": "Brza online rezervacija bez komplikacija"
     },
-    "cta": "Rezerviši parking"
+    "cta": "Rezerviši parking",
+    "phoneAria": "Pozovite M Park Sarajevo"
   },
   "booking": {
     "h2": "Rezervacija parkinga",
     "lead": "Rezervacija isključivo putem ove forme — ne šaljemo termine preko WhatsAppa. Cijena: 9 KM/dan (1–9 dana), 8 KM/dan (10–14 dana), 7 KM/dan (15+ dana). Unesite podatke i datume putovanja. Prenoćište je moguće uz prethodni dogovor — navedite kada vas tim kontaktira radi potvrde.",
+    "paymentNote": "Plaćanje gotovinom ili karticom pri dolasku.",
     "success": "Hvala! Rezervacija je zaprimljena. Poslali smo potvrdu na vašu email adresu. Uskoro vas možemo kontaktirati radi dodatnih informacija.",
     "reviewHint": "Ako Vam je sve bilo u redu, kratka Google recenzija pomaže još putnika da pronađu siguran parking kod Aerodroma Sarajevo.",
     "reviewCta": "Ostavite recenziju na Google-u",
@@ -295,6 +297,7 @@
     "navHeading": "Navigacija",
     "contactHeading": "Kontakt",
     "rights": "Sva prava zadržana.",
+    "privacy": "Politika privatnosti",
     "ctaShort": "Rezerviši parking",
     "brandSubtitle": "Privatni parking · Aerodrom Sarajevo",
     "guidesHeading": "Vodiči",
@@ -318,13 +321,44 @@
       "reservation": "Online rezervacija"
     }
   },
+  "privacy": {
+    "metaTitle": "Politika privatnosti | M Park Sarajevo",
+    "metaDescription": "Kako M Park Sarajevo obrađuje podatke pri online rezervaciji parkinga kod Aerodroma Sarajevo — kontakt, svrha i vaša prava.",
+    "title": "Politika privatnosti",
+    "updated": "Posljednje ažuriranje: maj 2026.",
+    "sections": {
+      "controller": {
+        "title": "Voditelj obrade",
+        "body": "M Park Sarajevo (privatni parking blizu Aerodroma Sarajevo). Za pitanja o podacima kontaktirajte nas:",
+        "phone": "Telefon",
+        "email": "Email",
+        "address": "Adresa"
+      },
+      "data": {
+        "title": "Koje podatke prikupljamo",
+        "body": "Pri online rezervaciji: ime i prezime, broj telefona, email, datume i vrijeme dolaska/odlaska te informaciju da li ostavljate ključ vozila. Tehnički podaci (npr. IP adresa u logovima servera) mogu se pojaviti u standardnim sigurnosnim zapisima hostinga."
+      },
+      "purpose": {
+        "title": "Svrha obrade",
+        "body": "Podatke koristimo isključivo za potvrdu i organizaciju rezervacije parkinga, komunikaciju s vama i ispunjenje ugovora o usluzi. Ne prodajemo vaše podatke trećim stranama."
+      },
+      "cookies": {
+        "title": "Kolačići i analitika",
+        "body": "Koristimo neophodne kolačiće za jezik i funkcionalnost stranice. Ako je omogućeno, Google Analytics pomaže nam razumjeti korištenje sajta (anonimizirana statistika). Možete ograničiti kolačiće u postavkama preglednika."
+      },
+      "rights": {
+        "title": "Vaša prava",
+        "body": "Imate pravo zatražiti pristup, ispravku ili brisanje svojih podataka, ograničenje obrade ili prigovor, u skladu sa važećim propisima. Zahtjev pošaljite na email iznad; odgovorit ćemo u razumnom roku."
+      }
+    }
+  },
   "stickyCta": {
     "regionLabel": "Brza rezervacija",
     "label": "Rezerviši parking"
   },
   "seoParkingPrices": {
-    "metaTitle": "Parking Aerodrom Sarajevo – cijene i tarife | M Park Sarajevo",
-    "metaDescription": "Parking aerodrom Sarajevo – cijena po danu: 9 KM (1–9 dana), 8 KM (10+ dana), 7 KM (15+ dana). Privatni parking Sarajevo: transparentne tarife, transfer i online rezervacija.",
+    "metaTitle": "Cijene parkinga Aerodrom Sarajevo – 9/8/7 KM | M Park",
+    "metaDescription": "Tarife po danu: 9 KM (1–9 dana), 8 KM (10–14), 7 KM (15+). Transparentne cijene privatnog parkinga uz transfer i online rezervaciju.",
     "metaKeywords": [
       "parking aerodrom Sarajevo cijena",
       "koliko košta parking kod aerodroma Sarajevo",
@@ -544,7 +578,7 @@
     ]
   },
   "seoReservation": {
-    "metaTitle": "Online rezervacija parkinga Aerodrom Sarajevo | M Park Sarajevo",
+    "metaTitle": "Online rezervacija parkinga | M Park Sarajevo",
     "metaDescription": "Rezervišite privatni parking kod Aerodroma Sarajevo online: forma, tarife i potvrda za putnike koji traže siguran parking.",
     "metaKeywords": [
       "rezervacija parking aerodrom sarajevo",
@@ -606,7 +640,7 @@
     ]
   },
   "seoFaqAirport": {
-    "metaTitle": "FAQ parking Aerodrom Sarajevo | M Park Sarajevo",
+    "metaTitle": "FAQ privatni parking kod aerodroma | M Park Sarajevo",
     "metaDescription": "Odgovori na česta pitanja: koliko ranije rezervisati privatni parking kod Aerodroma Sarajevo, transfer, vrijeme vožnje, sigurnost, plaćanje i rad 24/7.",
     "metaKeywords": [
       "parking aerodrom sarajevo česta pitanja",
@@ -768,7 +802,7 @@
     ]
   },
   "seoLongTermParking": {
-    "metaTitle": "Dugoročni parking Aerodrom Sarajevo | M Park Sarajevo",
+    "metaTitle": "Dugoročni parking uz aerodrom – od 7 KM/dan | M Park",
     "metaDescription": "Dugoročni parking kod Aerodroma Sarajevo za putnike: tarife 9 KM (1–9 dana), 8 KM (10–14 dana), 7 KM (15+ dana), sigurnost, transfer i online rezervacija.",
     "metaKeywords": [
       "dugoročni parking aerodrom sarajevo",

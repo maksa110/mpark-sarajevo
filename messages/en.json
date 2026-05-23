@@ -1,8 +1,8 @@
 {
   "metadata": {
-    "title": "Private parking Sarajevo Airport – M Park | Private parking Sarajevo",
-    "description": "Private parking near Sarajevo Airport for travellers. Tiered daily rates: 9 KM (1–9 days), 8 KM (10–14 days), 7 KM (15+ days). 24/7 CCTV, transfer and online booking.",
-    "ogTitle": "Private parking Sarajevo Airport – M Park | Private parking Sarajevo",
+    "title": "Private Parking near Sarajevo Airport | M Park",
+    "description": "Private parking at Kasindolskih Žrtava 18, near Sarajevo Airport. Tiered rates 9/8/7 KM per day, 24/7 CCTV, transfer and online booking.",
+    "ogTitle": "Private Parking near Sarajevo Airport | M Park",
     "ogDescription": "Private parking near Sarajevo Airport. Daily tiers 9/8/7 KM, 24/7 surveillance, transfer and online booking.",
     "twitterDescription": "Private parking near Sarajevo Airport. Tiered rates 9/8/7 KM per day, 24/7 CCTV and online booking.",
     "ogImageAlt": "M Park Sarajevo – Private parking near Sarajevo Airport",
@@ -72,11 +72,13 @@
       "near": "Close to Sarajevo Airport",
       "online": "Quick online booking, no hassle"
     },
-    "cta": "Book parking"
+    "cta": "Book parking",
+    "phoneAria": "Call M Park Sarajevo"
   },
   "booking": {
     "h2": "Parking reservation",
     "lead": "Bookings are accepted only through this form — we do not confirm reservations via WhatsApp. Price: 9 KM/day (1–9 days), 8 KM/day (10–14 days), 7 KM/day (15+ days). Enter your details and travel dates. Overnight stay can be arranged on request — mention it when we contact you to confirm.",
+    "paymentNote": "Payment in cash or by card on arrival.",
     "success": "Thank you! Your reservation has been received. We’ve sent a confirmation to your email. We may contact you shortly with more details.",
     "reviewHint": "If everything went smoothly, a short Google review helps more travellers find safe parking near Sarajevo Airport.",
     "reviewCta": "Leave a Google review",
@@ -295,6 +297,7 @@
     "navHeading": "Navigation",
     "contactHeading": "Contact",
     "rights": "All rights reserved.",
+    "privacy": "Privacy policy",
     "ctaShort": "Book parking",
     "brandSubtitle": "Private parking · Sarajevo Airport",
     "guidesHeading": "Guides",
@@ -316,6 +319,37 @@
       "directionsAirport": "Getting to the airport",
       "longTermParking": "Long-term parking",
       "reservation": "Online booking"
+    }
+  },
+  "privacy": {
+    "metaTitle": "Privacy policy | M Park Sarajevo",
+    "metaDescription": "How M Park Sarajevo handles data when you book airport parking online — contact, purpose and your rights.",
+    "title": "Privacy policy",
+    "updated": "Last updated: May 2026.",
+    "sections": {
+      "controller": {
+        "title": "Data controller",
+        "body": "M Park Sarajevo (private parking near Sarajevo Airport). For data enquiries contact us:",
+        "phone": "Phone",
+        "email": "Email",
+        "address": "Address"
+      },
+      "data": {
+        "title": "Data we collect",
+        "body": "When booking online: name, phone, email, arrival/departure dates and times, and whether you leave your car key. Standard server logs may include technical data such as IP address for security."
+      },
+      "purpose": {
+        "title": "Purpose of processing",
+        "body": "We use your data only to confirm and manage your parking reservation, communicate with you and fulfil the service. We do not sell your data to third parties."
+      },
+      "cookies": {
+        "title": "Cookies and analytics",
+        "body": "We use essential cookies for language and site functionality. Where enabled, Google Analytics helps us understand site usage (aggregated statistics). You can limit cookies in your browser settings."
+      },
+      "rights": {
+        "title": "Your rights",
+        "body": "You may request access, correction or deletion of your data, restriction of processing or object, as applicable law allows. Email us using the address above; we will respond within a reasonable time."
+      }
     }
   },
   "stickyCta": {
