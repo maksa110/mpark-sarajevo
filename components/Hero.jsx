@@ -1,6 +1,7 @@
 import Image from "next/image";
+import { Phone } from "lucide-react";
 import { getTranslations } from "next-intl/server";
-import { HERO_IMAGE } from "@/lib/site";
+import { HERO_IMAGE, SITE } from "@/lib/site";
 
 /**
  * Server Component: manje JS za above-the-fold, brže slaganje kritičnog LCP kadra.
@@ -11,7 +12,7 @@ export default async function Hero() {
   return (
     <section
       id="home"
-      className="relative flex min-h-[100svh] flex-col justify-center px-4 pt-20 pb-16 text-center sm:px-6 sm:pt-24 sm:pb-20"
+      className="relative flex min-h-[88svh] flex-col justify-center px-4 pt-20 pb-16 text-center sm:min-h-[100svh] sm:px-6 sm:pt-24 sm:pb-20"
       aria-labelledby="hero-heading"
     >
       <Image
@@ -83,13 +84,25 @@ export default async function Hero() {
           </ul>
         </div>
 
-        <a
-          href="#book"
-          className="cta-pulse mt-10 inline-flex min-h-[52px] items-center justify-center rounded-2xl bg-brand-lime px-8 text-base font-extrabold uppercase tracking-wide text-brand-navy shadow-xl shadow-brand-lime/30 transition duration-200 ease-out hover:scale-[1.03] hover:bg-brand-lime-300 hover:shadow-2xl hover:shadow-brand-lime/40 active:scale-[0.97] motion-safe:animate-fade-up motion-reduce:transition-none motion-reduce:hover:scale-100"
+        <div
+          className="mt-10 flex flex-col items-center gap-4 motion-safe:animate-fade-up motion-reduce:transition-none"
           style={{ animationDelay: "560ms" }}
         >
-          {t("cta")}
-        </a>
+          <a
+            href="#book"
+            className="cta-pulse inline-flex min-h-[52px] items-center justify-center rounded-2xl bg-brand-lime px-8 text-base font-extrabold uppercase tracking-wide text-brand-navy shadow-xl shadow-brand-lime/30 transition duration-200 ease-out hover:scale-[1.03] hover:bg-brand-lime-300 hover:shadow-2xl hover:shadow-brand-lime/40 active:scale-[0.97] motion-reduce:transition-none motion-reduce:hover:scale-100"
+          >
+            {t("cta")}
+          </a>
+          <a
+            href={`tel:${SITE.phoneTel}`}
+            aria-label={t("phoneAria")}
+            className="inline-flex min-h-[48px] items-center gap-2 rounded-2xl bg-white/10 px-5 text-base font-semibold text-white ring-1 ring-white/20 backdrop-blur transition hover:bg-white/15 hover:ring-white/30 motion-reduce:transition-none"
+          >
+            <Phone className="h-5 w-5 shrink-0 text-brand-lime" aria-hidden />
+            {SITE.phoneDisplay}
+          </a>
+        </div>
       </div>
     </section>
   );

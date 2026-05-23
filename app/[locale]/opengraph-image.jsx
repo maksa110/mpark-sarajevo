@@ -26,8 +26,8 @@ const LOGO_DATA_URL = `data:image/svg+xml;charset=utf-8,${encodeURIComponent(
 
 const PRICE_BY_LOCALE = {
   bs: { value: "9 KM", per: "po danu" },
-  en: { value: "€4.6", per: "per day" },
-  de: { value: "€4,6", per: "pro Tag" },
+  en: { value: "9 KM", per: "per day" },
+  de: { value: "9 KM", per: "pro Tag" },
 };
 
 const HEADLINE_BY_LOCALE = {
