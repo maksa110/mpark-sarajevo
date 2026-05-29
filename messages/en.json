@@ -73,7 +73,12 @@
       "online": "Quick online booking, no hassle"
     },
     "cta": "Book parking",
-    "phoneAria": "Call M Park Sarajevo"
+    "phoneAria": "Call M Park Sarajevo",
+    "whatsappAria": "Contact M Park Sarajevo on WhatsApp",
+    "whatsappLabel": "WhatsApp",
+    "whatsappPrefill": "Hello, I have a question about M Park Sarajevo (support only; booking on the website).",
+    "viberAria": "Message M Park Sarajevo on Viber",
+    "viberLabel": "Viber"
   },
   "booking": {
     "h2": "Parking reservation",
