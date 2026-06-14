@@ -1,12 +1,15 @@
 import { SITE } from "@/lib/site";
 import { routing } from "@/i18n/routing";
 import {
+  blogAllPathsForSitemap,
+  BLOG_ARTICLE_LIST,
+} from "@/lib/blog-routes";
+import {
   PRIVACY_PATH,
   SEO_SLUGS,
   seoAbsoluteUrl,
 } from "@/lib/seo-routes";
 
-/** Kanonski origin — mora odgovarati NEXT_PUBLIC_SITE_URL (www). */
 const base = SITE.url.replace(/\/$/, "");
 
 function buildSitemapSafe() {
@@ -41,10 +44,11 @@ function buildSitemapSafe() {
   ];
 
   const seoKeys = Object.values(SEO_SLUGS);
-  const secondarySeo = new Set([
-    SEO_SLUGS.faqAirport,
-    SEO_SLUGS.directionsAirport,
-    SEO_SLUGS.longTermParking,
+  const pillarPriority = new Set([
+    SEO_SLUGS.parkingPrices,
+    SEO_SLUGS.secureParking,
+    SEO_SLUGS.howParkingWorks,
+    SEO_SLUGS.parkingNear,
   ]);
 
   const guideEntries = seoKeys.flatMap((pathnameKey) => {
@@ -60,15 +64,42 @@ function buildSitemapSafe() {
     return routing.locales.map((locale) => ({
       url: seoAbsoluteUrl(base, locale, pathnameKey),
       lastModified,
-      changeFrequency: "monthly",
+      changeFrequency: pathnameKey === SEO_SLUGS.blog ? "weekly" : "monthly",
       priority:
         pathnameKey === SEO_SLUGS.reservation
           ? 0.9
-          : secondarySeo.has(pathnameKey)
-            ? 0.8
-            : 0.82,
+          : pathnameKey === SEO_SLUGS.blog
+            ? 0.75
+            : pillarPriority.has(pathnameKey)
+              ? 0.85
+              : 0.82,
       alternates: { languages },
     }));
+  });
+
+  const blogArticleEntries = blogAllPathsForSitemap(
+    base,
+    routing.locales
+  ).map(({ url, articleId, locale }) => {
+    const article = BLOG_ARTICLE_LIST.find((a) => a.id === articleId);
+    const languages = article
+      ? Object.fromEntries(
+          routing.locales.map((l) => [
+            l,
+            `${base}/${l}/blog/${article.slugs[l] ?? article.slugs.bs}`,
+          ])
+        )
+      : {};
+    if (article) {
+      languages["x-default"] = `${base}/${routing.defaultLocale}/blog/${article.slugs[routing.defaultLocale] ?? article.slugs.bs}`;
+    }
+    return {
+      url,
+      lastModified,
+      changeFrequency: "monthly",
+      priority: 0.7,
+      alternates: { languages },
+    };
   });
 
   const privacyLanguages = Object.fromEntries(
@@ -87,10 +118,14 @@ function buildSitemapSafe() {
     alternates: { languages: privacyLanguages },
   }));
 
-  return [...homeEntries, ...guideEntries, ...privacyEntries];
+  return [
+    ...homeEntries,
+    ...guideEntries,
+    ...blogArticleEntries,
+    ...privacyEntries,
+  ];
 }
 
-/** Uvijek validan odgovor: izbjegni 500 u produkciji ako nešto pukne tijekom generacije. */
 export default function sitemap() {
   try {
     return buildSitemapSafe();

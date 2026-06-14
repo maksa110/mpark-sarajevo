@@ -1,26 +1,28 @@
 import { getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
 import SeoBreadcrumbs from "@/components/SeoBreadcrumbs";
+import { getPillarRelatedLinks } from "@/lib/seo-architecture";
 
 /**
  * Dugi SEO članak iz next-intl namespace-a (intro: string[], sections: {h2, paragraphs[]}).
- * @param {{ locale: string, namespace: string, bookHashHref: object | string, showFaqBlock?: boolean }} props
+ * @param {{ locale: string, namespace: string, pathnameKey: string, bookHashHref: object | string, showFaqBlock?: boolean }} props
  */
 export default async function SeoGuideArticle({
   locale,
   namespace,
+  pathnameKey,
   bookHashHref,
   showFaqBlock = false,
 }) {
   const t = await getTranslations({ locale, namespace });
   const tCommon = await getTranslations({ locale, namespace: "common" });
+  const tNav = await getTranslations({ locale, namespace: "seoPillarNav" });
   const intro = t.raw("intro");
   const sections = t.raw("sections");
-  const related = t.raw("relatedLinks");
 
   const introParas = Array.isArray(intro) ? intro : [];
   const sectionBlocks = Array.isArray(sections) ? sections : [];
-  const relatedItems = Array.isArray(related) ? related : [];
+  const relatedLinks = getPillarRelatedLinks(pathnameKey);
   const faqRaw = showFaqBlock ? t.raw("faqStructured") : [];
   const faqPairs = Array.isArray(faqRaw) ? faqRaw : [];
 
@@ -36,7 +38,7 @@ export default async function SeoGuideArticle({
       </h1>
       <p className="mt-3 text-sm font-medium text-zinc-500">{t("kicker")}</p>
 
-      <div className="prose prose-zinc prose-lg mt-10 max-w-none prose-headings:scroll-mt-24 prose-a:text-brand-navy prose-a:underline-offset-4 hover:prose-a:text-brand-lime">
+      <div className="prose prose-zinc prose-lg mt-10 max-w-none prose-headings:scroll-mt-24 prose-a:text-brand-navy prose-a:underline prose-a:decoration-brand-navy/35 prose-a:underline-offset-4 hover:prose-a:text-brand-lime hover:prose-a:decoration-brand-lime/50">
         {introParas.map((p, i) => (
           <p key={`intro-${i}`}>{p}</p>
         ))}
@@ -92,7 +94,7 @@ export default async function SeoGuideArticle({
         </Link>
       </div>
 
-      {relatedItems.length > 0 && (
+      {relatedLinks.length > 0 && (
         <nav
           className="mt-14 border-t border-zinc-200 pt-10"
           aria-label={t("relatedNavLabel")}
@@ -101,13 +103,13 @@ export default async function SeoGuideArticle({
             {t("relatedHeading")}
           </h2>
           <ul className="mt-4 space-y-2">
-            {relatedItems.map((item) => (
+            {relatedLinks.map((item) => (
               <li key={item.href}>
                 <Link
                   href={item.href}
-                  className="text-base font-medium text-brand-navy underline-offset-4 hover:text-brand-lime hover:underline"
+                  className="text-base font-medium text-brand-navy underline decoration-brand-navy/35 underline-offset-4 hover:text-brand-lime hover:decoration-brand-lime/50"
                 >
-                  {item.label}
+                  {tNav(item.navKey)}
                 </Link>
               </li>
             ))}

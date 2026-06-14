@@ -29,13 +29,12 @@
   "homeHub": {
     "heading": "Ratgeber, Preise und Buchung am Flughafen Sarajevo",
     "brand": "M Park Sarajevo",
-    "linkPrices": "Parkplatz Flughafen Sarajevo (Tagesstaffeln)",
-    "linkTransfer": "Transfer zum Flughafen",
-    "linkCompare": "Privat- oder Öffentlicher Parkplatz",
-    "linkFaq": "FAQ Flughafenparken",
-    "linkDirections": "Anfahrt zum Flughafen",
-    "linkLongTerm": "Langzeitparken",
-    "linkBook": "Parkplatz online buchen"
+    "linkPrices": "Parkpreise",
+    "linkSafety": "Sicherheit",
+    "linkHow": "Ablauf",
+    "linkLocation": "Standort",
+    "linkBlog": "Blog",
+    "linkBook": "Online buchen"
   },
   "header": {
     "logoAria": "M Park Sarajevo - Startseite",
@@ -317,12 +316,11 @@
       "book": "Buchung"
     },
     "guides": {
-      "prices": "Preise am Flughafen",
-      "transfer": "Transfer zum Flughafen",
-      "vsPublic": "Privat vs. öffentlich",
-      "faqParking": "FAQ Parkplatz",
-      "directionsAirport": "Anfahrt Flughafen",
-      "longTermParking": "Langzeitparken",
+      "prices": "Parkpreise",
+      "safety": "Sicherheit",
+      "howItWorks": "Ablauf",
+      "location": "Standort",
+      "blog": "Blog",
       "reservation": "Online-Buchung"
     }
   },

@@ -29,12 +29,11 @@
   "homeHub": {
     "heading": "Vodiči, tarife i rezervacija parkinga kod Aerodroma Sarajevo",
     "brand": "M Park Sarajevo",
-    "linkPrices": "parking aerodrom Sarajevo – cijene po danima",
-    "linkTransfer": "transfer do Aerodroma",
-    "linkCompare": "privatni ili javni parking",
-    "linkFaq": "česta pitanja (FAQ)",
-    "linkDirections": "kako doći do aerodroma",
-    "linkLongTerm": "dugoročni parking",
+    "linkPrices": "cijene parkinga",
+    "linkSafety": "sigurnost parkinga",
+    "linkHow": "kako funkcioniše",
+    "linkLocation": "lokacija",
+    "linkBlog": "blog",
     "linkBook": "online rezervacija"
   },
   "header": {
@@ -317,12 +316,11 @@
       "book": "Rezervacija"
     },
     "guides": {
-      "prices": "Cijene parkinga kod aerodroma",
-      "transfer": "Transfer do Aerodroma Sarajevo",
-      "vsPublic": "Privatni vs javni parking",
-      "faqParking": "Često postavljena pitanja (FAQ)",
-      "directionsAirport": "Kako doći do aerodroma",
-      "longTermParking": "Dugoročni parking",
+      "prices": "Cijene parkinga",
+      "safety": "Sigurnost parkinga",
+      "howItWorks": "Kako funkcioniše",
+      "location": "Lokacija",
+      "blog": "Blog",
       "reservation": "Online rezervacija"
     }
   },
@@ -413,6 +411,29 @@
         ]
       }
     ],
+    "faqSectionTitle": "Česta pitanja o cijenama",
+    "faqStructured": [
+      {
+        "question": "Koliko košta parking po danu?",
+        "answer": "9 KM po danu za 1–9 dana, 8 KM za 10–14 dana i 7 KM od petnaestog dana. Forma prikazuje procjenu kad unesete datume dolaska i odlaska."
+      },
+      {
+        "question": "Da li je shuttle uračunat u cijenu?",
+        "answer": "Da — besplatan transfer do Aerodroma Sarajevo uključen je u boravak na parkingu."
+      },
+      {
+        "question": "Ima li skrivenih troškova?",
+        "answer": "Shuttle i video nadzor uključeni su u ponudu. Ukupan iznos vidite u formi prije slanja rezervacije."
+      },
+      {
+        "question": "Kako duži boravak smanjuje cijenu?",
+        "answer": "Od desetog dana stopa je 8 KM dnevno, od petnaestog 7 KM. Detalji o višenedeljnim putovanjima na stranici dugoročnog parkinga."
+      },
+      {
+        "question": "Kako rezervisati po ovim cijenama?",
+        "answer": "Online forma na stranici rezervacije — procjena odmah i potvrda na email. Za pitanja: +387 61 512 152 ili WhatsApp."
+      }
+    ],
     "ctaTitle": "Rezervišite parking uz transparentnu procjenu cijene",
     "ctaLead": "Popunite datume u formi — vidjet ćete procjenu prema tarifama i poslati rezervaciju za privatni parking kod Aerodroma Sarajevo.",
     "ctaButton": "Pređi na rezervaciju",
@@ -481,6 +502,29 @@
           "Kombinacija privatnog parkinga i kratkog prevoza do Aerodroma Sarajevo smanjuje stres pri polasku — posebno rano ujutro, sa djecom ili sa više prtljaga.",
           "Kad sve rezervišete unaprijed, na licu mjesta ne gubite vrijeme na improvizaciju oko terminala."
         ]
+      }
+    ],
+    "faqSectionTitle": "Česta pitanja o transferu",
+    "faqStructured": [
+      {
+        "question": "Da li je transfer do aerodroma besplatan?",
+        "answer": "Da — besplatan transfer do Aerodroma Sarajevo uključen je u boravak na privatnom parkingu M Park Sarajevo."
+      },
+      {
+        "question": "Koliko ranije trebam stići prije shuttlea?",
+        "answer": "Ostavite rezervu za predaju vozila i vožnju do terminala, plus vrijeme za check-in prema avioprijevozniku."
+      },
+      {
+        "question": "Kako funkcioniše povratak nakon leta?",
+        "answer": "Kontaktirate nas prema uputama iz potvrde rezervacije i dogovorite preuzimanje vozila — cilj je brz povratak na parking."
+      },
+      {
+        "question": "Mogu li koristiti transfer bez rezervacije parkinga?",
+        "answer": "Transfer je dio iste usluge privatnog parkinga — rezervacija parkinga online je potrebna kako bismo osigurali mjesto i koordinaciju."
+      },
+      {
+        "question": "Gdje mogu rezervisati parking s transferom?",
+        "answer": "Na stranici online rezervacije ili pozivom/WhatsAppom na +387 61 512 152 nakon što pošaljete formu."
       }
     ],
     "ctaTitle": "Rezervišite parking uz transfer do Aerodroma Sarajevo",
@@ -844,6 +888,29 @@
           "Transfer ostaje dostupan kao dio iste ponude koju koristi i kraći boravci — tako ne dodajete zasebnu stavku prevoza kad već znate koliko ćete dana ostati.",
           "Rezervacija online drži evidenciju termina što je osobito važno kad je povratak leta odgođen; kontaktirate nas da produžimo ili prilagodimo dogovor."
         ]
+      }
+    ],
+    "faqSectionTitle": "Česta pitanja o dugoročnom parkingu",
+    "faqStructured": [
+      {
+        "question": "Od koliko dana važi niža dnevna cijena?",
+        "answer": "Od desetog dana boravka tarifa je 8 KM po danu, a od petnaestog dana 7 KM po danu — uz isti paket nadzora i transfera."
+      },
+      {
+        "question": "Mogu li ostaviti auto na više sedmica?",
+        "answer": "Da — dugoročni boravci su namijenjeni poslovnim putnicima i dužim putovanjima. Rezervišite unaprijed i javite promjene termina što ranije."
+      },
+      {
+        "question": "Da li je parking siguran tokom dužeg odsustva?",
+        "answer": "Prostor koristi video nadzor 24/7 i organizovan pristup — detalji na stranici o sigurnom parkingu kod aerodroma."
+      },
+      {
+        "question": "Šta ako se let odgodi i produžim boravak?",
+        "answer": "Kontaktirajte nas čim znate novi datum — produženje dogovorimo dok kapacitet dopušta."
+      },
+      {
+        "question": "Kako rezervisati dugi boravak?",
+        "answer": "Unesite datume u online formu — vidjet ćete procjenu prema broju dana. Za pitanja: +387 61 512 152 ili WhatsApp."
       }
     ],
     "ctaTitle": "Rezervišite dugi boravak uz jasan obračun",

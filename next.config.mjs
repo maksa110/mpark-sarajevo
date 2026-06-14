@@ -1,5 +1,5 @@
 import createNextIntlPlugin from "next-intl/plugin";
-import { listLegacySlugRedirects } from "./lib/seo-routes.js";
+import { listCannibalizationRedirects, listLegacySlugRedirects } from "./lib/seo-routes.js";
 
 const withNextIntl = createNextIntlPlugin("./i18n/request.js");
 
@@ -32,11 +32,19 @@ const nextConfig = {
   },
   async redirects() {
     const leg = listLegacySlugRedirects();
-    return leg.map(({ locale, fromSeg, toSeg }) => ({
+    const slugRedirects = leg.map(({ locale, fromSeg, toSeg }) => ({
       source: `/${locale}/${fromSeg}`,
       destination: `/${locale}/${toSeg}`,
       permanent: true,
     }));
+    const cannibal = listCannibalizationRedirects().map(
+      ({ locale, fromSeg, toSeg }) => ({
+        source: `/${locale}/${fromSeg}`,
+        destination: `/${locale}/${toSeg}`,
+        permanent: true,
+      })
+    );
+    return [...slugRedirects, ...cannibal];
   },
   async rewrites() {
     return [{ source: "/favicon.ico", destination: "/logo.png" }];

@@ -48,6 +48,29 @@
         ]
       }
     ],
+    "faqSectionTitle": "Häufige Fragen zu Preisen",
+    "faqStructured": [
+      {
+        "question": "Was kostet der Parkplatz pro Tag?",
+        "answer": "KM 9/Tag für 1–9 Tage, KM 8 für 10–14 Tage, KM 7 ab Tag 15. Das Formular zeigt sofort eine Schätzung."
+      },
+      {
+        "question": "Ist der Shuttle im Preis enthalten?",
+        "answer": "Ja — gratis Transfer zum Sarajevo Airport ist im Parkpreis enthalten."
+      },
+      {
+        "question": "Gibt es versteckte Gebühren?",
+        "answer": "Shuttle und Videoüberwachung sind inklusive. Gesamtbetrag im Formular vor dem Absenden sichtbar."
+      },
+      {
+        "question": "Wie senkt längerer Aufenthalt den Preis?",
+        "answer": "Ab Tag 10 KM 8/Tag, ab Tag 15 KM 7/Tag — siehe Langzeitparken-Leitfaden."
+      },
+      {
+        "question": "Wie buche ich zu diesen Tarifen?",
+        "answer": "Online-Formular für Sofortangebot — oder Anruf/WhatsApp +387 61 512 152 bei Fragen."
+      }
+    ],
     "ctaTitle": "Mit Sofort-Schätzung buchen",
     "ctaLead": "Daten im Formular wählen — Sie sehen die geschätzte Staffel für Privatparkplätze am Flughafen Sarajevo.",
     "ctaButton": "Zur Buchung",
@@ -115,6 +138,29 @@
           "Weniger Kreisen direkt am Terminal.",
           "Besonders hilfreich für Familien, Frühflüge und viel Gepäck."
         ]
+      }
+    ],
+    "faqSectionTitle": "FAQ zum Transfer",
+    "faqStructured": [
+      {
+        "question": "Ist der Flughafen-Shuttle gratis?",
+        "answer": "Ja — Transfer zum Sarajevo Airport ist im Privatparkplatz-Preis enthalten."
+      },
+      {
+        "question": "Wie früh vor dem Shuttle ankommen?",
+        "answer": "Zeit für Übergabe, Fahrt zum Terminal und Check-in-Puffer einplanen."
+      },
+      {
+        "question": "Wie funktioniert die Rückholung?",
+        "answer": "Anweisungen aus der Bestätigung nach der Landung — schnelle Fahrzeugübergabe."
+      },
+      {
+        "question": "Shuttle ohne Parkplatz?",
+        "answer": "Shuttle ist Teil der Parkplatz-Leistung — Online-Reservierung erforderlich."
+      },
+      {
+        "question": "Wo buchen mit Transfer?",
+        "answer": "Online-Reservierungsseite — oder Anruf/WhatsApp +387 61 512 152."
       }
     ],
     "ctaTitle": "Parkplatz mit Flughafentransfer reservieren",
@@ -475,6 +521,29 @@
           "Transferpauschalen gelten ebenfalls wenn Sie lange weg sind Hin- und Rückweg nutzen dieselbe Reservationsakte.",
           "Bei verschobenen Rückflügen erreichen Sie uns bitte bald damit Platz und Abrechnung fair nachjustiert werden."
         ]
+      }
+    ],
+    "faqSectionTitle": "FAQ Langzeitparken",
+    "faqStructured": [
+      {
+        "question": "Ab wann gilt die niedrigere Tagesrate?",
+        "answer": "Ab Tag 10 KM 8/Tag, ab Tag 15 KM 7/Tag — mit gleichem CCTV- und Shuttle-Paket."
+      },
+      {
+        "question": "Mehrere Wochen möglich?",
+        "answer": "Ja — für Geschäftsreisen und lange Reisen. Früh buchen und Terminänderungen melden."
+      },
+      {
+        "question": "Ist es während langer Abwesenheit sicher?",
+        "answer": "24/7 Videoüberwachung — siehe Leitfaden sicheres Parken."
+      },
+      {
+        "question": "Flugverspätung und Verlängerung?",
+        "answer": "Sofort melden — Verlängerung soweit Kapazität erlaubt."
+      },
+      {
+        "question": "Langaufenthalt buchen?",
+        "answer": "Daten im Online-Formular — oder Anruf/WhatsApp +387 61 512 152."
       }
     ],
     "ctaTitle": "Langaufenthalt kalkulieren",

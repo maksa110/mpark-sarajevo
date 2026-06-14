@@ -1,0 +1,285 @@
+{
+  "blogIndex": {
+    "metaTitle": "Blog — Sarajevo airport parking | M Park",
+    "metaDescription": "Guides on Sarajevo airport parking: safety, parking vs taxi, long-term stays and flying tips — without duplicating pillar pages.",
+    "h1": "Blog — traveller guides",
+    "intro": "Long-tail articles for specific questions. Prices, safety, process and location each have dedicated pages — the blog adds context without overlap.",
+    "breadcrumb": "Blog"
+  },
+  "blogParkingSafe": {
+    "metaTitle": "Is Sarajevo airport parking safe?",
+    "metaDescription": "Is parking near Sarajevo Airport safe for travellers? What to check and how M Park approaches vehicle protection.",
+    "readMore": "Read article",
+    "kicker": "Long-tail · traveller safety perspective",
+    "h1": "Is parking near Sarajevo Airport safe?",
+    "intro": [
+      "Travellers often ask whether leaving a car near the airport is safe — especially on multi-day trips. This article gives broader context without replacing the M Park safety pillar page.",
+      "For CCTV, fencing and monitoring at our lot see the safety page — here we discuss criteria for any parking decision."
+    ],
+    "sections": [
+      {
+        "h2": "What “safe parking” actually means",
+        "paragraphs": [
+          "Safety is more than an empty slot — it includes site monitoring, clear rules, reachable contact while away, and physical separation (fencing) from through traffic.",
+          "Ask: is there written confirmation, who is accountable, is there 24/7 oversight?"
+        ]
+      },
+      {
+        "h2": "Risks of improvised parking",
+        "paragraphs": [
+          "Random streets lack records and accountability. Without monitoring, problems are hard to trace.",
+          "Reserved private parking reduces that risk — but verify the specific offer, not just a “secure” headline."
+        ]
+      },
+      {
+        "h2": "How M Park handles security",
+        "paragraphs": [
+          "M Park runs 24/7 CCTV, fencing and controlled entry — technical detail on the safety page only.",
+          "Shuttle to the airport avoids informal terminal-side parking."
+        ]
+      },
+      {
+        "h2": "Pre-trip checklist",
+        "paragraphs": [
+          "Book online, save confirmation, verify address and contact. Tariffs on the prices page.",
+          "If M Park protection fits, submit reservation."
+        ]
+      }
+    ],
+    "faqSectionTitle": "FAQ",
+    "faqStructured": [
+      {
+        "question": "Is public parking always unsafe?",
+        "answer": "Not necessarily — but rules and crowding vary. Private parking adds agreed structure."
+      },
+      {
+        "question": "M Park monitoring details?",
+        "answer": "Secure Sarajevo airport parking page — this article is wider context."
+      },
+      {
+        "question": "Does long stay increase risk?",
+        "answer": "Longer absences need stronger monitoring — pick 24/7 oversight."
+      },
+      {
+        "question": "Book after reading?",
+        "answer": "Yes — online form or WhatsApp/call +387 61 512 152."
+      },
+      {
+        "question": "Where is the lot?",
+        "answer": "Parking near Sarajevo Airport page — Kasindolskih Žrtava 18."
+      }
+    ],
+    "pillarTeaser": "M Park security details:",
+    "pillarLinkLabel": "safety page",
+    "ctaTitle": "Book with verified protection",
+    "ctaLead": "WhatsApp/call or online reservation.",
+    "ctaButton": "Book now"
+  },
+  "blogParkingVsTaxi": {
+    "metaTitle": "Parking vs taxi Sarajevo Airport",
+    "metaDescription": "Parking or taxi to Sarajevo Airport? Cost and convenience for multi-day trips — tariffs only on the prices page.",
+    "readMore": "Read article",
+    "kicker": "Long-tail · cost vs convenience",
+    "h1": "Parking vs taxi to Sarajevo Airport",
+    "intro": [
+      "Taxi vs parking depends on trip length. This article compares scenarios — M Park tariffs live only on the prices pillar.",
+      "Short same-day trips may favour taxi; multi-day travel often favours parking with included shuttle."
+    ],
+    "sections": [
+      {
+        "h2": "When taxi makes sense",
+        "paragraphs": [
+          "Same-day return without storing a car — count both directions and dawn availability.",
+          "Heavy luggage or kids can make one cramped ride awkward."
+        ]
+      },
+      {
+        "h2": "When parking wins",
+        "paragraphs": [
+          "From day three onward taxi totals often outpace daily parking with shuttle included.",
+          "Exact KM 9/8/7 tiers on the prices page — decision logic here only."
+        ]
+      },
+      {
+        "h2": "Shuttle replaces taxi to terminal",
+        "paragraphs": [
+          "M Park includes airport transfer — no separate ride from lot to check-in.",
+          "Shuttle flow on how airport parking works."
+        ]
+      },
+      {
+        "h2": "Conclusion",
+        "paragraphs": [
+          "Most multi-day trips favour parking. Check the form estimate.",
+          "Questions: +387 61 512 152 or WhatsApp."
+        ]
+      }
+    ],
+    "faqSectionTitle": "FAQ",
+    "faqStructured": [
+      {
+        "question": "Where are parking prices?",
+        "answer": "Sarajevo airport parking prices page."
+      },
+      {
+        "question": "Is shuttle included?",
+        "answer": "Yes — in the M Park stay rate."
+      },
+      {
+        "question": "What about seven days?",
+        "answer": "Compare KM 63 (7×9) with multiple taxi runs — parking often wins."
+      },
+      {
+        "question": "Where to book?",
+        "answer": "Online reservation on site."
+      },
+      {
+        "question": "Lot location?",
+        "answer": "Parking near Sarajevo Airport page."
+      }
+    ],
+    "pillarTeaser": "See tariffs and quote:",
+    "pillarLinkLabel": "prices page",
+    "ctaTitle": "Check value for your dates",
+    "ctaLead": "Enter dates for instant estimate.",
+    "ctaButton": "Book"
+  },
+  "blogLongTermGuide": {
+    "metaTitle": "Long term parking guide Sarajevo Airport",
+    "metaDescription": "Planning long-term parking near Sarajevo Airport — tier logic and logistics. Numbers on the prices page.",
+    "readMore": "Read article",
+    "kicker": "Long-tail · multi-week travel",
+    "h1": "Long-term parking guide — Sarajevo Airport",
+    "intro": [
+      "Business trips, holidays and diaspora stays can run for weeks. This guide helps planning without copying the prices table.",
+      "M Park lowers daily rate from day 10 and 15. Extended security on the safety page."
+    ],
+    "sections": [
+      {
+        "h2": "Planning stay length",
+        "paragraphs": [
+          "Enter real dates in the form — calendar days count. Extend early if flights shift.",
+          "Tariff maths on prices page."
+        ]
+      },
+      {
+        "h2": "Why long stays need private parking",
+        "paragraphs": [
+          "Weeks on an unknown curb raise risk. Monitoring and fencing matter — not just daily cost.",
+          "M Park 24/7 CCTV — safety page."
+        ]
+      },
+      {
+        "h2": "Shuttle logistics on long trips",
+        "paragraphs": [
+          "Departure and return still use shuttle — process on how airport parking works.",
+          "Directions on location page."
+        ]
+      },
+      {
+        "h2": "Next steps",
+        "paragraphs": [
+          "Check tiers on prices page, then reserve.",
+          "Contact: +387 61 512 152 or WhatsApp."
+        ]
+      }
+    ],
+    "faqSectionTitle": "FAQ",
+    "faqStructured": [
+      {
+        "question": "When does KM 7/day start?",
+        "answer": "Day 15 — full table on prices page."
+      },
+      {
+        "question": "Can I extend?",
+        "answer": "Yes — message as soon as dates change."
+      },
+      {
+        "question": "Safe for weeks?",
+        "answer": "Safety page describes M Park monitoring."
+      },
+      {
+        "question": "Where to book?",
+        "answer": "Online reservation form."
+      },
+      {
+        "question": "Address?",
+        "answer": "Kasindolskih Žrtava 18 — location page."
+      }
+    ],
+    "pillarTeaser": "Tariffs and estimate:",
+    "pillarLinkLabel": "prices page",
+    "ctaTitle": "Plan a long stay",
+    "ctaLead": "Online quote by dates.",
+    "ctaButton": "Book"
+  },
+  "blogFlyingTips": {
+    "metaTitle": "Tips for flying from Sarajevo Airport",
+    "metaDescription": "Practical tips for flying from Sarajevo: arrival time, parking, shuttle and less stress — process on dedicated page.",
+    "readMore": "Read article",
+    "kicker": "Long-tail · travel tips",
+    "h1": "Tips for flying from Sarajevo — parking, timing, less stress",
+    "intro": [
+      "Early flights and peaks shape the experience. Tips for parking users — step-by-step process has its own URL.",
+      "M Park pairs parking and shuttle; prices and location are separate pages."
+    ],
+    "sections": [
+      {
+        "h2": "How early to reach the lot",
+        "paragraphs": [
+          "Buffer for handover, shuttle, and airline check-in. In peaks, earlier beats late.",
+          "Full steps: how airport parking works."
+        ]
+      },
+      {
+        "h2": "Book before you travel",
+        "paragraphs": [
+          "Online booking holds capacity and emails directions — vital for first visits or dawn flights.",
+          "Rates on prices page."
+        ]
+      },
+      {
+        "h2": "Luggage, kids and shuttle",
+        "paragraphs": [
+          "One lot-to-terminal ride beats chaining taxis.",
+          "Navigation: parking near Sarajevo Airport."
+        ]
+      },
+      {
+        "h2": "After landing",
+        "paragraphs": [
+          "Follow confirmation pickup steps. Delayed flight? Message early.",
+          "Reserve online or +387 61 512 152 / WhatsApp."
+        ]
+      }
+    ],
+    "faqSectionTitle": "FAQ",
+    "faqStructured": [
+      {
+        "question": "Step-by-step process?",
+        "answer": "How airport parking works Sarajevo page."
+      },
+      {
+        "question": "Prices?",
+        "answer": "Sarajevo airport parking prices page."
+      },
+      {
+        "question": "Address?",
+        "answer": "Location page — Kasindolskih Žrtava 18."
+      },
+      {
+        "question": "Book day before?",
+        "answer": "Yes — as soon as dates are firm."
+      },
+      {
+        "question": "Parking vs taxi?",
+        "answer": "Blog article parking vs taxi."
+      }
+    ],
+    "pillarTeaser": "Full booking-to-return flow:",
+    "pillarLinkLabel": "how airport parking works",
+    "ctaTitle": "Ready to fly?",
+    "ctaLead": "Reserve parking online.",
+    "ctaButton": "Book"
+  }
+}

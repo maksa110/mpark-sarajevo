@@ -10,12 +10,20 @@ export default getRequestConfig(async ({ requestLocale }) => {
 
   let messages = (await import(`@/messages/${locale}.json`)).default;
 
-  if (locale === "en") {
+  if (locale === "bs") {
+    const pillars = (await import(`@/messages/seo-pillars.bs.json`)).default;
+    const blog = (await import(`@/messages/blog.bs.json`)).default;
+    messages = { ...messages, ...pillars, ...blog };
+  } else if (locale === "en") {
     const seo = (await import(`@/messages/en.seo.json`)).default;
-    messages = { ...messages, ...seo };
+    const pillars = (await import(`@/messages/seo-pillars.en.json`)).default;
+    const blog = (await import(`@/messages/blog.en.json`)).default;
+    messages = { ...messages, ...seo, ...pillars, ...blog };
   } else if (locale === "de") {
     const seo = (await import(`@/messages/de.seo.json`)).default;
-    messages = { ...messages, ...seo };
+    const pillars = (await import(`@/messages/seo-pillars.de.json`)).default;
+    const blog = (await import(`@/messages/blog.de.json`)).default;
+    messages = { ...messages, ...seo, ...pillars, ...blog };
   }
 
   return {

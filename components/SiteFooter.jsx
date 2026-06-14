@@ -21,11 +21,10 @@ const NAV = [
 
 const GUIDES = [
   { href: SEO_SLUGS.parkingPrices, msgKey: "prices" },
-  { href: SEO_SLUGS.transfer, msgKey: "transfer" },
-  { href: SEO_SLUGS.vsPublic, msgKey: "vsPublic" },
-  { href: SEO_SLUGS.faqAirport, msgKey: "faqParking" },
-  { href: SEO_SLUGS.directionsAirport, msgKey: "directionsAirport" },
-  { href: SEO_SLUGS.longTermParking, msgKey: "longTermParking" },
+  { href: SEO_SLUGS.secureParking, msgKey: "safety" },
+  { href: SEO_SLUGS.howParkingWorks, msgKey: "howItWorks" },
+  { href: SEO_SLUGS.parkingNear, msgKey: "location" },
+  { href: SEO_SLUGS.blog, msgKey: "blog" },
   { href: SEO_SLUGS.reservation, msgKey: "reservation" },
 ];
 
@@ -37,7 +36,7 @@ export default function SiteFooter() {
   const year = calendarYearSarajevo();
 
   const linkClass =
-    "inline-block text-sm text-zinc-300 transition duration-200 hover:translate-x-0.5 hover:text-brand-lime motion-reduce:transition-none motion-reduce:hover:translate-x-0";
+    "inline-block text-sm text-zinc-300 underline decoration-zinc-500/40 underline-offset-[3px] transition duration-200 hover:translate-x-0.5 hover:text-brand-lime hover:decoration-brand-lime/50 motion-reduce:transition-none motion-reduce:hover:translate-x-0";
 
   function NavLink({ item }) {
     if (item.hash === "book") {
@@ -201,7 +200,7 @@ export default function SiteFooter() {
             © {year} {SITE.brand}. {t("rights")}{" "}
             <Link
               href={PRIVACY_PATH}
-              className="text-zinc-400 underline-offset-2 transition hover:text-zinc-300 hover:underline"
+              className="text-zinc-300 underline decoration-zinc-500/50 underline-offset-2 transition hover:text-white hover:decoration-white/60"
             >
               {t("privacy")}
             </Link>
@@ -209,14 +208,14 @@ export default function SiteFooter() {
           {isHome ? (
             <a
               href="#book"
-              className="text-left text-sm font-semibold text-brand-lime transition hover:text-brand-lime-300 sm:text-right"
+              className="text-left text-sm font-semibold text-brand-lime underline decoration-brand-lime/45 underline-offset-[3px] transition hover:text-brand-lime-300 sm:text-right"
             >
               {t("ctaShort")}
             </a>
           ) : (
             <Link
               href={{ pathname: SEO_SLUGS.reservation, hash: "book" }}
-              className="text-left text-sm font-semibold text-brand-lime transition hover:text-brand-lime-300 sm:text-right"
+              className="text-left text-sm font-semibold text-brand-lime underline decoration-brand-lime/45 underline-offset-[3px] transition hover:text-brand-lime-300 sm:text-right"
             >
               {t("ctaShort")}
             </Link>

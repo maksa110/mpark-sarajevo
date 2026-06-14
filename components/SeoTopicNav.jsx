@@ -2,56 +2,50 @@
 
 import { useTranslations } from "next-intl";
 import { Link, usePathname } from "@/i18n/navigation";
-import { SEO_SLUGS, seoLocalizedPathMatches } from "@/lib/seo-routes";
+import { SEO_PILLARS, SEO_SLUGS, seoLocalizedPathMatches } from "@/lib/seo-routes";
 
 function matchesTopic(pathnameHook, pathnameKey) {
   if (pathnameKey === "/") {
     return pathnameHook === "/" || pathnameHook === "";
+  }
+  if (pathnameKey === SEO_SLUGS.blog) {
+    return String(pathnameHook).startsWith("/blog");
   }
   return seoLocalizedPathMatches(pathnameHook, pathnameKey);
 }
 
 export default function SeoTopicNav() {
   const pathname = usePathname();
-  const tCommon = useTranslations("common");
+  const t = useTranslations("seoPillarNav");
   const tFooter = useTranslations("footer");
   const tSeoNav = useTranslations("seoTopicNav");
 
   const items = [
+    { pathname: "/", label: t("home"), match: matchesTopic(pathname, "/") },
     {
-      pathname: "/",
-      label: tCommon("breadcrumbHome"),
-      match: matchesTopic(pathname, "/"),
+      pathname: SEO_PILLARS.parkingPrices,
+      label: t("prices"),
+      match: matchesTopic(pathname, SEO_PILLARS.parkingPrices),
     },
     {
-      pathname: SEO_SLUGS.parkingPrices,
-      label: tFooter("guides.prices"),
-      match: matchesTopic(pathname, SEO_SLUGS.parkingPrices),
+      pathname: SEO_PILLARS.secureParking,
+      label: t("safety"),
+      match: matchesTopic(pathname, SEO_PILLARS.secureParking),
     },
     {
-      pathname: SEO_SLUGS.transfer,
-      label: tFooter("guides.transfer"),
-      match: matchesTopic(pathname, SEO_SLUGS.transfer),
+      pathname: SEO_PILLARS.howParkingWorks,
+      label: t("howItWorks"),
+      match: matchesTopic(pathname, SEO_PILLARS.howParkingWorks),
     },
     {
-      pathname: SEO_SLUGS.vsPublic,
-      label: tFooter("guides.vsPublic"),
-      match: matchesTopic(pathname, SEO_SLUGS.vsPublic),
+      pathname: SEO_PILLARS.parkingNear,
+      label: t("location"),
+      match: matchesTopic(pathname, SEO_PILLARS.parkingNear),
     },
     {
-      pathname: SEO_SLUGS.faqAirport,
-      label: tFooter("guides.faqParking"),
-      match: matchesTopic(pathname, SEO_SLUGS.faqAirport),
-    },
-    {
-      pathname: SEO_SLUGS.directionsAirport,
-      label: tFooter("guides.directionsAirport"),
-      match: matchesTopic(pathname, SEO_SLUGS.directionsAirport),
-    },
-    {
-      pathname: SEO_SLUGS.longTermParking,
-      label: tFooter("guides.longTermParking"),
-      match: matchesTopic(pathname, SEO_SLUGS.longTermParking),
+      pathname: SEO_SLUGS.blog,
+      label: tFooter("guides.blog"),
+      match: matchesTopic(pathname, SEO_SLUGS.blog),
     },
     {
       pathname: SEO_SLUGS.reservation,

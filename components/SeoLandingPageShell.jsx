@@ -3,30 +3,26 @@ import MarketingChrome from "@/components/MarketingChrome";
 import SeoGuideArticle from "@/components/SeoGuideArticle";
 import {
   buildBreadcrumbJsonLd,
+  buildFaqPageJsonLd,
   buildParkingLocalBusinessJsonLd,
   buildWebPageJsonLd,
 } from "@/lib/jsonld-business";
 import { getGoogleReviews } from "@/lib/google-reviews";
-import { buildSeoArticleMetadata } from "@/lib/seo-metadata";
 import { SEO_SLUGS, seoPagePath } from "@/lib/seo-routes";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 
-export const revalidate = 86400;
-
-export async function generateMetadata({ params }) {
-  const { locale } = await params;
-  return buildSeoArticleMetadata({
-    locale,
-    namespace: "seoTransfer",
-    pathnameKey: SEO_SLUGS.transfer,
-  });
-}
-
-export default async function TransferPage({ params }) {
-  const { locale } = await params;
+/**
+ * Zajednički layout za SEO landing stranice (JSON-LD, FAQ schema, članak).
+ */
+export default async function SeoLandingPageShell({
+  locale,
+  namespace,
+  pathnameKey,
+  showFaqBlock = true,
+}) {
   setRequestLocale(locale);
-  const path = seoPagePath(locale, SEO_SLUGS.transfer);
-  const t = await getTranslations({ locale, namespace: "seoTransfer" });
+  const path = seoPagePath(locale, pathnameKey);
+  const t = await getTranslations({ locale, namespace });
   const tCommon = await getTranslations({ locale, namespace: "common" });
 
   const googleData = await getGoogleReviews();
@@ -41,6 +37,11 @@ export default async function TransferPage({ params }) {
       : null;
 
   const description = t("metaDescription");
+  const faqStructured =
+    showFaqBlock && Array.isArray(t.raw("faqStructured"))
+      ? t.raw("faqStructured")
+      : [];
+
   const business = buildParkingLocalBusinessJsonLd({
     locale,
     path,
@@ -64,19 +65,28 @@ export default async function TransferPage({ params }) {
     ],
   });
 
+  const schemas = [business, webpage, crumbs];
+  if (faqStructured.length > 0) {
+    schemas.push(
+      buildFaqPageJsonLd({ locale, path, items: faqStructured })
+    );
+  }
+
   return (
     <MarketingChrome
       skipBookingHref={`${seoPagePath(locale, SEO_SLUGS.reservation)}#book`}
       skipLabel={tCommon("skipToBooking")}
     >
-      <JsonLdScripts schemas={[business, webpage, crumbs]} />
+      <JsonLdScripts schemas={schemas} />
       <SeoGuideArticle
         locale={locale}
-        namespace="seoTransfer"
+        namespace={namespace}
+        pathnameKey={pathnameKey}
         bookHashHref={{
           pathname: SEO_SLUGS.reservation,
           hash: "book",
         }}
+        showFaqBlock={showFaqBlock}
       />
     </MarketingChrome>
   );

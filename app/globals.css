@@ -55,17 +55,9 @@ body {
   transform: scaleX(1);
 }
 
-/* CTA shimmer used sparingly on the primary booking button */
-@keyframes ctaPulse {
-  0%, 100% {
-    box-shadow: 0 10px 25px -10px rgba(157, 239, 63, 0.45);
-  }
-  50% {
-    box-shadow: 0 18px 35px -10px rgba(157, 239, 63, 0.7);
-  }
-}
+/* Primary CTA: static shadow only (box-shadow animation is non-composited). */
 .cta-pulse {
-  animation: ctaPulse 3.6s ease-in-out infinite;
+  box-shadow: 0 10px 25px -10px rgba(157, 239, 63, 0.45);
 }
 
 /* Respect reduced-motion preferences across the board. */

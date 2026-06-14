@@ -3,30 +3,23 @@ import MarketingChrome from "@/components/MarketingChrome";
 import SeoGuideArticle from "@/components/SeoGuideArticle";
 import {
   buildBreadcrumbJsonLd,
+  buildFaqPageJsonLd,
   buildParkingLocalBusinessJsonLd,
   buildWebPageJsonLd,
 } from "@/lib/jsonld-business";
 import { getGoogleReviews } from "@/lib/google-reviews";
-import { buildSeoArticleMetadata } from "@/lib/seo-metadata";
 import { SEO_SLUGS, seoPagePath } from "@/lib/seo-routes";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 
-export const revalidate = 86400;
-
-export async function generateMetadata({ params }) {
-  const { locale } = await params;
-  return buildSeoArticleMetadata({
-    locale,
-    namespace: "seoDirectionsAirport",
-    pathnameKey: SEO_SLUGS.directionsAirport,
-  });
-}
-
-export default async function SeoDirectionsAirportPage({ params }) {
-  const { locale } = await params;
+export default async function SeoLandingPageShell({
+  locale,
+  namespace,
+  pathnameKey,
+  showFaqBlock = true,
+}) {
   setRequestLocale(locale);
-  const path = seoPagePath(locale, SEO_SLUGS.directionsAirport);
-  const t = await getTranslations({ locale, namespace: "seoDirectionsAirport" });
+  const path = seoPagePath(locale, pathnameKey);
+  const t = await getTranslations({ locale, namespace });
   const tCommon = await getTranslations({ locale, namespace: "common" });
 
   const googleData = await getGoogleReviews();
@@ -41,6 +34,10 @@ export default async function SeoDirectionsAirportPage({ params }) {
       : null;
 
   const description = t("metaDescription");
+  const faqStructured =
+    showFaqBlock && Array.isArray(t.raw("faqStructured"))
+      ? t.raw("faqStructured")
+      : [];
 
   const business = buildParkingLocalBusinessJsonLd({
     locale,
@@ -57,27 +54,32 @@ export default async function SeoDirectionsAirportPage({ params }) {
   const crumbs = buildBreadcrumbJsonLd({
     locale,
     items: [
-      {
-        name: "M Park Sarajevo",
-        path: seoPagePath(locale, "/"),
-      },
+      { name: "M Park Sarajevo", path: seoPagePath(locale, "/") },
       { name: t("metaTitle"), path },
     ],
   });
+
+  const schemas = [business, webpage, crumbs];
+  if (faqStructured.length > 0) {
+    schemas.push(
+      buildFaqPageJsonLd({ locale, path, items: faqStructured })
+    );
+  }
 
   return (
     <MarketingChrome
       skipBookingHref={`${seoPagePath(locale, SEO_SLUGS.reservation)}#book`}
       skipLabel={tCommon("skipToBooking")}
     >
-      <JsonLdScripts schemas={[business, webpage, crumbs]} />
+      <JsonLdScripts schemas={schemas} />
       <SeoGuideArticle
         locale={locale}
-        namespace="seoDirectionsAirport"
+        namespace={namespace}
         bookHashHref={{
           pathname: SEO_SLUGS.reservation,
           hash: "book",
         }}
+        showFaqBlock={showFaqBlock}
       />
     </MarketingChrome>
   );

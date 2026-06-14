@@ -14,7 +14,7 @@ export default function SeoBreadcrumbs({ homeLabel, currentLabel }) {
           <li>
             <Link
               href="/"
-              className="font-medium text-brand-navy underline-offset-4 hover:text-brand-lime hover:underline"
+              className="font-medium text-brand-navy underline decoration-brand-navy/35 underline-offset-4 hover:text-brand-lime hover:decoration-brand-lime/50"
             >
               {homeLabel}
             </Link>

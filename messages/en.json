@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "title": "Private Parking near Sarajevo Airport | M Park",
+    "title": "Airport Parking Sarajevo | M Park — Book Online",
     "description": "Private parking at Kasindolskih Žrtava 18, near Sarajevo Airport. Tiered rates 9/8/7 KM per day, 24/7 CCTV, transfer and online booking.",
     "ogTitle": "Private Parking near Sarajevo Airport | M Park",
     "ogDescription": "Private parking near Sarajevo Airport. Daily tiers 9/8/7 KM, 24/7 surveillance, transfer and online booking.",
@@ -29,13 +29,12 @@
   "homeHub": {
     "heading": "Guides, rates and booking for Sarajevo airport parking",
     "brand": "M Park Sarajevo",
-    "linkPrices": "Sarajevo airport parking (daily tiers)",
-    "linkTransfer": "airport shuttle transfer",
-    "linkCompare": "private vs public airport parking",
-    "linkFaq": "airport parking FAQ",
-    "linkDirections": "how to get to the airport",
-    "linkLongTerm": "long-stay parking",
-    "linkBook": "book parking online"
+    "linkPrices": "parking prices",
+    "linkSafety": "parking safety",
+    "linkHow": "how it works",
+    "linkLocation": "location",
+    "linkBlog": "blog",
+    "linkBook": "book online"
   },
   "header": {
     "logoAria": "M Park Sarajevo - home",
@@ -317,12 +316,11 @@
       "book": "Booking"
     },
     "guides": {
-      "prices": "Airport parking prices",
-      "transfer": "Airport transfer",
-      "vsPublic": "Private vs public parking",
-      "faqParking": "FAQ",
-      "directionsAirport": "Getting to the airport",
-      "longTermParking": "Long-term parking",
+      "prices": "Parking prices",
+      "safety": "Parking safety",
+      "howItWorks": "How it works",
+      "location": "Location",
+      "blog": "Blog",
       "reservation": "Online booking"
     }
   },

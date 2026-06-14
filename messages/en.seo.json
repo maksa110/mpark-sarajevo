@@ -1,6 +1,6 @@
 {
   "seoParkingPrices": {
-    "metaTitle": "Sarajevo Airport parking prices & daily rates | M Park Sarajevo",
+    "metaTitle": "Sarajevo airport parking prices | M Park",
     "metaDescription": "Sarajevo Airport parking prices: 9 KM/day (1–9 days), 8 KM/day (10–14 days), 7 KM/day (15+ days). Private parking near the terminal with CCTV, transfer & online booking.",
     "metaKeywords": [
       "Sarajevo airport parking price",
@@ -46,6 +46,29 @@
           "Transfers are included so Sarajevo Airport stays reachable without extra parking stress.",
           "Combine this guide with our transfer and booking pages when planning multi‑leg trips."
         ]
+      }
+    ],
+    "faqSectionTitle": "Frequently asked questions about prices",
+    "faqStructured": [
+      {
+        "question": "What is the daily parking rate?",
+        "answer": "KM 9/day for 1–9 days, KM 8 for 10–14 days, KM 7 from day 15. The booking form quotes your exact stay instantly."
+      },
+      {
+        "question": "Is the shuttle included in the price?",
+        "answer": "Yes — complimentary transfer to Sarajevo Airport is bundled with your parking stay."
+      },
+      {
+        "question": "Are there hidden fees?",
+        "answer": "Shuttle and CCTV are included. You see the total estimate in the form before submitting."
+      },
+      {
+        "question": "How do longer stays reduce cost?",
+        "answer": "From day 10 the rate drops to KM 8/day; from day 15 to KM 7/day. See the long-term parking guide for multi-week trips."
+      },
+      {
+        "question": "How do I book at these rates?",
+        "answer": "Use the online reservation form for an instant quote and email confirmation — or call/WhatsApp +387 61 512 152 with questions."
       }
     ],
     "ctaTitle": "Book with an instant quote",
@@ -115,6 +138,29 @@
           "Less circling around terminal parking zones.",
           "Strong fit for families, early flights, and travellers with luggage."
         ]
+      }
+    ],
+    "faqSectionTitle": "Transfer FAQ",
+    "faqStructured": [
+      {
+        "question": "Is the airport shuttle free?",
+        "answer": "Yes — complimentary transfer to Sarajevo Airport is included with your private parking stay at M Park."
+      },
+      {
+        "question": "How early should I arrive before the shuttle?",
+        "answer": "Allow time for vehicle handover plus the drive to terminal, plus airline check-in buffers."
+      },
+      {
+        "question": "How does return pickup work?",
+        "answer": "Follow instructions from your confirmation to coordinate pickup after landing — quick return to your car is the goal."
+      },
+      {
+        "question": "Can I use the shuttle without parking?",
+        "answer": "Shuttle is part of the parking service — online parking reservation is required for capacity and coordination."
+      },
+      {
+        "question": "Where do I book parking with transfer?",
+        "answer": "On the online reservation page — or call/WhatsApp +387 61 512 152 after submitting the form."
       }
     ],
     "ctaTitle": "Reserve parking with airport transfer",
@@ -475,6 +521,29 @@
           "Shuttle reciprocity survives multi-week itineraries — departing and inbound legs reuse the single dossier captured through the web form.",
           "If itineraries slip, alerting operations early adjusts berth durations fairly before penalties become confusing."
         ]
+      }
+    ],
+    "faqSectionTitle": "Long-stay FAQ",
+    "faqStructured": [
+      {
+        "question": "When does the lower daily rate apply?",
+        "answer": "From day 10 the rate is KM 8/day; from day 15 onward KM 7/day — with the same CCTV and shuttle package."
+      },
+      {
+        "question": "Can I leave the car for several weeks?",
+        "answer": "Yes — long stays suit business trips and extended travel. Book ahead and notify us early if dates shift."
+      },
+      {
+        "question": "Is the lot secure during long absences?",
+        "answer": "24/7 CCTV and controlled access — see the secure parking guide for detail."
+      },
+      {
+        "question": "What if my flight delays and I extend the stay?",
+        "answer": "Contact us as soon as you know — extensions are arranged while capacity allows."
+      },
+      {
+        "question": "How do I book a long stay?",
+        "answer": "Enter dates in the online form for an instant quote — or call/WhatsApp +387 61 512 152 with questions."
       }
     ],
     "ctaTitle": "Estimate a multi-week stay",

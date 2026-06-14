@@ -39,7 +39,7 @@ export default function Contact() {
               />
               <a
                 href={`tel:${SITE.phoneTel}`}
-                className="font-medium text-zinc-900 underline-offset-4 hover:underline"
+                className="font-medium text-zinc-900 underline decoration-zinc-400/80 underline-offset-4"
               >
                 {SITE.phoneDisplay}
               </a>
@@ -50,7 +50,7 @@ export default function Contact() {
               </span>
               <a
                 href={`mailto:${SITE.email}`}
-                className="break-all font-medium text-zinc-900 underline-offset-4 hover:underline"
+                className="break-all font-medium text-zinc-900 underline decoration-zinc-400/80 underline-offset-4"
               >
                 {SITE.email}
               </a>
@@ -76,7 +76,7 @@ export default function Contact() {
                 href={waUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="font-medium text-lime-700 underline-offset-4 hover:underline"
+                className="font-medium text-zinc-900 underline decoration-zinc-400/80 underline-offset-4"
               >
                 {t("whatsappLabel")}
               </a>

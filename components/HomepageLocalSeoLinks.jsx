@@ -1,23 +1,19 @@
 import { getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
-import { SEO_SLUGS } from "@/lib/seo-routes";
+import { SEO_PILLARS, SEO_SLUGS } from "@/lib/seo-routes";
 
 const linkClass =
-  "font-medium text-brand-navy underline-offset-4 transition hover:text-brand-lime hover:underline";
+  "font-medium text-brand-navy underline decoration-brand-navy/35 underline-offset-4 transition hover:text-brand-lime hover:decoration-brand-lime/50";
 
 const HUB_LINKS = [
-  { href: SEO_SLUGS.parkingPrices, msgKey: "linkPrices" },
-  { href: SEO_SLUGS.transfer, msgKey: "linkTransfer" },
-  { href: SEO_SLUGS.vsPublic, msgKey: "linkCompare" },
-  { href: SEO_SLUGS.faqAirport, msgKey: "linkFaq" },
-  { href: SEO_SLUGS.directionsAirport, msgKey: "linkDirections" },
-  { href: SEO_SLUGS.longTermParking, msgKey: "linkLongTerm" },
+  { href: SEO_PILLARS.parkingPrices, msgKey: "linkPrices" },
+  { href: SEO_PILLARS.secureParking, msgKey: "linkSafety" },
+  { href: SEO_PILLARS.howParkingWorks, msgKey: "linkHow" },
+  { href: SEO_PILLARS.parkingNear, msgKey: "linkLocation" },
+  { href: SEO_SLUGS.blog, msgKey: "linkBlog" },
   { href: SEO_SLUGS.reservation, msgKey: "linkBook" },
 ];
 
-/**
- * Jedan prirodni blok internih linkova (homepage hub → sve SEO guide stranice).
- */
 export default async function HomepageLocalSeoLinks() {
   const t = await getTranslations("homeHub");
 
