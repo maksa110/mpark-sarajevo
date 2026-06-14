@@ -3,6 +3,7 @@ import MarketingChrome from "@/components/MarketingChrome";
 import SeoBreadcrumbs from "@/components/SeoBreadcrumbs";
 import { BLOG_ARTICLE_LIST } from "@/lib/blog-routes";
 import { SEO_SLUGS, seoPagePath } from "@/lib/seo-routes";
+import { buildHreflangAlternates } from "@/lib/hreflang";
 import { buildWebPageJsonLd } from "@/lib/jsonld-business";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
@@ -15,7 +16,10 @@ export async function generateMetadata({ params }) {
   return {
     title: t("metaTitle"),
     description: t("metaDescription"),
-    alternates: { canonical: seoPagePath(locale, SEO_SLUGS.blog) },
+    alternates: {
+      canonical: seoPagePath(locale, SEO_SLUGS.blog),
+      languages: buildHreflangAlternates((l) => seoPagePath(l, SEO_SLUGS.blog)),
+    },
     robots: { index: true, follow: true },
   };
 }

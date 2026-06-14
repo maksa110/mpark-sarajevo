@@ -4,6 +4,9 @@ import { NEXT_INTL_PATHNAMES } from "@/lib/seo-routes";
 export const routing = defineRouting({
   locales: ["bs", "en", "de"],
   defaultLocale: "bs",
+  /** Bez Accept-Language/cookie auto-redirecta — `/` → `/bs` (SEO primary). */
+  localeDetection: false,
+  /** Svi URL-ovi imaju prefiks (/bs, /en, /de). */
   localePrefix: "always",
   localeCookie: {
     name: "NEXT_LOCALE",

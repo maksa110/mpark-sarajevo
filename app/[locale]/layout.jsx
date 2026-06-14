@@ -6,6 +6,8 @@ import { getTranslations, setRequestLocale } from "next-intl/server";
 import { routing, localeMeta } from "@/i18n/routing";
 import { SITE } from "@/lib/site";
 import GoogleAnalytics from "@/components/GoogleAnalytics";
+import LocaleSuggestionBanner from "@/components/LocaleSuggestionBanner";
+import { buildHreflangAlternates } from "@/lib/hreflang";
 
 const montserrat = Montserrat({
   subsets: ["latin", "latin-ext"],
@@ -29,10 +31,7 @@ export async function generateMetadata({ params }) {
 
   const origin = SITE.url.replace(/\/$/, "");
 
-  const languages = Object.fromEntries(
-    routing.locales.map((l) => [l, `${origin}/${l}`])
-  );
-  languages["x-default"] = `${origin}/${routing.defaultLocale}`;
+  const languages = buildHreflangAlternates((l) => `/${l}`);
 
   return {
     metadataBase: new URL(SITE.url),
@@ -134,7 +133,10 @@ export default async function LocaleLayout({ children, params }) {
       </head>
       <body className="min-h-screen bg-zinc-50 font-sans text-zinc-900 antialiased">
         <GoogleAnalytics />
-        <NextIntlClientProvider>{children}</NextIntlClientProvider>
+        <NextIntlClientProvider>
+          <LocaleSuggestionBanner />
+          {children}
+        </NextIntlClientProvider>
       </body>
     </html>
   );

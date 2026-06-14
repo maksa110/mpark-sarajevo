@@ -12,6 +12,7 @@ import {
   buildWebPageJsonLd,
 } from "@/lib/jsonld-business";
 import { SEO_SLUGS, seoPagePath } from "@/lib/seo-routes";
+import { buildHreflangAlternates } from "@/lib/hreflang";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 
 export const revalidate = 86400;
@@ -35,7 +36,13 @@ export async function generateMetadata({ params }) {
   return {
     title: t("metaTitle"),
     description: t("metaDescription"),
-    alternates: { canonical: path },
+    alternates: {
+      canonical: path,
+      languages: buildHreflangAlternates(
+        (l) =>
+          `${seoPagePath(l, SEO_SLUGS.blog)}/${article.slugs[l] ?? article.slugs.bs}`
+      ),
+    },
     robots: { index: true, follow: true },
   };
 }

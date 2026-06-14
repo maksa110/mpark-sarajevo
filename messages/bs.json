@@ -57,6 +57,14 @@
     "label": "Jezik",
     "switchTo": "Promijeni jezik na {language}"
   },
+  "localeSuggestion": {
+    "ariaLabel": "Prijedlog jezika",
+    "messageEn": "Posjećujete iz inostranstva? Dostupna je i engleska verzija.",
+    "messageDe": "Posjećujete iz inostranstva? Dostupna je i njemačka verzija.",
+    "switchToEn": "Engleska verzija",
+    "switchToDe": "Njemačka verzija",
+    "dismiss": "Ostani na bosanskom"
+  },
   "hero": {
     "imageAlt": "Privatni parking blizu Aerodroma Sarajevo – M Park",
     "kicker": "M PARK",

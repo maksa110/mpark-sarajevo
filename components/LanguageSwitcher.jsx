@@ -5,6 +5,20 @@ import { useLocale, useTranslations } from "next-intl";
 import { Globe, Check, ChevronDown } from "lucide-react";
 import { usePathname, useRouter } from "@/i18n/navigation";
 import { routing, localeMeta } from "@/i18n/routing";
+import {
+  LOCALE_PREFERRED_COOKIE,
+  LOCALE_HINT_COOKIE,
+  LOCALE_COOKIE_MAX_AGE,
+} from "@/lib/i18n-cookies";
+
+function persistLocalePreference(nextLocale) {
+  const secure =
+    typeof window !== "undefined" && window.location.protocol === "https:"
+      ? "; Secure"
+      : "";
+  document.cookie = `${LOCALE_PREFERRED_COOKIE}=${encodeURIComponent(nextLocale)}; Path=/; Max-Age=${LOCALE_COOKIE_MAX_AGE}; SameSite=Lax${secure}`;
+  document.cookie = `${LOCALE_HINT_COOKIE}=; Path=/; Max-Age=0; SameSite=Lax`;
+}
 
 export default function LanguageSwitcher({ variant = "desktop" }) {
   const locale = useLocale();
@@ -32,6 +46,7 @@ export default function LanguageSwitcher({ variant = "desktop" }) {
   function selectLocale(next) {
     setOpen(false);
     if (next === locale) return;
+    persistLocalePreference(next);
     startTransition(() => {
       router.replace(pathname, { locale: next });
     });

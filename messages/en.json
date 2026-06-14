@@ -57,6 +57,14 @@
     "label": "Language",
     "switchTo": "Switch language to {language}"
   },
+  "localeSuggestion": {
+    "ariaLabel": "Language suggestion",
+    "messageEn": "Visiting from abroad? An English version is available.",
+    "messageDe": "Visiting from abroad? A German version is available.",
+    "switchToEn": "English version",
+    "switchToDe": "German version",
+    "dismiss": "Stay in Bosnian"
+  },
   "hero": {
     "imageAlt": "Private parking near Sarajevo Airport – M Park",
     "kicker": "M PARK",

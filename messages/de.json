@@ -57,6 +57,14 @@
     "label": "Sprache",
     "switchTo": "Sprache zu {language} wechseln"
   },
+  "localeSuggestion": {
+    "ariaLabel": "Sprachvorschlag",
+    "messageEn": "Besuch aus dem Ausland? Englische Version verfügbar.",
+    "messageDe": "Besuch aus dem Ausland? Deutsche Version verfügbar.",
+    "switchToEn": "Englische Version",
+    "switchToDe": "Deutsche Version",
+    "dismiss": "Auf Bosnisch bleiben"
+  },
   "hero": {
     "imageAlt": "Privater Parkplatz nahe Flughafen Sarajevo – M Park",
     "kicker": "M PARK",
