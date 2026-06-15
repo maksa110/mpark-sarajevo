@@ -1,0 +1,5 @@
+M Park Sarajevo is a multilingual private airport parking service near Sarajevo Airport.
+The site offers Bosnian, English, and German pages under /bs, /en, and /de.
+Key content includes parking pricing, reservation, secure parking information, transfer details, FAQ, privacy policy, and blog guides.
+The site is built with Next.js and serves static content with localized SEO metadata, hreflang links, and schema markup.
+For support, the service offers free airport transfer, secure fenced parking, CCTV, WhatsApp contact, and Google reviews.
