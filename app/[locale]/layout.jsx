@@ -6,7 +6,6 @@ import { getTranslations, setRequestLocale } from "next-intl/server";
 import { routing, localeMeta } from "@/i18n/routing";
 import { SITE } from "@/lib/site";
 import GoogleAnalytics from "@/components/GoogleAnalytics";
-import Script from "next/script";
 import LocaleSuggestionBanner from "@/components/LocaleSuggestionBanner";
 import { buildHreflangAlternates } from "@/lib/hreflang";
 
@@ -126,13 +125,6 @@ export default async function LocaleLayout({ children, params }) {
   return (
     <html lang={meta.htmlLang} className={montserrat.variable}>
       <head>
-        {process.env.NODE_ENV === "production" && (
-          <Script
-            src="https://www.fastbase.com/fscript.js"
-            id="YHOEWhLemA"
-            strategy="afterInteractive"
-          />
-        )}
         {/* Without JS, force scroll-reveal placeholders to be visible.
             Guarantees crawlers/AT/no-JS users see all content. */}
         <noscript>
