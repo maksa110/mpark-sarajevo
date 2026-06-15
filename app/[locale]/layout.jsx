@@ -125,6 +125,8 @@ export default async function LocaleLayout({ children, params }) {
   return (
     <html lang={meta.htmlLang} className={montserrat.variable}>
       <head>
+        <meta httpEquiv="Content-Language" content={meta.htmlLang} />
+        <meta name="language" content={meta.label} />
         {/* Without JS, force scroll-reveal placeholders to be visible.
             Guarantees crawlers/AT/no-JS users see all content. */}
         <noscript>
