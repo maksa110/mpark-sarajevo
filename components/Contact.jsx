@@ -6,7 +6,7 @@ import Reveal from "@/components/Reveal";
 export default function Contact() {
   const t = useTranslations("contact");
   const tSite = useTranslations("site");
-  const waUrl = `https://wa.me/${SITE.whatsapp}?text=${encodeURIComponent(
+  const waUrl = `https://api.whatsapp.com/send?phone=${SITE.whatsapp}&text=${encodeURIComponent(
     t("whatsappText")
   )}`;
 

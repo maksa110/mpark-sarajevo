@@ -11,7 +11,7 @@ import {
   buildFaqPageJsonLd,
   buildWebPageJsonLd,
 } from "@/lib/jsonld-business";
-import { SEO_SLUGS, seoPagePath } from "@/lib/seo-routes";
+import { SEO_SLUGS, seoAbsoluteUrl, seoPagePath } from "@/lib/seo-routes";
 import { buildHreflangAlternates } from "@/lib/hreflang";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 
@@ -37,7 +37,7 @@ export async function generateMetadata({ params }) {
     title: t("metaTitle"),
     description: t("metaDescription"),
     alternates: {
-      canonical: path,
+      canonical: seoAbsoluteUrl(new URL(process.env.NEXT_PUBLIC_SITE_URL || "https://www.mpark-sarajevo.com").origin, locale, `${SEO_SLUGS.blog}/${slug}`),
       languages: buildHreflangAlternates(
         (l) =>
           `${seoPagePath(l, SEO_SLUGS.blog)}/${article.slugs[l] ?? article.slugs.bs}`

@@ -102,7 +102,7 @@ export default async function Reviews() {
           <a
             href={profileUrl}
             target="_blank"
-            rel="noopener noreferrer nofollow"
+            rel="noopener noreferrer"
             className="inline-flex items-center gap-2 rounded-2xl border border-zinc-200 bg-white px-4 py-2 text-sm font-semibold text-zinc-900 shadow-sm transition hover:border-zinc-300 hover:shadow"
           >
             {t("googleProfileLink")}
@@ -123,7 +123,7 @@ async function RatingSummary({ rating, total, profileUrl, intlTag }) {
     <a
       href={profileUrl}
       target="_blank"
-      rel="noopener noreferrer nofollow"
+      rel="noopener noreferrer"
       className="group inline-flex items-center gap-4 rounded-2xl border border-zinc-200 bg-white px-5 py-3 shadow-sm transition hover:border-zinc-300 hover:shadow"
       aria-label={t("ratingAria", {
         rating: formatted,
@@ -278,7 +278,7 @@ function Avatar({ name, src, href, ariaAlt, authorAria }) {
       <a
         href={href}
         target="_blank"
-        rel="noopener noreferrer nofollow"
+        rel="noopener noreferrer"
         aria-label={authorAria}
         className="shrink-0"
       >
@@ -297,7 +297,7 @@ async function EmptyState({ profileUrl }) {
       <a
         href={profileUrl}
         target="_blank"
-        rel="noopener noreferrer nofollow"
+        rel="noopener noreferrer"
         className="mt-5 inline-flex items-center gap-2 rounded-2xl bg-zinc-900 px-4 py-2 text-sm font-semibold text-white shadow-sm transition hover:bg-zinc-800"
       >
         {t("emptyCta")}

@@ -47,7 +47,8 @@ export default async function HomePage({ params }) {
 
   const localBusinessSchema = {
     "@context": "https://schema.org",
-    "@type": ["LocalBusiness", "ParkingFacility"],
+    "@type": "LocalBusiness",
+    additionalType: "https://schema.org/ParkingFacility",
     "@id": `${SITE.url}/${locale}#business`,
     name: SITE.brand,
     legalName: SITE.legalName,

@@ -34,7 +34,7 @@ function ViberIcon({ className }) {
  */
 export default async function Hero() {
   const t = await getTranslations("hero");
-  const whatsappUrl = `https://wa.me/${SITE.whatsapp}?text=${encodeURIComponent(
+  const whatsappUrl = `https://api.whatsapp.com/send?phone=${SITE.whatsapp}&text=${encodeURIComponent(
     t("whatsappPrefill")
   )}`;
 

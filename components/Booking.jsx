@@ -142,7 +142,7 @@ export default function Booking() {
     const body = googleReviewUrl
       ? `${t("whatsappReviewMessage")}\n${googleReviewUrl}`
       : t("whatsappReviewMessageNoLink");
-    return `https://wa.me/${SITE.whatsapp}?text=${encodeURIComponent(body)}`;
+    return `https://api.whatsapp.com/send?phone=${SITE.whatsapp}&text=${encodeURIComponent(body)}`;
   }, [googleReviewUrl, t]);
 
   async function onSubmit(ev) {
