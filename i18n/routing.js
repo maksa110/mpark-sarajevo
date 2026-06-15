@@ -22,7 +22,7 @@ export const routing = defineRouting({
 });
 
 export const localeMeta = {
-  bs: { label: "Bosanski", flag: "🇧🇦", htmlLang: "bs", ogLocale: "bs_BA" },
-  en: { label: "English", flag: "🇬🇧", htmlLang: "en", ogLocale: "en_GB" },
-  de: { label: "Deutsch", flag: "🇩🇪", htmlLang: "de", ogLocale: "de_DE" },
+  bs: { label: "Bosanski", flag: "🇧🇦", htmlLang: "bs-BA", ogLocale: "bs_BA" },
+  en: { label: "English", flag: "🇬🇧", htmlLang: "en-GB", ogLocale: "en_GB" },
+  de: { label: "Deutsch", flag: "🇩🇪", htmlLang: "de-DE", ogLocale: "de_DE" },
 };
