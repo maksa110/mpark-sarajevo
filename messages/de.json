@@ -333,7 +333,7 @@
     }
   },
   "privacy": {
-    "metaTitle": "Datenschutz | M Park Sarajevo",
+    "metaTitle": "Datenschutz bei Parkplatzbuchung | M Park Sarajevo",
     "metaDescription": "Wie M Park Sarajevo Daten bei der Online-Buchung am Flughafen Sarajevo verarbeitet — Kontakt, Zweck und Ihre Rechte.",
     "title": "Datenschutz",
     "updated": "Zuletzt aktualisiert: Mai 2026.",
@@ -352,6 +352,14 @@
       "purpose": {
         "title": "Zweck der Verarbeitung",
         "body": "Wir nutzen Ihre Daten nur zur Bestätigung und Abwicklung der Parkplatzreservierung, zur Kommunikation mit Ihnen und zur Vertragserfüllung. Wir verkaufen Ihre Daten nicht an Dritte."
+      },
+      "retention": {
+        "title": "Speicherdauer",
+        "body": "Reservierungsdaten speichern wir nur so lange, wie es fuer Serviceorganisation, Buchhaltung, Rueckfragen, Streitklaerung oder gesetzliche Pflichten erforderlich ist. Danach loeschen wir die Daten oder behalten nur anonymisierte Betriebsstatistiken."
+      },
+      "sharing": {
+        "title": "Dienstleister und Weitergabe",
+        "body": "Fuer Hosting, E-Mail-Versand, Websitebetrieb und grundlegende Analyse koennen vertrauenswuerdige Dienstleister eingesetzt werden. Sie verarbeiten Daten nur fuer diesen Zweck. Buchungsdaten werden nicht fuer fremde Werbelisten oder unverbundenes Marketing weitergegeben."
       },
       "cookies": {
         "title": "Cookies und Analyse",

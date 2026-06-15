@@ -353,6 +353,14 @@
         "title": "Svrha obrade",
         "body": "Podatke koristimo isključivo za potvrdu i organizaciju rezervacije parkinga, komunikaciju s vama i ispunjenje ugovora o usluzi. Ne prodajemo vaše podatke trećim stranama."
       },
+      "retention": {
+        "title": "Period čuvanja",
+        "body": "Podatke o rezervaciji čuvamo samo koliko je potrebno za organizaciju usluge, računovodstvo, rješavanje upita ili sporova i zakonske obaveze. Kada podaci više nisu potrebni, brišemo ih ili zadržavamo samo anonimiziranu operativnu statistiku."
+      },
+      "sharing": {
+        "title": "Izvršioci obrade i dijeljenje",
+        "body": "Za rad stranice, slanje potvrda i osnovnu analitiku možemo koristiti pouzdane hosting, email i analitičke provajdere. Podatke obrađuju samo za navedenu svrhu usluge. Ne dijelimo podatke rezervacije za reklamne liste ili nepovezan marketing."
+      },
       "cookies": {
         "title": "Kolačići i analitika",
         "body": "Koristimo neophodne kolačiće za jezik i funkcionalnost stranice. Ako je omogućeno, Google Analytics pomaže nam razumjeti korištenje sajta (anonimizirana statistika). Možete ograničiti kolačiće u postavkama preglednika."

@@ -353,6 +353,14 @@
         "title": "Purpose of processing",
         "body": "We use your data only to confirm and manage your parking reservation, communicate with you and fulfil the service. We do not sell your data to third parties."
       },
+      "retention": {
+        "title": "Retention period",
+        "body": "Reservation records are kept only as long as needed for service administration, accounting, dispute handling and legal obligations. When the data is no longer needed, we delete it or keep only anonymised operational statistics."
+      },
+      "sharing": {
+        "title": "Processors and sharing",
+        "body": "We may use trusted hosting, email and analytics providers to run the website and send confirmations. They process data only for the service purpose. We do not share booking data for advertising lists or unrelated marketing."
+      },
       "cookies": {
         "title": "Cookies and analytics",
         "body": "We use essential cookies for language and site functionality. Where enabled, Google Analytics helps us understand site usage (aggregated statistics). You can limit cookies in your browser settings."

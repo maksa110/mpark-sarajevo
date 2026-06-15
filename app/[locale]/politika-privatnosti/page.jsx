@@ -80,6 +80,18 @@ export default async function PrivacyPage({ params }) {
           </section>
           <section>
             <h2 className="text-base font-semibold text-zinc-900">
+              {t("sections.retention.title")}
+            </h2>
+            <p className="mt-2">{t("sections.retention.body")}</p>
+          </section>
+          <section>
+            <h2 className="text-base font-semibold text-zinc-900">
+              {t("sections.sharing.title")}
+            </h2>
+            <p className="mt-2">{t("sections.sharing.body")}</p>
+          </section>
+          <section>
+            <h2 className="text-base font-semibold text-zinc-900">
               {t("sections.cookies.title")}
             </h2>
             <p className="mt-2">{t("sections.cookies.body")}</p>

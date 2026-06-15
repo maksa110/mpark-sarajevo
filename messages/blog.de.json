@@ -1,285 +1,289 @@
 {
   "blogIndex": {
-    "metaTitle": "Blog — Sarajevo airport parking | M Park",
-    "metaDescription": "Guides on Sarajevo airport parking: safety, parking vs taxi, long-term stays and flying tips — without duplicating pillar pages.",
-    "h1": "Blog — traveller guides",
-    "intro": "Long-tail articles for specific questions. Prices, safety, process and location each have dedicated pages — the blog adds context without overlap.",
+    "metaTitle": "Blog zum Parken am Flughafen Sarajevo | M Park",
+    "metaDescription": "Ratgeber zum Parken am Flughafen Sarajevo: Sicherheit, Taxi-Vergleich, Langzeitparken und Reisetipps fuer entspannte Abfluege.",
+    "h1": "Blog - Ratgeber fuer Reisende",
+    "intro": "Praxisnahe Artikel fuer einzelne Fragen rund um das Parken am Flughafen Sarajevo. Preise, Sicherheit, Ablauf und Standort haben eigene Seiten; der Blog ergaenzt diese Informationen ohne sie zu wiederholen.",
+    "body": [
+      "Nutzen Sie diese Ratgeber, wenn Sie vor der Buchung echte Reisesituationen vergleichen moechten. Jeder Artikel bleibt bei einem klaren Thema: ob der Parkplatz sicher ist, wann Parken sinnvoller als Taxi ist, wie ein langer Aufenthalt geplant wird oder wie ein frueher Flug ruhiger startet.",
+      "Die operativen Details bleiben auf den jeweiligen Serviceseiten. So sind Preise, Sicherheit, Standort und Buchungsablauf schnell auffindbar, waehrend der Blog zusaetzlichen Kontext fuer Reisende liefert, die ihre Entscheidung vor der Reservierung sauber abwaegen wollen."
+    ],
     "breadcrumb": "Blog"
   },
   "blogParkingSafe": {
-    "metaTitle": "Is Sarajevo airport parking safe?",
-    "metaDescription": "Is parking near Sarajevo Airport safe for travellers? What to check and how M Park approaches vehicle protection.",
-    "readMore": "Read article",
-    "kicker": "Long-tail · traveller safety perspective",
-    "h1": "Is parking near Sarajevo Airport safe?",
+    "metaTitle": "Ist Parken am Flughafen Sarajevo sicher?",
+    "metaDescription": "Sicherheit beim Parken nahe Sarajevo Airport: worauf Reisende achten sollten und wie M Park Fahrzeuge schuetzt.",
+    "readMore": "Artikel lesen",
+    "kicker": "Ratgeber - Sicherheit aus Reisesicht",
+    "h1": "Ist Parken nahe dem Flughafen Sarajevo sicher?",
     "intro": [
-      "Travellers often ask whether leaving a car near the airport is safe — especially on multi-day trips. This article gives broader context without replacing the M Park safety pillar page.",
-      "For CCTV, fencing and monitoring at our lot see the safety page — here we discuss criteria for any parking decision."
+      "Viele Reisende fragen sich, ob sie ihr Auto fuer mehrere Tage nahe dem Flughafen abstellen koennen. Dieser Artikel gibt den groesseren Rahmen, ohne die M Park Sicherheitsseite zu ersetzen.",
+      "Details zu CCTV, Zaun und kontrolliertem Zugang stehen auf der Sicherheitsseite; hier geht es um Kriterien, die bei jeder Parkplatzwahl helfen."
     ],
     "sections": [
       {
-        "h2": "What “safe parking” actually means",
+        "h2": "Was sicherer Parkplatz wirklich bedeutet",
         "paragraphs": [
-          "Safety is more than an empty slot — it includes site monitoring, clear rules, reachable contact while away, and physical separation (fencing) from through traffic.",
-          "Ask: is there written confirmation, who is accountable, is there 24/7 oversight?"
+          "Sicherheit ist mehr als ein freier Stellplatz. Wichtig sind Ueberwachung, klare Regeln, erreichbarer Kontakt waehrend der Reise und eine physische Abgrenzung vom Durchgangsverkehr.",
+          "Fragen Sie vorab: Gibt es eine Bestaetigung, wer ist verantwortlich, und ist die Flaeche rund um die Uhr im Blick?"
         ]
       },
       {
-        "h2": "Risks of improvised parking",
+        "h2": "Risiken spontaner Parkloesungen",
         "paragraphs": [
-          "Random streets lack records and accountability. Without monitoring, problems are hard to trace.",
-          "Reserved private parking reduces that risk — but verify the specific offer, not just a “secure” headline."
+          "Zufaellige Strassenplaetze bieten keine Dokumentation und keine klare Zuständigkeit. Ohne Monitoring sind Probleme schwer nachzuvollziehen.",
+          "Reservierter Privatparkplatz reduziert dieses Risiko, aber pruefen Sie die konkrete Leistung und nicht nur das Wort sicher."
         ]
       },
       {
-        "h2": "How M Park handles security",
+        "h2": "Wie M Park mit Sicherheit umgeht",
         "paragraphs": [
-          "M Park runs 24/7 CCTV, fencing and controlled entry — technical detail on the safety page only.",
-          "Shuttle to the airport avoids informal terminal-side parking."
+          "M Park arbeitet mit 24/7 CCTV, Zaun und kontrolliertem Zugang; die technischen Details stehen auf der Sicherheitsseite.",
+          "Der Shuttle zum Flughafen reduziert den Druck, direkt am Terminal improvisiert zu parken."
         ]
       },
       {
-        "h2": "Pre-trip checklist",
+        "h2": "Checkliste vor der Reise",
         "paragraphs": [
-          "Book online, save confirmation, verify address and contact. Tariffs on the prices page.",
-          "If M Park protection fits, submit reservation."
+          "Online buchen, Bestaetigung speichern, Adresse und Kontakt pruefen. Tarife stehen auf der Preisseite.",
+          "Wenn das Schutzkonzept zu Ihrer Reise passt, senden Sie die Reservierung ueber das Formular."
         ]
       }
     ],
-    "faqSectionTitle": "FAQ",
+    "faqSectionTitle": "Haeufige Fragen",
     "faqStructured": [
       {
-        "question": "Is public parking always unsafe?",
-        "answer": "Not necessarily — but rules and crowding vary. Private parking adds agreed structure."
+        "question": "Ist oeffentliches Parken immer unsicher?",
+        "answer": "Nicht zwingend, aber Regeln und Auslastung schwanken. Privatparken schafft eine vereinbarte Struktur."
       },
       {
-        "question": "M Park monitoring details?",
-        "answer": "Secure Sarajevo airport parking page — this article is wider context."
+        "question": "Wo stehen die M Park Sicherheitsdetails?",
+        "answer": "Auf der Seite fuer sicheres Parken am Flughafen Sarajevo; dieser Artikel liefert den breiteren Kontext."
       },
       {
-        "question": "Does long stay increase risk?",
-        "answer": "Longer absences need stronger monitoring — pick 24/7 oversight."
+        "question": "Erhoeht ein langer Aufenthalt das Risiko?",
+        "answer": "Laengere Abwesenheit braucht bessere Ueberwachung. Waehlen Sie einen Platz mit 24/7 Monitoring."
       },
       {
-        "question": "Book after reading?",
-        "answer": "Yes — online form or WhatsApp/call +387 61 512 152."
+        "question": "Kann ich nach dem Lesen buchen?",
+        "answer": "Ja, ueber das Onlineformular oder bei Fragen per WhatsApp/Anruf unter +387 61 512 152."
       },
       {
-        "question": "Where is the lot?",
-        "answer": "Parking near Sarajevo Airport page — Kasindolskih Žrtava 18."
+        "question": "Wo liegt der Parkplatz?",
+        "answer": "Auf der Standortseite: Kasindolskih Zrtava 18, Sarajevo."
       }
     ],
-    "pillarTeaser": "M Park security details:",
-    "pillarLinkLabel": "safety page",
-    "ctaTitle": "Book with verified protection",
-    "ctaLead": "WhatsApp/call or online reservation.",
-    "ctaButton": "Book now"
+    "pillarTeaser": "Details zur M Park Sicherheit:",
+    "pillarLinkLabel": "Sicherheitsseite",
+    "ctaTitle": "Mit gepruefter Sicherheit buchen",
+    "ctaLead": "Online reservieren oder vorab per WhatsApp/Telefon fragen.",
+    "ctaButton": "Jetzt buchen"
   },
   "blogParkingVsTaxi": {
-    "metaTitle": "Parking vs taxi Sarajevo Airport",
-    "metaDescription": "Parking or taxi to Sarajevo Airport? Cost and convenience for multi-day trips — tariffs only on the prices page.",
-    "readMore": "Read article",
-    "kicker": "Long-tail · cost vs convenience",
-    "h1": "Parking vs taxi to Sarajevo Airport",
+    "metaTitle": "Parken oder Taxi zum Flughafen Sarajevo?",
+    "metaDescription": "Taxi oder Parkplatz am Flughafen Sarajevo? Kostenlogik, Komfort und Shuttle fuer mehrtaegige Reisen verstaendlich verglichen.",
+    "readMore": "Artikel lesen",
+    "kicker": "Ratgeber - Kosten und Komfort",
+    "h1": "Parken oder Taxi zum Flughafen Sarajevo?",
     "intro": [
-      "Taxi vs parking depends on trip length. This article compares scenarios — M Park tariffs live only on the prices pillar.",
-      "Short same-day trips may favour taxi; multi-day travel often favours parking with included shuttle."
+      "Ob Taxi oder Parkplatz besser passt, haengt vor allem von der Reisedauer ab. Dieser Artikel vergleicht typische Situationen; die M Park Tarife bleiben auf der Preisseite.",
+      "Bei sehr kurzen Fahrten kann Taxi bequem sein. Bei mehrtaegigen Reisen ist Parken mit Shuttle oft planbarer."
     ],
     "sections": [
       {
-        "h2": "When taxi makes sense",
+        "h2": "Wann Taxi sinnvoll ist",
         "paragraphs": [
-          "Same-day return without storing a car — count both directions and dawn availability.",
-          "Heavy luggage or kids can make one cramped ride awkward."
+          "Ein Tagesausflug ohne Autoabstellung kann mit Taxi funktionieren. Rechnen Sie beide Richtungen und die Verfuegbarkeit zu fruehen Uhrzeiten mit ein.",
+          "Mit viel Gepaeck oder Kindern kann eine spontane Fahrt trotzdem unruhig werden."
         ]
       },
       {
-        "h2": "When parking wins",
+        "h2": "Wann Parken gewinnt",
         "paragraphs": [
-          "From day three onward taxi totals often outpace daily parking with shuttle included.",
-          "Exact KM 9/8/7 tiers on the prices page — decision logic here only."
+          "Ab mehreren Tagen steigen Taxi-Gesamtkosten oft schneller als der Tagespreis fuer Parken mit enthaltenem Shuttle.",
+          "Die genauen KM 9/8/7 Staffeln stehen auf der Preisseite; hier bleibt nur die Entscheidungslogik."
         ]
       },
       {
-        "h2": "Shuttle replaces taxi to terminal",
+        "h2": "Shuttle ersetzt die letzte Taxistrecke",
         "paragraphs": [
-          "M Park includes airport transfer — no separate ride from lot to check-in.",
-          "Shuttle flow on how airport parking works."
+          "M Park enthaelt den Transfer zum Flughafen, damit keine separate Fahrt vom Stellplatz zum Check-in noetig ist.",
+          "Der Ablauf steht auf der Seite zum Flughafenparkprozess."
         ]
       },
       {
-        "h2": "Conclusion",
+        "h2": "Fazit",
         "paragraphs": [
-          "Most multi-day trips favour parking. Check the form estimate.",
-          "Questions: +387 61 512 152 or WhatsApp."
+          "Fuer die meisten mehrtaegigen Reisen ist Parken praktischer. Die Form zeigt den konkreten Schaetzwert fuer Ihre Daten.",
+          "Fragen: +387 61 512 152 oder WhatsApp."
         ]
       }
     ],
-    "faqSectionTitle": "FAQ",
+    "faqSectionTitle": "Haeufige Fragen",
     "faqStructured": [
       {
-        "question": "Where are parking prices?",
-        "answer": "Sarajevo airport parking prices page."
+        "question": "Wo stehen die Parkpreise?",
+        "answer": "Auf der Seite fuer Parkpreise am Flughafen Sarajevo."
       },
       {
-        "question": "Is shuttle included?",
-        "answer": "Yes — in the M Park stay rate."
+        "question": "Ist Shuttle enthalten?",
+        "answer": "Ja, der Transfer zum Flughafen ist im M Park Aufenthalt enthalten."
       },
       {
-        "question": "What about seven days?",
-        "answer": "Compare KM 63 (7×9) with multiple taxi runs — parking often wins."
+        "question": "Was gilt fuer sieben Tage?",
+        "answer": "Vergleichen Sie sieben Parktage mit mehreren Taxifahrten. Bei mehrtaegigen Reisen gewinnt oft der Parkplatz."
       },
       {
-        "question": "Where to book?",
-        "answer": "Online reservation on site."
+        "question": "Wo buche ich?",
+        "answer": "Ueber die Online-Reservierung auf der Website."
       },
       {
-        "question": "Lot location?",
-        "answer": "Parking near Sarajevo Airport page."
+        "question": "Wo liegt der Parkplatz?",
+        "answer": "Auf der Standortseite nahe dem Flughafen Sarajevo."
       }
     ],
-    "pillarTeaser": "See tariffs and quote:",
-    "pillarLinkLabel": "prices page",
-    "ctaTitle": "Check value for your dates",
-    "ctaLead": "Enter dates for instant estimate.",
-    "ctaButton": "Book"
+    "pillarTeaser": "Tarife und Schaetzung:",
+    "pillarLinkLabel": "Preisseite",
+    "ctaTitle": "Wert fuer Ihre Reisedaten pruefen",
+    "ctaLead": "Daten eingeben und sofort eine Schaetzung sehen.",
+    "ctaButton": "Buchen"
   },
   "blogLongTermGuide": {
-    "metaTitle": "Long term parking guide Sarajevo Airport",
-    "metaDescription": "Planning long-term parking near Sarajevo Airport — tier logic and logistics. Numbers on the prices page.",
-    "readMore": "Read article",
-    "kicker": "Long-tail · multi-week travel",
-    "h1": "Long-term parking guide — Sarajevo Airport",
+    "metaTitle": "Langzeitparken Flughafen Sarajevo Guide",
+    "metaDescription": "Langzeitparken nahe Sarajevo Airport planen: Tarifstaffeln, Shuttle-Ablauf und Sicherheit fuer mehrwoechige Reisen.",
+    "readMore": "Artikel lesen",
+    "kicker": "Ratgeber - lange Reisen",
+    "h1": "Langzeitparken am Flughafen Sarajevo planen",
     "intro": [
-      "Business trips, holidays and diaspora stays can run for weeks. This guide helps planning without copying the prices table.",
-      "M Park lowers daily rate from day 10 and 15. Extended security on the safety page."
+      "Geschaeftsreisen, Urlaub und Diaspora-Aufenthalte koennen mehrere Wochen dauern. Dieser Guide hilft bei der Planung, ohne die Preistabelle zu kopieren.",
+      "M Park senkt den Tagespreis ab Tag 10 und ab Tag 15. Sicherheitsdetails fuer lange Abwesenheit stehen auf der Sicherheitsseite."
     ],
     "sections": [
       {
-        "h2": "Planning stay length",
+        "h2": "Aufenthaltsdauer realistisch planen",
         "paragraphs": [
-          "Enter real dates in the form — calendar days count. Extend early if flights shift.",
-          "Tariff maths on prices page."
+          "Tragen Sie echte Ankunfts- und Rueckkehrdaten ins Formular ein. Kalendertage zaehlen, und fruehe Info hilft bei Verlaengerungen.",
+          "Die genaue Tariflogik steht auf der Preisseite."
         ]
       },
       {
-        "h2": "Why long stays need private parking",
+        "h2": "Warum lange Reisen privaten Parkplatz brauchen",
         "paragraphs": [
-          "Weeks on an unknown curb raise risk. Monitoring and fencing matter — not just daily cost.",
-          "M Park 24/7 CCTV — safety page."
+          "Ein Auto wochenlang an einer unbekannten Strasse zu lassen, erhoeht das Risiko. Monitoring und Zaun werden wichtiger als ein minimaler Preisunterschied.",
+          "M Park setzt auf 24/7 CCTV; Details stehen auf der Sicherheitsseite."
         ]
       },
       {
-        "h2": "Shuttle logistics on long trips",
+        "h2": "Shuttle-Logistik bei langen Trips",
         "paragraphs": [
-          "Departure and return still use shuttle — process on how airport parking works.",
-          "Directions on location page."
+          "Abreise und Rueckkehr laufen weiterhin ueber Shuttle. Den Schritt-fuer-Schritt Ablauf finden Sie auf der Prozessseite.",
+          "Adresse und Anfahrt stehen auf der Standortseite."
         ]
       },
       {
-        "h2": "Next steps",
+        "h2": "Naechste Schritte",
         "paragraphs": [
-          "Check tiers on prices page, then reserve.",
-          "Contact: +387 61 512 152 or WhatsApp."
+          "Pruefen Sie die Tarifstaffeln, geben Sie die Daten ein und senden Sie die Reservierung.",
+          "Kontakt: +387 61 512 152 oder WhatsApp."
         ]
       }
     ],
-    "faqSectionTitle": "FAQ",
+    "faqSectionTitle": "Haeufige Fragen",
     "faqStructured": [
       {
-        "question": "When does KM 7/day start?",
-        "answer": "Day 15 — full table on prices page."
+        "question": "Ab wann gilt KM 7 pro Tag?",
+        "answer": "Ab Tag 15. Die komplette Tabelle steht auf der Preisseite."
       },
       {
-        "question": "Can I extend?",
-        "answer": "Yes — message as soon as dates change."
+        "question": "Kann ich verlaengern?",
+        "answer": "Ja, melden Sie sich so frueh wie moeglich, wenn sich der Rueckflug aendert."
       },
       {
-        "question": "Safe for weeks?",
-        "answer": "Safety page describes M Park monitoring."
+        "question": "Ist der Parkplatz fuer Wochen geeignet?",
+        "answer": "Die Sicherheitsseite beschreibt CCTV, Zaun und kontrollierten Zugang."
       },
       {
-        "question": "Where to book?",
-        "answer": "Online reservation form."
+        "question": "Wo buche ich einen langen Aufenthalt?",
+        "answer": "Ueber das Online-Reservierungsformular."
       },
       {
-        "question": "Address?",
-        "answer": "Kasindolskih Žrtava 18 — location page."
+        "question": "Wie lautet die Adresse?",
+        "answer": "Kasindolskih Zrtava 18, Sarajevo."
       }
     ],
-    "pillarTeaser": "Tariffs and estimate:",
-    "pillarLinkLabel": "prices page",
-    "ctaTitle": "Plan a long stay",
-    "ctaLead": "Online quote by dates.",
-    "ctaButton": "Book"
+    "pillarTeaser": "Tarife und Schaetzung:",
+    "pillarLinkLabel": "Preisseite",
+    "ctaTitle": "Langen Aufenthalt planen",
+    "ctaLead": "Online-Schaetzung nach echten Reisedaten.",
+    "ctaButton": "Buchen"
   },
   "blogFlyingTips": {
-    "metaTitle": "Tips for flying from Sarajevo Airport",
-    "metaDescription": "Practical tips for flying from Sarajevo: arrival time, parking, shuttle and less stress — process on dedicated page.",
-    "readMore": "Read article",
-    "kicker": "Long-tail · travel tips",
-    "h1": "Tips for flying from Sarajevo — parking, timing, less stress",
+    "metaTitle": "Tipps fuer Fluege ab Sarajevo Airport",
+    "metaDescription": "Praktische Tipps fuer Abfluege ab Sarajevo: Ankunftszeit, Parkplatz, Shuttle und weniger Stress vor dem Check-in.",
+    "readMore": "Artikel lesen",
+    "kicker": "Ratgeber - Reisetipps",
+    "h1": "Tipps fuer Fluege ab Sarajevo - Parken, Timing, weniger Stress",
     "intro": [
-      "Early flights and peaks shape the experience. Tips for parking users — step-by-step process has its own URL.",
-      "M Park pairs parking and shuttle; prices and location are separate pages."
+      "Fruehe Fluege und Spitzenzeiten praegen den Ablauf. Diese Tipps richten sich an Reisende, die Parkplatz und Shuttle nutzen.",
+      "M Park verbindet Parken und Transfer; Preise und Standort haben eigene Seiten."
     ],
     "sections": [
       {
-        "h2": "How early to reach the lot",
+        "h2": "Wie frueh am Parkplatz sein",
         "paragraphs": [
-          "Buffer for handover, shuttle, and airline check-in. In peaks, earlier beats late.",
-          "Full steps: how airport parking works."
+          "Planen Sie Zeit fuer Fahrzeuguebergabe, Shuttle und Airline Check-in ein. In Spitzenzeiten ist frueher besser als knapp.",
+          "Der komplette Ablauf steht auf der Seite zum Flughafenparkprozess."
         ]
       },
       {
-        "h2": "Book before you travel",
+        "h2": "Vor der Reise buchen",
         "paragraphs": [
-          "Online booking holds capacity and emails directions — vital for first visits or dawn flights.",
-          "Rates on prices page."
+          "Online-Buchung sichert Kapazitaet und liefert die Adresse. Das ist besonders wichtig bei ersten Besuchen oder fruehen Abfluegen.",
+          "Tarife stehen auf der Preisseite."
         ]
       },
       {
-        "h2": "Luggage, kids and shuttle",
+        "h2": "Gepaeck, Kinder und Shuttle",
         "paragraphs": [
-          "One lot-to-terminal ride beats chaining taxis.",
-          "Navigation: parking near Sarajevo Airport."
+          "Ein Transfer vom Parkplatz zum Terminal ist ruhiger als mehrere spontane Fahrten.",
+          "Navigation: Standortseite nahe Sarajevo Airport."
         ]
       },
       {
-        "h2": "After landing",
+        "h2": "Nach der Landung",
         "paragraphs": [
-          "Follow confirmation pickup steps. Delayed flight? Message early.",
-          "Reserve online or +387 61 512 152 / WhatsApp."
+          "Folgen Sie den Schritten aus der Bestaetigung. Bei Flugverspaetung bitte frueh schreiben.",
+          "Reservierung: online oder +387 61 512 152 / WhatsApp."
         ]
       }
     ],
-    "faqSectionTitle": "FAQ",
+    "faqSectionTitle": "Haeufige Fragen",
     "faqStructured": [
       {
-        "question": "Step-by-step process?",
-        "answer": "How airport parking works Sarajevo page."
+        "question": "Wo steht der genaue Ablauf?",
+        "answer": "Auf der Seite wie Flughafenparken in Sarajevo funktioniert."
       },
       {
-        "question": "Prices?",
-        "answer": "Sarajevo airport parking prices page."
+        "question": "Wo sind die Preise?",
+        "answer": "Auf der Seite fuer Parkpreise am Flughafen Sarajevo."
       },
       {
-        "question": "Address?",
-        "answer": "Location page — Kasindolskih Žrtava 18."
+        "question": "Wo ist die Adresse?",
+        "answer": "Auf der Standortseite: Kasindolskih Zrtava 18."
       },
       {
-        "question": "Book day before?",
-        "answer": "Yes — as soon as dates are firm."
+        "question": "Kann ich am Vortag buchen?",
+        "answer": "Ja, am besten sobald die Reisedaten feststehen."
       },
       {
-        "question": "Parking vs taxi?",
-        "answer": "Blog article parking vs taxi."
+        "question": "Taxi oder Parken?",
+        "answer": "Siehe Blogartikel zum Vergleich Parken oder Taxi."
       }
     ],
-    "pillarTeaser": "Full booking-to-return flow:",
-    "pillarLinkLabel": "how airport parking works",
-    "ctaTitle": "Ready to fly?",
-    "ctaLead": "Reserve parking online.",
-    "ctaButton": "Book"
+    "pillarTeaser": "Kompletter Ablauf von Buchung bis Rueckkehr:",
+    "pillarLinkLabel": "Flughafenparken Ablauf",
+    "ctaTitle": "Bereit fuer den Flug?",
+    "ctaLead": "Parkplatz online reservieren.",
+    "ctaButton": "Buchen"
   }
 }

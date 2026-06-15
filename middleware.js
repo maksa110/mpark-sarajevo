@@ -59,6 +59,12 @@ export default function middleware(request) {
     return NextResponse.redirect(url, 301);
   }
 
+  if (request.nextUrl.pathname === "/") {
+    const url = request.nextUrl.clone();
+    url.pathname = `/${routing.defaultLocale}`;
+    return NextResponse.redirect(url, 301);
+  }
+
   const response = intlMiddleware(request);
   return attachLocaleHint(request, response);
 }

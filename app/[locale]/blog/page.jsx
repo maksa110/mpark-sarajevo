@@ -70,6 +70,13 @@ export default async function BlogIndexPage({ params }) {
           {t("h1")}
         </h1>
         <p className="mt-4 text-base leading-relaxed text-zinc-600">{t("intro")}</p>
+        {Array.isArray(t.raw("body")) ? (
+          <div className="mt-5 space-y-4 text-base leading-relaxed text-zinc-600">
+            {t.raw("body").map((paragraph, index) => (
+              <p key={`blog-body-${index}`}>{paragraph}</p>
+            ))}
+          </div>
+        ) : null}
         <ul className="mt-10 space-y-6">
           {items.map((item) => (
             <li
