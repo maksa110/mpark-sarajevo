@@ -1,5 +1,10 @@
 import createNextIntlPlugin from "next-intl/plugin";
-import { listCannibalizationRedirects, listLegacySlugRedirects } from "./lib/seo-routes.js";
+import {
+  listCannibalizationRedirects,
+  listLegacySlugRedirects,
+  NEXT_INTL_PATHNAMES,
+  seoLocalizedSegment,
+} from "./lib/seo-routes.js";
 
 const withNextIntl = createNextIntlPlugin("./i18n/request.js");
 
@@ -47,7 +52,28 @@ const nextConfig = {
     return [...slugRedirects, ...cannibal];
   },
   async rewrites() {
-    return [{ source: "/favicon.ico", destination: "/logo.png" }];
+    const localizedSlugs = [];
+
+    for (const [pathnameKey, map] of Object.entries(NEXT_INTL_PATHNAMES)) {
+      if (typeof map === "string") continue;
+
+      for (const [locale, localizedPath] of Object.entries(map)) {
+        const translatedSegment = String(localizedPath).replace(/^\//, "");
+        const canonicalBsSegment = seoLocalizedSegment(pathnameKey, "bs");
+
+        if (translatedSegment === canonicalBsSegment) continue;
+
+        localizedSlugs.push({
+          source: `/${locale}/${translatedSegment}`,
+          destination: `/${locale}/${canonicalBsSegment}`,
+        });
+      }
+    }
+
+    return [
+      { source: "/favicon.ico", destination: "/logo.png" },
+      ...localizedSlugs,
+    ];
   },
   async headers() {
     return [

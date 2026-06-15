@@ -5,6 +5,7 @@ import { BLOG_ARTICLE_LIST } from "@/lib/blog-routes";
 import { SEO_SLUGS, seoAbsoluteUrl, seoPagePath } from "@/lib/seo-routes";
 import { buildHreflangAlternates } from "@/lib/hreflang";
 import { buildWebPageJsonLd } from "@/lib/jsonld-business";
+import { SITE } from "@/lib/site";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
 
@@ -17,7 +18,7 @@ export async function generateMetadata({ params }) {
     title: t("metaTitle"),
     description: t("metaDescription"),
     alternates: {
-      canonical: seoAbsoluteUrl(new URL(process.env.NEXT_PUBLIC_SITE_URL || "https://www.mpark-sarajevo.com").origin, locale, SEO_SLUGS.blog),
+      canonical: seoAbsoluteUrl(new URL(SITE.url).origin, locale, SEO_SLUGS.blog),
       languages: buildHreflangAlternates((l) => seoPagePath(l, SEO_SLUGS.blog)),
     },
     robots: { index: true, follow: true },

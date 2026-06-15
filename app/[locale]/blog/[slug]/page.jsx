@@ -13,6 +13,7 @@ import {
 } from "@/lib/jsonld-business";
 import { SEO_SLUGS, seoAbsoluteUrl, seoPagePath } from "@/lib/seo-routes";
 import { buildHreflangAlternates } from "@/lib/hreflang";
+import { SITE } from "@/lib/site";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 
 export const revalidate = 86400;
@@ -37,7 +38,7 @@ export async function generateMetadata({ params }) {
     title: t("metaTitle"),
     description: t("metaDescription"),
     alternates: {
-      canonical: seoAbsoluteUrl(new URL(process.env.NEXT_PUBLIC_SITE_URL || "https://www.mpark-sarajevo.com").origin, locale, `${SEO_SLUGS.blog}/${slug}`),
+      canonical: seoAbsoluteUrl(new URL(SITE.url).origin, locale, `${SEO_SLUGS.blog}/${slug}`),
       languages: buildHreflangAlternates(
         (l) =>
           `${seoPagePath(l, SEO_SLUGS.blog)}/${article.slugs[l] ?? article.slugs.bs}`
