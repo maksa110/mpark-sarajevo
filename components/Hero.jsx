@@ -51,6 +51,8 @@ export default async function Hero() {
         priority
         fetchPriority="high"
         sizes="100vw"
+        placeholder="blur"
+        blurDataURL="data:image/jpeg;base64,/9j/2wBDABQODxIPDRQSEBIXFRQYHjIhHhwcHj0sLiQySUBMS0dARkVQWnNiUFVtVkVGZIhlbXd7gYKBTmCNl4x9lnN+gXz/2wBDARUXFx4aHjshITt8U0ZTfHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHz/wAARCAANABQDASIAAhEBAxEB/8QAGAAAAwEBAAAAAAAAAAAAAAAAAAMEAgX/xAAjEAABAwMEAgMAAAAAAAAAAAACAAEDBBESITEyQQUiYXFy/8QAFAEBAAAAAAAAAAAAAAAAAAAAAP/EABQRAQAAAAAAAAAAAAAAAAAAAAD/2gAMAwEAAhEDEQA/AJ4aSCSmKQ8Ryti79fa3J46KwiNsre2u6cEQlTxM7lx6fRNN7kxbPa2iDnvRU7cnG/6QqsRbcWL5dCD/2Q=="
         className="object-cover"
       />
       <div className="absolute inset-0 bg-brand-navy/60" aria-hidden />
