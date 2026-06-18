@@ -1,5 +1,25 @@
-M Park Sarajevo is a multilingual private airport parking service near Sarajevo Airport.
-The site offers Bosnian, English, and German pages under /bs, /en, and /de.
-Key content includes parking pricing, reservation, secure parking information, transfer details, FAQ, privacy policy, and blog guides.
-The site is built with Next.js and serves static content with localized SEO metadata, hreflang links, and schema markup.
-For support, the service offers free airport transfer, secure fenced parking, CCTV, WhatsApp contact, and Google reviews.
+# M Park Sarajevo
+
+> Multilingual private airport parking near Sarajevo Airport with online reservation, free airport transfer, secure fenced parking, CCTV, and customer reviews.
+
+## Website
+
+- [Bosnian homepage](https://www.mpark-sarajevo.com/bs) - Primary public homepage.
+- [English homepage](https://www.mpark-sarajevo.com/en) - English public homepage.
+- [German homepage](https://www.mpark-sarajevo.com/de) - German public homepage.
+
+## Core pages
+
+- [Parking prices](https://www.mpark-sarajevo.com/bs/cijene-parking-aerodrom-sarajevo) - Pricing and tariff details.
+- [How parking works](https://www.mpark-sarajevo.com/bs/kako-funkcionise-parking-aerodrom-sarajevo) - Booking and transfer process.
+- [Secure parking](https://www.mpark-sarajevo.com/bs/sigurnost-parking-sarajevo-aerodrom) - Security, fencing, and CCTV details.
+- [Parking near Sarajevo Airport](https://www.mpark-sarajevo.com/bs/parking-blizu-aerodroma-sarajevo) - Location and access details.
+- [Reservation](https://www.mpark-sarajevo.com/bs/rezervacija) - Online booking page.
+- [Blog](https://www.mpark-sarajevo.com/bs/blog) - Guides and supporting content.
+- [Privacy policy](https://www.mpark-sarajevo.com/bs/politika-privatnosti) - Privacy and data handling information.
+
+## Notes
+
+- Canonical public origin: `https://www.mpark-sarajevo.com`
+- Localized routes are available under `/bs`, `/en`, and `/de`
+- The site is built with Next.js and includes localized metadata, hreflang alternates, sitemap entries, and schema markup

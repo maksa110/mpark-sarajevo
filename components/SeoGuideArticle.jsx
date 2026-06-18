@@ -1,7 +1,8 @@
 import { getTranslations } from "next-intl/server";
-import { Link } from "@/i18n/navigation";
 import SeoBreadcrumbs from "@/components/SeoBreadcrumbs";
 import { getPillarRelatedLinks } from "@/lib/seo-architecture";
+import { resolveInternalSeoHref } from "@/lib/seo-linking";
+import { Link } from "@/i18n/navigation";
 
 /**
  * Dugi SEO članak iz next-intl namespace-a (intro: string[], sections: {h2, paragraphs[]}).
@@ -22,9 +23,31 @@ export default async function SeoGuideArticle({
 
   const introParas = Array.isArray(intro) ? intro : [];
   const sectionBlocks = Array.isArray(sections) ? sections : [];
-  const relatedLinks = getPillarRelatedLinks(pathnameKey);
   const faqRaw = showFaqBlock ? t.raw("faqStructured") : [];
   const faqPairs = Array.isArray(faqRaw) ? faqRaw : [];
+  const translatedRelatedLinks =
+    typeof t.has === "function" && t.has("relatedLinks")
+      ? (() => {
+          const rawRelatedLinks = t.raw("relatedLinks");
+          return Array.isArray(rawRelatedLinks) ? rawRelatedLinks : [];
+        })()
+      : [];
+
+  const resolvedTranslatedLinks = translatedRelatedLinks
+    .map((item) => {
+      const href = resolveInternalSeoHref(locale, item?.href);
+      const label = item?.label ? String(item.label).trim() : "";
+      if (!href || !label) return null;
+      return { href, label };
+    })
+    .filter(Boolean)
+    .filter(
+      (item, index, list) => list.findIndex((entry) => entry.href === item.href) === index
+    );
+
+  const fallbackRelatedLinks = getPillarRelatedLinks(pathnameKey);
+  const relatedLinks =
+    resolvedTranslatedLinks.length > 0 ? resolvedTranslatedLinks : fallbackRelatedLinks;
 
   return (
     <>
@@ -105,12 +128,21 @@ export default async function SeoGuideArticle({
           <ul className="mt-4 space-y-2">
             {relatedLinks.map((item) => (
               <li key={item.href}>
-                <Link
-                  href={item.href}
-                  className="text-base font-medium text-brand-navy underline decoration-brand-navy/35 underline-offset-4 hover:text-brand-lime hover:decoration-brand-lime/50"
-                >
-                  {tNav(item.navKey)}
-                </Link>
+                {"label" in item ? (
+                  <a
+                    href={item.href}
+                    className="text-base font-medium text-brand-navy underline decoration-brand-navy/35 underline-offset-4 hover:text-brand-lime hover:decoration-brand-lime/50"
+                  >
+                    {item.label}
+                  </a>
+                ) : (
+                  <Link
+                    href={item.href}
+                    className="text-base font-medium text-brand-navy underline decoration-brand-navy/35 underline-offset-4 hover:text-brand-lime hover:decoration-brand-lime/50"
+                  >
+                    {tNav(item.navKey)}
+                  </Link>
+                )}
               </li>
             ))}
           </ul>

@@ -80,10 +80,10 @@
     "relatedNavLabel": "Povezani vodiči",
     "relatedHeading": "Dalje čitanje",
     "relatedLinks": [
-      { "href": "/parking-aerodrom-sarajevo-cijene", "label": "Cijene parkinga kod aerodroma" },
+      { "href": "/cijene-parking-aerodrom-sarajevo", "label": "Cijene parkinga kod aerodroma" },
       { "href": "/kako-funkcionise-parking-aerodrom-sarajevo", "label": "Kako funkcioniše parking — korak po korak" },
-      { "href": "/siguran-parking-aerodrom-sarajevo", "label": "Siguran parking kod aerodroma" },
-      { "href": "/transfer-aerodrom-sarajevo", "label": "Transfer do Aerodroma Sarajevo" },
+      { "href": "/sigurnost-parking-sarajevo-aerodrom", "label": "Siguran parking kod aerodroma" },
+      { "href": "/kako-funkcionise-parking-aerodrom-sarajevo", "label": "Transfer do Aerodroma Sarajevo" },
       { "href": "/rezervacija", "label": "Online rezervacija" }
     ]
   },
@@ -168,9 +168,9 @@
     "relatedHeading": "Pročitajte još",
     "relatedLinks": [
       { "href": "/parking-blizu-aerodroma-sarajevo", "label": "Parking blizu aerodroma" },
-      { "href": "/parking-aerodrom-sarajevo-cijene", "label": "Cijene parkinga" },
-      { "href": "/transfer-aerodrom-sarajevo", "label": "Transfer do aerodroma" },
-      { "href": "/faq-parking-aerodrom-sarajevo", "label": "FAQ o parkingu" },
+      { "href": "/cijene-parking-aerodrom-sarajevo", "label": "Cijene parkinga" },
+      { "href": "/kako-funkcionise-parking-aerodrom-sarajevo", "label": "Transfer do aerodroma" },
+      { "href": "/kako-funkcionise-parking-aerodrom-sarajevo", "label": "FAQ o parkingu" },
       { "href": "/rezervacija", "label": "Online rezervacija" }
     ]
   },
@@ -255,9 +255,9 @@
     "relatedHeading": "Dalje čitanje",
     "relatedLinks": [
       { "href": "/parking-blizu-aerodroma-sarajevo", "label": "Parking blizu aerodroma" },
-      { "href": "/privatni-vs-javni-parking-sarajevo", "label": "Privatni vs javni parking" },
-      { "href": "/parking-aerodrom-sarajevo-cijene", "label": "Cijene parkinga" },
-      { "href": "/dugorocni-parking-aerodrom-sarajevo", "label": "Dugoročni parking" },
+      { "href": "/cijene-parking-aerodrom-sarajevo", "label": "Privatni vs javni parking" },
+      { "href": "/cijene-parking-aerodrom-sarajevo", "label": "Cijene parkinga" },
+      { "href": "/blog/vodic-dugorocni-parking-aerodrom-sarajevo", "label": "Dugoročni parking" },
       { "href": "/rezervacija", "label": "Online rezervacija" }
     ]
   },
@@ -341,10 +341,10 @@
     "relatedNavLabel": "Povezani vodiči",
     "relatedHeading": "Pročitajte još",
     "relatedLinks": [
-      { "href": "/najjeftiniji-parking-aerodrom-sarajevo", "label": "Najpovoljniji parking kod aerodroma" },
-      { "href": "/parking-aerodrom-sarajevo-cijene", "label": "Cijene parkinga" },
-      { "href": "/privatni-vs-javni-parking-sarajevo", "label": "Privatni vs javni parking" },
-      { "href": "/transfer-aerodrom-sarajevo", "label": "Transfer do aerodroma" },
+      { "href": "/cijene-parking-aerodrom-sarajevo", "label": "Najpovoljniji parking kod aerodroma" },
+      { "href": "/cijene-parking-aerodrom-sarajevo", "label": "Cijene parkinga" },
+      { "href": "/cijene-parking-aerodrom-sarajevo", "label": "Privatni vs javni parking" },
+      { "href": "/kako-funkcionise-parking-aerodrom-sarajevo", "label": "Transfer do aerodroma" },
       { "href": "/rezervacija", "label": "Online rezervacija" }
     ]
   },
@@ -428,10 +428,10 @@
     "relatedNavLabel": "Povezani vodiči",
     "relatedHeading": "Dalje čitanje",
     "relatedLinks": [
-      { "href": "/parking-aerodrom-sarajevo-cijene", "label": "Cijene parkinga kod aerodroma" },
-      { "href": "/dugorocni-parking-aerodrom-sarajevo", "label": "Dugoročni parking" },
-      { "href": "/parking-aerodrom-sarajevo-vs-taksi", "label": "Parking vs taksi" },
-      { "href": "/siguran-parking-aerodrom-sarajevo", "label": "Siguran parking" },
+      { "href": "/cijene-parking-aerodrom-sarajevo", "label": "Cijene parkinga kod aerodroma" },
+      { "href": "/blog/vodic-dugorocni-parking-aerodrom-sarajevo", "label": "Dugoročni parking" },
+      { "href": "/blog/parking-vs-taksi-aerodrom-sarajevo", "label": "Parking vs taksi" },
+      { "href": "/sigurnost-parking-sarajevo-aerodrom", "label": "Siguran parking" },
       { "href": "/rezervacija", "label": "Online rezervacija" }
     ]
   }

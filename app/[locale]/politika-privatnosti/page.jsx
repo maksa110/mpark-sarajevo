@@ -1,6 +1,6 @@
 import MarketingChrome from "@/components/MarketingChrome";
 import { buildSeoArticleMetadata } from "@/lib/seo-metadata";
-import { PRIVACY_PATH } from "@/lib/seo-routes";
+import { PRIVACY_PATH, SEO_SLUGS, seoPagePath } from "@/lib/seo-routes";
 import { SITE } from "@/lib/site";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 
@@ -23,7 +23,7 @@ export default async function PrivacyPage({ params }) {
 
   return (
     <MarketingChrome
-      skipBookingHref="/#book"
+      skipBookingHref={`${seoPagePath(locale, SEO_SLUGS.reservation)}#book`}
       skipLabel={tCommon("skipToBooking")}
     >
       <main

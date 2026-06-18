@@ -1,19 +1,13 @@
 import "../globals.css";
-import { Montserrat } from "next/font/google";
 import { notFound } from "next/navigation";
 import { hasLocale, NextIntlClientProvider } from "next-intl";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { routing, localeMeta } from "@/i18n/routing";
 import { SITE } from "@/lib/site";
 import GoogleAnalytics from "@/components/GoogleAnalytics";
+import TrustindexCertificate from "@/components/TrustindexCertificate";
 import LocaleSuggestionBanner from "@/components/LocaleSuggestionBanner";
 import { buildHreflangAlternates } from "@/lib/hreflang";
-
-const montserrat = Montserrat({
-  subsets: ["latin", "latin-ext"],
-  display: "swap",
-  variable: "--font-montserrat",
-});
 
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
@@ -123,7 +117,7 @@ export default async function LocaleLayout({ children, params }) {
   const meta = localeMeta[locale];
 
   return (
-    <html lang={meta.htmlLang} className={montserrat.variable}>
+    <html lang={meta.htmlLang}>
       <head>
         <meta httpEquiv="Content-Language" content={meta.htmlLang} />
         <meta name="language" content={meta.label} />
@@ -135,6 +129,7 @@ export default async function LocaleLayout({ children, params }) {
       </head>
       <body className="min-h-screen bg-zinc-50 font-sans text-zinc-900 antialiased">
         <GoogleAnalytics />
+        <TrustindexCertificate />
         <NextIntlClientProvider>
           <LocaleSuggestionBanner />
           {children}

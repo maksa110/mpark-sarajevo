@@ -1,11 +1,4 @@
 import "../globals.css";
-import { Montserrat } from "next/font/google";
-
-const montserrat = Montserrat({
-  subsets: ["latin", "latin-ext"],
-  display: "swap",
-  variable: "--font-montserrat",
-});
 
 export const metadata = {
   title: "Admin",
@@ -25,7 +18,7 @@ export const viewport = {
 
 export default function AdminRootLayout({ children }) {
   return (
-    <html lang="bs" className={montserrat.variable}>
+    <html lang="bs">
       <body className="min-h-screen bg-zinc-100 font-sans text-zinc-900 antialiased">
         {children}
       </body>
