@@ -132,7 +132,7 @@ export default async function HomePage({ params }) {
         {tCommon("skipToBooking")}
       </a>
 
-      <Header />
+      <Header isHome />
       <main>
         <Hero />
         <Booking />
