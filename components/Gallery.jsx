@@ -51,8 +51,9 @@ export default function Gallery() {
                     src={img.src}
                     alt={t(`items.${img.key}.alt`)}
                     fill
-                    loading={i === 0 ? "eager" : "lazy"}
-                    sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+                    loading="lazy"
+                    quality={68}
+                    sizes="(min-width: 1024px) 384px, (min-width: 640px) calc(50vw - 2rem), calc(100vw - 2rem)"
                     className={
                       img.objectFit === "contain"
                         ? "object-contain bg-white p-4 transition-transform duration-700 ease-out group-hover:scale-[1.04] motion-reduce:transition-none motion-reduce:group-hover:scale-100"

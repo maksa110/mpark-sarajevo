@@ -117,13 +117,13 @@ export default function SiteFooter() {
                 </span>
               </span>
             </Link>
-            <p className="mt-4 max-w-md text-sm leading-relaxed text-zinc-400">
+            <p className="mt-4 max-w-md text-sm leading-relaxed text-zinc-200">
               {tSite("tagline")}
             </p>
           </Reveal>
 
           <Reveal delay={120} className="lg:col-span-3">
-            <h3 className="text-xs font-semibold uppercase tracking-wider text-zinc-500">
+            <h3 className="text-xs font-semibold uppercase tracking-wider text-zinc-300">
               {t("navHeading")}
             </h3>
             <ul className="mt-4 space-y-3">
@@ -136,7 +136,7 @@ export default function SiteFooter() {
           </Reveal>
 
           <Reveal delay={160} className="lg:col-span-2">
-            <h3 className="text-xs font-semibold uppercase tracking-wider text-zinc-500">
+            <h3 className="text-xs font-semibold uppercase tracking-wider text-zinc-300">
               {t("guidesHeading")}
             </h3>
             <ul className="mt-4 space-y-3">
@@ -151,13 +151,13 @@ export default function SiteFooter() {
           </Reveal>
 
           <Reveal delay={220} className="lg:col-span-2">
-            <h3 className="text-xs font-semibold uppercase tracking-wider text-zinc-500">
+            <h3 className="text-xs font-semibold uppercase tracking-wider text-zinc-300">
               {t("contactHeading")}
             </h3>
             <ul className="mt-4 space-y-3 text-sm">
               <li className="flex gap-2">
                 <Phone
-                  className="mt-0.5 h-4 w-4 shrink-0 text-zinc-500"
+                  className="mt-0.5 h-4 w-4 shrink-0 text-zinc-300"
                   aria-hidden
                 />
                 <a
@@ -169,7 +169,7 @@ export default function SiteFooter() {
               </li>
               <li className="flex gap-2">
                 <Mail
-                  className="mt-0.5 h-4 w-4 shrink-0 text-zinc-500"
+                  className="mt-0.5 h-4 w-4 shrink-0 text-zinc-300"
                   aria-hidden
                 />
                 <a
@@ -186,7 +186,7 @@ export default function SiteFooter() {
                 />
                 <address className="not-italic leading-snug text-zinc-300">
                   {SITE.addressShort}
-                  <span className="mt-1 block text-xs text-zinc-400">
+                  <span className="mt-1 block text-xs text-zinc-200">
                     {tSite("addressNote")}
                   </span>
                 </address>
@@ -195,7 +195,7 @@ export default function SiteFooter() {
           </Reveal>
         </div>
 
-        <div className="mt-12 flex flex-col gap-3 border-t border-white/10 pt-8 text-xs text-zinc-500 sm:flex-row sm:items-center sm:justify-between">
+        <div className="mt-12 flex flex-col gap-3 border-t border-white/10 pt-8 text-xs text-zinc-200 sm:flex-row sm:items-center sm:justify-between">
           <p>
             © {year} {SITE.brand}. {t("rights")}{" "}
             <Link
