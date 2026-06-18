@@ -1,56 +1,43 @@
-"use client";
-
 import { useTranslations } from "next-intl";
-import { Link, usePathname } from "@/i18n/navigation";
-import { SEO_PILLARS, SEO_SLUGS, seoLocalizedPathMatches } from "@/lib/seo-routes";
+import { Link } from "@/i18n/navigation";
+import { SEO_PILLARS, SEO_SLUGS } from "@/lib/seo-routes";
 
-function matchesTopic(pathnameHook, pathnameKey) {
-  if (pathnameKey === "/") {
-    return pathnameHook === "/" || pathnameHook === "";
-  }
-  if (pathnameKey === SEO_SLUGS.blog) {
-    return String(pathnameHook).startsWith("/blog");
-  }
-  return seoLocalizedPathMatches(pathnameHook, pathnameKey);
-}
-
-export default function SeoTopicNav() {
-  const pathname = usePathname();
+export default function SeoTopicNav({ currentPathnameKey }) {
   const t = useTranslations("seoPillarNav");
   const tFooter = useTranslations("footer");
   const tSeoNav = useTranslations("seoTopicNav");
 
   const items = [
-    { pathname: "/", label: t("home"), match: matchesTopic(pathname, "/") },
+    { pathname: "/", label: t("home"), match: currentPathnameKey === "/" },
     {
       pathname: SEO_PILLARS.parkingPrices,
       label: t("prices"),
-      match: matchesTopic(pathname, SEO_PILLARS.parkingPrices),
+      match: currentPathnameKey === SEO_PILLARS.parkingPrices,
     },
     {
       pathname: SEO_PILLARS.secureParking,
       label: t("safety"),
-      match: matchesTopic(pathname, SEO_PILLARS.secureParking),
+      match: currentPathnameKey === SEO_PILLARS.secureParking,
     },
     {
       pathname: SEO_PILLARS.howParkingWorks,
       label: t("howItWorks"),
-      match: matchesTopic(pathname, SEO_PILLARS.howParkingWorks),
+      match: currentPathnameKey === SEO_PILLARS.howParkingWorks,
     },
     {
       pathname: SEO_PILLARS.parkingNear,
       label: t("location"),
-      match: matchesTopic(pathname, SEO_PILLARS.parkingNear),
+      match: currentPathnameKey === SEO_PILLARS.parkingNear,
     },
     {
       pathname: SEO_SLUGS.blog,
       label: tFooter("guides.blog"),
-      match: matchesTopic(pathname, SEO_SLUGS.blog),
+      match: currentPathnameKey === SEO_SLUGS.blog,
     },
     {
       pathname: SEO_SLUGS.reservation,
       label: tFooter("guides.reservation"),
-      match: matchesTopic(pathname, SEO_SLUGS.reservation),
+      match: currentPathnameKey === SEO_SLUGS.reservation,
     },
   ];
 

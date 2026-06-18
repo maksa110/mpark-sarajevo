@@ -1,12 +1,8 @@
-"use client";
-
 import { useTranslations } from "next-intl";
-import { Link, usePathname } from "@/i18n/navigation";
+import { Link } from "@/i18n/navigation";
 import { SEO_SLUGS } from "@/lib/seo-routes";
 
-export default function MobileStickyCta() {
-  const pathname = usePathname();
-  const isHome = pathname === "/" || pathname === "";
+export default function MobileStickyCta({ isHome = false }) {
   const t = useTranslations("stickyCta");
 
   const className =

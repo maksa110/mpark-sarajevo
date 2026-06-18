@@ -5,15 +5,15 @@ import Reveal from "@/components/Reveal";
 const IMAGES = [
   {
     key: "zone",
-    src: "/gallery-zone.png",
+    src: "/gallery-zone.webp",
   },
   {
     key: "fenced",
-    src: "/gallery-fenced.png",
+    src: "/gallery-fenced.webp",
   },
   {
     key: "transfer",
-    src: "/gallery-transfer-vehicle.png",
+    src: "/gallery-transfer-vehicle.webp",
     objectFit: "contain",
   },
 ];

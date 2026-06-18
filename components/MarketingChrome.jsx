@@ -11,6 +11,7 @@ export default function MarketingChrome({
   children,
   skipBookingHref,
   skipLabel,
+  currentPathnameKey,
 }) {
   return (
     <div className="pb-[calc(4.25rem+env(safe-area-inset-bottom))] sm:pb-0">
@@ -21,13 +22,13 @@ export default function MarketingChrome({
         {skipLabel}
       </a>
       <Header />
-      {/*
+      {/* 
         Header je position:fixed — bez ovog offseta SeoTopicNav i vrh breadcrumb-a
         ostaju ispod trake (izgleda kao “nešto se ne vidi” / odrezano).
         Ista logika kao pt-20/pt-24 na Hero sekciji početnice.
       */}
       <div className="pt-20 sm:pt-24">
-        <SeoTopicNav />
+        <SeoTopicNav currentPathnameKey={currentPathnameKey} />
         <main className="min-h-[40vh]">{children}</main>
       </div>
       <SiteFooter />

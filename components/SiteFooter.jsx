@@ -1,9 +1,7 @@
-"use client";
-
 import Image from "next/image";
 import { Mail, MapPin, Phone } from "lucide-react";
 import { useTranslations } from "next-intl";
-import { Link, usePathname } from "@/i18n/navigation";
+import { Link } from "@/i18n/navigation";
 import { SITE, calendarYearSarajevo } from "@/lib/site";
 import { PRIVACY_PATH, SEO_SLUGS } from "@/lib/seo-routes";
 import Reveal from "@/components/Reveal";
@@ -28,11 +26,9 @@ const GUIDES = [
   { href: SEO_SLUGS.reservation, msgKey: "reservation" },
 ];
 
-export default function SiteFooter() {
+export default function SiteFooter({ isHome = false }) {
   const t = useTranslations("footer");
   const tSite = useTranslations("site");
-  const pathname = usePathname();
-  const isHome = pathname === "/" || pathname === "";
   const year = calendarYearSarajevo();
 
   const linkClass =

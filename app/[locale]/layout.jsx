@@ -120,6 +120,10 @@ export default async function LocaleLayout({ children, params }) {
       <head>
         <meta httpEquiv="Content-Language" content={meta.htmlLang} />
         <meta name="language" content={meta.label} />
+        <link rel="preconnect" href="https://www.googletagmanager.com" />
+        <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+        <link rel="preconnect" href="https://www.google-analytics.com" />
+        <link rel="dns-prefetch" href="https://www.google-analytics.com" />
         {/* Without JS, force scroll-reveal placeholders to be visible.
             Guarantees crawlers/AT/no-JS users see all content. */}
         <noscript>

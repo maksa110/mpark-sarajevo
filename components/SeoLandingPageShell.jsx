@@ -76,6 +76,7 @@ export default async function SeoLandingPageShell({
     <MarketingChrome
       skipBookingHref={`${seoPagePath(locale, SEO_SLUGS.reservation)}#book`}
       skipLabel={tCommon("skipToBooking")}
+      currentPathnameKey={pathnameKey}
     >
       <JsonLdScripts schemas={schemas} />
       <SeoGuideArticle

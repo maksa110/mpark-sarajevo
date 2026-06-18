@@ -146,8 +146,8 @@ export default async function HomePage({ params }) {
         <FaqSection />
         <Contact />
       </main>
-      <SiteFooter />
-      <MobileStickyCta />
+      <SiteFooter isHome />
+      <MobileStickyCta isHome />
     </div>
   );
 }

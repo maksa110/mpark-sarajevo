@@ -60,6 +60,7 @@ export default async function BlogIndexPage({ params }) {
     <MarketingChrome
       skipBookingHref={`${seoPagePath(locale, SEO_SLUGS.reservation)}#book`}
       skipLabel={tCommon("skipToBooking")}
+      currentPathnameKey={SEO_SLUGS.blog}
     >
       <JsonLdScripts schemas={[webpage]} />
       <SeoBreadcrumbs
