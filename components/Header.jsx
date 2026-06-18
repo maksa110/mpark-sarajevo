@@ -1,8 +1,8 @@
 import Image from "next/image";
 import { getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
-import { SEO_SLUGS } from "@/lib/seo-routes";
-import LanguageSwitcher from "@/components/LanguageSwitcher";
+import { localeMeta } from "@/i18n/routing";
+import { SEO_SLUGS, seoPagePath } from "@/lib/seo-routes";
 import HeaderMobileClient from "@/components/HeaderMobileClient";
 
 const NAV_ITEMS = [
@@ -18,8 +18,19 @@ const NAV_ITEMS = [
 const bookLinkCommon =
   "min-h-[44px] items-center rounded-2xl bg-brand-lime px-5 text-sm font-extrabold uppercase tracking-wide text-brand-navy shadow-lg shadow-brand-lime/30 ring-1 ring-brand-lime/60 transition duration-200 ease-out hover:scale-[1.04] hover:bg-brand-lime-300 hover:shadow-brand-lime/45 active:scale-[0.97] motion-reduce:transition-none motion-reduce:hover:scale-100";
 
-export default async function Header({ isHome = false }) {
+export default async function Header({
+  isHome = false,
+  currentPathnameKey = "/",
+  locale = "bs",
+}) {
   const t = await getTranslations("header");
+  const localeLinks = Object.entries(localeMeta).map(([code, meta]) => ({
+    locale: code,
+    label: meta.label,
+    flag: meta.flag,
+    href: seoPagePath(code, currentPathnameKey || "/"),
+    selected: code === locale,
+  }));
 
   function NavTarget({ id, navKey, className }) {
     const label = t(`nav.${navKey}`);
@@ -126,8 +137,24 @@ export default async function Header({ isHome = false }) {
         </nav>
 
         <div className="flex items-center gap-2">
-          <div className="hidden md:block">
-            <LanguageSwitcher variant="desktop" />
+          <div className="hidden md:flex items-center gap-1">
+            {localeLinks.map((item) => (
+              <a
+                key={item.locale}
+                href={item.href}
+                aria-current={item.selected ? "page" : undefined}
+                className={`inline-flex items-center gap-1.5 rounded-lg px-2.5 py-2 text-sm font-medium ring-1 transition focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-lime/70 ${
+                  item.selected
+                    ? "bg-white/10 text-white ring-white/20"
+                    : "text-white/85 ring-white/15 hover:bg-white/10 hover:text-white"
+                }`}
+              >
+                <span aria-hidden className="text-base leading-none">
+                  {item.flag}
+                </span>
+                <span className="uppercase tracking-wide">{item.locale}</span>
+              </a>
+            ))}
           </div>
           {isHome ? (
             <a
@@ -146,7 +173,7 @@ export default async function Header({ isHome = false }) {
           )}
         </div>
       </div>
-      <HeaderMobileClient isHome={isHome} />
+      <HeaderMobileClient isHome={isHome} localeLinks={localeLinks} />
     </header>
   );
 }

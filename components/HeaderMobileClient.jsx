@@ -1,12 +1,10 @@
 "use client";
 
-import Image from "next/image";
 import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import { SEO_SLUGS } from "@/lib/seo-routes";
-import LanguageSwitcher from "@/components/LanguageSwitcher";
 
 const NAV_ITEMS = [
   { id: "home", key: "home" },
@@ -18,7 +16,10 @@ const NAV_ITEMS = [
   { id: "contact", key: "contact" },
 ];
 
-export default function HeaderMobileClient({ isHome = false }) {
+export default function HeaderMobileClient({
+  isHome = false,
+  localeLinks = [],
+}) {
   const t = useTranslations("header");
   const [open, setOpen] = useState(false);
 
@@ -130,9 +131,32 @@ export default function HeaderMobileClient({ isHome = false }) {
               <NavTarget id={id} navKey={key} />
             </li>
           ))}
-          <li className="mt-2">
-            <LanguageSwitcher variant="mobile" />
-          </li>
+          {localeLinks.length > 0 ? (
+            <li className="mt-2">
+              <div className="rounded-xl border border-white/10 bg-white/5 p-1">
+                {localeLinks.map((item) => (
+                  <a
+                    key={item.locale}
+                    href={item.href}
+                    onClick={close}
+                    className={`flex w-full items-center gap-3 rounded-lg px-3 py-2 text-left text-sm transition ${
+                      item.selected
+                        ? "bg-white/10 text-white"
+                        : "text-white/85 hover:bg-white/10 hover:text-white"
+                    }`}
+                  >
+                    <span aria-hidden className="text-base leading-none">
+                      {item.flag}
+                    </span>
+                    <span className="flex-1 font-medium">{item.label}</span>
+                    <span className="text-xs uppercase tracking-wide text-white/50">
+                      {item.locale}
+                    </span>
+                  </a>
+                ))}
+              </div>
+            </li>
+          ) : null}
           <li className="mt-2">
             {isHome ? (
               <a

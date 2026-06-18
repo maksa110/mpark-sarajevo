@@ -70,6 +70,7 @@ export default async function ReservationPage({ params }) {
       skipBookingHref={`${path}#book`}
       skipLabel={tCommon("skipToBooking")}
       currentPathnameKey={SEO_SLUGS.reservation}
+      locale={locale}
     >
       <JsonLdScripts schemas={[business, webpage, crumbs]} />
       <SeoGuideArticle

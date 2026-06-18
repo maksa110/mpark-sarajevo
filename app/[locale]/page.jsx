@@ -132,7 +132,7 @@ export default async function HomePage({ params }) {
         {tCommon("skipToBooking")}
       </a>
 
-      <Header isHome />
+      <Header isHome currentPathnameKey="/" locale={locale} />
       <main>
         <Hero />
         <Booking />

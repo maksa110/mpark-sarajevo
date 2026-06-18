@@ -25,6 +25,8 @@ export default async function PrivacyPage({ params }) {
     <MarketingChrome
       skipBookingHref={`${seoPagePath(locale, SEO_SLUGS.reservation)}#book`}
       skipLabel={tCommon("skipToBooking")}
+      currentPathnameKey={PRIVACY_PATH}
+      locale={locale}
     >
       <main
         id="main"

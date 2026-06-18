@@ -12,6 +12,7 @@ export default function MarketingChrome({
   skipBookingHref,
   skipLabel,
   currentPathnameKey,
+  locale = "bs",
 }) {
   return (
     <div className="pb-[calc(4.25rem+env(safe-area-inset-bottom))] sm:pb-0">
@@ -21,7 +22,11 @@ export default function MarketingChrome({
       >
         {skipLabel}
       </a>
-      <Header />
+      <Header
+        currentPathnameKey={currentPathnameKey}
+        isHome={currentPathnameKey === "/"}
+        locale={locale}
+      />
       {/* 
         Header je position:fixed — bez ovog offseta SeoTopicNav i vrh breadcrumb-a
         ostaju ispod trake (izgleda kao “nešto se ne vidi” / odrezano).

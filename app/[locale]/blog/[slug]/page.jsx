@@ -88,6 +88,7 @@ export default async function BlogArticlePage({ params }) {
       skipBookingHref={`${seoPagePath(locale, SEO_SLUGS.reservation)}#book`}
       skipLabel={tCommon("skipToBooking")}
       currentPathnameKey={SEO_SLUGS.blog}
+      locale={locale}
     >
       <JsonLdScripts schemas={schemas} />
       <SeoBlogArticle
