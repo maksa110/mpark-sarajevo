@@ -1,7 +1,7 @@
 import { setRequestLocale, getTranslations } from "next-intl/server";
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
-import Booking from "@/components/Booking";
+import DeferredBooking from "@/components/DeferredBooking";
 import Trust from "@/components/Trust";
 import HowItWorks from "@/components/HowItWorks";
 import PricingSection from "@/components/PricingSection";
@@ -135,7 +135,7 @@ export default async function HomePage({ params }) {
       <Header isHome currentPathnameKey="/" locale={locale} />
       <main>
         <Hero />
-        <Booking />
+        <DeferredBooking />
         <Trust />
         <HowItWorks />
         <PricingSection />

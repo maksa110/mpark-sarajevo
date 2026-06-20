@@ -1,7 +1,17 @@
 import { SITE } from "@/lib/site";
 
-/** Kanonski origin (NEXT_PUBLIC_SITE_URL) — bez oslanjanja na Host zahtjeva (SEO). */
 const base = SITE.url.replace(/\/$/, "");
+const sharedDisallow = ["/admin", "/admin/", "/api/"];
+const explicitlyAllowedAgents = [
+  "ChatGPT-User",
+  "OAI-SearchBot",
+  "Googlebot",
+  "Google-Extended",
+  "PerplexityBot",
+  "Perplexity-User",
+  "Claude-User",
+  "Claude-SearchBot",
+];
 
 export default function robots() {
   return {
@@ -9,22 +19,13 @@ export default function robots() {
       {
         userAgent: "*",
         allow: "/",
-        disallow: ["/admin", "/admin/", "/api/"],
+        disallow: sharedDisallow,
       },
-      {
-        userAgent: [
-          "ChatGPT-User",
-          "OAI-SearchBot",
-          "Googlebot",
-          "Google-Extended",
-          "PerplexityBot",
-          "Perplexity-User",
-          "Claude-User",
-          "Claude-SearchBot",
-        ],
+      ...explicitlyAllowedAgents.map((userAgent) => ({
+        userAgent,
         allow: "/",
-        disallow: ["/admin", "/admin/", "/api/"],
-      },
+        disallow: sharedDisallow,
+      })),
     ],
     sitemap: `${base}/sitemap.xml`,
     host: base,

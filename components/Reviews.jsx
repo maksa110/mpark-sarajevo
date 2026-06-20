@@ -1,10 +1,9 @@
-import Image from "next/image";
 import { Star, ExternalLink, ShieldCheck, MessageSquareDashed } from "lucide-react";
 import { getLocale, getTranslations, getFormatter } from "next-intl/server";
 import { getGoogleReviews } from "@/lib/google-reviews";
 import { SITE } from "@/lib/site";
-import ReviewsCarousel from "@/components/ReviewsCarousel";
 import Reveal from "@/components/Reveal";
+import ReviewAvatarClient from "@/components/ReviewAvatarClient";
 
 const LOCALE_TO_INTL = { bs: "bs-BA", en: "en-GB", de: "de-DE" };
 
@@ -165,10 +164,11 @@ async function ReviewsGrid({ reviews, intlTag }) {
   }));
 
   return (
-    <ReviewsCarousel
-      prevLabel={t("scrollPrev")}
-      nextLabel={t("scrollNext")}
-    >
+    <div className="relative mt-10">
+      <ul
+        role="list"
+        className="flex snap-x snap-mandatory gap-5 overflow-x-auto pb-3 -mx-4 px-4 sm:-mx-6 sm:px-6 [scrollbar-width:thin] [-ms-overflow-style:none]"
+      >
       {items.map(({ review, dateLabel, labels }, i) => (
         <li
           key={`${review.authorName}-${review.time || i}`}
@@ -177,7 +177,8 @@ async function ReviewsGrid({ reviews, intlTag }) {
           <ReviewCard review={review} dateLabel={dateLabel} labels={labels} />
         </li>
       ))}
-    </ReviewsCarousel>
+      </ul>
+    </div>
   );
 }
 
@@ -253,40 +254,16 @@ function formatReviewDate(review, intlTag) {
 
 function Avatar({ name, src, href, ariaAlt, authorAria }) {
   const initials = getInitials(name);
-  const inner = src ? (
-    <Image
+  return (
+    <ReviewAvatarClient
+      name={name}
       src={src}
-      alt={ariaAlt}
-      width={40}
-      height={40}
-      loading="lazy"
-      sizes="40px"
-      className="h-10 w-10 rounded-full object-cover"
-      unoptimized
+      href={href}
+      ariaAlt={ariaAlt}
+      authorAria={authorAria}
+      initials={initials}
     />
-  ) : (
-    <span
-      aria-hidden
-      className="flex h-10 w-10 items-center justify-center rounded-full bg-lime-100 text-sm font-bold text-lime-700"
-    >
-      {initials}
-    </span>
   );
-
-  if (href) {
-    return (
-      <a
-        href={href}
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label={authorAria}
-        className="shrink-0"
-      >
-        {inner}
-      </a>
-    );
-  }
-  return <span className="shrink-0">{inner}</span>;
 }
 
 async function EmptyState({ profileUrl }) {

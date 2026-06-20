@@ -26,9 +26,10 @@ export default async function HomepageLocalSeoLinks() {
         {t("heading")}
       </h2>
       <div className="mx-auto max-w-3xl px-4 text-center text-sm leading-relaxed text-zinc-600 sm:px-6">
+        <p className="mb-2">{t("intro")}</p>
         <p>
           <span className="font-semibold text-zinc-900">{t("brand")}</span>
-          {" — "}
+          {" - "}
           {HUB_LINKS.map(({ href, msgKey }, index) => (
             <span key={href}>
               {index > 0 ? " · " : null}

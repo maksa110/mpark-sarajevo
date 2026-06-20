@@ -4,8 +4,8 @@ import { hasLocale, NextIntlClientProvider } from "next-intl";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { routing, localeMeta } from "@/i18n/routing";
 import { SITE } from "@/lib/site";
-import LayoutClientExtras from "@/components/LayoutClientExtras";
-import TrustindexCertificate from "@/components/TrustindexCertificate";
+import DeferredLayoutClientExtras from "@/components/DeferredLayoutClientExtras";
+import DeferredTrustindexCertificate from "@/components/DeferredTrustindexCertificate";
 import { buildHreflangAlternates } from "@/lib/hreflang";
 
 export function generateStaticParams() {
@@ -131,9 +131,9 @@ export default async function LocaleLayout({ children, params }) {
         </noscript>
       </head>
       <body className="min-h-screen bg-zinc-50 font-sans text-zinc-900 antialiased">
-        <TrustindexCertificate />
+        <DeferredTrustindexCertificate />
         <NextIntlClientProvider>
-          <LayoutClientExtras />
+          <DeferredLayoutClientExtras />
           {children}
         </NextIntlClientProvider>
       </body>

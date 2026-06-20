@@ -1,0 +1,14 @@
+
+> m-park-sarajevo@2.0.0 dev
+> next dev
+
+   ▲ Next.js 15.5.15
+   - Local:        http://localhost:3002
+   - Network:      http://192.168.0.34:3002
+   - Environments: .env.local
+
+ ✓ Starting...
+ ✓ Ready in 2.1s
+ ✓ Compiled /middleware in 284ms (179 modules)
+ ○ Compiling /[locale] ...
+ ✓ Compiled /[locale] in 3.9s (980 modules)

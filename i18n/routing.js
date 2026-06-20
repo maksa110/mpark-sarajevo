@@ -4,25 +4,36 @@ import { NEXT_INTL_PATHNAMES } from "@/lib/seo-routes";
 export const routing = defineRouting({
   locales: ["bs", "en", "de"],
   defaultLocale: "bs",
-  /** Bez Accept-Language/cookie auto-redirecta: `/` -> `/bs` (SEO primary). */
+  // Without Accept-Language or cookie redirects: `/` resolves to `/bs`.
   localeDetection: false,
-  /** Svi URL-ovi imaju prefiks (/bs, /en, /de). */
+  // All localized routes keep an explicit prefix: /bs, /en, /de.
   localePrefix: "always",
   localeCookie: {
     name: "NEXT_LOCALE",
-    maxAge: 60 * 60 * 24 * 365, // 1 godina
+    maxAge: 60 * 60 * 24 * 365,
   },
   pathnames: NEXT_INTL_PATHNAMES,
-  /**
-   * Iskljuceno: HTTP `Link:` hreflang middleware duplikat i konflikt s Next.js metadata
-   * (`alternates.languages` + konzistentni `x-default` -> `/bs`). Ostaje jedan pouzdan izvor + sitemap.
-   * @see https://next-intl.dev/docs/routing/middleware#alternate-links
-   */
+  // Keep hreflang in one place via Next metadata + sitemap, without HTTP Link duplicates.
   alternateLinks: false,
 });
 
 export const localeMeta = {
-  bs: { label: "Bosanski", flag: "🇧🇦", htmlLang: "bs", ogLocale: "bs_BA" },
-  en: { label: "English", flag: "🇬🇧", htmlLang: "en", ogLocale: "en_GB" },
-  de: { label: "Deutsch", flag: "🇩🇪", htmlLang: "de", ogLocale: "de_DE" },
+  bs: {
+    label: "Bosanski",
+    flag: "\uD83C\uDDE7\uD83C\uDDE6",
+    htmlLang: "bs-BA",
+    ogLocale: "bs_BA",
+  },
+  en: {
+    label: "English",
+    flag: "\uD83C\uDDEC\uD83C\uDDE7",
+    htmlLang: "en-GB",
+    ogLocale: "en_GB",
+  },
+  de: {
+    label: "Deutsch",
+    flag: "\uD83C\uDDE9\uD83C\uDDEA",
+    htmlLang: "de-DE",
+    ogLocale: "de_DE",
+  },
 };
