@@ -1,4 +1,4 @@
-import Booking from "@/components/Booking";
+import DeferredBooking from "@/components/DeferredBooking";
 import JsonLdScripts from "@/components/JsonLdScripts";
 import MarketingChrome from "@/components/MarketingChrome";
 import SeoGuideArticle from "@/components/SeoGuideArticle";
@@ -81,7 +81,7 @@ export default async function ReservationPage({ params }) {
           hash: "book",
         }}
       />
-      <Booking />
+      <DeferredBooking />
     </MarketingChrome>
   );
 }

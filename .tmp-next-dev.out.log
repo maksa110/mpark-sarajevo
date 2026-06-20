@@ -12,3 +12,6 @@
  ✓ Compiled /middleware in 284ms (179 modules)
  ○ Compiling /[locale] ...
  ✓ Compiled /[locale] in 3.9s (980 modules)
+ GET /bs 200 in 5822ms
+ ✓ Compiled in 216ms (318 modules)
+ ✓ Compiled in 341ms (979 modules)

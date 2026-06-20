@@ -1,7 +1,9 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { usePathname } from "next/navigation";
 import { SITE } from "@/lib/site";
+import { SEO_SLUGS, seoLocalizedPathMatches } from "@/lib/seo-routes";
 
 const TRUSTINDEX_CERT_SRC =
   "https://cdn.trustindex.io/loader-cert.js?dcb8297740bc422ba7066145817";
@@ -22,16 +24,20 @@ function hasTrustindexWidget() {
 }
 
 export default function TrustindexCertificate() {
+  const pathname = usePathname();
   const [widgetReady, setWidgetReady] = useState(false);
   const startedRef = useRef(false);
+  const skipOnThisPage = seoLocalizedPathMatches(pathname, SEO_SLUGS.reservation);
 
   useEffect(() => {
+    if (skipOnThisPage) return;
     if (hasTrustindexWidget()) {
       setWidgetReady(true);
     }
-  }, []);
+  }, [skipOnThisPage]);
 
   useEffect(() => {
+    if (skipOnThisPage) return;
     if (startedRef.current) return;
     startedRef.current = true;
 
@@ -172,9 +178,9 @@ export default function TrustindexCertificate() {
         cleanupScroll();
       }
     };
-  }, []);
+  }, [skipOnThisPage]);
 
-  if (widgetReady) return null;
+  if (skipOnThisPage || widgetReady) return null;
 
   return (
     <a
