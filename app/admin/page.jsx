@@ -165,7 +165,12 @@ export default function AdminDashboardPage() {
   }
   if (!authed) return null;
 
-  const todayStr = new Date().toISOString().slice(0, 10);
+  const todayStr = new Intl.DateTimeFormat("en-CA", {
+    timeZone: "Europe/Sarajevo",
+    year: "numeric",
+    month: "2-digit",
+    day: "2-digit",
+  }).format(now);
   const todaysArrivals = rows.filter((r) => r.arrivalDate === todayStr);
   const upcomingArrivals = rows.filter((r) => r.arrivalDate > todayStr);
 

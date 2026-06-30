@@ -1,5 +1,5 @@
 import { SITE } from "@/lib/site";
-import { routing } from "@/i18n/routing";
+import { routing, localeMeta } from "@/i18n/routing";
 import {
   blogAllPathsForSitemap,
   BLOG_ARTICLE_LIST,
@@ -14,9 +14,10 @@ const base = SITE.url.replace(/\/$/, "");
 
 function buildSitemapSafe() {
   const lastModified = new Date();
+  const hreflangKey = (locale) => localeMeta[locale]?.htmlLang || locale;
 
   const homeLanguages = Object.fromEntries(
-    routing.locales.map((l) => [l, seoAbsoluteUrl(base, l, "/")])
+    routing.locales.map((l) => [hreflangKey(l), seoAbsoluteUrl(base, l, "/")])
   );
   homeLanguages["x-default"] = seoAbsoluteUrl(
     base,
@@ -53,7 +54,10 @@ function buildSitemapSafe() {
 
   const guideEntries = seoKeys.flatMap((pathnameKey) => {
     const languages = Object.fromEntries(
-      routing.locales.map((l) => [l, seoAbsoluteUrl(base, l, pathnameKey)])
+      routing.locales.map((l) => [
+        hreflangKey(l),
+        seoAbsoluteUrl(base, l, pathnameKey),
+      ])
     );
     languages["x-default"] = seoAbsoluteUrl(
       base,
@@ -85,7 +89,7 @@ function buildSitemapSafe() {
     const languages = article
       ? Object.fromEntries(
           routing.locales.map((l) => [
-            l,
+            hreflangKey(l),
             `${base}/${l}/blog/${article.slugs[l] ?? article.slugs.bs}`,
           ])
         )
@@ -103,7 +107,10 @@ function buildSitemapSafe() {
   });
 
   const privacyLanguages = Object.fromEntries(
-    routing.locales.map((l) => [l, seoAbsoluteUrl(base, l, PRIVACY_PATH)])
+    routing.locales.map((l) => [
+      hreflangKey(l),
+      seoAbsoluteUrl(base, l, PRIVACY_PATH),
+    ])
   );
   privacyLanguages["x-default"] = seoAbsoluteUrl(
     base,

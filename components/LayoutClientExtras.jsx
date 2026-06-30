@@ -1,15 +1,7 @@
 "use client";
 
-import dynamic from "next/dynamic";
-
-const GoogleAnalytics = dynamic(() => import("@/components/GoogleAnalytics"), {
-  ssr: false,
-});
-
-const LocaleSuggestionBanner = dynamic(
-  () => import("@/components/LocaleSuggestionBanner"),
-  { ssr: false }
-);
+import GoogleAnalytics from "@/components/GoogleAnalytics";
+import LocaleSuggestionBanner from "@/components/LocaleSuggestionBanner";
 
 export default function LayoutClientExtras() {
   return (

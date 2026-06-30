@@ -16,6 +16,7 @@ const nextConfig = {
   outputFileTracingRoot: import.meta.dirname,
   images: {
     formats: ["image/avif", "image/webp"],
+    qualities: [68, 70, 75],
     remotePatterns: [
       {
         protocol: "https",

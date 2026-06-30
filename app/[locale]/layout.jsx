@@ -2,10 +2,9 @@ import "../globals.css";
 import { notFound } from "next/navigation";
 import { hasLocale, NextIntlClientProvider } from "next-intl";
 import { getTranslations, setRequestLocale } from "next-intl/server";
+import LayoutClientExtras from "@/components/LayoutClientExtras";
 import { routing, localeMeta } from "@/i18n/routing";
 import { SITE } from "@/lib/site";
-import DeferredLayoutClientExtras from "@/components/DeferredLayoutClientExtras";
-import DeferredTrustindexCertificate from "@/components/DeferredTrustindexCertificate";
 import { buildHreflangAlternates } from "@/lib/hreflang";
 
 export function generateStaticParams() {
@@ -119,7 +118,7 @@ export default async function LocaleLayout({ children, params }) {
     <html lang={meta.htmlLang}>
       <head>
         <meta httpEquiv="Content-Language" content={meta.htmlLang} />
-        <meta name="language" content={meta.label} />
+        <meta name="language" content={meta.htmlLang} />
         <link rel="preconnect" href="https://www.googletagmanager.com" />
         <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
         <link rel="preconnect" href="https://www.google-analytics.com" />
@@ -131,9 +130,8 @@ export default async function LocaleLayout({ children, params }) {
         </noscript>
       </head>
       <body className="min-h-screen bg-zinc-50 font-sans text-zinc-900 antialiased">
-        <DeferredTrustindexCertificate />
         <NextIntlClientProvider>
-          <DeferredLayoutClientExtras />
+          <LayoutClientExtras />
           {children}
         </NextIntlClientProvider>
       </body>

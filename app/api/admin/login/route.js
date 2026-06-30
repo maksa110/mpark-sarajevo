@@ -8,6 +8,12 @@ import {
   getSessionSecret,
   timingSafePasswordEqual,
 } from "@/lib/auth";
+import {
+  clearAdminLoginFailures,
+  getAdminLoginRateLimitState,
+  getClientKey,
+  recordAdminLoginFailure,
+} from "@/lib/admin-rate-limit";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -16,10 +22,27 @@ export async function POST(request) {
   const mis = getAuthConfigError();
   if (mis) {
     return NextResponse.json(
-      { error: "Server nije spreman: provjerite environment varijable (ADMIN_)." },
+      { error: "Server nije spreman: provjerite environment varijable (ADMIN)." },
       { status: 503 }
     );
   }
+
+  const clientKey = getClientKey(request);
+  const rateLimit = getAdminLoginRateLimitState(clientKey);
+  if (rateLimit.blocked) {
+    return NextResponse.json(
+      {
+        error: "Previse neuspjesnih pokusaja. Pokusajte ponovo za nekoliko minuta.",
+      },
+      {
+        status: 429,
+        headers: {
+          "Retry-After": String(Math.ceil(rateLimit.retryAfterMs / 1000)),
+        },
+      }
+    );
+  }
+
   let body;
   try {
     body = await request.json();
@@ -36,8 +59,11 @@ export async function POST(request) {
   }
 
   if (!timingSafePasswordEqual(pwd, getAdminPassword())) {
-    return NextResponse.json({ error: "Pogrešna lozinka." }, { status: 401 });
+    recordAdminLoginFailure(clientKey);
+    return NextResponse.json({ error: "Pogresna lozinka." }, { status: 401 });
   }
+
+  clearAdminLoginFailures(clientKey);
 
   const token = createSessionToken(getSessionSecret());
   const isProd = process.env.NODE_ENV === "production";

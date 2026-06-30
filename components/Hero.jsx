@@ -2,6 +2,7 @@ import Image from "next/image";
 import { Phone } from "lucide-react";
 import { getTranslations } from "next-intl/server";
 import { HERO_IMAGE, SITE } from "@/lib/site";
+import ViberLinkButton from "@/components/ViberLinkButton";
 
 function WhatsAppIcon({ className }) {
   return (
@@ -143,17 +144,16 @@ export default async function Hero() {
             <WhatsAppIcon className="h-5 w-5 shrink-0 text-[#86efac]" />
             {t("whatsappLabel")}
           </a>
-          <a
+          <ViberLinkButton
             href={SITE.viberUrl}
-            target="_blank"
-            rel="noopener noreferrer"
+            fallbackHref={`tel:${SITE.phoneTel}`}
             aria-label={t("viberAria")}
             title={t("viberLabel")}
             className="inline-flex min-h-[48px] items-center gap-2 rounded-2xl bg-white/10 px-5 text-base font-semibold text-white ring-1 ring-white/20 backdrop-blur transition hover:bg-white/15 hover:ring-white/30 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-lime/70 motion-reduce:transition-none"
           >
             <ViberIcon className="h-5 w-5 shrink-0 text-[#c4b5fd]" />
             {t("viberLabel")}
-          </a>
+          </ViberLinkButton>
         </div>
       </div>
     </section>

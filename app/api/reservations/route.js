@@ -7,7 +7,10 @@ import {
   getSessionSecret,
   parseSessionToken,
 } from "@/lib/auth";
-import { insertReservation, listReservations } from "@/lib/db";
+import {
+  createReservationIfCapacityAvailable,
+  listReservations,
+} from "@/lib/db";
 import { checkReservationCapacity } from "@/lib/parking-capacity";
 import {
   sendGuestReservationConfirmation,
@@ -154,8 +157,9 @@ async function postReservation(request) {
     return NextResponse.json({ errorCode: cap.code }, { status: 409 });
   }
 
+  let inserted;
   try {
-    await insertReservation(reservation);
+    inserted = await createReservationIfCapacityAvailable(reservation);
   } catch (e) {
     console.error("insertReservation failed:", e);
     if (e?.code === "VERCEL_BLOB_REQUIRED" || e?.message === "VERCEL_BLOB_REQUIRED") {
@@ -173,6 +177,12 @@ async function postReservation(request) {
           "Nije moguće spremiti rezervaciju. Provjeri da je u Vercel projektu povezan Blob (Storage) i uradi Redeploy.",
       },
       { status: 500 }
+    );
+  }
+  if (!inserted?.ok) {
+    return NextResponse.json(
+      { errorCode: inserted?.code || "CAPACITY_WITH_KEY" },
+      { status: 409 }
     );
   }
 
