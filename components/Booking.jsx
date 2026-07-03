@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useEffect, useMemo, useState, startTransition } from "react";
+import { useEffect, useMemo, useState, startTransition, useCallback } from "react";
 import { useTranslations } from "next-intl";
 import { Sparkles, TrendingDown } from "lucide-react";
 import { trackBookingConversion } from "@/lib/gtag";
@@ -22,13 +22,11 @@ export default function Booking() {
   const [arrivalTime, setArrivalTime] = useState("");
   const [departure, setDeparture] = useState("");
   const [departureTime, setDepartureTime] = useState("");
-  /** null dok korisnik ne odabere */
   const [leaveKey, setLeaveKey] = useState(null);
   const [errors, setErrors] = useState({});
   const [busy, setBusy] = useState(false);
   const [errMsg, setErrMsg] = useState("");
   const [ok, setOk] = useState(false);
-  /** idle | loading | ok | fail */
   const [capState, setCapState] = useState("idle");
   const [capFailCode, setCapFailCode] = useState(null);
 
@@ -173,10 +171,14 @@ export default function Booking() {
           const data = raw ? JSON.parse(raw) : {};
           if (data?.errorCode) {
             msg = t(`errors.${data.errorCode}`);
-          } else if (data?.error) msg = data.error;
+          } else if (data?.error) {
+            msg = data.error;
+          }
         } catch {
-          if (raw?.trim().slice(0, 1) === "<")
-            msg = "Server je vratio grešku. Provjeri Vercel deploy (Blob, env) i pokušaj opet.";
+          if (raw?.trim().slice(0, 1) === "<") {
+            msg =
+              "Server je vratio grešku. Provjeri Vercel deploy (Blob, env) i pokušaj opet.";
+          }
         }
         throw new Error(msg);
       }

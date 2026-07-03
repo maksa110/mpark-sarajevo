@@ -1,7 +1,7 @@
 import { SITE } from "@/lib/site";
 
 const base = SITE.url.replace(/\/$/, "");
-const sharedDisallow = ["/admin", "/admin/", "/api/"];
+const sharedDisallow = ["/admin", "/admin/", "/partner", "/partner/", "/api/"];
 const explicitlyAllowedAgents = [
   "ChatGPT-User",
   "OAI-SearchBot",

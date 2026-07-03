@@ -12,6 +12,7 @@ import {
   listReservations,
 } from "@/lib/db";
 import { checkReservationCapacity } from "@/lib/parking-capacity";
+import { computePriceQuote } from "@/lib/pricing";
 import {
   sendGuestReservationConfirmation,
   sendReservationEmailNotification,
@@ -122,6 +123,12 @@ async function postReservation(request) {
 
   const id = nanoid();
   const createdAt = new Date().toISOString();
+  const quote = computePriceQuote(
+    String(arrivalDate).slice(0, 10),
+    String(arrivalTime).slice(0, 5),
+    String(departureDate).slice(0, 10),
+    String(departureTime).slice(0, 5)
+  );
   const reservation = {
     id,
     name: String(name).trim(),
@@ -133,6 +140,7 @@ async function postReservation(request) {
     departureTime: String(departureTime).slice(0, 5),
     leaveKey,
     createdAt,
+    quotedDays: quote?.days || 0,
   };
 
   let existingRows;

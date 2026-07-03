@@ -1,7 +1,8 @@
 import JsonLdScripts from "@/components/JsonLdScripts";
 import MarketingChrome from "@/components/MarketingChrome";
 import SeoBreadcrumbs from "@/components/SeoBreadcrumbs";
-import { BLOG_ARTICLE_LIST } from "@/lib/blog-routes";
+import { getBlogArticleContent } from "@/lib/blog-content";
+import { PUBLISHED_BLOG_ARTICLE_LIST } from "@/lib/blog-routes";
 import { SEO_SLUGS, seoAbsoluteUrl, seoPagePath } from "@/lib/seo-routes";
 import { buildHreflangAlternates } from "@/lib/hreflang";
 import { buildWebPageJsonLd } from "@/lib/jsonld-business";
@@ -33,18 +34,21 @@ export default async function BlogIndexPage({ params }) {
   const path = seoPagePath(locale, SEO_SLUGS.blog);
 
   const items = await Promise.all(
-    BLOG_ARTICLE_LIST.map(async (article) => {
-      const at = await getTranslations({
-        locale,
-        namespace: article.namespace,
-      });
+    PUBLISHED_BLOG_ARTICLE_LIST.map(async (article) => {
+      const content = getBlogArticleContent(article, locale);
+      const at = content
+        ? null
+        : await getTranslations({
+            locale,
+            namespace: article.namespace,
+          });
       const slug = article.slugs[locale] ?? article.slugs.bs;
       return {
         id: article.id,
         slug,
-        title: at("h1"),
-        description: at("metaDescription"),
-        readMore: at("readMore"),
+        title: content?.h1 || at("h1"),
+        description: content?.metaDescription || at("metaDescription"),
+        readMore: content?.readMore || at("readMore"),
       };
     })
   );

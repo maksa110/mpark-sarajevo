@@ -1,28 +1,59 @@
 import { getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
 import SeoBreadcrumbs from "@/components/SeoBreadcrumbs";
+import { blogArticlePath } from "@/lib/blog-routes";
+import { getBlogArticleContent } from "@/lib/blog-content";
+import { seoPagePath } from "@/lib/seo-routes";
 
 export default async function SeoBlogArticle({
   locale,
+  article,
   namespace,
   pillarHref,
   bookHashHref,
 }) {
-  const t = await getTranslations({ locale, namespace });
   const tCommon = await getTranslations({ locale, namespace: "common" });
   const tBlog = await getTranslations({ locale, namespace: "blogIndex" });
-  const intro = t.raw("intro");
-  const sections = t.raw("sections");
-  const introParas = Array.isArray(intro) ? intro : [];
-  const sectionBlocks = Array.isArray(sections) ? sections : [];
-  const faqRaw = t.raw("faqStructured");
-  const faqPairs = Array.isArray(faqRaw) ? faqRaw : [];
+  const inlineContent = article ? getBlogArticleContent(article, locale) : null;
+  const t = inlineContent
+    ? null
+    : await getTranslations({ locale, namespace });
+  const content = inlineContent || {
+    h1: t("h1"),
+    kicker: t("kicker"),
+    intro: t.raw("intro"),
+    sections: t.raw("sections"),
+    faqSectionTitle: t("faqSectionTitle"),
+    faqStructured: t.raw("faqStructured"),
+    pillarTeaser: t("pillarTeaser"),
+    pillarLinkLabel: t("pillarLinkLabel"),
+    ctaTitle: t("ctaTitle"),
+    ctaLead: t("ctaLead"),
+    ctaButton: t("ctaButton"),
+    relatedLinksTitle: t.has?.("relatedLinksTitle") ? t("relatedLinksTitle") : null,
+    relatedLinks: t.has?.("relatedLinks") ? t.raw("relatedLinks") : [],
+  };
+  const introParas = Array.isArray(content.intro) ? content.intro : [];
+  const sectionBlocks = Array.isArray(content.sections) ? content.sections : [];
+  const faqPairs = Array.isArray(content.faqStructured) ? content.faqStructured : [];
+  const relatedLinks = Array.isArray(content.relatedLinks) ? content.relatedLinks : [];
+
+  function resolveRelatedHref(item) {
+    if (!item) return null;
+    if (item.type === "page" && item.hrefKey) {
+      return seoPagePath(locale, item.hrefKey);
+    }
+    if (item.type === "article" && item.articleId) {
+      return blogArticlePath(locale, item.articleId);
+    }
+    return null;
+  }
 
   return (
     <>
       <SeoBreadcrumbs
         homeLabel={tCommon("breadcrumbHome")}
-        currentLabel={t("h1")}
+        currentLabel={content.h1}
       />
       <article className="mx-auto max-w-3xl px-4 pb-16 pt-6 sm:px-6 sm:pb-20 sm:pt-8">
         <p className="text-xs font-semibold uppercase tracking-wider text-zinc-500">
@@ -34,9 +65,9 @@ export default async function SeoBlogArticle({
           </Link>
         </p>
         <h1 className="mt-3 text-3xl font-semibold tracking-tight text-zinc-900 sm:text-4xl">
-          {t("h1")}
+          {content.h1}
         </h1>
-        <p className="mt-3 text-sm font-medium text-zinc-500">{t("kicker")}</p>
+        <p className="mt-3 text-sm font-medium text-zinc-500">{content.kicker}</p>
 
         <div className="prose prose-zinc prose-lg mt-10 max-w-none prose-headings:scroll-mt-24 prose-a:text-brand-navy prose-a:underline prose-a:decoration-brand-navy/35 prose-a:underline-offset-4 hover:prose-a:text-brand-lime hover:prose-a:decoration-brand-lime/50">
           {introParas.map((p, i) => (
@@ -52,6 +83,20 @@ export default async function SeoBlogArticle({
                   <p key={`p-${i}-${j}`}>{para}</p>
                 )
               )}
+              {(Array.isArray(block.subsections) ? block.subsections : []).map(
+                (sub, j) => (
+                  <div key={`sub-${i}-${j}`} className="mt-6">
+                    <h3 className="text-lg font-semibold text-zinc-900">
+                      {sub.h3}
+                    </h3>
+                    {(Array.isArray(sub.paragraphs) ? sub.paragraphs : []).map(
+                      (para, k) => (
+                        <p key={`subp-${i}-${j}-${k}`}>{para}</p>
+                      )
+                    )}
+                  </div>
+                )
+              )}
             </section>
           ))}
         </div>
@@ -65,7 +110,7 @@ export default async function SeoBlogArticle({
               id="blog-faq-title"
               className="text-xl font-semibold tracking-tight text-zinc-900 sm:text-2xl"
             >
-              {t("faqSectionTitle")}
+              {content.faqSectionTitle}
             </h2>
             <div className="mt-8 space-y-9">
               {faqPairs.map((item, idx) => (
@@ -82,28 +127,52 @@ export default async function SeoBlogArticle({
           </section>
         )}
 
+        {relatedLinks.length > 0 ? (
+          <section className="mt-12 rounded-2xl border border-zinc-200 bg-white p-6 shadow-sm">
+            <h2 className="text-xl font-semibold tracking-tight text-zinc-900 sm:text-2xl">
+              {content.relatedLinksTitle || "Useful internal links"}
+            </h2>
+            <ul className="mt-5 space-y-3 text-sm text-zinc-700">
+              {relatedLinks.map((item, idx) => {
+                const href = resolveRelatedHref(item);
+                if (!href) return null;
+                return (
+                  <li key={`related-${idx}`}>
+                    <Link
+                      href={href}
+                      className="font-semibold text-brand-navy underline decoration-brand-navy/35 underline-offset-4 hover:text-brand-lime"
+                    >
+                      {item.label}
+                    </Link>
+                  </li>
+                );
+              })}
+            </ul>
+          </section>
+        ) : null}
+
         {pillarHref ? (
           <div className="mt-10 rounded-2xl border border-zinc-200 bg-zinc-50/80 p-5 sm:p-6">
             <p className="text-sm leading-relaxed text-zinc-700">
-              {t("pillarTeaser")}{" "}
+              {content.pillarTeaser}{" "}
               <Link
                 href={pillarHref}
                 className="font-semibold text-brand-navy underline decoration-brand-navy/35 underline-offset-4 hover:text-brand-lime"
               >
-                {t("pillarLinkLabel")}
+                {content.pillarLinkLabel}
               </Link>
             </p>
           </div>
         ) : null}
 
         <div className="mt-12 rounded-2xl border border-brand-lime/40 bg-lime-50/80 p-6 sm:p-8">
-          <h2 className="text-lg font-semibold text-brand-navy">{t("ctaTitle")}</h2>
-          <p className="mt-2 text-sm leading-relaxed text-zinc-700">{t("ctaLead")}</p>
+          <h2 className="text-lg font-semibold text-brand-navy">{content.ctaTitle}</h2>
+          <p className="mt-2 text-sm leading-relaxed text-zinc-700">{content.ctaLead}</p>
           <Link
             href={bookHashHref}
             className="mt-5 inline-flex min-h-[48px] items-center justify-center rounded-2xl bg-brand-lime px-6 text-sm font-extrabold uppercase tracking-wide text-brand-navy shadow-lg shadow-brand-lime/25 ring-1 ring-brand-lime/40 transition hover:bg-brand-lime-300"
           >
-            {t("ctaButton")}
+            {content.ctaButton}
           </Link>
         </div>
       </article>

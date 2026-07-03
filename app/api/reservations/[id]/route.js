@@ -6,7 +6,8 @@ import {
   getSessionSecret,
   parseSessionToken,
 } from "@/lib/auth";
-import { deleteReservation, getReservation } from "@/lib/db";
+import { deleteReservation, getReservation, updateReservation } from "@/lib/db";
+import { BOOKING_STATUS } from "@/lib/reservation-record";
 import { deriveStatus, STATUS } from "@/lib/reservation-status";
 
 export const runtime = "nodejs";
@@ -79,4 +80,67 @@ export async function DELETE(_request, { params }) {
   }
 
   return NextResponse.json({ ok: true, id });
+}
+
+export async function PATCH(request, { params }) {
+  const mis = getAuthConfigError();
+  if (mis) {
+    return NextResponse.json(
+      { error: "Server nije spreman: provjerite environment varijable (ADMIN_)." },
+      { status: 503 }
+    );
+  }
+  if (!(await requireAuth())) {
+    return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+  }
+
+  let body;
+  try {
+    body = await request.json();
+  } catch {
+    return NextResponse.json({ error: "Neispravan JSON." }, { status: 400 });
+  }
+
+  const { id } = await params;
+  const bookingStatus = body?.bookingStatus;
+
+  if (
+    bookingStatus != null &&
+    !Object.values(BOOKING_STATUS).includes(bookingStatus)
+  ) {
+    return NextResponse.json({ error: "Neispravan bookingStatus." }, { status: 400 });
+  }
+
+  let updated;
+  try {
+    updated = await updateReservation(id, (row) => {
+      const next = { ...row };
+
+      if (bookingStatus != null) {
+        next.bookingStatus = bookingStatus;
+      }
+
+      return next;
+    });
+  } catch (error) {
+    if (
+      error?.code === "VERCEL_BLOB_REQUIRED" ||
+      error?.message === "VERCEL_BLOB_REQUIRED"
+    ) {
+      return NextResponse.json(
+        { error: "Pohrana nije postavljena (Vercel Blob)." },
+        { status: 503 }
+      );
+    }
+    throw error;
+  }
+
+  if (!updated) {
+    return NextResponse.json(
+      { error: "Rezervacija nije pronađena." },
+      { status: 404 }
+    );
+  }
+
+  return NextResponse.json(updated);
 }

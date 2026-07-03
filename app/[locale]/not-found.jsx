@@ -1,7 +1,6 @@
 import Link from "next/link";
 
-/** Global 404 – nema root layouta s <html>; link vodi na default lokal. */
-export default function NotFound() {
+export default function LocaleNotFound() {
   return (
     <div className="flex min-h-screen flex-col items-center justify-center bg-zinc-100 p-6 text-center">
       <p className="text-sm font-medium text-zinc-500">404</p>

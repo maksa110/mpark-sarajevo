@@ -4,8 +4,9 @@ import MarketingChrome from "@/components/MarketingChrome";
 import SeoBlogArticle from "@/components/SeoBlogArticle";
 import {
   blogArticleBySlug,
-  BLOG_ARTICLE_LIST,
+  PUBLISHED_BLOG_ARTICLE_LIST,
 } from "@/lib/blog-routes";
+import { getBlogArticleContent } from "@/lib/blog-content";
 import {
   buildBreadcrumbJsonLd,
   buildFaqPageJsonLd,
@@ -21,7 +22,7 @@ export const revalidate = 86400;
 export function generateStaticParams() {
   const locales = ["bs", "en", "de"];
   return locales.flatMap((locale) =>
-    BLOG_ARTICLE_LIST.map((article) => ({
+    PUBLISHED_BLOG_ARTICLE_LIST.map((article) => ({
       locale,
       slug: article.slugs[locale] ?? article.slugs.bs,
     }))
@@ -32,11 +33,14 @@ export async function generateMetadata({ params }) {
   const { locale, slug } = await params;
   const article = blogArticleBySlug(slug, locale);
   if (!article) return {};
-  const t = await getTranslations({ locale, namespace: article.namespace });
+  const content = getBlogArticleContent(article, locale);
+  const t = content
+    ? null
+    : await getTranslations({ locale, namespace: article.namespace });
   const path = `${seoPagePath(locale, SEO_SLUGS.blog)}/${slug}`;
   return {
-    title: t("metaTitle"),
-    description: t("metaDescription"),
+    title: content?.metaTitle || t("metaTitle"),
+    description: content?.metaDescription || t("metaDescription"),
     alternates: {
       canonical: seoAbsoluteUrl(new URL(SITE.url).origin, locale, `${SEO_SLUGS.blog}/${slug}`),
       languages: buildHreflangAlternates(
@@ -54,25 +58,30 @@ export default async function BlogArticlePage({ params }) {
   if (!article) notFound();
 
   setRequestLocale(locale);
-  const t = await getTranslations({ locale, namespace: article.namespace });
+  const content = getBlogArticleContent(article, locale);
+  const t = content
+    ? null
+    : await getTranslations({ locale, namespace: article.namespace });
   const tCommon = await getTranslations({ locale, namespace: "common" });
   const path = `${seoPagePath(locale, SEO_SLUGS.blog)}/${slug}`;
-  const faqStructured = Array.isArray(t.raw("faqStructured"))
+  const faqStructured = Array.isArray(content?.faqStructured)
+    ? content.faqStructured
+    : Array.isArray(t.raw("faqStructured"))
     ? t.raw("faqStructured")
     : [];
 
   const webpage = buildWebPageJsonLd({
     locale,
     path,
-    title: t("metaTitle"),
-    description: t("metaDescription"),
+    title: content?.metaTitle || t("metaTitle"),
+    description: content?.metaDescription || t("metaDescription"),
   });
   const crumbs = buildBreadcrumbJsonLd({
     locale,
     items: [
       { name: "M Park Sarajevo", path: seoPagePath(locale, "/") },
       { name: "Blog", path: seoPagePath(locale, SEO_SLUGS.blog) },
-      { name: t("h1"), path },
+      { name: content?.h1 || t("h1"), path },
     ],
   });
 
@@ -93,6 +102,7 @@ export default async function BlogArticlePage({ params }) {
       <JsonLdScripts schemas={schemas} />
       <SeoBlogArticle
         locale={locale}
+        article={article}
         namespace={article.namespace}
         pillarHref={article.pillarKey}
         bookHashHref={{

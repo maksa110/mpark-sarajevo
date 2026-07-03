@@ -1,10 +1,12 @@
 "use client";
 
 import Image from "next/image";
-import { useCallback, useEffect, useMemo, useState } from "react";
+import { Fragment, useCallback, useEffect, useMemo, useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import {
+  ChevronDown,
+  ChevronUp,
   LayoutGrid,
   LogOut,
   Menu,
@@ -13,6 +15,7 @@ import {
   Trash2,
   X,
 } from "lucide-react";
+import { BOOKING_STATUS } from "@/lib/reservation-record";
 import {
   STATUS,
   STATUS_BADGE,
@@ -24,24 +27,32 @@ import Toast from "@/components/admin/Toast";
 
 const COMPLETED_TOOLTIP = "Završene rezervacije se ne mogu brisati.";
 
+function bookingLabel(status) {
+  return status === BOOKING_STATUS.CANCELLED ? "Cancelled" : "Confirmed";
+}
+
+function bookingBadge(status) {
+  return status === BOOKING_STATUS.CANCELLED
+    ? "bg-red-50 text-red-700 ring-red-200"
+    : "bg-emerald-50 text-emerald-700 ring-emerald-200";
+}
+
 export default function AdminDashboardPage() {
   const router = useRouter();
   const [ready, setReady] = useState(false);
   const [authed, setAuthed] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
-
   const [rows, setRows] = useState([]);
   const [loading, setLoading] = useState(true);
   const [search, setSearch] = useState("");
   const [err, setErr] = useState("");
-
-  // Delete flow state
-  const [confirmTarget, setConfirmTarget] = useState(null); // reservation row or null
+  const [expandedId, setExpandedId] = useState(null);
+  const [confirmTarget, setConfirmTarget] = useState(null);
   const [deleting, setDeleting] = useState(false);
-  const [toast, setToast] = useState(null); // { kind, message } or null
-
-  // Re-render once a minute so the auto-derived status flips at the right time.
+  const [updatingId, setUpdatingId] = useState(null);
+  const [toast, setToast] = useState(null);
   const [now, setNow] = useState(() => new Date());
+
   useEffect(() => {
     const t = setInterval(() => setNow(new Date()), 60_000);
     return () => clearInterval(t);
@@ -80,19 +91,17 @@ export default function AdminDashboardPage() {
     try {
       const r = await fetch(`/api/reservations${qs}`);
       if (!r.ok) {
-        if (r.status === 401) setErr("Sesija je istekla. Prijavite se ponovo.");
-        else setErr("Učitavanje nije uspjelo.");
+        setErr(r.status === 401 ? "Sesija je istekla. Prijavite se ponovo." : "Učitavanje nije uspjelo.");
         return;
       }
-      let data = await r.json();
-      if (Array.isArray(data)) {
-        data.sort((a, b) => {
-          const adt = new Date(`${a.arrivalDate}T${a.arrivalTime || "00:00"}`);
-          const bdt = new Date(`${b.arrivalDate}T${b.arrivalTime || "00:00"}`);
-          return adt - bdt;
-        });
-      }
-      setRows(Array.isArray(data) ? data : []);
+      const data = await r.json();
+      const nextRows = Array.isArray(data) ? data : [];
+      nextRows.sort((a, b) => {
+        const adt = new Date(`${a.arrivalDate}T${a.arrivalTime || "00:00"}`);
+        const bdt = new Date(`${b.arrivalDate}T${b.arrivalTime || "00:00"}`);
+        return adt - bdt;
+      });
+      setRows(nextRows);
     } catch {
       setErr("Mrežna greška.");
     } finally {
@@ -117,30 +126,23 @@ export default function AdminDashboardPage() {
   }
 
   const performDelete = useCallback(async () => {
-    if (!confirmTarget || deleting) return; // double-click / re-entry guard
+    if (!confirmTarget || deleting) return;
     const target = confirmTarget;
     setDeleting(true);
-
-    // Optimistic update — remember snapshot for rollback on failure
     const snapshot = rows;
     setRows((curr) => curr.filter((x) => x.id !== target.id));
 
     try {
-      const r = await fetch(
-        `/api/reservations/${encodeURIComponent(target.id)}`,
-        { method: "DELETE" }
-      );
+      const r = await fetch(`/api/reservations/${encodeURIComponent(target.id)}`, {
+        method: "DELETE",
+      });
       if (!r.ok) {
-        // Rollback
         setRows(snapshot);
-        let msg = "Brisanje nije uspjelo.";
-        try {
-          const data = await r.json();
-          if (data?.error) msg = String(data.error);
-        } catch {
-          // ignore body parse errors
-        }
-        setToast({ kind: "error", message: msg });
+        const data = await r.json().catch(() => ({}));
+        setToast({
+          kind: "error",
+          message: data?.error || "Brisanje nije uspjelo.",
+        });
         return;
       }
       setToast({
@@ -155,6 +157,28 @@ export default function AdminDashboardPage() {
       setConfirmTarget(null);
     }
   }, [confirmTarget, deleting, rows]);
+
+  const patchReservation = useCallback(async (id, payload, successMessage) => {
+    setUpdatingId(id);
+    try {
+      const r = await fetch(`/api/reservations/${encodeURIComponent(id)}`, {
+        method: "PATCH",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
+      if (!r.ok) {
+        const data = await r.json().catch(() => ({}));
+        throw new Error(data?.error || "Ažuriranje nije uspjelo.");
+      }
+      const updated = await r.json();
+      setRows((curr) => curr.map((row) => (row.id === id ? updated : row)));
+      setToast({ kind: "success", message: successMessage });
+    } catch (error) {
+      setToast({ kind: "error", message: error?.message || "Ažuriranje nije uspjelo." });
+    } finally {
+      setUpdatingId(null);
+    }
+  }, []);
 
   if (!ready) {
     return (
@@ -173,7 +197,6 @@ export default function AdminDashboardPage() {
   }).format(now);
   const todaysArrivals = rows.filter((r) => r.arrivalDate === todayStr);
   const upcomingArrivals = rows.filter((r) => r.arrivalDate > todayStr);
-
   const counts = rows.reduce(
     (acc, r) => {
       const s = deriveStatus(r, now);
@@ -268,17 +291,16 @@ export default function AdminDashboardPage() {
             <span className="text-sm font-semibold text-zinc-900">M PARK</span>
             <span className="w-9" />
           </header>
+
           <main className="flex-1 p-4 sm:p-8">
-            <div className="mx-auto max-w-6xl">
+            <div className="mx-auto max-w-7xl">
               <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
                 <div>
                   <h1 className="text-2xl font-semibold tracking-tight text-zinc-900">
                     Rezervacije
                   </h1>
                   <p className="mt-1 text-sm text-zinc-500">
-                    Pregled svih rezervacija sa javnog sajta. Status se
-                    automatski ažurira prema datumima. Brisanje je dostupno za
-                    nadolazeće i aktivne rezervacije.
+                    Pregled i upravljanje aktivnim rezervacijama.
                   </p>
                 </div>
                 <button
@@ -295,21 +317,9 @@ export default function AdminDashboardPage() {
               </div>
 
               <div className="mt-6 grid gap-3 sm:grid-cols-3">
-                <StatCard
-                  label="Nadolaze"
-                  value={counts[STATUS.UPCOMING]}
-                  tone="sky"
-                />
-                <StatCard
-                  label="Aktivne"
-                  value={counts[STATUS.ACTIVE]}
-                  tone="lime"
-                />
-                <StatCard
-                  label="Završene"
-                  value={counts[STATUS.COMPLETED]}
-                  tone="zinc"
-                />
+                <StatCard label="Nadolaze" value={counts[STATUS.UPCOMING]} tone="sky" />
+                <StatCard label="Aktivne" value={counts[STATUS.ACTIVE]} tone="lime" />
+                <StatCard label="Završene" value={counts[STATUS.COMPLETED]} tone="zinc" />
               </div>
 
               <div className="mt-8">
@@ -320,7 +330,7 @@ export default function AdminDashboardPage() {
                   />
                   <input
                     type="search"
-                    placeholder="Pretraga: ime, telefon, email…"
+                    placeholder="Pretraga: ime, telefon, email, ID…"
                     value={search}
                     onChange={(e) => setSearch(e.target.value)}
                     className="w-full rounded-2xl border border-zinc-200 bg-white py-2.5 pl-10 pr-4 text-sm text-zinc-900 shadow-sm outline-none focus:border-brand-lime focus:ring-2 focus:ring-brand-lime/30"
@@ -346,13 +356,7 @@ export default function AdminDashboardPage() {
                     Nema dolazaka za danas.
                   </div>
                 ) : (
-                  <SimpleTable
-                    rows={todaysArrivals}
-                    accent="lime"
-                    now={now}
-                    onDelete={requestDelete}
-                    deletingId={deleting ? confirmTarget?.id : null}
-                  />
+                  <SimpleTable rows={todaysArrivals} accent="lime" now={now} />
                 )}
               </div>
 
@@ -365,126 +369,151 @@ export default function AdminDashboardPage() {
                     Nema nadolazećih rezervacija.
                   </div>
                 ) : (
-                  <SimpleTable
-                    rows={upcomingArrivals}
-                    accent="sky"
-                    now={now}
-                    onDelete={requestDelete}
-                    deletingId={deleting ? confirmTarget?.id : null}
-                  />
+                  <SimpleTable rows={upcomingArrivals} accent="sky" now={now} />
                 )}
               </div>
 
-              <div className="mt-8">
-                <h2 className="mb-2 text-lg font-semibold text-zinc-800">
-                  Sve rezervacije
-                </h2>
-                <div className="overflow-hidden rounded-2xl border border-zinc-200 bg-white shadow-sm">
-                  <div className="overflow-x-auto">
-                    <table className="w-full min-w-[320px] sm:min-w-[820px] text-left text-sm">
-                      <thead>
-                        <tr className="border-b border-zinc-100 bg-zinc-50/80 text-xs font-medium uppercase tracking-wide text-zinc-500">
-                          <th className="px-4 py-3">Ime</th>
-                          <th className="px-4 py-3">Telefon</th>
-                          <th className="px-4 py-3">Email</th>
-                          <th className="px-4 py-3">Ključ</th>
-                          <th className="px-4 py-3">Dolazak</th>
-                          <th className="px-4 py-3">Odlazak</th>
-                          <th className="px-4 py-3">Status</th>
-                          <th className="px-4 py-3 text-right">Akcije</th>
+              <div className="mt-8 overflow-hidden rounded-2xl border border-zinc-200 bg-white shadow-sm">
+                <div className="overflow-x-auto">
+                  <table className="w-full min-w-[980px] text-left text-sm">
+                    <thead>
+                      <tr className="border-b border-zinc-100 bg-zinc-50/80 text-xs font-medium uppercase tracking-wide text-zinc-500">
+                        <th className="px-4 py-3">Gost</th>
+                        <th className="px-4 py-3">Dolazak</th>
+                        <th className="px-4 py-3">Odlazak</th>
+                        <th className="px-4 py-3">Ključ</th>
+                        <th className="px-4 py-3">Trip status</th>
+                        <th className="px-4 py-3">Booking status</th>
+                        <th className="px-4 py-3 text-right">Akcije</th>
+                      </tr>
+                    </thead>
+                    <tbody className="divide-y divide-zinc-100">
+                      {loading && (
+                        <tr>
+                          <td colSpan={7} className="px-4 py-12 text-center text-zinc-500">
+                            Učitavanje…
+                          </td>
                         </tr>
-                      </thead>
-                      <tbody className="divide-y divide-zinc-100">
-                        {loading && (
-                          <tr>
-                            <td
-                              colSpan={8}
-                              className="px-4 py-12 text-center text-zinc-500"
-                            >
-                              Učitavanje…
-                            </td>
-                          </tr>
-                        )}
-                        {!loading && rows.length === 0 && (
-                          <tr>
-                            <td
-                              colSpan={8}
-                              className="px-4 py-12 text-center text-zinc-500"
-                            >
-                              Nema rezervacija za prikaz.
-                            </td>
-                          </tr>
-                        )}
-                        {!loading &&
-                          rows.map((r) => {
-                            const status = deriveStatus(r, now);
-                            const isCompleted = status === STATUS.COMPLETED;
-                            const isDeletingThis =
-                              deleting && confirmTarget?.id === r.id;
-                            return (
-                              <tr
-                                key={r.id}
-                                className="transition hover:bg-zinc-100 even:bg-zinc-50/60"
-                              >
-                                <td className="px-4 py-3 font-medium text-zinc-900">
-                                  {r.name}
+                      )}
+                      {!loading && rows.length === 0 && (
+                        <tr>
+                          <td colSpan={7} className="px-4 py-12 text-center text-zinc-500">
+                            Nema rezervacija za prikaz.
+                          </td>
+                        </tr>
+                      )}
+                      {!loading &&
+                        rows.map((row) => {
+                          const status = deriveStatus(row, now);
+                          const isCompleted = status === STATUS.COMPLETED;
+                          const isUpdating = updatingId === row.id;
+                          const isExpanded = expandedId === row.id;
+                          return (
+                            <Fragment key={row.id}>
+                              <tr className="align-top transition hover:bg-zinc-50 even:bg-zinc-50/50">
+                                <td className="px-4 py-3">
+                                  <div className="font-medium text-zinc-900">{row.name}</div>
+                                  <div className="mt-1 text-xs text-zinc-500">{row.phone}</div>
+                                  <div className="mt-1 text-xs text-zinc-500">
+                                    {row.email || "—"}
+                                  </div>
                                 </td>
                                 <td className="px-4 py-3 text-zinc-700">
-                                  {r.phone}
-                                </td>
-                                <td className="px-4 py-3 text-zinc-600">
-                                  {r.email || "—"}
+                                  {row.arrivalDate} {row.arrivalTime?.slice(0, 5)}
                                 </td>
                                 <td className="px-4 py-3 text-zinc-700">
-                                  {r.leaveKey === false ? (
-                                    <span title="Ne ostavlja ključ">
-                                      Bez ključa
-                                    </span>
-                                  ) : (
-                                    <span title="Ostavlja ključ">
-                                      Sa ključem
-                                    </span>
-                                  )}
+                                  {row.departureDate} {row.departureTime?.slice(0, 5)}
                                 </td>
                                 <td className="px-4 py-3 text-zinc-700">
-                                  <span className="whitespace-nowrap">
-                                    {r.arrivalDate}{" "}
-                                    {r.arrivalTime
-                                      ? r.arrivalTime.slice(0, 5)
-                                      : ""}
-                                  </span>
-                                </td>
-                                <td className="px-4 py-3 text-zinc-700">
-                                  <span className="whitespace-nowrap">
-                                    {r.departureDate}{" "}
-                                    {r.departureTime
-                                      ? r.departureTime.slice(0, 5)
-                                      : ""}
-                                  </span>
+                                  {row.leaveKey === false ? "Bez ključa" : "Sa ključem"}
                                 </td>
                                 <td className="px-4 py-3">
                                   <span
                                     className={`inline-flex rounded-full px-2.5 py-0.5 text-xs font-medium ring-1 ring-inset ${STATUS_BADGE[status]}`}
-                                    title="Status se automatski izračunava iz datuma rezervacije."
                                   >
                                     {STATUS_LABEL[status]}
                                   </span>
                                 </td>
                                 <td className="px-4 py-3">
-                                  <div className="flex items-center justify-end">
+                                  <span
+                                    className={`inline-flex rounded-full px-2.5 py-0.5 text-xs font-medium ring-1 ${bookingBadge(row.bookingStatus)}`}
+                                  >
+                                    {bookingLabel(row.bookingStatus)}
+                                  </span>
+                                </td>
+                                <td className="px-4 py-3">
+                                  <div className="flex justify-end gap-2">
+                                    <button
+                                      type="button"
+                                      onClick={() =>
+                                        setExpandedId((curr) => (curr === row.id ? null : row.id))
+                                      }
+                                      className="inline-flex items-center gap-1 rounded-xl border border-zinc-200 bg-white px-3 py-1.5 text-xs font-semibold text-zinc-700 hover:bg-zinc-50"
+                                    >
+                                      {isExpanded ? (
+                                        <ChevronUp className="h-3.5 w-3.5" aria-hidden />
+                                      ) : (
+                                        <ChevronDown className="h-3.5 w-3.5" aria-hidden />
+                                      )}
+                                      Detalji
+                                    </button>
+                                    <button
+                                      type="button"
+                                      disabled={isUpdating}
+                                      onClick={() =>
+                                        patchReservation(
+                                          row.id,
+                                          {
+                                            bookingStatus:
+                                              row.bookingStatus === BOOKING_STATUS.CANCELLED
+                                                ? BOOKING_STATUS.CONFIRMED
+                                                : BOOKING_STATUS.CANCELLED,
+                                          },
+                                          row.bookingStatus === BOOKING_STATUS.CANCELLED
+                                            ? "Rezervacija je vraćena na confirmed."
+                                            : "Rezervacija je označena kao cancelled."
+                                        )
+                                      }
+                                      className="rounded-xl border border-amber-200 bg-amber-50 px-3 py-1.5 text-xs font-semibold text-amber-800 hover:bg-amber-100 disabled:opacity-60"
+                                    >
+                                      {row.bookingStatus === BOOKING_STATUS.CANCELLED
+                                        ? "Vrati"
+                                        : "Cancel"}
+                                    </button>
                                     <DeleteButton
                                       disabled={isCompleted}
-                                      loading={isDeletingThis}
-                                      onClick={() => requestDelete(r)}
+                                      loading={deleting && confirmTarget?.id === row.id}
+                                      onClick={() => requestDelete(row)}
                                     />
                                   </div>
                                 </td>
                               </tr>
-                            );
-                          })}
-                      </tbody>
-                    </table>
-                  </div>
+                              {isExpanded && (
+                                <tr className="bg-zinc-50/80">
+                                  <td colSpan={7} className="px-4 py-4">
+                                    <DetailCard
+                                      title="Booking details"
+                                      lines={[
+                                        `Reservation ID: ${row.id}`,
+                                        `Customer: ${row.name}`,
+                                        `Phone: ${row.phone}`,
+                                        `Email: ${row.email || "—"}`,
+                                        `Arrival: ${row.arrivalDate} ${row.arrivalTime}`,
+                                        `Departure: ${row.departureDate} ${row.departureTime}`,
+                                        `Key handling: ${
+                                          row.leaveKey === false ? "Bez ključa" : "Sa ključem"
+                                        }`,
+                                        `Booking status: ${bookingLabel(row.bookingStatus)}`,
+                                      ]}
+                                    />
+                                  </td>
+                                </tr>
+                              )}
+                            </Fragment>
+                          );
+                        })}
+                    </tbody>
+                  </table>
                 </div>
               </div>
             </div>
@@ -576,7 +605,7 @@ function StatCard({ label, value, tone }) {
   );
 }
 
-function SimpleTable({ rows, accent, now, onDelete, deletingId }) {
+function SimpleTable({ rows, accent, now }) {
   const hover =
     accent === "lime"
       ? "hover:bg-lime-100/60 even:bg-lime-50/40"
@@ -584,39 +613,28 @@ function SimpleTable({ rows, accent, now, onDelete, deletingId }) {
 
   return (
     <div className="overflow-x-auto">
-      <table className="w-full min-w-[320px] sm:min-w-[820px] text-left text-sm">
+      <table className="w-full min-w-[640px] text-left text-sm">
         <thead>
           <tr className="border-b border-zinc-100 bg-zinc-50/80 text-xs font-medium uppercase tracking-wide text-zinc-500">
             <th className="px-4 py-3">Ime</th>
             <th className="px-4 py-3">Telefon</th>
             <th className="px-4 py-3">Ključ</th>
             <th className="px-4 py-3">Dolazak</th>
-            <th className="px-4 py-3">Odlazak</th>
             <th className="px-4 py-3">Status</th>
-            <th className="px-4 py-3 text-right">Akcije</th>
           </tr>
         </thead>
         <tbody className="divide-y divide-zinc-100">
-          {rows.map((r) => {
-            const status = deriveStatus(r, now);
-            const isCompleted = status === STATUS.COMPLETED;
-            const isDeletingThis = deletingId === r.id;
+          {rows.map((row) => {
+            const status = deriveStatus(row, now);
             return (
-              <tr key={r.id} className={`transition ${hover}`}>
-                <td className="px-4 py-3 font-medium text-zinc-900">
-                  {r.name}
-                </td>
-                <td className="px-4 py-3 text-zinc-700">{r.phone}</td>
+              <tr key={row.id} className={`transition ${hover}`}>
+                <td className="px-4 py-3 font-medium text-zinc-900">{row.name}</td>
+                <td className="px-4 py-3 text-zinc-700">{row.phone}</td>
                 <td className="px-4 py-3 text-zinc-700">
-                  {r.leaveKey === false ? "Bez ključa" : "Sa ključem"}
+                  {row.leaveKey === false ? "Bez ključa" : "Sa ključem"}
                 </td>
                 <td className="px-4 py-3 text-zinc-700">
-                  {r.arrivalDate}{" "}
-                  {r.arrivalTime ? r.arrivalTime.slice(0, 5) : ""}
-                </td>
-                <td className="px-4 py-3 text-zinc-700">
-                  {r.departureDate}{" "}
-                  {r.departureTime ? r.departureTime.slice(0, 5) : ""}
+                  {row.arrivalDate} {row.arrivalTime?.slice(0, 5)}
                 </td>
                 <td className="px-4 py-3">
                   <span
@@ -625,20 +643,24 @@ function SimpleTable({ rows, accent, now, onDelete, deletingId }) {
                     {STATUS_LABEL[status]}
                   </span>
                 </td>
-                <td className="px-4 py-3">
-                  <div className="flex items-center justify-end">
-                    <DeleteButton
-                      disabled={isCompleted}
-                      loading={isDeletingThis}
-                      onClick={() => onDelete?.(r)}
-                    />
-                  </div>
-                </td>
               </tr>
             );
           })}
         </tbody>
       </table>
+    </div>
+  );
+}
+
+function DetailCard({ title, lines }) {
+  return (
+    <div className="rounded-2xl border border-zinc-200 bg-white p-4 shadow-sm">
+      <h3 className="text-sm font-semibold text-zinc-900">{title}</h3>
+      <div className="mt-3 space-y-2 text-sm text-zinc-700">
+        {lines.map((line) => (
+          <p key={line}>{line}</p>
+        ))}
+      </div>
     </div>
   );
 }
