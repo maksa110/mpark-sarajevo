@@ -1,9 +1,8 @@
 import { getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
 import SeoBreadcrumbs from "@/components/SeoBreadcrumbs";
-import { blogArticlePath } from "@/lib/blog-routes";
+import { blogArticleSlug } from "@/lib/blog-routes";
 import { getBlogArticleContent } from "@/lib/blog-content";
-import { seoPagePath } from "@/lib/seo-routes";
 
 export default async function SeoBlogArticle({
   locale,
@@ -41,10 +40,11 @@ export default async function SeoBlogArticle({
   function resolveRelatedHref(item) {
     if (!item) return null;
     if (item.type === "page" && item.hrefKey) {
-      return seoPagePath(locale, item.hrefKey);
+      return item.hrefKey;
     }
     if (item.type === "article" && item.articleId) {
-      return blogArticlePath(locale, item.articleId);
+      const slug = blogArticleSlug(item.articleId, locale);
+      return slug ? `/blog/${slug}` : null;
     }
     return null;
   }

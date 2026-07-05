@@ -21,19 +21,19 @@ export const localeMeta = {
   bs: {
     label: "Bosanski",
     flag: "\uD83C\uDDE7\uD83C\uDDE6",
-    htmlLang: "bs-BA",
+    htmlLang: "bs",
     ogLocale: "bs_BA",
   },
   en: {
     label: "English",
     flag: "\uD83C\uDDEC\uD83C\uDDE7",
-    htmlLang: "en-GB",
+    htmlLang: "en",
     ogLocale: "en_GB",
   },
   de: {
     label: "Deutsch",
     flag: "\uD83C\uDDE9\uD83C\uDDEA",
-    htmlLang: "de-DE",
+    htmlLang: "de",
     ogLocale: "de_DE",
   },
 };

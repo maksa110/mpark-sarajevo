@@ -1,6 +1,10 @@
-import { getTranslations } from "next-intl/server";
+import { getLocale, getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
 import { SEO_PILLARS, SEO_SLUGS } from "@/lib/seo-routes";
+import {
+  getBlogArticleContent,
+} from "@/lib/blog-content";
+import { PUBLISHED_BLOG_ARTICLE_LIST } from "@/lib/blog-routes";
 
 const linkClass =
   "font-medium text-brand-navy underline decoration-brand-navy/35 underline-offset-4 transition hover:text-brand-lime hover:decoration-brand-lime/50";
@@ -15,7 +19,26 @@ const HUB_LINKS = [
 ];
 
 export default async function HomepageLocalSeoLinks() {
+  const locale = await getLocale();
   const t = await getTranslations("homeHub");
+  const tBlog = await getTranslations({ locale, namespace: "blogIndex" });
+  const guideLinks = await Promise.all(
+    PUBLISHED_BLOG_ARTICLE_LIST.map(async (article) => {
+      const content = getBlogArticleContent(article, locale);
+      const at = content
+        ? null
+        : await getTranslations({
+            locale,
+            namespace: article.namespace,
+          });
+      const slug = article.slugs[locale] ?? article.slugs.bs;
+
+      return {
+        href: `/blog/${slug}`,
+        label: content?.h1 || at("h1"),
+      };
+    })
+  );
 
   return (
     <section
@@ -39,6 +62,20 @@ export default async function HomepageLocalSeoLinks() {
             </span>
           ))}
         </p>
+        <div className="mt-5 border-t border-zinc-200/80 pt-5">
+          <p className="text-xs font-semibold uppercase tracking-[0.16em] text-zinc-500">
+            {tBlog("breadcrumb")}
+          </p>
+          <ul className="mt-3 flex flex-wrap items-center justify-center gap-x-4 gap-y-2">
+            {guideLinks.map((item) => (
+              <li key={item.href}>
+                <Link href={item.href} className={linkClass}>
+                  {item.label}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
       </div>
     </section>
   );

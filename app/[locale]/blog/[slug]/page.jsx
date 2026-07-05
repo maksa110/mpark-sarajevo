@@ -38,8 +38,14 @@ export async function generateMetadata({ params }) {
     ? null
     : await getTranslations({ locale, namespace: article.namespace });
   const path = `${seoPagePath(locale, SEO_SLUGS.blog)}/${slug}`;
+  const rawTitle = content?.metaTitle || t("metaTitle");
+  const heading = content?.h1 || t("h1");
+  const title =
+    rawTitle.trim() === heading.trim()
+      ? `${rawTitle} | M Park Sarajevo`
+      : rawTitle;
   return {
-    title: content?.metaTitle || t("metaTitle"),
+    title,
     description: content?.metaDescription || t("metaDescription"),
     alternates: {
       canonical: seoAbsoluteUrl(new URL(SITE.url).origin, locale, `${SEO_SLUGS.blog}/${slug}`),
@@ -64,6 +70,12 @@ export default async function BlogArticlePage({ params }) {
     : await getTranslations({ locale, namespace: article.namespace });
   const tCommon = await getTranslations({ locale, namespace: "common" });
   const path = `${seoPagePath(locale, SEO_SLUGS.blog)}/${slug}`;
+  const rawTitle = content?.metaTitle || t("metaTitle");
+  const heading = content?.h1 || t("h1");
+  const title =
+    rawTitle.trim() === heading.trim()
+      ? `${rawTitle} | M Park Sarajevo`
+      : rawTitle;
   const faqStructured = Array.isArray(content?.faqStructured)
     ? content.faqStructured
     : Array.isArray(t.raw("faqStructured"))
@@ -73,7 +85,7 @@ export default async function BlogArticlePage({ params }) {
   const webpage = buildWebPageJsonLd({
     locale,
     path,
-    title: content?.metaTitle || t("metaTitle"),
+    title,
     description: content?.metaDescription || t("metaDescription"),
   });
   const crumbs = buildBreadcrumbJsonLd({

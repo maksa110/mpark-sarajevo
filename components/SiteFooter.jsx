@@ -1,10 +1,11 @@
 import Image from "next/image";
 import { Mail, MapPin, Phone } from "lucide-react";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import { SITE, calendarYearSarajevo } from "@/lib/site";
 import { PRIVACY_PATH, SEO_SLUGS } from "@/lib/seo-routes";
 import Reveal from "@/components/Reveal";
+import { routing, localeMeta } from "@/i18n/routing";
 
 const NAV = [
   { hash: "home", key: "home", isRoot: true },
@@ -27,6 +28,7 @@ const GUIDES = [
 ];
 
 export default function SiteFooter({ isHome = false }) {
+  const locale = useLocale();
   const t = useTranslations("footer");
   const tSite = useTranslations("site");
   const year = calendarYearSarajevo();
@@ -188,6 +190,29 @@ export default function SiteFooter({ isHome = false }) {
                 </address>
               </li>
             </ul>
+            <div className="mt-6">
+              <h4 className="text-xs font-semibold uppercase tracking-wider text-zinc-300">
+                Languages
+              </h4>
+              <ul className="mt-3 space-y-2">
+                {routing.locales.map((code) => {
+                  const meta = localeMeta[code];
+                  const isCurrent = code === locale;
+                  return (
+                    <li key={code}>
+                      <Link
+                        href="/"
+                        locale={code}
+                        aria-current={isCurrent ? "page" : undefined}
+                        className={`${linkClass} ${isCurrent ? "text-brand-lime decoration-brand-lime/50" : ""}`}
+                      >
+                        {meta.label}
+                      </Link>
+                    </li>
+                  );
+                })}
+              </ul>
+            </div>
           </Reveal>
         </div>
 
