@@ -15,12 +15,22 @@ export const revalidate = 86400;
 export async function generateMetadata({ params }) {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "blogIndex" });
+  const canonical = seoAbsoluteUrl(new URL(SITE.url).origin, locale, SEO_SLUGS.blog);
   return {
     title: t("metaTitle"),
     description: t("metaDescription"),
     alternates: {
-      canonical: seoAbsoluteUrl(new URL(SITE.url).origin, locale, SEO_SLUGS.blog),
+      canonical,
       languages: buildHreflangAlternates((l) => seoPagePath(l, SEO_SLUGS.blog)),
+    },
+    openGraph: {
+      url: canonical,
+      title: t("metaTitle"),
+      description: t("metaDescription"),
+    },
+    twitter: {
+      title: t("metaTitle"),
+      description: t("metaDescription"),
     },
     robots: { index: true, follow: true },
   };

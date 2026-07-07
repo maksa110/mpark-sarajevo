@@ -44,15 +44,29 @@ export async function generateMetadata({ params }) {
     rawTitle.trim() === heading.trim()
       ? `${rawTitle} | M Park Sarajevo`
       : rawTitle;
+  const canonical = seoAbsoluteUrl(
+    new URL(SITE.url).origin,
+    locale,
+    `${SEO_SLUGS.blog}/${slug}`
+  );
   return {
     title,
     description: content?.metaDescription || t("metaDescription"),
     alternates: {
-      canonical: seoAbsoluteUrl(new URL(SITE.url).origin, locale, `${SEO_SLUGS.blog}/${slug}`),
+      canonical,
       languages: buildHreflangAlternates(
         (l) =>
           `${seoPagePath(l, SEO_SLUGS.blog)}/${article.slugs[l] ?? article.slugs.bs}`
       ),
+    },
+    openGraph: {
+      url: canonical,
+      title,
+      description: content?.metaDescription || t("metaDescription"),
+    },
+    twitter: {
+      title,
+      description: content?.metaDescription || t("metaDescription"),
     },
     robots: { index: true, follow: true },
   };

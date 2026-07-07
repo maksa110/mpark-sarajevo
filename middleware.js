@@ -48,6 +48,15 @@ function attachLocaleHint(request, response) {
 
 export default function middleware(request) {
   const host = request.headers.get("host")?.split(":")[0]?.toLowerCase() ?? "";
+  const pathname = request.nextUrl.pathname;
+  const duplicateLocaleMatch = pathname.match(/^\/(bs|en|de)\/\1(?:\/|$)/);
+
+  if (duplicateLocaleMatch) {
+    const locale = duplicateLocaleMatch[1];
+    const url = request.nextUrl.clone();
+    url.pathname = pathname.replace(new RegExp(`^/${locale}/${locale}`), `/${locale}`);
+    return NextResponse.redirect(url, 301);
+  }
 
   if (
     host.endsWith(".vercel.app") &&
@@ -59,7 +68,7 @@ export default function middleware(request) {
     return NextResponse.redirect(url, 301);
   }
 
-  if (request.nextUrl.pathname === "/") {
+  if (pathname === "/") {
     const url = request.nextUrl.clone();
     url.pathname = `/${routing.defaultLocale}`;
     return NextResponse.redirect(url, 301);
