@@ -102,6 +102,7 @@
       "fullName": "Ime i prezime",
       "phone": "Broj telefona",
       "email": "Email",
+      "promoCode": "Promo kod",
       "arrivalDate": "Datum dolaska",
       "arrivalTime": "Vrijeme dolaska",
       "departureDate": "Datum odlaska",
@@ -111,13 +112,15 @@
       "leaveKeyNo": "Ne ostavljam ključ"
     },
     "placeholders": {
-      "email": "vas@email.com"
+      "email": "vas@email.com",
+      "promoCode": "Unesite promo kod"
     },
     "errors": {
       "required": "Obavezno polje.",
       "email": "Unesite ispravnu email adresu.",
       "EMAIL_REQUIRED": "Email je obavezan.",
       "EMAIL_INVALID": "Unesite ispravan format email adrese.",
+      "PROMO_CODE_INVALID": "Promo kod nije važeći.",
       "datesOrder": "Datum i vrijeme odlaska mora biti nakon dolaska.",
       "submit": "Slanje nije uspjelo. Pokušajte ponovo ili nas pozovite.",
       "LEAVE_KEY_REQUIRED": "Odaberite jednu opciju za ostavljanje ključa.",
@@ -130,6 +133,9 @@
     "submitting": "Šaljem…",
     "summary": {
       "title": "Procjena cijene",
+      "original": "Originalna cijena",
+      "discount": "Popust ({percent}%)",
+      "finalTotal": "Ukupno nakon popusta",
       "days": "{count, plural, one {# dan} few {# dana} other {# dana}}",
       "rate": "{rate} KM × {count, plural, one {# dan} few {# dana} other {# dana}}",
       "total": "Ukupno",

@@ -8,11 +8,18 @@ import {
   parseSessionToken,
 } from "@/lib/auth";
 import {
+  AFFILIATE_REF_COOKIE,
+  buildAffiliateSnapshot,
+  getAffiliatePartnerByPromoCode,
+  normalizePromoCode,
+} from "@/lib/affiliate";
+import {
   createReservationIfCapacityAvailable,
   listReservations,
 } from "@/lib/db";
 import { checkReservationCapacity } from "@/lib/parking-capacity";
 import { computePriceQuote } from "@/lib/pricing";
+import { BOOKING_STATUS } from "@/lib/reservation-record";
 import {
   sendGuestReservationConfirmation,
   sendReservationEmailNotification,
@@ -75,6 +82,7 @@ async function postReservation(request) {
     departureDate,
     departureTime,
     leaveKey: leaveKeyRaw,
+    promoCode,
   } = body || {};
 
   const leaveKey = parseLeaveKey(leaveKeyRaw);
@@ -129,6 +137,24 @@ async function postReservation(request) {
     String(departureDate).slice(0, 10),
     String(departureTime).slice(0, 5)
   );
+  const normalizedPromoCode = normalizePromoCode(promoCode);
+  if (normalizedPromoCode && !getAffiliatePartnerByPromoCode(normalizedPromoCode)) {
+    return NextResponse.json(
+      {
+        errorCode: "PROMO_CODE_INVALID",
+        error: "Promo kod nije važeći.",
+      },
+      { status: 400 }
+    );
+  }
+
+  const affiliateSnapshot = buildAffiliateSnapshot({
+    originalAmount: quote?.total || 0,
+    affiliateRef: request.cookies.get(AFFILIATE_REF_COOKIE)?.value,
+    promoCode: normalizedPromoCode,
+    bookingStatus: BOOKING_STATUS.CONFIRMED,
+  });
+
   const reservation = {
     id,
     name: String(name).trim(),
@@ -141,6 +167,7 @@ async function postReservation(request) {
     leaveKey,
     createdAt,
     quotedDays: quote?.days || 0,
+    ...affiliateSnapshot,
   };
 
   let existingRows;

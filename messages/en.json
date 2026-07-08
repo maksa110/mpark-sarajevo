@@ -102,6 +102,7 @@
       "fullName": "Full name",
       "phone": "Phone number",
       "email": "Email",
+      "promoCode": "Promo code",
       "arrivalDate": "Arrival date",
       "arrivalTime": "Arrival time",
       "departureDate": "Departure date",
@@ -111,13 +112,15 @@
       "leaveKeyNo": "I will not leave the key"
     },
     "placeholders": {
-      "email": "your@email.com"
+      "email": "your@email.com",
+      "promoCode": "Enter promo code"
     },
     "errors": {
       "required": "This field is required.",
       "email": "Please enter a valid email address.",
       "EMAIL_REQUIRED": "Email is required.",
       "EMAIL_INVALID": "Please enter a valid email format.",
+      "PROMO_CODE_INVALID": "Promo code is invalid.",
       "datesOrder": "Departure date and time must be after arrival.",
       "submit": "Submission failed. Please try again or call us.",
       "LEAVE_KEY_REQUIRED": "Please choose whether you will leave the key.",
@@ -130,6 +133,9 @@
     "submitting": "Sending…",
     "summary": {
       "title": "Price estimate",
+      "original": "Original price",
+      "discount": "Discount ({percent}%)",
+      "finalTotal": "Total after discount",
       "days": "{count, plural, one {# day} other {# days}}",
       "rate": "{rate} KM × {count, plural, one {# day} other {# days}}",
       "total": "Total",

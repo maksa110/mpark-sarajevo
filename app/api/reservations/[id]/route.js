@@ -7,6 +7,7 @@ import {
   parseSessionToken,
 } from "@/lib/auth";
 import { deleteReservation, getReservation, updateReservation } from "@/lib/db";
+import { COMMISSION_STATUS } from "@/lib/affiliate";
 import { BOOKING_STATUS } from "@/lib/reservation-record";
 import { deriveStatus, STATUS } from "@/lib/reservation-status";
 
@@ -103,12 +104,22 @@ export async function PATCH(request, { params }) {
 
   const { id } = await params;
   const bookingStatus = body?.bookingStatus;
+  const commissionStatus = body?.commissionStatus;
 
   if (
     bookingStatus != null &&
     !Object.values(BOOKING_STATUS).includes(bookingStatus)
   ) {
     return NextResponse.json({ error: "Neispravan bookingStatus." }, { status: 400 });
+  }
+  if (
+    commissionStatus != null &&
+    ![COMMISSION_STATUS.UNPAID, COMMISSION_STATUS.PAID].includes(commissionStatus)
+  ) {
+    return NextResponse.json(
+      { error: "Neispravan commissionStatus." },
+      { status: 400 }
+    );
   }
 
   let updated;
@@ -118,6 +129,9 @@ export async function PATCH(request, { params }) {
 
       if (bookingStatus != null) {
         next.bookingStatus = bookingStatus;
+      }
+      if (commissionStatus != null) {
+        next.commissionStatus = commissionStatus;
       }
 
       return next;

@@ -1,0 +1,49 @@
+<w> [webpack.cache.PackFileCacheStrategy/webpack.FileSystemInfo] Parsing of C:\Users\korisnik\Desktop\m\node_modules\next-intl\dist\esm\production\extractor\format\index.js for build dependencies failed at 'import(t)'.
+<w> Build dependencies behind this expression are ignored and might cause incorrect cache invalidation.
+<w> [webpack.cache.PackFileCacheStrategy/webpack.FileSystemInfo] Parsing of C:\Users\korisnik\Desktop\m\node_modules\next-intl\dist\esm\production\extractor\format\index.js for build dependencies failed at 'import(t)'.
+<w> Build dependencies behind this expression are ignored and might cause incorrect cache invalidation.
+<w> [webpack.cache.PackFileCacheStrategy/webpack.FileSystemInfo] Parsing of C:\Users\korisnik\Desktop\m\node_modules\next-intl\dist\esm\production\extractor\format\index.js for build dependencies failed at 'import(t)'.
+<w> Build dependencies behind this expression are ignored and might cause incorrect cache invalidation.
+ ⨯ Error: Cannot find module './1331.js'
+Require stack:
+- C:\Users\korisnik\Desktop\m\.next\server\webpack-runtime.js
+- C:\Users\korisnik\Desktop\m\.next\server\app\_not-found\page.js
+- C:\Users\korisnik\Desktop\m\node_modules\next\dist\server\require.js
+- C:\Users\korisnik\Desktop\m\node_modules\next\dist\server\load-components.js
+- C:\Users\korisnik\Desktop\m\node_modules\next\dist\build\utils.js
+- C:\Users\korisnik\Desktop\m\node_modules\next\dist\build\swc\options.js
+- C:\Users\korisnik\Desktop\m\node_modules\next\dist\build\swc\index.js
+- C:\Users\korisnik\Desktop\m\node_modules\next\dist\build\analysis\parse-module.js
+- C:\Users\korisnik\Desktop\m\node_modules\next\dist\build\analysis\get-page-static-info.js
+- C:\Users\korisnik\Desktop\m\node_modules\next\dist\server\lib\router-utils\setup-dev-bundler.js
+- C:\Users\korisnik\Desktop\m\node_modules\next\dist\server\lib\router-server.js
+- C:\Users\korisnik\Desktop\m\node_modules\next\dist\server\lib\start-server.js
+    at <unknown> (C:\Users\korisnik\Desktop\m\.next\server\app\_not-found\page.js:2:9462)
+    at Object.<anonymous> (C:\Users\korisnik\Desktop\m\.next\server\app\_not-found\page.js:2:9514) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [Array]
+}
+<w> [webpack.cache.PackFileCacheStrategy/webpack.FileSystemInfo] Parsing of C:\Users\korisnik\Desktop\m\node_modules\next-intl\dist\esm\production\extractor\format\index.js for build dependencies failed at 'import(t)'.
+<w> Build dependencies behind this expression are ignored and might cause incorrect cache invalidation.
+ ⨯ Failed to generate static paths for /[locale]:
+ReferenceError: exports is not defined in ES module scope
+This file is being treated as an ES module because it has a '.js' file extension and 'C:\Users\korisnik\Desktop\m\package.json' contains "type": "module". To treat it as a CommonJS script, rename it to use the '.cjs' file extension.
+    at <unknown> (.next\server\vendor-chunks\next.js:9:1) {
+  type: 'ReferenceError'
+}
+ ⨯ Failed to generate static paths for /[locale]/rezervacija:
+[Error: ENOENT: no such file or directory, open 'C:\Users\korisnik\Desktop\m\.next\build-manifest.json'] {
+  type: 'Error',
+  errno: -4058,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: 'C:\\Users\\korisnik\\Desktop\\m\\.next\\build-manifest.json'
+}
+ ⨯ Failed to generate static paths for /partner/[partnerId]:
+[Error: ENOENT: no such file or directory, open 'C:\Users\korisnik\Desktop\m\.next\build-manifest.json'] {
+  type: 'Error',
+  errno: -4058,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: 'C:\\Users\\korisnik\\Desktop\\m\\.next\\build-manifest.json'
+}

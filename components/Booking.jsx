@@ -1,8 +1,15 @@
 "use client";
 
 import { useEffect, useMemo, useState, startTransition, useCallback } from "react";
-import { useTranslations } from "next-intl";
+import { useSearchParams } from "next/navigation";
+import { useLocale, useTranslations } from "next-intl";
 import { Sparkles, TrendingDown } from "lucide-react";
+import {
+  buildAffiliateSnapshot,
+  getAffiliatePartnerByPromoCode,
+  normalizeAffiliateRef,
+  normalizePromoCode,
+} from "@/lib/affiliate";
 import { trackBookingConversion } from "@/lib/gtag";
 import { computePriceQuote } from "@/lib/pricing";
 import { SITE } from "@/lib/site";
@@ -13,8 +20,39 @@ const inputClass =
 const radioCard =
   "flex cursor-pointer items-start gap-3 rounded-2xl border border-zinc-200 bg-white px-4 py-3 text-sm font-medium text-zinc-800 shadow-sm transition hover:border-brand-lime has-[:checked]:border-brand-lime has-[:checked]:ring-2 has-[:checked]:ring-brand-lime/25";
 
+const affiliateCopyByLocale = {
+  bs: {
+    promoLabel: "Promo kod",
+    promoPlaceholder: "Unesite promo kod",
+    promoInvalid: "Promo kod nije važeći.",
+    original: "Originalna cijena",
+    discount: (percent) => `Popust (${percent}%)`,
+    finalTotal: "Ukupno nakon popusta",
+  },
+  de: {
+    promoLabel: "Promo-Code",
+    promoPlaceholder: "Promo-Code eingeben",
+    promoInvalid: "Der Promo-Code ist ungültig.",
+    original: "Originalpreis",
+    discount: (percent) => `Rabatt (${percent}%)`,
+    finalTotal: "Gesamt nach Rabatt",
+  },
+  en: {
+    promoLabel: "Promo code",
+    promoPlaceholder: "Enter promo code",
+    promoInvalid: "Promo code is invalid.",
+    original: "Original price",
+    discount: (percent) => `Discount (${percent}%)`,
+    finalTotal: "Total after discount",
+  },
+};
+
 export default function Booking() {
   const t = useTranslations("booking");
+  const locale = useLocale();
+  const searchParams = useSearchParams();
+  const affiliateCopy =
+    affiliateCopyByLocale[locale] || affiliateCopyByLocale.en;
   const [fullName, setFullName] = useState("");
   const [phone, setPhone] = useState("");
   const [email, setEmail] = useState("");
@@ -22,6 +60,8 @@ export default function Booking() {
   const [arrivalTime, setArrivalTime] = useState("");
   const [departure, setDeparture] = useState("");
   const [departureTime, setDepartureTime] = useState("");
+  const [promoCode, setPromoCode] = useState("");
+  const [promoTouched, setPromoTouched] = useState(false);
   const [leaveKey, setLeaveKey] = useState(null);
   const [errors, setErrors] = useState({});
   const [busy, setBusy] = useState(false);
@@ -29,11 +69,29 @@ export default function Booking() {
   const [ok, setOk] = useState(false);
   const [capState, setCapState] = useState("idle");
   const [capFailCode, setCapFailCode] = useState(null);
+  const [trackedRef, setTrackedRef] = useState("");
+
+  const refFromQuery = useMemo(
+    () => normalizeAffiliateRef(searchParams.get("ref")),
+    [searchParams]
+  );
+  const promoMatch = useMemo(
+    () => getAffiliatePartnerByPromoCode(promoCode),
+    [promoCode]
+  );
 
   const quote = useMemo(
     () => computePriceQuote(arrival, arrivalTime, departure, departureTime),
     [arrival, arrivalTime, departure, departureTime]
   );
+  const affiliateQuote = useMemo(() => {
+    if (!quote) return null;
+    return buildAffiliateSnapshot({
+      originalAmount: quote.total,
+      affiliateRef: trackedRef || refFromQuery,
+      promoCode,
+    });
+  }, [promoCode, quote, refFromQuery, trackedRef]);
 
   const datesIntervalOk = useMemo(() => {
     if (!arrival || !arrivalTime || !departure || !departureTime) return false;
@@ -41,6 +99,30 @@ export default function Booking() {
     const d = new Date(`${departure}T${departureTime}`);
     return !Number.isNaN(+a) && !Number.isNaN(+d) && d > a;
   }, [arrival, arrivalTime, departure, departureTime]);
+
+  useEffect(() => {
+    if (!refFromQuery || trackedRef === refFromQuery) return;
+
+    let cancelled = false;
+
+    (async () => {
+      try {
+        const response = await fetch("/api/affiliate/track", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ ref: refFromQuery }),
+        });
+        if (!response.ok || cancelled) return;
+        setTrackedRef(refFromQuery);
+      } catch {
+        // Ignore tracking failures so booking stays usable.
+      }
+    })();
+
+    return () => {
+      cancelled = true;
+    };
+  }, [refFromQuery, trackedRef]);
 
   useEffect(() => {
     let cancelled = false;
@@ -162,6 +244,7 @@ export default function Booking() {
           departureDate: departure,
           departureTime,
           leaveKey,
+          promoCode: normalizePromoCode(promoCode),
         }),
       });
       if (!res.ok) {
@@ -170,7 +253,10 @@ export default function Booking() {
         try {
           const data = raw ? JSON.parse(raw) : {};
           if (data?.errorCode) {
-            msg = t(`errors.${data.errorCode}`);
+            msg =
+              data.errorCode === "PROMO_CODE_INVALID"
+                ? affiliateCopy.promoInvalid
+                : t(`errors.${data.errorCode}`);
           } else if (data?.error) {
             msg = data.error;
           }
@@ -183,6 +269,7 @@ export default function Booking() {
         throw new Error(msg);
       }
       const submittedQuote = quote;
+      const submittedAffiliateQuote = affiliateQuote;
       startTransition(() => {
         setOk(true);
         setFullName("");
@@ -192,6 +279,8 @@ export default function Booking() {
         setArrivalTime("");
         setDeparture("");
         setDepartureTime("");
+        setPromoCode("");
+        setPromoTouched(false);
         setLeaveKey(null);
         setCapState("idle");
         setCapFailCode(null);
@@ -201,7 +290,7 @@ export default function Booking() {
         submittedQuote
           ? {
               days: submittedQuote.days,
-              total: submittedQuote.total,
+              total: submittedAffiliateQuote?.finalAmount ?? submittedQuote.total,
               tier: submittedQuote.tier,
             }
           : undefined
@@ -328,6 +417,29 @@ export default function Booking() {
                 />
                 {errors.email && (
                   <p className="mt-1 text-sm text-red-600">{errors.email}</p>
+                )}
+              </div>
+              <div>
+                <label
+                  htmlFor="promoCode"
+                  className="text-sm font-medium text-zinc-800"
+                >
+                  {affiliateCopy.promoLabel}
+                </label>
+                <input
+                  id="promoCode"
+                  name="promoCode"
+                  value={promoCode}
+                  onChange={(e) => setPromoCode(e.target.value.toUpperCase())}
+                  onBlur={() => setPromoTouched(true)}
+                  className={inputClass}
+                  autoComplete="off"
+                  placeholder={affiliateCopy.promoPlaceholder}
+                />
+                {promoTouched && promoCode.trim() && !promoMatch && (
+                  <p className="mt-1 text-sm text-red-600">
+                    {affiliateCopy.promoInvalid}
+                  </p>
                 )}
               </div>
               <div className="grid gap-5 sm:grid-cols-2">
@@ -462,7 +574,7 @@ export default function Booking() {
                   </p>
                 )}
               </fieldset>
-              {quote && (
+              {quote && affiliateQuote && (
                 <div
                   role="status"
                   aria-live="polite"
@@ -500,12 +612,37 @@ export default function Booking() {
 
                   <div className="mt-4 flex items-baseline justify-between border-t border-zinc-200/60 pt-4">
                     <span className="text-sm font-medium text-zinc-700">
-                      {t("summary.total")}
+                      {affiliateQuote.discountAmount > 0
+                        ? affiliateCopy.original
+                        : t("summary.total")}
                     </span>
                     <span className="text-3xl font-extrabold tracking-tight text-brand-navy">
-                      {quote.total} <span className="text-base">{quote.currency}</span>
+                      {affiliateQuote.originalAmount.toFixed(2)}{" "}
+                      <span className="text-base">{quote.currency}</span>
                     </span>
                   </div>
+
+                  {affiliateQuote.discountAmount > 0 && (
+                    <>
+                      <div className="mt-3 flex items-baseline justify-between text-sm text-zinc-700">
+                        <span>
+                          {affiliateCopy.discount(affiliateQuote.discountPercent)}
+                        </span>
+                        <span>
+                          -{affiliateQuote.discountAmount.toFixed(2)} {quote.currency}
+                        </span>
+                      </div>
+                      <div className="mt-3 flex items-baseline justify-between border-t border-zinc-200/60 pt-3">
+                        <span className="text-sm font-semibold text-zinc-800">
+                          {affiliateCopy.finalTotal}
+                        </span>
+                        <span className="text-3xl font-extrabold tracking-tight text-brand-navy">
+                          {affiliateQuote.finalAmount.toFixed(2)}{" "}
+                          <span className="text-base">{quote.currency}</span>
+                        </span>
+                      </div>
+                    </>
+                  )}
 
                   {quote.extraDaysToNextTier > 0 &&
                     quote.savingsPerDayAtNextTier > 0 && (

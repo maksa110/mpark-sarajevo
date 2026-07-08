@@ -22,6 +22,7 @@ import {
   STATUS_LABEL,
   deriveStatus,
 } from "@/lib/reservation-status";
+import { COMMISSION_STATUS } from "@/lib/affiliate";
 import ConfirmModal from "@/components/admin/ConfirmModal";
 import Toast from "@/components/admin/Toast";
 
@@ -35,6 +36,38 @@ function bookingBadge(status) {
   return status === BOOKING_STATUS.CANCELLED
     ? "bg-red-50 text-red-700 ring-red-200"
     : "bg-emerald-50 text-emerald-700 ring-emerald-200";
+}
+
+function commissionStatusLabel(status) {
+  if (status === COMMISSION_STATUS.PAID) return "Paid";
+  if (status === COMMISSION_STATUS.UNPAID) return "Unpaid";
+  if (status === COMMISSION_STATUS.CANCELLED) return "Cancelled";
+  return "-";
+}
+
+function commissionStatusBadge(status) {
+  if (status === COMMISSION_STATUS.PAID) {
+    return "bg-emerald-50 text-emerald-700 ring-emerald-200";
+  }
+  if (status === COMMISSION_STATUS.UNPAID) {
+    return "bg-amber-50 text-amber-800 ring-amber-200";
+  }
+  if (status === COMMISSION_STATUS.CANCELLED) {
+    return "bg-red-50 text-red-700 ring-red-200";
+  }
+  return "bg-zinc-100 text-zinc-500 ring-zinc-200";
+}
+
+function formatMoney(amount) {
+  return `${Number(amount || 0).toFixed(2)} KM`;
+}
+
+function canMarkCommissionPaid(row) {
+  return (
+    Boolean(row?.affiliatePartnerId) &&
+    row?.commissionStatus === COMMISSION_STATUS.UNPAID &&
+    row?.bookingStatus === BOOKING_STATUS.CONFIRMED
+  );
 }
 
 export default function AdminDashboardPage() {
@@ -375,29 +408,36 @@ export default function AdminDashboardPage() {
 
               <div className="mt-8 overflow-hidden rounded-2xl border border-zinc-200 bg-white shadow-sm">
                 <div className="overflow-x-auto">
-                  <table className="w-full min-w-[980px] text-left text-sm">
+                  <table className="w-full min-w-[1560px] text-left text-sm">
                     <thead>
                       <tr className="border-b border-zinc-100 bg-zinc-50/80 text-xs font-medium uppercase tracking-wide text-zinc-500">
                         <th className="px-4 py-3">Gost</th>
+                        <th className="px-4 py-3">Affiliate Partner</th>
+                        <th className="px-4 py-3">Promo Code</th>
                         <th className="px-4 py-3">Dolazak</th>
                         <th className="px-4 py-3">Odlazak</th>
                         <th className="px-4 py-3">Ključ</th>
                         <th className="px-4 py-3">Trip status</th>
                         <th className="px-4 py-3">Booking status</th>
+                        <th className="px-4 py-3">Original Amount</th>
+                        <th className="px-4 py-3">Discount</th>
+                        <th className="px-4 py-3">Final Amount</th>
+                        <th className="px-4 py-3">Commission</th>
+                        <th className="px-4 py-3">Commission Status</th>
                         <th className="px-4 py-3 text-right">Akcije</th>
                       </tr>
                     </thead>
                     <tbody className="divide-y divide-zinc-100">
                       {loading && (
                         <tr>
-                          <td colSpan={7} className="px-4 py-12 text-center text-zinc-500">
+                          <td colSpan={14} className="px-4 py-12 text-center text-zinc-500">
                             Učitavanje…
                           </td>
                         </tr>
                       )}
                       {!loading && rows.length === 0 && (
                         <tr>
-                          <td colSpan={7} className="px-4 py-12 text-center text-zinc-500">
+                          <td colSpan={14} className="px-4 py-12 text-center text-zinc-500">
                             Nema rezervacija za prikaz.
                           </td>
                         </tr>
@@ -408,6 +448,7 @@ export default function AdminDashboardPage() {
                           const isCompleted = status === STATUS.COMPLETED;
                           const isUpdating = updatingId === row.id;
                           const isExpanded = expandedId === row.id;
+                          const isPayableCommission = canMarkCommissionPaid(row);
                           return (
                             <Fragment key={row.id}>
                               <tr className="align-top transition hover:bg-zinc-50 even:bg-zinc-50/50">
@@ -415,8 +456,14 @@ export default function AdminDashboardPage() {
                                   <div className="font-medium text-zinc-900">{row.name}</div>
                                   <div className="mt-1 text-xs text-zinc-500">{row.phone}</div>
                                   <div className="mt-1 text-xs text-zinc-500">
-                                    {row.email || "—"}
+                                    {row.email || "-"}
                                   </div>
+                                </td>
+                                <td className="px-4 py-3 text-zinc-700">
+                                  {row.affiliatePartnerName || "-"}
+                                </td>
+                                <td className="px-4 py-3 text-zinc-700">
+                                  {row.promoCode || "-"}
                                 </td>
                                 <td className="px-4 py-3 text-zinc-700">
                                   {row.arrivalDate} {row.arrivalTime?.slice(0, 5)}
@@ -439,6 +486,29 @@ export default function AdminDashboardPage() {
                                     className={`inline-flex rounded-full px-2.5 py-0.5 text-xs font-medium ring-1 ${bookingBadge(row.bookingStatus)}`}
                                   >
                                     {bookingLabel(row.bookingStatus)}
+                                  </span>
+                                </td>
+                                <td className="px-4 py-3 text-zinc-700">
+                                  {formatMoney(row.originalAmount)}
+                                </td>
+                                <td className="px-4 py-3 text-zinc-700">
+                                  {row.discountPercent > 0
+                                    ? `${row.discountPercent}% / ${formatMoney(row.discountAmount)}`
+                                    : formatMoney(row.discountAmount)}
+                                </td>
+                                <td className="px-4 py-3 text-zinc-700">
+                                  {formatMoney(row.finalAmount)}
+                                </td>
+                                <td className="px-4 py-3 text-zinc-700">
+                                  {row.affiliatePartnerId
+                                    ? `${row.commissionPercent}% / ${formatMoney(row.commissionAmount)}`
+                                    : "-"}
+                                </td>
+                                <td className="px-4 py-3">
+                                  <span
+                                    className={`inline-flex rounded-full px-2.5 py-0.5 text-xs font-medium ring-1 ${commissionStatusBadge(row.commissionStatus)}`}
+                                  >
+                                    {commissionStatusLabel(row.commissionStatus)}
                                   </span>
                                 </td>
                                 <td className="px-4 py-3">
@@ -471,7 +541,7 @@ export default function AdminDashboardPage() {
                                           },
                                           row.bookingStatus === BOOKING_STATUS.CANCELLED
                                             ? "Rezervacija je vraćena na confirmed."
-                                            : "Rezervacija je označena kao cancelled."
+                                            : "Rezervacija je oznacena kao cancelled."
                                         )
                                       }
                                       className="rounded-xl border border-amber-200 bg-amber-50 px-3 py-1.5 text-xs font-semibold text-amber-800 hover:bg-amber-100 disabled:opacity-60"
@@ -480,6 +550,22 @@ export default function AdminDashboardPage() {
                                         ? "Vrati"
                                         : "Cancel"}
                                     </button>
+                                    {isPayableCommission ? (
+                                      <button
+                                        type="button"
+                                        disabled={isUpdating}
+                                        onClick={() =>
+                                          patchReservation(
+                                            row.id,
+                                            { commissionStatus: COMMISSION_STATUS.PAID },
+                                            "Commission je oznacen kao paid."
+                                          )
+                                        }
+                                        className="rounded-xl border border-emerald-200 bg-emerald-50 px-3 py-1.5 text-xs font-semibold text-emerald-800 transition hover:bg-emerald-100 disabled:opacity-60"
+                                      >
+                                        Mark Commission Paid
+                                      </button>
+                                    ) : null}
                                     <DeleteButton
                                       disabled={isCompleted}
                                       loading={deleting && confirmTarget?.id === row.id}
@@ -490,21 +576,50 @@ export default function AdminDashboardPage() {
                               </tr>
                               {isExpanded && (
                                 <tr className="bg-zinc-50/80">
-                                  <td colSpan={7} className="px-4 py-4">
+                                  <td colSpan={14} className="px-4 py-4">
                                     <DetailCard
                                       title="Booking details"
                                       lines={[
                                         `Reservation ID: ${row.id}`,
                                         `Customer: ${row.name}`,
                                         `Phone: ${row.phone}`,
-                                        `Email: ${row.email || "—"}`,
+                                        `Email: ${row.email || "-"}`,
                                         `Arrival: ${row.arrivalDate} ${row.arrivalTime}`,
                                         `Departure: ${row.departureDate} ${row.departureTime}`,
                                         `Key handling: ${
                                           row.leaveKey === false ? "Bez ključa" : "Sa ključem"
                                         }`,
                                         `Booking status: ${bookingLabel(row.bookingStatus)}`,
+                                        `Affiliate partner: ${row.affiliatePartnerName || "-"}`,
+                                        `Promo code: ${row.promoCode || "-"}`,
+                                        `Original amount: ${formatMoney(row.originalAmount)}`,
+                                        `Discount: ${formatMoney(row.discountAmount)}`,
+                                        `Final amount: ${formatMoney(row.finalAmount)}`,
+                                        `Commission: ${
+                                          row.affiliatePartnerId
+                                            ? `${row.commissionPercent}% / ${formatMoney(row.commissionAmount)}`
+                                            : "-"
+                                        }`,
+                                        `Commission status: ${commissionStatusLabel(row.commissionStatus)}`,
                                       ]}
+                                      actions={
+                                        isPayableCommission ? (
+                                          <button
+                                            type="button"
+                                            disabled={isUpdating}
+                                            onClick={() =>
+                                              patchReservation(
+                                                row.id,
+                                                { commissionStatus: COMMISSION_STATUS.PAID },
+                                                "Commission je oznacen kao paid."
+                                              )
+                                            }
+                                            className="rounded-xl border border-emerald-200 bg-emerald-50 px-3 py-2 text-sm font-semibold text-emerald-800 transition hover:bg-emerald-100 disabled:opacity-60"
+                                          >
+                                            Mark Commission Paid
+                                          </button>
+                                        ) : null
+                                      }
                                     />
                                   </td>
                                 </tr>
@@ -652,7 +767,7 @@ function SimpleTable({ rows, accent, now }) {
   );
 }
 
-function DetailCard({ title, lines }) {
+function DetailCard({ title, lines, actions = null }) {
   return (
     <div className="rounded-2xl border border-zinc-200 bg-white p-4 shadow-sm">
       <h3 className="text-sm font-semibold text-zinc-900">{title}</h3>
@@ -661,6 +776,7 @@ function DetailCard({ title, lines }) {
           <p key={line}>{line}</p>
         ))}
       </div>
+      {actions ? <div className="mt-4">{actions}</div> : null}
     </div>
   );
 }

@@ -102,6 +102,7 @@
       "fullName": "Vor- und Nachname",
       "phone": "Telefonnummer",
       "email": "E-Mail",
+      "promoCode": "Promo-Code",
       "arrivalDate": "Anreisedatum",
       "arrivalTime": "Anreisezeit",
       "departureDate": "Abreisedatum",
@@ -111,7 +112,8 @@
       "leaveKeyNo": "Ich lasse den Schlüssel nicht"
     },
     "placeholders": {
-      "email": "ihre@email.com"
+      "email": "ihre@email.com",
+      "promoCode": "Promo-Code eingeben"
     },
     "errors": {
       "required": "Pflichtfeld.",
