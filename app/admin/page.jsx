@@ -9,6 +9,7 @@ import {
   ChevronUp,
   LayoutGrid,
   LogOut,
+  Mail,
   Menu,
   RefreshCw,
   Search,
@@ -213,6 +214,36 @@ export default function AdminDashboardPage() {
     }
   }, []);
 
+  const sendReviewEmail = useCallback(async (row) => {
+    setUpdatingId(row.id);
+    try {
+      const response = await fetch(
+        `/api/reservations/${encodeURIComponent(row.id)}/review-email`,
+        { method: "POST" }
+      );
+      const data = await response.json().catch(() => ({}));
+      if (!response.ok) {
+        throw new Error(data?.error || "Review email could not be sent.");
+      }
+      setRows((current) =>
+        current.map((item) =>
+          item.id === row.id ? data.reservation : item
+        )
+      );
+      setToast({
+        kind: "success",
+        message: `Review email sent to ${row.email}.`,
+      });
+    } catch (error) {
+      setToast({
+        kind: "error",
+        message: error?.message || "Review email could not be sent.",
+      });
+    } finally {
+      setUpdatingId(null);
+    }
+  }, []);
+
   if (!ready) {
     return (
       <div className="flex min-h-screen items-center justify-center bg-zinc-100 text-sm text-zinc-600">
@@ -408,7 +439,7 @@ export default function AdminDashboardPage() {
 
               <div className="mt-8 overflow-hidden rounded-2xl border border-zinc-200 bg-white shadow-sm">
                 <div className="overflow-x-auto">
-                  <table className="w-full min-w-[1560px] text-left text-sm">
+                  <table className="w-full min-w-[1680px] text-left text-sm">
                     <thead>
                       <tr className="border-b border-zinc-100 bg-zinc-50/80 text-xs font-medium uppercase tracking-wide text-zinc-500">
                         <th className="px-4 py-3">Gost</th>
@@ -424,20 +455,21 @@ export default function AdminDashboardPage() {
                         <th className="px-4 py-3">Final Amount</th>
                         <th className="px-4 py-3">Commission</th>
                         <th className="px-4 py-3">Commission Status</th>
+                        <th className="px-4 py-3">Review email</th>
                         <th className="px-4 py-3 text-right">Akcije</th>
                       </tr>
                     </thead>
                     <tbody className="divide-y divide-zinc-100">
                       {loading && (
                         <tr>
-                          <td colSpan={14} className="px-4 py-12 text-center text-zinc-500">
+                          <td colSpan={15} className="px-4 py-12 text-center text-zinc-500">
                             Učitavanje…
                           </td>
                         </tr>
                       )}
                       {!loading && rows.length === 0 && (
                         <tr>
-                          <td colSpan={14} className="px-4 py-12 text-center text-zinc-500">
+                          <td colSpan={15} className="px-4 py-12 text-center text-zinc-500">
                             Nema rezervacija za prikaz.
                           </td>
                         </tr>
@@ -449,6 +481,11 @@ export default function AdminDashboardPage() {
                           const isUpdating = updatingId === row.id;
                           const isExpanded = expandedId === row.id;
                           const isPayableCommission = canMarkCommissionPaid(row);
+                          const canSendReviewEmail =
+                            isCompleted &&
+                            row.bookingStatus === BOOKING_STATUS.CONFIRMED &&
+                            !row.reviewEmailSent &&
+                            Boolean(row.email);
                           return (
                             <Fragment key={row.id}>
                               <tr className="align-top transition hover:bg-zinc-50 even:bg-zinc-50/50">
@@ -512,7 +549,23 @@ export default function AdminDashboardPage() {
                                   </span>
                                 </td>
                                 <td className="px-4 py-3">
-                                  <div className="flex justify-end gap-2">
+                                  <span
+                                    className={`inline-flex rounded-full px-2.5 py-0.5 text-xs font-medium ring-1 ${
+                                      row.reviewEmailSent
+                                        ? "bg-emerald-50 text-emerald-700 ring-emerald-200"
+                                        : "bg-zinc-100 text-zinc-600 ring-zinc-200"
+                                    }`}
+                                  >
+                                    {row.reviewEmailSent ? "Sent" : "Not sent"}
+                                  </span>
+                                  {row.reviewEmailSentAt ? (
+                                    <div className="mt-1 text-xs text-zinc-500">
+                                      {new Date(row.reviewEmailSentAt).toLocaleString()}
+                                    </div>
+                                  ) : null}
+                                </td>
+                                <td className="px-4 py-3">
+                                  <div className="flex flex-wrap justify-end gap-2">
                                     <button
                                       type="button"
                                       onClick={() =>
@@ -566,6 +619,22 @@ export default function AdminDashboardPage() {
                                         Mark Commission Paid
                                       </button>
                                     ) : null}
+                                    <button
+                                      type="button"
+                                      disabled={!canSendReviewEmail || isUpdating}
+                                      title={
+                                        row.reviewEmailSent
+                                          ? "Review email has already been sent."
+                                          : !isCompleted
+                                            ? "Available after the reservation is completed."
+                                            : undefined
+                                      }
+                                      onClick={() => sendReviewEmail(row)}
+                                      className="inline-flex items-center gap-1 rounded-xl border border-lime-200 bg-lime-50 px-3 py-1.5 text-xs font-semibold text-lime-800 transition hover:bg-lime-100 disabled:cursor-not-allowed disabled:opacity-50"
+                                    >
+                                      <Mail className="h-3.5 w-3.5" aria-hidden />
+                                      Send Review Email
+                                    </button>
                                     <DeleteButton
                                       disabled={isCompleted}
                                       loading={deleting && confirmTarget?.id === row.id}
@@ -576,7 +645,7 @@ export default function AdminDashboardPage() {
                               </tr>
                               {isExpanded && (
                                 <tr className="bg-zinc-50/80">
-                                  <td colSpan={14} className="px-4 py-4">
+                                  <td colSpan={15} className="px-4 py-4">
                                     <DetailCard
                                       title="Booking details"
                                       lines={[
@@ -601,6 +670,15 @@ export default function AdminDashboardPage() {
                                             : "-"
                                         }`,
                                         `Commission status: ${commissionStatusLabel(row.commissionStatus)}`,
+                                        `Review email: ${
+                                          row.reviewEmailSent
+                                            ? `Sent ${row.reviewEmailSentAt || ""}`
+                                            : "Not sent"
+                                        }`,
+                                        ...(row.reviewEmailLog || []).map(
+                                          (entry) =>
+                                            `Review email log: ${entry.sentAt} · ${entry.recipient} · ${entry.source} · ${entry.messageId || "no message ID"}`
+                                        ),
                                       ]}
                                       actions={
                                         isPayableCommission ? (

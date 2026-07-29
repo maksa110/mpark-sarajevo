@@ -62,6 +62,7 @@ Kopirajte `.env.example` u `.env.local`:
 | `ADMIN_SESSION_SECRET`         | Tajni ključ (≥32 znaka u produkciji) za sesiju.                      |
 | `GMAIL_USER` / `GMAIL_PASS`    | SMTP za obavijesti o rezervacijama (App Password).                   |
 | `ADMIN_EMAIL`                | Primatelj admin obavijesti (opcionalno).                             |
+| `CRON_SECRET`                | Dugi nasumični token kojim Vercel štiti dnevni review-email cron.    |
 | `GOOGLE_PLACES_API_KEY` / `GOOGLE_PLACE_ID` | Žive recenzije na sajtu (opcionalno).                    |
 | `NEXT_PUBLIC_GOOGLE_PROFILE_URL` | Javni link ka GBP kad Places nije podešen.                       |
 | `RESERVATIONS_FILE`           | Lokalna JSON baza (default `./data/reservations.json`).              |
@@ -122,6 +123,19 @@ Ovo **ne može** Cursor/agent automatski potpisati kao „prošlo“ bez pristup
 - Sesijska kolačića: HMAC-potpisana, `HttpOnly`, `SameSite=Lax`, `Secure` u produkciji.
 - Default dev lozinka: `admin` (promijenite preko `ADMIN_PASSWORD` u `.env.local`).
 - Iz dashboarda možete potvrditi/završiti/obrisati rezervaciju i filtrirati po statusu / pretrazi.
+- Za završenu, potvrđenu rezervaciju dostupna je akcija **Send Review Email**.
+  Akcija je idempotentna: već poslani email ne može biti poslan ponovo.
+
+## Automatski Google Review email
+
+- Vercel Cron poziva `/api/cron/review-emails` jednom dnevno u 09:00 UTC.
+- Email se šalje samo potvrđenim rezervacijama čiji je odlazak prošao prije
+  najmanje 24 sata i kojima `reviewEmailSent` još nije postavljen.
+- Nakon uspješnog SMTP odgovora spremaju se `reviewEmailSent`,
+  `reviewEmailSentAt` i trajni `reviewEmailLog` (primatelj, izvor i message ID).
+- Postavite `GMAIL_USER`, `GMAIL_PASS`, `NEXT_PUBLIC_GOOGLE_REVIEW_URL` (ili
+  `GOOGLE_BUSINESS_REVIEW_URL`) i `CRON_SECRET` u Vercel Production
+  environmentu. Nakon redeploya nije potrebna ručna intervencija.
 
 ## Deployment
 

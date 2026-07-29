@@ -1,5 +1,11 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
+  "crons": [
+    {
+      "path": "/api/cron/review-emails",
+      "schedule": "0 9 * * *"
+    }
+  ],
   "redirects": [
     {
       "source": "/:path*",
@@ -18,6 +24,13 @@
         {
           "type": "host",
           "value": "mpark-sarajevo.vercel.app"
+        }
+      ],
+      "missing": [
+        {
+          "type": "header",
+          "key": "user-agent",
+          "value": "vercel-cron/1.0"
         }
       ],
       "destination": "https://www.mpark-sarajevo.com/:path*",

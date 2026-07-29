@@ -167,6 +167,7 @@ async function postReservation(request) {
     leaveKey,
     createdAt,
     quotedDays: quote?.days || 0,
+    reviewEmailSent: false,
     ...affiliateSnapshot,
   };
 
