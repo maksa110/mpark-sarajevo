@@ -107,9 +107,9 @@ export default async function PartnerPage({ params }) {
     getAffiliateClickCount(partner.id),
   ]);
   const dashboard = buildPartnerDashboard(partner.id, reservations, clickCount);
-  const affiliateLink = getAffiliateLink(partner.id);
-  const promoCode = "LOVCI10";
-  const customerDiscount = "10%";
+  const affiliateLink = partner.referralUrl || getAffiliateLink(partner.id);
+  const [promoCode, discountPercent] = Object.entries(partner.promoCodes)[0];
+  const customerDiscount = `${discountPercent}%`;
   const commissionRate = `${partner.commissionPercent}%`;
 
   return (
