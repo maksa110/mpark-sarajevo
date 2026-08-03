@@ -41,3 +41,5 @@
  GET /bs/rezervacija 200 in 2387ms
  GET /partner/lovci 200 in 2449ms
  GET /bs 200 in 2678ms
+ GET /bs 200 in 6685ms
+ GET /bs 200 in 1223ms

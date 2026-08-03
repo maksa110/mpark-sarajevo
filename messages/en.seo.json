@@ -64,7 +64,7 @@
       },
       {
         "question": "How do longer stays reduce cost?",
-        "answer": "From day 10 the rate drops to KM 8/day; from day 15 to KM 7/day. See the long-term parking guide for multi-week trips."
+        "answer": "A total stay of 10–14 days is billed entirely at KM 8/day; a stay of 15 or more days is billed entirely at KM 7/day. See the long-term parking guide for multi-week trips."
       },
       {
         "question": "How do I book at these rates?",
@@ -501,7 +501,7 @@
       {
         "h2": "Tier recap for stretched stays",
         "paragraphs": [
-          "First nine calendar days invoice at KM 9 each, days 10–14 drop to KM 8, day fifteen onward settles at KM 7 — CCTV and shuttle privileges stay identical whichever bracket you occupy.",
+          "A total stay of 1–9 days is billed entirely at KM 9/day, 10–14 total days at KM 8/day, and 15 or more total days at KM 7/day — CCTV and shuttle remain the same in every bracket.",
           "The booking engine derives counts automatically once both timestamps exist; screenshots of quotes help finance teams approving travel allowances.",
           "Longer horizons often correlate with Diaspora rotations and consulting rotations — aligning predictable daily burn matters when finance audits receipts."
         ]
@@ -527,7 +527,7 @@
     "faqStructured": [
       {
         "question": "When does the lower daily rate apply?",
-        "answer": "From day 10 the rate is KM 8/day; from day 15 onward KM 7/day — with the same CCTV and shuttle package."
+        "answer": "For a total stay of 10–14 days, every day is KM 8; for 15 or more days, every day is KM 7 — with the same CCTV and shuttle package."
       },
       {
         "question": "Can I leave the car for several weeks?",

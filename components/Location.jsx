@@ -55,7 +55,7 @@ export default function Location() {
         >
           <iframe
             title={t("mapTitle")}
-            src="https://www.google.com/maps?ll=43.83199,18.32795&z=18&q=mPark%20%7C%20Privatni%20Parking%20Aerodrom%20Sarajevo&output=embed"
+            src={SITE.googleMapsEmbedUrl}
             className="h-64 w-full border-0 sm:h-80"
             loading="lazy"
             referrerPolicy="no-referrer-when-downgrade"

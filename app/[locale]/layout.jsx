@@ -22,6 +22,7 @@ export async function generateMetadata({ params }) {
   const description = t("description");
 
   const origin = SITE.url.replace(/\/$/, "");
+  const shareImage = `${origin}/${locale}/opengraph-image`;
 
   const languages = buildHreflangAlternates((l) => `/${l}`);
 
@@ -59,14 +60,14 @@ export async function generateMetadata({ params }) {
       siteName: SITE.brand,
       title: t("ogTitle"),
       description: t("ogDescription"),
-      images: [{ alt: t("ogImageAlt") }],
+      images: [{ url: shareImage, alt: t("ogImageAlt") }],
       // Vizuel još uvijek app/[locale]/opengraph-image.jsx (Next spaja props)
     },
     twitter: {
       card: "summary_large_image",
       title: t("ogTitle"),
       description: t("twitterDescription"),
-      images: { alt: t("ogImageAlt") },
+      images: [{ url: shareImage, alt: t("ogImageAlt") }],
       // Vizuel kao opengraph-image
     },
     // Favicon: službeni logo PNG, zatim SVG rezerva

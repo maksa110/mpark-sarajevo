@@ -120,6 +120,7 @@
       "email": "Please enter a valid email address.",
       "EMAIL_REQUIRED": "Email is required.",
       "EMAIL_INVALID": "Please enter a valid email format.",
+      "ARRIVAL_PAST": "The arrival date and time cannot be in the past.",
       "PROMO_CODE_INVALID": "Promo code is invalid.",
       "datesOrder": "Departure date and time must be after arrival.",
       "submit": "Submission failed. Please try again or call us.",
@@ -127,7 +128,8 @@
       "CAPACITY_NO_KEY": "No spaces without key handover are available for the selected dates.",
       "CAPACITY_WITH_KEY": "No spaces with key handover are available for the selected dates (the lot is full for one or more days).",
       "capacityChecking": "Checking availability…",
-      "capacityBlocked": "No spaces available for this selection — change dates or key option."
+      "capacityBlocked": "No spaces available for this selection — change dates or key option.",
+      "capacityUnavailable": "Availability cannot be checked right now. Please try again or contact us."
     },
     "submit": "Send reservation",
     "submitting": "Sending…",
@@ -288,7 +290,7 @@
       },
       {
         "q": "Is the parking available 24/7?",
-        "a": "Access and surveillance are organised with 24/7 CCTV. Arrival and key handover details (including hours for handing over keys) are confirmed at booking, so parking for travellers in Sarajevo is clear and predictable."
+        "a": "Yes. The parking operates 24 hours a day, seven days a week, with 24/7 CCTV. Arrival, transfer and key handover details are confirmed with the reservation."
       }
     ]
   },

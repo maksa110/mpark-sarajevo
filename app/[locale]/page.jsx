@@ -13,8 +13,12 @@ import Location from "@/components/Location";
 import Contact from "@/components/Contact";
 import SiteFooter from "@/components/SiteFooter";
 import MobileStickyCta from "@/components/MobileStickyCta";
-import { SITE, getSameAsForSchema, SCHEMA_OPENING_HOURS_SPEC } from "@/lib/site";
+import { SITE } from "@/lib/site";
 import { getGoogleReviews } from "@/lib/google-reviews";
+import {
+  buildOrganizationJsonLd,
+  buildParkingLocalBusinessJsonLd,
+} from "@/lib/jsonld-business";
 
 /** ISR (~6h) uz sveže Places/podatke — bez force-dynamic radi boljeg edge cache-a HTML-a. */
 export const revalidate = 21600;
@@ -29,7 +33,6 @@ export default async function HomePage({ params }) {
   const tPricing = await getTranslations("pricing");
 
   const googleData = await getGoogleReviews();
-  const sameAs = getSameAsForSchema();
   const aggNum = Number(googleData?.aggregateRating);
   const aggTotal =
     typeof googleData?.userRatingsTotal === "number"
@@ -45,43 +48,20 @@ export default async function HomePage({ params }) {
   const rawKeywords = tMeta.raw("keywords");
   const keywordLine = Array.isArray(rawKeywords) ? rawKeywords.join(", ") : "";
 
-  const localBusinessSchema = {
-    "@context": "https://schema.org",
-    "@type": "LocalBusiness",
-    "@id": `${SITE.url}/${locale}#business`,
-    name: SITE.brand,
+  const localBusinessSchema = buildParkingLocalBusinessJsonLd({
+    locale,
+    path: `/${locale}`,
     description: tMeta("description"),
-    url: `${SITE.url}/${locale}`,
-    telephone: SITE.phoneTel,
-    email: SITE.email,
-    image: `${SITE.url}/${locale}/opengraph-image`,
-    logo: `${SITE.url}/logo.png`,
-    address: {
-      "@type": "PostalAddress",
-      streetAddress: "Kasindolskih Žrtava 18",
-      addressLocality: "Sarajevo",
-      addressCountry: "BA",
-    },
-    geo: {
-      "@type": "GeoCoordinates",
-      latitude: SITE.geo.latitude,
-      longitude: SITE.geo.longitude,
-    },
-    openingHoursSpecification: SCHEMA_OPENING_HOURS_SPEC,
-    ...(sameAs.length ? { sameAs } : {}),
-    ...(hasStructuredAggregateRating
+    aggregateRating: hasStructuredAggregateRating
       ? {
-          aggregateRating: {
-            "@type": "AggregateRating",
-            ratingValue: aggNum.toFixed(1),
-            reviewCount: Math.trunc(aggTotal),
-            ratingCount: Math.trunc(aggTotal),
-            bestRating: 5,
-            worstRating: 1,
-          },
+          ratingValue: aggNum.toFixed(1),
+          reviewCount: Math.trunc(aggTotal),
         }
-      : {}),
-    ...(Array.isArray(googleData?.reviews) && googleData.reviews.some((r) => r.text)
+      : null,
+  });
+  Object.assign(
+    localBusinessSchema,
+    Array.isArray(googleData?.reviews) && googleData.reviews.some((r) => r.text)
       ? {
           review: googleData.reviews
             .filter((r) => r.text)
@@ -100,8 +80,9 @@ export default async function HomePage({ params }) {
               publisher: { "@type": "Organization", name: "Google" },
             })),
         }
-      : {}),
-  };
+      : {}
+  );
+  const organizationSchema = buildOrganizationJsonLd();
 
   const faqSchema = {
     "@context": "https://schema.org",
@@ -123,6 +104,10 @@ export default async function HomePage({ params }) {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
       />
 
       <a

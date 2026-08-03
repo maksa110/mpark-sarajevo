@@ -14,18 +14,18 @@
     "h1": "Sarajevo airport parking prices — tiers and stay comparison",
     "intro": [
       "This page answers one question only: how much does private parking near Sarajevo Airport cost and how rates change by stay length. Security, location, and step-by-step process live on separate URLs.",
-      "M Park uses three tiers: KM 9/day for 1–9 days, KM 8 for 10–14, KM 7 from day 15. Shuttle is bundled into the rate — protection details sit on the safety page."
+      "M Park uses three tiers based on total stay length: KM 9/day for 1–9 days, KM 8/day for 10–14 days, and KM 7/day for 15 or more days. The selected rate applies to every billable day. Shuttle is bundled into the rate — protection details sit on the safety page."
     ],
     "sections": [
       {
         "h2": "Daily tier structure",
         "paragraphs": [
-          "Days 1–9: KM 9 daily. Days 10–14: KM 8 daily. From day 15: KM 7 daily. No hidden shuttle line item — terminal transfer is inside the same daily rate.",
+          "For a total stay of 1–9 days, every billable day costs KM 9. For 10–14 total days, every day costs KM 8; for 15 or more total days, every day costs KM 7. There is no separate shuttle charge — terminal transfer is included.",
           "The reservation form counts calendar days between arrival and return and quotes instantly. Enter accurate dates so the total matches your trip."
         ]
       },
       {
-        "h2": "Short stays (1–5 days)",
+        "h2": "Short stays (1–9 days)",
         "paragraphs": [
           "Weekend or short business trips usually sit in the KM 9/day band. Example: five days = KM 45 total for bay plus included airport shuttle.",
           "For taxi comparison see the blog article parking vs taxi — this page stays on tariffs only."
@@ -34,8 +34,8 @@
       {
         "h2": "Medium and long stays (10–20+ days)",
         "paragraphs": [
-          "From day 10 the rate drops to KM 8; from day 15 to KM 7 — built in, no haggling. Planning multi-week trips? Read the long-term parking blog guide; here we keep the maths.",
-          "Seventeen days blends KM 8 days 10–14 plus KM 7 from day 15 — materially lower average than a full week at the top tier."
+          "A total stay of 10–14 days is billed entirely at KM 8/day; a stay of 15 or more days is billed entirely at KM 7/day. Planning a multi-week trip? Read the long-term parking blog guide; here we keep the maths.",
+          "A seventeen-day stay falls in the 15+ tier and costs 17 × KM 7 = KM 119."
         ]
       },
       {
@@ -61,7 +61,7 @@
       },
       {
         "question": "When does KM 7/day start?",
-        "answer": "From calendar day 15 of your stay."
+        "answer": "When the total billable stay is 15 days or longer, every billable day is charged at KM 7."
       },
       {
         "question": "Is shuttle extra?",

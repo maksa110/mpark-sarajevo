@@ -8,6 +8,7 @@ import {
 } from "@/lib/blog-routes";
 import { getBlogArticleContent } from "@/lib/blog-content";
 import {
+  buildBlogPostingJsonLd,
   buildBreadcrumbJsonLd,
   buildFaqPageJsonLd,
   buildWebPageJsonLd,
@@ -38,7 +39,8 @@ export async function generateMetadata({ params }) {
     ? null
     : await getTranslations({ locale, namespace: article.namespace });
   const path = `${seoPagePath(locale, SEO_SLUGS.blog)}/${slug}`;
-  const rawTitle = content?.metaTitle || t("metaTitle");
+  const rawTitle =
+    article.metaTitles?.[locale] || content?.metaTitle || t("metaTitle");
   const heading = content?.h1 || t("h1");
   const title =
     rawTitle.trim() === heading.trim()
@@ -49,6 +51,7 @@ export async function generateMetadata({ params }) {
     locale,
     `${SEO_SLUGS.blog}/${slug}`
   );
+  const shareImage = `${SITE.url.replace(/\/$/, "")}/${locale}/opengraph-image`;
   return {
     title,
     description: content?.metaDescription || t("metaDescription"),
@@ -60,14 +63,22 @@ export async function generateMetadata({ params }) {
       ),
     },
     openGraph: {
+      type: "article",
       url: canonical,
       title,
       description: content?.metaDescription || t("metaDescription"),
+      publishedTime: article.publishedAt,
+      modifiedTime: article.modifiedAt,
+      authors: [SITE.brand],
+      images: [{ url: shareImage, alt: heading }],
     },
     twitter: {
       title,
       description: content?.metaDescription || t("metaDescription"),
+      images: [{ url: shareImage, alt: heading }],
     },
+    authors: [{ name: SITE.brand, url: `${SITE.url}/${locale}/about` }],
+    publisher: SITE.brand,
     robots: { index: true, follow: true },
   };
 }
@@ -84,7 +95,8 @@ export default async function BlogArticlePage({ params }) {
     : await getTranslations({ locale, namespace: article.namespace });
   const tCommon = await getTranslations({ locale, namespace: "common" });
   const path = `${seoPagePath(locale, SEO_SLUGS.blog)}/${slug}`;
-  const rawTitle = content?.metaTitle || t("metaTitle");
+  const rawTitle =
+    article.metaTitles?.[locale] || content?.metaTitle || t("metaTitle");
   const heading = content?.h1 || t("h1");
   const title =
     rawTitle.trim() === heading.trim()
@@ -111,7 +123,15 @@ export default async function BlogArticlePage({ params }) {
     ],
   });
 
-  const schemas = [webpage, crumbs];
+  const articleSchema = buildBlogPostingJsonLd({
+    locale,
+    path,
+    title: heading,
+    description: content?.metaDescription || t("metaDescription"),
+    datePublished: article.publishedAt,
+    dateModified: article.modifiedAt,
+  });
+  const schemas = [webpage, crumbs, articleSchema];
   if (faqStructured.length > 0) {
     schemas.push(
       buildFaqPageJsonLd({ locale, path, items: faqStructured })

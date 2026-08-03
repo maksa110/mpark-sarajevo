@@ -6,6 +6,7 @@ import { SITE, calendarYearSarajevo } from "@/lib/site";
 import { PRIVACY_PATH, SEO_SLUGS } from "@/lib/seo-routes";
 import Reveal from "@/components/Reveal";
 import { routing, localeMeta } from "@/i18n/routing";
+import { PUBLIC_PAGE_PATHS } from "@/lib/public-pages";
 
 const NAV = [
   { hash: "home", key: "home", isRoot: true },
@@ -26,6 +27,12 @@ const GUIDES = [
   { href: SEO_SLUGS.blog, msgKey: "blog" },
   { href: SEO_SLUGS.reservation, msgKey: "reservation" },
 ];
+
+const COMPANY_LINKS = {
+  bs: { about: "O nama", contact: "Kontakt" },
+  en: { about: "About", contact: "Contact" },
+  de: { about: "Über uns", contact: "Kontakt" },
+};
 
 export default function SiteFooter({ isHome = false }) {
   const locale = useLocale();
@@ -130,6 +137,16 @@ export default function SiteFooter({ isHome = false }) {
                   <NavLink item={item} />
                 </li>
               ))}
+              <li>
+                <Link href={PUBLIC_PAGE_PATHS.about} className={linkClass}>
+                  {COMPANY_LINKS[locale].about}
+                </Link>
+              </li>
+              <li>
+                <Link href={PUBLIC_PAGE_PATHS.contact} className={linkClass}>
+                  {COMPANY_LINKS[locale].contact}
+                </Link>
+              </li>
             </ul>
           </Reveal>
 

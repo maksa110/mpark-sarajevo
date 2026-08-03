@@ -16,6 +16,7 @@ export async function generateMetadata({ params }) {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "blogIndex" });
   const canonical = seoAbsoluteUrl(new URL(SITE.url).origin, locale, SEO_SLUGS.blog);
+  const shareImage = `${SITE.url.replace(/\/$/, "")}/${locale}/opengraph-image`;
   return {
     title: t("metaTitle"),
     description: t("metaDescription"),
@@ -27,10 +28,12 @@ export async function generateMetadata({ params }) {
       url: canonical,
       title: t("metaTitle"),
       description: t("metaDescription"),
+      images: [{ url: shareImage, alt: t("metaTitle") }],
     },
     twitter: {
       title: t("metaTitle"),
       description: t("metaDescription"),
+      images: [{ url: shareImage, alt: t("metaTitle") }],
     },
     robots: { index: true, follow: true },
   };

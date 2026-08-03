@@ -64,7 +64,7 @@
       },
       {
         "question": "Wie senkt längerer Aufenthalt den Preis?",
-        "answer": "Ab Tag 10 KM 8/Tag, ab Tag 15 KM 7/Tag — siehe Langzeitparken-Leitfaden."
+        "answer": "Bei insgesamt 10–14 Tagen gilt KM 8 für jeden Tag; bei 15 oder mehr Tagen gilt KM 7 für jeden Tag — siehe Langzeitparken-Leitfaden."
       },
       {
         "question": "Wie buche ich zu diesen Tarifen?",
@@ -503,7 +503,7 @@
       {
         "h2": "Staffeln im Überblick",
         "paragraphs": [
-          "Tage eins bis neun werden mit 9 KM je Kalendertag bewertet, ab dem zehnten bis vierzehnten Tag gilt 8 KM, ab dem fünfzehnten Tag sind es 7 KM — Transfer und Überwachung bleiben in allen Bereichen aktiv.",
+          "Ein Gesamtaufenthalt von 1–9 Tagen wird vollständig mit 9 KM pro Tag berechnet, 10–14 Tage mit 8 KM pro Tag und 15 oder mehr Tage mit 7 KM pro Tag — Transfer und Überwachung bleiben in allen Bereichen aktiv.",
           "Die Buchungsmaske addiert automatisch, wenn An- und Abreise erfasst wurden — ohne nachträgliche versteckte Aufschläge solange sich das Reisedatum nicht ändert.",
           "So lassen sich Ausgaben gegenüber Arbeitgebern oder im Familienbudget gut belegen."
         ]
@@ -529,7 +529,7 @@
     "faqStructured": [
       {
         "question": "Ab wann gilt die niedrigere Tagesrate?",
-        "answer": "Ab Tag 10 KM 8/Tag, ab Tag 15 KM 7/Tag — mit gleichem CCTV- und Shuttle-Paket."
+        "answer": "Bei insgesamt 10–14 Tagen gilt KM 8 für jeden Tag; bei 15 oder mehr Tagen gilt KM 7 für jeden Tag — mit gleichem CCTV- und Shuttle-Paket."
       },
       {
         "question": "Mehrere Wochen möglich?",

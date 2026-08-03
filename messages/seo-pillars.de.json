@@ -14,18 +14,18 @@
     "h1": "Parkpreise am Flughafen Sarajevo - Staffeln und Vergleich",
     "intro": [
       "Diese Seite beantwortet eine klare Frage: Was kostet privates Parken nahe dem Flughafen Sarajevo und wie aendert sich der Tagespreis bei laengerer Reise. Sicherheit, Standort und Ablauf haben eigene Seiten.",
-      "M Park nutzt drei transparente Staffeln: KM 9 pro Tag fuer 1-9 Tage, KM 8 fuer 10-14 Tage und KM 7 ab Tag 15. Der Shuttle ist im Parkpreis enthalten."
+      "M Park nutzt drei transparente Staffeln nach der gesamten Aufenthaltsdauer: KM 9 pro Tag fuer 1-9 Tage, KM 8 pro Tag fuer 10-14 Tage und KM 7 pro Tag fuer 15 oder mehr Tage. Der gewaehlte Satz gilt fuer jeden berechneten Tag. Der Shuttle ist im Parkpreis enthalten."
     ],
     "sections": [
       {
         "h2": "Tagesstaffeln einfach lesen",
         "paragraphs": [
-          "Tage 1-9 kosten KM 9 pro Tag. Tage 10-14 kosten KM 8 pro Tag. Ab Tag 15 gilt KM 7 pro Tag. Es gibt keine separate Shuttle-Zeile, weil der Terminaltransfer Teil derselben Leistung ist.",
+          "Bei insgesamt 1-9 Tagen kostet jeder berechnete Tag KM 9. Bei insgesamt 10-14 Tagen kostet jeder Tag KM 8, bei 15 oder mehr Tagen jeder Tag KM 7. Der Terminaltransfer ist ohne separate Shuttle-Gebuehr enthalten.",
           "Das Reservierungsformular zaehlt die Kalendertage zwischen Ankunft und Rueckkehr und zeigt den Schaetzwert sofort. Exakte Daten halten den Betrag sauber."
         ]
       },
       {
-        "h2": "Kurze Aufenthalte",
+        "h2": "Kurze Aufenthalte (1-9 Tage)",
         "paragraphs": [
           "Wochenend- und kurze Geschaeftsreisen liegen meist in der KM 9 Staffel. Fuenf Tage ergeben zum Beispiel KM 45 fuer Stellplatz plus enthaltenen Flughafenshuttle.",
           "Fuer den Vergleich mit Taxi lesen Sie den Blogartikel Parken oder Taxi; diese Seite bleibt bei den Tarifen."
@@ -34,7 +34,7 @@
       {
         "h2": "Mittlere und lange Aufenthalte",
         "paragraphs": [
-          "Ab Tag 10 sinkt der Preis auf KM 8, ab Tag 15 auf KM 7. Der Rabatt ist eingebaut und muss nicht verhandelt werden.",
+          "Ein Gesamtaufenthalt von 10-14 Tagen wird vollstaendig mit KM 8 pro Tag berechnet; bei 15 oder mehr Tagen gilt fuer alle berechneten Tage KM 7. Der Rabatt ist eingebaut und muss nicht verhandelt werden.",
           "Wer mehrere Wochen reist, sollte zusaetzlich den Langzeitparken-Guide lesen. Hier stehen nur die Zahlen und wie sie im Formular berechnet werden."
         ]
       },
@@ -61,7 +61,7 @@
       },
       {
         "question": "Ab wann gilt KM 7 pro Tag?",
-        "answer": "Ab dem 15. Kalendertag Ihres Aufenthalts."
+        "answer": "Wenn der gesamte berechnete Aufenthalt 15 Tage oder laenger dauert, werden alle berechneten Tage mit KM 7 berechnet."
       },
       {
         "question": "Ist Shuttle extra?",

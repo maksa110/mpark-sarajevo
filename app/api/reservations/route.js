@@ -40,6 +40,22 @@ function validateDates(arrivalDate, arrivalTime, departureDate, departureTime) {
   const d = new Date(`${departureDate}T${departureTime}`);
   if (Number.isNaN(a.getTime()) || Number.isNaN(d.getTime()))
     return "Neispravni datumi ili vremena.";
+  const nowParts = Object.fromEntries(
+    new Intl.DateTimeFormat("en-CA", {
+      timeZone: "Europe/Sarajevo",
+      year: "numeric",
+      month: "2-digit",
+      day: "2-digit",
+      hour: "2-digit",
+      minute: "2-digit",
+      hourCycle: "h23",
+    })
+      .formatToParts(new Date())
+      .filter(({ type }) => type !== "literal")
+      .map(({ type, value }) => [type, value])
+  );
+  const nowSarajevo = `${nowParts.year}-${nowParts.month}-${nowParts.day}T${nowParts.hour}:${nowParts.minute}`;
+  if (`${arrivalDate}T${arrivalTime}` < nowSarajevo) return "ARRIVAL_PAST";
   if (d <= a) return "Datum i vrijeme odlaska mora biti nakon dolaska.";
   return null;
 }
@@ -49,6 +65,16 @@ function parseLeaveKey(raw) {
   if (raw === "true") return true;
   if (raw === "false") return false;
   return undefined;
+}
+
+function getGuestEmailLocale(request) {
+  try {
+    const pathname = new URL(request.headers.get("referer") || "").pathname;
+    const locale = pathname.split("/").filter(Boolean)[0];
+    return ["bs", "en", "de"].includes(locale) ? locale : "bs";
+  } catch {
+    return "bs";
+  }
 }
 
 export async function POST(request) {
@@ -127,6 +153,15 @@ async function postReservation(request) {
     departureDate,
     departureTime
   );
+  if (dateErr === "ARRIVAL_PAST") {
+    return NextResponse.json(
+      {
+        errorCode: "ARRIVAL_PAST",
+        error: "Datum i vrijeme dolaska ne mogu biti u prošlosti.",
+      },
+      { status: 400 }
+    );
+  }
   if (dateErr) return NextResponse.json({ error: dateErr }, { status: 400 });
 
   const id = nanoid();
@@ -223,7 +258,11 @@ async function postReservation(request) {
   }
 
   waitUntil(sendReservationEmailNotification(reservation));
-  waitUntil(sendGuestReservationConfirmation(reservation));
+  waitUntil(
+    sendGuestReservationConfirmation(reservation, {
+      locale: getGuestEmailLocale(request),
+    })
+  );
 
   return NextResponse.json(reservation, { status: 201 });
 }

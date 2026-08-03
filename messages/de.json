@@ -120,13 +120,15 @@
       "email": "Bitte geben Sie eine gültige E-Mail-Adresse ein.",
       "EMAIL_REQUIRED": "E-Mail ist erforderlich.",
       "EMAIL_INVALID": "Bitte ein gültiges E-Mail-Format eingeben.",
+      "ARRIVAL_PAST": "Ankunftsdatum und -zeit dürfen nicht in der Vergangenheit liegen.",
       "datesOrder": "Abreisedatum und -zeit müssen nach der Anreise liegen.",
       "submit": "Senden fehlgeschlagen. Bitte erneut versuchen oder uns anrufen.",
       "LEAVE_KEY_REQUIRED": "Bitte wählen Sie eine Option zur Schlüsselübergabe.",
       "CAPACITY_NO_KEY": "Keine freien Plätze ohne Schlüsselübergabe für den gewählten Zeitraum.",
       "CAPACITY_WITH_KEY": "Keine freien Plätze mit Schlüsselübergabe für den gewählten Zeitraum (Parkplatz an einem oder mehreren Tagen voll).",
       "capacityChecking": "Verfügbarkeit wird geprüft…",
-      "capacityBlocked": "Keine freien Plätze für diese Auswahl — Daten oder Schlüsseloption ändern."
+      "capacityBlocked": "Keine freien Plätze für diese Auswahl — Daten oder Schlüsseloption ändern.",
+      "capacityUnavailable": "Die Verfügbarkeit kann derzeit nicht geprüft werden. Bitte versuchen Sie es erneut oder kontaktieren Sie uns."
     },
     "submit": "Reservierung senden",
     "submitting": "Wird gesendet…",
@@ -284,7 +286,7 @@
       },
       {
         "q": "Ist der Parkplatz 24/7 verfügbar?",
-        "a": "Zugang und Überwachung sind mit 24/7-Videoüberwachung organisiert. Anreise und Schlüsselübergabe (einschließlich Übergabezeiten) bestätigen wir bei der Buchung, damit Parkplatz für Reisende Sarajevo klar und planbar bleibt."
+        "a": "Ja. Der Parkplatz ist rund um die Uhr, sieben Tage die Woche geöffnet und wird 24/7 videoüberwacht. Anreise, Transfer und Schlüsselübergabe werden mit der Reservierung bestätigt."
       }
     ]
   },

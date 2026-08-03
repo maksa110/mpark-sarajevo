@@ -14,18 +14,18 @@
     "h1": "Cijene parkinga kod Aerodroma Sarajevo — tarife i usporedba boravka",
     "intro": [
       "Ova stranica odgovara isključivo na pitanje koliko košta privatni parking kod Aerodroma Sarajevo i kako se mijenja cijena po dužini boravka. Ne pokrivamo sigurnost, lokaciju ni korak-po-korak proces — za to postoje zasebne stranice.",
-      "M Park koristi tri jasne tarife: 9 KM po danu za 1–9 dana, 8 KM za 10–14 dana i 7 KM od petnaestog dana. Shuttle i nadzor uključeni su u cijenu — detalje o zaštiti vozila pogledajte na stranici sigurnosti."
+      "M Park koristi tri jasne tarife prema ukupnom trajanju boravka: 9 KM po danu za 1–9 dana, 8 KM po danu za 10–14 dana i 7 KM po danu za 15 ili više dana. Odabrana stopa primjenjuje se na svaki obračunati dan. Shuttle i nadzor uključeni su u cijenu — detalje o zaštiti vozila pogledajte na stranici sigurnosti."
     ],
     "sections": [
       {
         "h2": "Tarifni opseg po broju dana",
         "paragraphs": [
-          "Prvih devet kalendarskih dana: 9 KM dnevno. Od desetog do četrnaestog: 8 KM dnevno. Od petnaestog dana nadalje: 7 KM dnevno. Nema skrivenih stavki za shuttle — uključen je u istu cijenu boravka.",
+          "Ako ukupan boravak traje 1–9 dana, svaki obračunati dan košta 9 KM. Za ukupan boravak od 10–14 dana svaki dan košta 8 KM, a za 15 ili više dana svaki dan košta 7 KM. Nema skrivene stavke za shuttle — uključen je u cijenu boravka.",
           "Forma na stranici rezervacije računa broj dana između vašeg dolaska i povratka i odmah prikazuje procjenu. Unesite tačne datume kako bi iznos odgovarao stvarnom putovanju."
         ]
       },
       {
-        "h2": "Kratki boravak (1–5 dana) — tipičan vikend ili poslovni put",
+        "h2": "Kratki boravak (1–9 dana) — vikend, odmor ili poslovni put",
         "paragraphs": [
           "Za kratke odsutnosti najčešće važi stopa od 9 KM po danu. Primjer: pet dana = 45 KM ukupno za mjesto s uključenim transferom do aerodroma.",
           "Kratki boravak ima smisla kad želite predvidljiv dnevni trošak bez pregovaranja na licu mjesta. Za usporedbu s taksijem pogledajte blog članak parking vs taksi — ovdje držimo fokus samo na tarifama."
@@ -34,8 +34,8 @@
       {
         "h2": "Srednji i dugi boravak (10–20+ dana) — niža dnevna stopa",
         "paragraphs": [
-          "Od desetog dana tarifa automatski pada na 8 KM, a od petnaestog na 7 KM — bez posebnog zahtjeva za popust. To je ugrađena logika za duže putovanje.",
-          "Za detaljan vodič o planiranju višenedeljnog boravka pročitajte blog članak o dugoročnom parkingu. Na ovoj stranici samo brojke: sedamnaest dana po 8 KM (dani 10–14) + 7 KM od dana 15 daje značajno niži prosjek nego kratka sedmica po punoj stopi."
+          "Ako ukupan boravak traje 10–14 dana, svih obračunatih dana računa se po 8 KM. Ako traje 15 ili više dana, svih dana računa se po 7 KM — bez posebnog zahtjeva za popust.",
+          "Za detaljan vodič o planiranju višenedeljnog boravka pročitajte blog članak o dugoročnom parkingu. Primjer: sedamnaest dana ulazi u opseg 15+ i iznosi 17 × 7 KM = 119 KM."
         ]
       },
       {
@@ -61,7 +61,7 @@
       },
       {
         "question": "Kada počinje tarifa od 7 KM?",
-        "answer": "Od petnaestog kalendarskog dana boravka — svaki dan od tog momenta računa se po 7 KM."
+        "answer": "Kada ukupan obračunati boravak traje 15 ili više dana, svih obračunatih dana računa se po 7 KM."
       },
       {
         "question": "Da li shuttle utiče na cijenu?",

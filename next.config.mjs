@@ -7,6 +7,34 @@ import {
 } from "./lib/seo-routes.js";
 
 const withNextIntl = createNextIntlPlugin("./i18n/request.js");
+const isDevelopment = process.env.NODE_ENV === "development";
+
+const publicScriptSources = [
+  "'self'",
+  "'unsafe-inline'",
+  ...(isDevelopment ? ["'unsafe-eval'"] : []),
+  "https://www.googletagmanager.com",
+  "https://googleads.g.doubleclick.net",
+  "https://www.googleadservices.com",
+  "https://vercel.live",
+].join(" ");
+
+const publicContentSecurityPolicy = [
+  "default-src 'self'",
+  "base-uri 'self'",
+  "object-src 'none'",
+  "frame-ancestors 'self'",
+  "form-action 'self'",
+  `script-src ${publicScriptSources}`,
+  "style-src 'self' 'unsafe-inline'",
+  "img-src 'self' data: blob: https://lh3.googleusercontent.com https://lh4.googleusercontent.com https://lh5.googleusercontent.com https://lh6.googleusercontent.com https://www.google-analytics.com https://www.googletagmanager.com https://*.google.com https://*.google.ba https://*.doubleclick.net https://*.googleadservices.com",
+  "font-src 'self' data:",
+  "connect-src 'self' https://*.google-analytics.com https://analytics.google.com https://www.googletagmanager.com https://*.google.com https://*.google.ba https://*.doubleclick.net https://*.googleadservices.com https://vercel.live",
+  "frame-src https://www.google.com https://maps.google.com https://vercel.live",
+  "worker-src 'self' blob:",
+  "manifest-src 'self'",
+  "upgrade-insecure-requests",
+].join("; ");
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
@@ -17,6 +45,7 @@ const nextConfig = {
   images: {
     formats: ["image/avif", "image/webp"],
     qualities: [68, 70, 75],
+    minimumCacheTTL: 86400,
     remotePatterns: [
       {
         protocol: "https",
@@ -78,9 +107,10 @@ const nextConfig = {
   },
   async headers() {
     return [
-      // Do not add security headers to Next internals, API, and files with an extension
+      // Public marketing HTML only; protected dashboards, API routes, and static files are excluded.
       {
-        source: "/((?!_next|_vercel|api|favicon|robots|sitemap|.*\\..*).*)",
+        source:
+          "/((?!_next|_vercel|api|admin|partner|favicon|robots|sitemap|.*\\..*).*)",
         headers: [
           {
             key: "Cache-Control",
@@ -89,6 +119,14 @@ const nextConfig = {
           { key: "X-Content-Type-Options", value: "nosniff" },
           { key: "Referrer-Policy", value: "strict-origin-when-cross-origin" },
           { key: "X-Frame-Options", value: "SAMEORIGIN" },
+          {
+            key: "Content-Security-Policy",
+            value: publicContentSecurityPolicy,
+          },
+          {
+            key: "Permissions-Policy",
+            value: "camera=(), microphone=(), geolocation=(), payment=(), usb=()",
+          },
         ],
       },
     ];

@@ -20,6 +20,28 @@ const inputClass =
 const radioCard =
   "flex cursor-pointer items-start gap-3 rounded-2xl border border-zinc-200 bg-white px-4 py-3 text-sm font-medium text-zinc-800 shadow-sm transition hover:border-brand-lime has-[:checked]:border-brand-lime has-[:checked]:ring-2 has-[:checked]:ring-brand-lime/25";
 
+function getSarajevoNow() {
+  const parts = Object.fromEntries(
+    new Intl.DateTimeFormat("en-CA", {
+      timeZone: "Europe/Sarajevo",
+      year: "numeric",
+      month: "2-digit",
+      day: "2-digit",
+      hour: "2-digit",
+      minute: "2-digit",
+      hourCycle: "h23",
+    })
+      .formatToParts(new Date())
+      .filter(({ type }) => type !== "literal")
+      .map(({ type, value }) => [type, value])
+  );
+
+  return {
+    date: `${parts.year}-${parts.month}-${parts.day}`,
+    dateTime: `${parts.year}-${parts.month}-${parts.day}T${parts.hour}:${parts.minute}`,
+  };
+}
+
 const affiliateCopyByLocale = {
   bs: {
     promoLabel: "Promo kod",
@@ -70,6 +92,7 @@ export default function Booking() {
   const [capState, setCapState] = useState("idle");
   const [capFailCode, setCapFailCode] = useState(null);
   const [trackedRef, setTrackedRef] = useState("");
+  const [today] = useState(() => getSarajevoNow().date);
 
   const refFromQuery = useMemo(
     () => normalizeAffiliateRef(searchParams.get("ref")),
@@ -97,7 +120,8 @@ export default function Booking() {
     if (!arrival || !arrivalTime || !departure || !departureTime) return false;
     const a = new Date(`${arrival}T${arrivalTime}`);
     const d = new Date(`${departure}T${departureTime}`);
-    return !Number.isNaN(+a) && !Number.isNaN(+d) && d > a;
+    const arrivalIsPast = `${arrival}T${arrivalTime}` < getSarajevoNow().dateTime;
+    return !Number.isNaN(+a) && !Number.isNaN(+d) && !arrivalIsPast && d > a;
   }, [arrival, arrivalTime, departure, departureTime]);
 
   useEffect(() => {
@@ -156,13 +180,13 @@ export default function Booking() {
           setCapFailCode(
             ["CAPACITY_NO_KEY", "CAPACITY_WITH_KEY"].includes(data.code)
               ? data.code
-              : "CAPACITY_WITH_KEY"
+              : "CAPACITY_UNAVAILABLE"
           );
         }
       } catch {
         if (!cancelled) {
           setCapState("fail");
-          setCapFailCode("CAPACITY_WITH_KEY");
+          setCapFailCode("CAPACITY_UNAVAILABLE");
         }
       }
     }, 420);
@@ -197,7 +221,11 @@ export default function Booking() {
     if (arrival && arrivalTime && departure && departureTime) {
       const a = new Date(`${arrival}T${arrivalTime}`);
       const d = new Date(`${departure}T${departureTime}`);
-      if (d <= a) e.dates = t("errors.datesOrder");
+      if (`${arrival}T${arrivalTime}` < getSarajevoNow().dateTime) {
+        e.dates = t("errors.ARRIVAL_PAST");
+      } else if (d <= a) {
+        e.dates = t("errors.datesOrder");
+      }
     }
     setErrors(e);
     return Object.keys(e).length === 0;
@@ -455,6 +483,7 @@ export default function Booking() {
                     name="arrival"
                     type="date"
                     value={arrival}
+                    min={today}
                     onChange={(e) => setArrival(e.target.value)}
                     className={inputClass}
                   />
@@ -495,6 +524,7 @@ export default function Booking() {
                     name="departure"
                     type="date"
                     value={departure}
+                    min={arrival || today}
                     onChange={(e) => setDeparture(e.target.value)}
                     className={inputClass}
                   />
@@ -570,7 +600,7 @@ export default function Booking() {
                     {capFailCode === "CAPACITY_NO_KEY" ||
                     capFailCode === "CAPACITY_WITH_KEY"
                       ? t(`errors.${capFailCode}`)
-                      : t("errors.capacityBlocked")}
+                      : t("errors.capacityUnavailable")}
                   </p>
                 )}
               </fieldset>

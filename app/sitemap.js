@@ -9,6 +9,7 @@ import {
   SEO_SLUGS,
   seoAbsoluteUrl,
 } from "@/lib/seo-routes";
+import { PUBLIC_PAGE_PATHS } from "@/lib/public-pages";
 
 const base = SITE.url.replace(/\/$/, "");
 
@@ -125,10 +126,29 @@ function buildSitemapSafe() {
     alternates: { languages: privacyLanguages },
   }));
 
+  const publicPageEntries = Object.values(PUBLIC_PAGE_PATHS).flatMap((path) => {
+    const languages = Object.fromEntries(
+      routing.locales.map((locale) => [
+        hreflangKey(locale),
+        `${base}/${locale}${path}`,
+      ])
+    );
+    languages["x-default"] = `${base}/${routing.defaultLocale}${path}`;
+
+    return routing.locales.map((locale) => ({
+      url: `${base}/${locale}${path}`,
+      lastModified,
+      changeFrequency: "monthly",
+      priority: path === PUBLIC_PAGE_PATHS.about ? 0.7 : 0.65,
+      alternates: { languages },
+    }));
+  });
+
   return [
     ...homeEntries,
     ...guideEntries,
     ...blogArticleEntries,
+    ...publicPageEntries,
     ...privacyEntries,
   ];
 }

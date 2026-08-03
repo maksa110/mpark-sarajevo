@@ -36,6 +36,13 @@ export default async function SeoBlogArticle({
   const sectionBlocks = Array.isArray(content.sections) ? content.sections : [];
   const faqPairs = Array.isArray(content.faqStructured) ? content.faqStructured : [];
   const relatedLinks = Array.isArray(content.relatedLinks) ? content.relatedLinks : [];
+  const dateLocale =
+    locale === "bs" ? "bs-BA" : locale === "de" ? "de-DE" : "en-GB";
+  const byline = {
+    bs: { by: "Autor", published: "Objavljeno", updated: "Ažurirano" },
+    en: { by: "Author", published: "Published", updated: "Updated" },
+    de: { by: "Autor", published: "Veröffentlicht", updated: "Aktualisiert" },
+  }[locale];
 
   function resolveRelatedHref(item) {
     if (!item) return null;
@@ -68,6 +75,29 @@ export default async function SeoBlogArticle({
           {content.h1}
         </h1>
         <p className="mt-3 text-sm font-medium text-zinc-500">{content.kicker}</p>
+        <p className="mt-3 text-sm text-zinc-600">
+          {byline.by}:{" "}
+          <Link
+            href="/about"
+            className="font-semibold underline underline-offset-4"
+          >
+            M Park Sarajevo
+          </Link>
+          {" · "}
+          {byline.published}:{" "}
+          {new Intl.DateTimeFormat(dateLocale, { dateStyle: "long" }).format(
+            new Date(article.publishedAt)
+          )}
+          {article.modifiedAt !== article.publishedAt ? (
+            <>
+              {" · "}
+              {byline.updated}:{" "}
+              {new Intl.DateTimeFormat(dateLocale, { dateStyle: "long" }).format(
+                new Date(article.modifiedAt)
+              )}
+            </>
+          ) : null}
+        </p>
 
         <div className="prose prose-zinc prose-lg mt-10 max-w-none prose-headings:scroll-mt-24 prose-a:text-brand-navy prose-a:underline prose-a:decoration-brand-navy/35 prose-a:underline-offset-4 hover:prose-a:text-brand-lime hover:prose-a:decoration-brand-lime/50">
           {introParas.map((p, i) => (

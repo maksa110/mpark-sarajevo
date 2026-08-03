@@ -39,7 +39,7 @@
       {
         "h2": "Transparentne cijene i online rezervacija",
         "paragraphs": [
-          "Tarife su strukturirane po dužini boravka: 9 KM po danu za 1–9 dana, 8 KM za 10–14 dana i 7 KM od petnaestog dana. Forma na sajtu odmah prikazuje procjenu kad unesete datume — bez iznenađenja nakon povratka sa puta.",
+          "Tarife se biraju prema ukupnoj dužini boravka: 9 KM po danu za 1–9 dana, 8 KM po danu za 10–14 dana i 7 KM po danu za 15 ili više dana. Odabrana stopa važi za svaki obračunati dan, a forma odmah prikazuje procjenu.",
           "Rezervacija isključivo online ostavlja jasan zapis termina i olakšava komunikaciju ako se let promijeni. Detaljan pregled cijena i šta je uračunato nalazi se na stranici o cijenama parkinga kod aerodroma."
         ]
       },
@@ -293,7 +293,7 @@
       {
         "h2": "Duži odsustva (10+ dana): niža dnevna stopa",
         "paragraphs": [
-          "Od desetog dana tarifa pada na 8 KM po danu, a od petnaestog na 7 KM — parking postaje još konkurentniji u odnosu na kombinaciju taksi + ostavljanje auta kod kuće bez nadzora.",
+          "Ako ukupan boravak traje 10–14 dana, svih obračunatih dana računa se po 8 KM; za ukupno 15 ili više dana svih dana računa se po 7 KM. Parking tako dobija nižu dnevnu stopu za duži boravak.",
           "Za detalje o dužim boravcima pogledajte dugoročni parking i stranicu o najpovoljnijim opcijama kod aerodroma."
         ]
       },
@@ -359,14 +359,14 @@
     "kicker": "M Park Sarajevo · cijena i vrijednost, ne samo broj",
     "h1": "Najjeftiniji parking kod Aerodroma Sarajevo — transparentne tarife i stvarna vrijednost",
     "intro": [
-      "Pretraga „najjeftiniji parking aerodrom Sarajevo“ obično znači da tražite nisku dnevnu cijenu — ali jeftino nije isto što i dobro ukupno isplativo. M Park Sarajevo nudi jasne tarife: 9 KM po danu za 1–9 dana, 8 KM za 10–14 dana i 7 KM od petnaestog dana, uz besplatan shuttle i video nadzor uključene u ponudu.",
+      "Pretraga „najjeftiniji parking aerodrom Sarajevo“ obično znači da tražite nisku dnevnu cijenu — ali jeftino nije isto što i dobro ukupno isplativo. M Park Sarajevo nudi jasne tarife prema ukupnom boravku: 9 KM po danu za 1–9 dana, 8 KM po danu za 10–14 dana i 7 KM po danu za 15 ili više dana, uz besplatan shuttle i video nadzor uključene u ponudu.",
       "Ovaj vodič objašnjava kako smanjiti dnevni trošak dužim boravkom, šta je uračunato u cijenu i zašto „najniža cijena bez konteksta“ ponekad košta više na kraju — kroz dodatne vožnje, rizik ili nepoznata pravila."
     ],
     "sections": [
       {
         "h2": "Tarifni opseg: kako padne dnevna cijena",
         "paragraphs": [
-          "Prvih devet dana boravka računa se po 9 KM dnevno. Od desetog do četrnaestog dana stopa je 8 KM, a od petnaestog dana nadalje 7 KM po danu. Duže putovanje automatski smanjuje prosječni dnevni trošak — bez skrivenih „popusta“ koji traže pregovaranje.",
+          "Za ukupan boravak od 1–9 dana svaki obračunati dan košta 9 KM. Za ukupno 10–14 dana svaki dan košta 8 KM, a za 15 ili više dana svaki dan košta 7 KM. Duže putovanje automatski dobija nižu dnevnu stopu — bez pregovaranja.",
           "Forma na sajtu računa broj dana i prikazuje procjenu prije slanja rezervacije. Detaljan pregled nalazi se na stranici o cijenama parkinga kod aerodroma."
         ]
       },
@@ -403,7 +403,7 @@
     "faqStructured": [
       {
         "question": "Koliko košta najduži boravak po danu?",
-        "answer": "Od petnaestog dana boravka tarifa je 7 KM po danu — najniža dnevna stopa u našem opsegu, uz shuttle i nadzor uključene u ponudu."
+        "answer": "Za ukupan boravak od 15 ili više dana tarifa je 7 KM za svaki obračunati dan — najniža dnevna stopa u našem opsegu, uz shuttle i nadzor uključene u ponudu."
       },
       {
         "question": "Da li postoje skriveni troškovi?",

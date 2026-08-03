@@ -120,6 +120,7 @@
       "email": "Unesite ispravnu email adresu.",
       "EMAIL_REQUIRED": "Email je obavezan.",
       "EMAIL_INVALID": "Unesite ispravan format email adrese.",
+      "ARRIVAL_PAST": "Datum i vrijeme dolaska ne mogu biti u prošlosti.",
       "PROMO_CODE_INVALID": "Promo kod nije važeći.",
       "datesOrder": "Datum i vrijeme odlaska mora biti nakon dolaska.",
       "submit": "Slanje nije uspjelo. Pokušajte ponovo ili nas pozovite.",
@@ -127,7 +128,8 @@
       "CAPACITY_NO_KEY": "Nema dostupnih mjesta bez ostavljanja ključa za odabrani termin.",
       "CAPACITY_WITH_KEY": "Nema dostupnih mjesta sa ostavljanjem ključa za odabrani termin (parking je popunjen za jedan ili više dana u terminu).",
       "capacityChecking": "Provjeravamo dostupnost mjesta…",
-      "capacityBlocked": "Nema slobodnih mjesta za ovaj termin — promijenite datume ili opciju ključa."
+      "capacityBlocked": "Nema slobodnih mjesta za ovaj termin — promijenite datume ili opciju ključa.",
+      "capacityUnavailable": "Trenutno nije moguće provjeriti dostupnost. Pokušajte ponovo ili nas kontaktirajte."
     },
     "submit": "Pošalji rezervaciju",
     "submitting": "Šaljem…",
@@ -288,7 +290,7 @@
       },
       {
         "q": "Je li parking dostupan 24/7?",
-        "a": "Pristup i nadzor su organizovani uz 24/7 video nadzor. Detalje dolaska i predaje vozila (uključujući radno vrijeme za predaju ključeva) potvrđujemo uz rezervaciju, kako bi parking za putnike Sarajevo bio jasan i predvidljiv."
+        "a": "Da. Parking radi 24 sata dnevno, sedam dana u sedmici, uz 24/7 video nadzor. Detalje dolaska, transfera i predaje ključeva potvrđujemo uz rezervaciju."
       }
     ]
   },
@@ -438,7 +440,7 @@
     "faqStructured": [
       {
         "question": "Koliko košta parking po danu?",
-        "answer": "9 KM po danu za 1–9 dana, 8 KM za 10–14 dana i 7 KM od petnaestog dana. Forma prikazuje procjenu kad unesete datume dolaska i odlaska."
+        "answer": "9 KM po danu za ukupan boravak od 1–9 dana, 8 KM po danu za ukupno 10–14 dana i 7 KM po danu za ukupno 15 ili više dana. Odabrana stopa važi za svaki obračunati dan."
       },
       {
         "question": "Da li je shuttle uračunat u cijenu?",
@@ -450,7 +452,7 @@
       },
       {
         "question": "Kako duži boravak smanjuje cijenu?",
-        "answer": "Od desetog dana stopa je 8 KM dnevno, od petnaestog 7 KM. Detalji o višenedeljnim putovanjima na stranici dugoročnog parkinga."
+        "answer": "Ako ukupan boravak traje 10–14 dana, svih dana računa se po 8 KM; za 15 ili više dana svih dana računa se po 7 KM. Detalji su na stranici dugoročnog parkinga."
       },
       {
         "question": "Kako rezervisati po ovim cijenama?",
@@ -767,7 +769,7 @@
       },
       {
         "question": "Da li parking radi 24/7?",
-        "answer": "Video nadzor je aktivan non-stop. Organizacija dolaska, predaje ključeva i transfera prilagođava se dogovoru iz rezervacije i praktičnim okvirima rada tima — tačne intervale potvrđujemo u komunikaciji prije puta kako biste znali kada možete doći i ostaviti vozilo."
+        "answer": "Da. Parking radi 24 sata dnevno, sedam dana u sedmici, a video nadzor je aktivan non-stop. Detalje dolaska, transfera i predaje ključeva potvrđujemo uz rezervaciju."
       }
     ],
     "ctaTitle": "Spremni za termin?",
@@ -891,7 +893,7 @@
       {
         "h2": "Tarife kada ostavljate automobil na više dana",
         "paragraphs": [
-          "Struktura cijena: 9 KM po danu za 1–9 dana boravka, 8 KM po danu za 10–14 dana i 7 KM po danu od petnaestog dana naviše. Što je put duži, povoljnija je dnevna jedinica uz isti paket nadzora i transfera.",
+          "Struktura cijena prema ukupnom boravku: 9 KM po danu za 1–9 dana, 8 KM po danu za 10–14 dana i 7 KM po danu za 15 ili više dana. Odabrana stopa važi za svaki obračunati dan uz isti paket nadzora i transfera.",
           "Forma uz rezervaciju sama računa broj kalendarskih dana boravka i prikazuje procjenu kako znate ukupan okvir troška prije dolaska.",
           "Za duže putovanje to znači predvidljiv dnevni trošak bez skrivenih stavki — vidite procjenu u formi čim unesete datume dolaska i povratka."
         ]
@@ -917,7 +919,7 @@
     "faqStructured": [
       {
         "question": "Od koliko dana važi niža dnevna cijena?",
-        "answer": "Od desetog dana boravka tarifa je 8 KM po danu, a od petnaestog dana 7 KM po danu — uz isti paket nadzora i transfera."
+        "answer": "Za ukupan boravak od 10–14 dana tarifa je 8 KM za svaki obračunati dan, a za 15 ili više dana 7 KM za svaki dan — uz isti paket nadzora i transfera."
       },
       {
         "question": "Mogu li ostaviti auto na više sedmica?",
