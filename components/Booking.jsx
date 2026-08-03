@@ -273,6 +273,7 @@ export default function Booking() {
           departureTime,
           leaveKey,
           promoCode: normalizePromoCode(promoCode),
+          affiliateRef: trackedRef || refFromQuery || "",
         }),
       });
       if (!res.ok) {

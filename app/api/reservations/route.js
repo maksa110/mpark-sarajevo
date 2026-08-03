@@ -8,7 +8,6 @@ import {
   parseSessionToken,
 } from "@/lib/auth";
 import {
-  AFFILIATE_REF_COOKIE,
   buildAffiliateSnapshot,
   getAffiliatePartnerByPromoCode,
   normalizePromoCode,
@@ -109,6 +108,7 @@ async function postReservation(request) {
     departureTime,
     leaveKey: leaveKeyRaw,
     promoCode,
+    affiliateRef,
   } = body || {};
 
   const leaveKey = parseLeaveKey(leaveKeyRaw);
@@ -185,7 +185,7 @@ async function postReservation(request) {
 
   const affiliateSnapshot = buildAffiliateSnapshot({
     originalAmount: quote?.total || 0,
-    affiliateRef: request.cookies.get(AFFILIATE_REF_COOKIE)?.value,
+    affiliateRef,
     promoCode: normalizedPromoCode,
     bookingStatus: BOOKING_STATUS.CONFIRMED,
   });
