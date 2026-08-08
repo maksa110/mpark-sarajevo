@@ -70,12 +70,10 @@ export async function generateMetadata({ params }) {
       images: [{ url: shareImage, alt: t("ogImageAlt") }],
       // Vizuel kao opengraph-image
     },
-    // Favicon: službeni logo PNG, zatim SVG rezerva
+    // Koristi isključivo službeni M Park logo kako preglednici i tražilice
+    // ne bi odabrali drugačiju SVG varijantu.
     icons: {
-      icon: [
-        { url: "/logo.png", type: "image/png", sizes: "any" },
-        { url: "/favicon.svg", type: "image/svg+xml", sizes: "any" },
-      ],
+      icon: [{ url: "/logo.png", type: "image/png", sizes: "512x512" }],
       apple: [
         {
           url: "/apple-touch-icon.png",
