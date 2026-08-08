@@ -304,9 +304,9 @@
   },
   "contact": {
     "h2": "Contact",
-    "lead": "Bookings only through the form above. For questions: phone, email or WhatsApp from the list below (support, not bookings).",
+    "lead": "Use the form above for reservations. For any questions, contact us by phone, email or WhatsApp.",
     "whatsappText": "Hi, I have a question about M Park Sarajevo (support; bookings only through the website).",
-    "whatsappLabel": "WhatsApp — support only"
+    "whatsappLabel": "WhatsApp"
   },
   "site": {
     "tagline": "Private parking at Kasindolskih Žrtava 18, close to Sarajevo Airport for travellers.",

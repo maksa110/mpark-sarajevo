@@ -88,7 +88,7 @@ export default function ContactWidget() {
   return (
     <div
       ref={widgetRef}
-      className="fixed bottom-[calc(9.5rem+env(safe-area-inset-bottom))] right-[max(1rem,env(safe-area-inset-right))] z-50 flex flex-col items-end gap-3 sm:bottom-6 sm:right-6"
+      className="fixed bottom-[calc(6rem+env(safe-area-inset-bottom))] right-[max(1rem,env(safe-area-inset-right))] z-50 flex flex-col items-end gap-3 sm:bottom-6 sm:right-6"
       role="region"
       aria-label="Contact options"
     >
@@ -149,13 +149,13 @@ export default function ContactWidget() {
         aria-expanded={isOpen}
         aria-controls={menuId}
         onClick={() => setIsOpen((open) => !open)}
-        className="group flex min-h-14 items-center gap-2.5 rounded-full bg-brand-navy px-5 py-3 font-extrabold text-white shadow-xl shadow-brand-navy/25 ring-1 ring-white/15 transition duration-200 hover:-translate-y-0.5 hover:shadow-2xl focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-brand-lime/60 active:scale-[0.98] motion-reduce:transform-none motion-reduce:transition-none"
+        className="group flex min-h-12 items-center gap-2 rounded-full bg-brand-navy px-4 py-2.5 text-sm font-extrabold text-white shadow-xl shadow-brand-navy/25 ring-1 ring-white/15 transition duration-200 hover:-translate-y-0.5 hover:shadow-2xl focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-brand-lime/60 active:scale-[0.98] motion-reduce:transform-none motion-reduce:transition-none"
       >
-        <span className="grid size-8 place-items-center rounded-full bg-brand-lime text-brand-navy transition-transform duration-200 group-hover:scale-105 motion-reduce:transition-none">
+        <span className="grid size-7 place-items-center rounded-full bg-brand-lime text-brand-navy transition-transform duration-200 group-hover:scale-105 motion-reduce:transition-none">
           {isOpen ? (
-            <X aria-hidden="true" size={19} strokeWidth={2.5} />
+            <X aria-hidden="true" size={17} strokeWidth={2.5} />
           ) : (
-            <MessageCircle aria-hidden="true" size={19} strokeWidth={2.5} />
+            <MessageCircle aria-hidden="true" size={17} strokeWidth={2.5} />
           )}
         </span>
         <span>{isOpen ? "Close" : "Contact Us"}</span>

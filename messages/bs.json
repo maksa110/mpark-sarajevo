@@ -304,9 +304,9 @@
   },
   "contact": {
     "h2": "Kontakt",
-    "lead": "Za termin isključivo forma iznad. Za pitanja: telefon, email ili WhatsApp u listi ispod (podrška, ne rezervacija).",
+    "lead": "Za rezervacije koristite formu iznad. Za sva pitanja dostupni smo putem telefona, emaila ili WhatsAppa.",
     "whatsappText": "Zdravo, imam pitanje o M Park Sarajevo (podrška; rezervacija isključivo na sajtu).",
-    "whatsappLabel": "WhatsApp — samo podrška"
+    "whatsappLabel": "WhatsApp"
   },
   "site": {
     "tagline": "Privatni parking na adresi Kasindolskih Žrtava 18, blizu Aerodroma Sarajevo za putnike.",
