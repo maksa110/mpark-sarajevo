@@ -158,7 +158,7 @@ export default function ContactWidget() {
             <MessageCircle aria-hidden="true" size={17} strokeWidth={2.5} />
           )}
         </span>
-        <span>{isOpen ? "Close" : "Contact Us"}</span>
+        <span>{isOpen ? "Close" : "Kontakt"}</span>
       </button>
     </div>
   );
